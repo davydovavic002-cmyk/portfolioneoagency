@@ -27,7 +27,7 @@ export const projects: ProjectMeta[] = [
   {
     id: "jewelry-store",
     device: "monitor",
-    year: "2024",
+    year: "2026",
     stack: ["Next.js", "Stripe", "Sanity CMS"],
     browserLabel: "jellybead.store",
     previewUrl: "http://45.91.169.30:3333/",
@@ -35,7 +35,7 @@ export const projects: ProjectMeta[] = [
   {
     id: "petcare-ai",
     device: "monitor",
-    year: "2025",
+    year: "2026",
     stack: ["Next.js", "FastAPI", "OpenAI", "PostgreSQL"],
     browserLabel: "petcare.ai",
     previewUrl: "http://45.91.169.30:3334/",
