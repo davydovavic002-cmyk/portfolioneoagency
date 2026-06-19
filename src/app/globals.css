@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: var(--font-editorial), "Georgia", serif;
+  --font-sans: var(--font-ui), system-ui, sans-serif;
+  --font-armenian: var(--font-noto-armenian), var(--font-ui), sans-serif;
+  --color-surface: #080808;
+  --color-elevated: #111111;
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-muted: #71717a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--color-surface);
+  color: #f4f4f5;
+  font-family: var(--font-sans);
+  font-feature-settings: "cv01", "cv02", "ss01";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-armenian {
+  font-family: var(--font-armenian);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.noise-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+
+.preview-scroll {
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.typing-cursor::after {
+  content: "▋";
+  animation: blink 1s step-end infinite;
+  color: #6ab2f2;
+  margin-left: 2px;
+}
+
+.project-row {
+  position: relative;
+}
+
+.project-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--accent, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-row[data-active="true"]::before {
+  opacity: 1;
+}
