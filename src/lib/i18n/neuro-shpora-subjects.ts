@@ -455,7 +455,8 @@ export function resolveSubjectBotText(
   if (!subject) return fallback;
   const field = KEY_TO_SUBJECT_FIELD[key];
   if (!field) return fallback;
-  return subjectContentByLanguage[language][subject][field];
+  const value = subjectContentByLanguage[language][subject][field];
+  return typeof value === "string" ? value : fallback;
 }
 
 export const DEFAULT_SUBJECT: SubjectId = "russian";

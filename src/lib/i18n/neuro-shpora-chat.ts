@@ -563,21 +563,24 @@ export function getShporaText(
 }
 
 export function actionToSubject(action: ShporaAction): SubjectId | null {
-  const map: Partial<Record<ShporaAction, SubjectId>> = {
-    subjectRussian: "russian",
-    subjectMath: "math",
-    subjectChemistry: "chemistry",
-    subjectPhysics: "physics",
-  };
-  return map[action] ?? null;
+  switch (action) {
+    case "subjectRussian":
+      return "russian";
+    case "subjectMath":
+      return "math";
+    case "subjectChemistry":
+      return "chemistry";
+    case "subjectPhysics":
+      return "physics";
+    default:
+      return null;
+  }
 }
 
 /** Bot message keys that render interactive UI below the bubble */
-export const INTERACTIVE_MESSAGE_KEYS: Partial<
-  Record<ShporaMessageKey, "expressTest" | "generating" | "progress">
-> = {
+export const INTERACTIVE_MESSAGE_KEYS = {
   expressTest: "expressTest",
   blockRules: "generating",
   blockTasks: "generating",
   progress: "progress",
-};
+} as Partial<Record<ShporaMessageKey, "expressTest" | "generating" | "progress">>;
