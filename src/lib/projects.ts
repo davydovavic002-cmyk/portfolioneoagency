@@ -7,7 +7,7 @@ export const projects: ProjectMeta[] = [
     year: "2026",
     stack: ["Next.js", "Stripe", "Sanity CMS"],
     browserLabel: "jellybead.store",
-    previewUrl: "http://45.91.169.30:3333/",
+    previewUrl: "https://jelly.neostudio.space/",
   },
   {
     id: "petcare-ai",
@@ -15,7 +15,7 @@ export const projects: ProjectMeta[] = [
     year: "2026",
     stack: ["Next.js", "FastAPI", "OpenAI", "PostgreSQL"],
     browserLabel: "petcare.ai",
-    previewUrl: "http://45.91.169.30:3334/",
+    previewUrl: "https://petcare.neostudio.space/",
   },
   {
     id: "neuro-academy",
@@ -23,7 +23,7 @@ export const projects: ProjectMeta[] = [
     year: "2025",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "OpenAI"],
     browserLabel: "neuro-academy.app",
-    previewUrl: "http://45.91.169.30:3000/",
+    previewUrl: "https://academy.neostudio.space/",
   },
   {
     id: "neuro-shpora",
