@@ -3,7 +3,7 @@ export const DESKTOP_VIEWPORT_HEIGHT = 800;
 
 export type Language = "ru" | "en" | "am";
 
-export type ViewMode = "work" | "services";
+export type ViewMode = "work" | "services" | "about";
 
 export type ServiceTierId = "hooks" | "packages" | "flagship" | "retainer";
 
@@ -42,6 +42,7 @@ export interface UIStrings {
   devicePhone: string;
   navWork: string;
   navServices: string;
+  navAbout: string;
   projects: Record<ProjectId, ProjectTranslation>;
 }
 

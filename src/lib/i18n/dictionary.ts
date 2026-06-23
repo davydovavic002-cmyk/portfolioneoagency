@@ -9,6 +9,7 @@ export const dictionary: Dictionary = {
     devicePhone: "Mobile",
     navWork: "Работы",
     navServices: "Услуги",
+    navAbout: "О нас",
     projects: {
       "neuro-academy": {
         title: "Академия Нейро-Инжиниринга",
@@ -55,6 +56,7 @@ export const dictionary: Dictionary = {
     devicePhone: "Mobile",
     navWork: "Work",
     navServices: "Services",
+    navAbout: "About",
     projects: {
       "neuro-academy": {
         title: "Neuro-Engineering Academy",
@@ -101,6 +103,7 @@ export const dictionary: Dictionary = {
     devicePhone: "Mobile",
     navWork: "Աշխատանքներ",
     navServices: "Ծառայություններ",
+    navAbout: "Մեր մասին",
     projects: {
       "neuro-academy": {
         title: "Նեյրո-ինժեներիայի ակադեմիա",

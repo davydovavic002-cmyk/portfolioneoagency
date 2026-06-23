@@ -6,6 +6,12 @@ import type { UIStrings } from "@/lib/types";
 import { projects } from "@/lib/projects";
 import { getProjectTheme } from "@/lib/project-themes";
 import { servicesByLanguage, TIER_ACCENTS } from "@/lib/i18n/services";
+import {
+  aboutByLanguage,
+  ABOUT_ACCENT,
+  ABOUT_SECTIONS,
+  type AboutSectionId,
+} from "@/lib/i18n/about";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { ViewSwitcher } from "./ViewSwitcher";
 
@@ -14,11 +20,13 @@ interface LeftPanelProps {
   activeProject: ProjectId;
   viewMode: ViewMode;
   activeTier: ServiceTierId | null;
+  activeAboutSection: AboutSectionId | null;
   strings: UIStrings;
   onLanguageChange: (lang: Language) => void;
   onProjectSelect: (id: ProjectId) => void;
   onViewChange: (mode: ViewMode) => void;
   onTierSelect: (tierId: ServiceTierId) => void;
+  onAboutSectionSelect: (sectionId: AboutSectionId) => void;
 }
 
 export function LeftPanel({
@@ -26,17 +34,25 @@ export function LeftPanel({
   activeProject,
   viewMode,
   activeTier,
+  activeAboutSection,
   strings,
   onLanguageChange,
   onProjectSelect,
   onViewChange,
   onTierSelect,
+  onAboutSectionSelect,
 }: LeftPanelProps) {
   const isArmenian = language === "am";
   const fontClass = isArmenian ? "font-armenian" : "";
   const services = servicesByLanguage[language];
+  const about = aboutByLanguage[language];
+
   const heroTitle =
-    viewMode === "services" ? services.heroTitle : strings.heroLine;
+    viewMode === "services"
+      ? services.heroTitle
+      : viewMode === "about"
+        ? about.heroTitle
+        : strings.heroLine;
 
   return (
     <aside className="flex h-full w-[38%] min-w-[400px] max-w-[480px] flex-col border-r border-white/[0.06]">
@@ -56,6 +72,7 @@ export function LeftPanel({
             mode={viewMode}
             workLabel={strings.navWork}
             servicesLabel={strings.navServices}
+            aboutLabel={strings.navAbout}
             onChange={onViewChange}
           />
         </div>
@@ -68,7 +85,7 @@ export function LeftPanel({
       </header>
 
       <nav className="flex-1 overflow-y-auto px-6">
-        {viewMode === "work" ? (
+        {viewMode === "work" && (
           <ul>
             {projects.map((project) => {
               const translation = strings.projects[project.id];
@@ -137,7 +154,9 @@ export function LeftPanel({
               );
             })}
           </ul>
-        ) : (
+        )}
+
+        {viewMode === "services" && (
           <ul>
             {services.tiers.map((tier) => (
               <li key={tier.id} className="border-t border-white/[0.06] last:border-b">
@@ -179,21 +198,72 @@ export function LeftPanel({
             ))}
           </ul>
         )}
+
+        {viewMode === "about" && (
+          <ul>
+            {ABOUT_SECTIONS.map((sectionId) => (
+              <li key={sectionId} className="border-t border-white/[0.06] last:border-b">
+                <button
+                  type="button"
+                  onClick={() => onAboutSectionSelect(sectionId)}
+                  className="group w-full py-5 pl-5 pr-2 text-left transition-colors hover:bg-white/[0.02]"
+                >
+                  <p
+                    className="text-[10px] font-medium uppercase tracking-[0.2em]"
+                    style={{ color: ABOUT_ACCENT }}
+                  >
+                    {about.sections[sectionId]}
+                  </p>
+                  <h2
+                    className={`mt-1 text-[15px] font-medium transition-colors ${
+                      activeAboutSection === sectionId
+                        ? "text-zinc-50"
+                        : "text-zinc-400 group-hover:text-zinc-200"
+                    } ${fontClass}`}
+                  >
+                    {sectionId === "studio" && about.studio.title}
+                    {sectionId === "process" && about.process.title}
+                    {sectionId === "reviews" && about.reviews.title}
+                    {sectionId === "contact" && about.contact.title}
+                  </h2>
+                  {sectionId === "reviews" && (
+                    <p className="mt-2 text-[12px] text-zinc-600">
+                      {about.sectionMeta.reviews}
+                    </p>
+                  )}
+                  {sectionId === "process" && (
+                    <p className="mt-2 text-[12px] text-zinc-600">
+                      {about.sectionMeta.process}
+                    </p>
+                  )}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </nav>
 
       <footer className="shrink-0 px-10 py-6">
         <p className="text-[12px] tabular-nums text-zinc-700">
-          {viewMode === "work" ? (
+          {viewMode === "work" && (
             <>
               0{projects.findIndex((p) => p.id === activeProject) + 1}
               <span className="mx-1.5">/</span>
               0{projects.length}
             </>
-          ) : (
+          )}
+          {viewMode === "services" && (
             <>
               0{services.tiers.length}
               <span className="mx-1.5 text-zinc-800">·</span>
               <span className="text-zinc-600">{strings.navServices}</span>
+            </>
+          )}
+          {viewMode === "about" && (
+            <>
+              0{ABOUT_SECTIONS.length}
+              <span className="mx-1.5 text-zinc-800">·</span>
+              <span className="text-zinc-600">{strings.navAbout}</span>
             </>
           )}
         </p>

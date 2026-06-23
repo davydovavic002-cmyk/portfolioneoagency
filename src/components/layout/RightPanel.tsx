@@ -6,15 +6,18 @@ import { isDesktopSiteProject } from "@/lib/types";
 import type { UIStrings } from "@/lib/types";
 import { SimulatorView } from "@/components/simulator/SimulatorView";
 import { PricingView } from "@/components/pricing/PricingView";
+import { AboutView } from "@/components/about/AboutView";
 import { getProjectMeta } from "@/lib/projects";
 import { getProjectTheme } from "@/lib/project-themes";
 import { servicesByLanguage } from "@/lib/i18n/services";
+import { aboutByLanguage, type AboutSectionId } from "@/lib/i18n/about";
 
 interface RightPanelProps {
   language: Language;
   activeProject: ProjectId;
   viewMode: ViewMode;
   activeTier: ServiceTierId | null;
+  activeAboutSection: AboutSectionId | null;
   strings: UIStrings;
 }
 
@@ -23,6 +26,7 @@ export function RightPanel({
   activeProject,
   viewMode,
   activeTier,
+  activeAboutSection,
   strings,
 }: RightPanelProps) {
   const meta = getProjectMeta(activeProject);
@@ -32,6 +36,34 @@ export function RightPanel({
     meta.device === "monitor" ? strings.deviceMonitor : strings.devicePhone;
   const isArmenian = language === "am";
   const services = servicesByLanguage[language];
+  const about = aboutByLanguage[language];
+
+  if (viewMode === "about") {
+    return (
+      <section className="relative flex h-full flex-1 flex-col overflow-hidden bg-[#080808]">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_0%,rgba(167,139,250,0.08)_0%,transparent_55%),radial-gradient(ellipse_60%_50%_at_20%_100%,rgba(96,165,250,0.06)_0%,transparent_50%)]" />
+        <div className="relative min-h-0 flex-1">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={language}
+              className="h-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.35 }}
+            >
+              <AboutView language={language} scrollToSection={activeAboutSection} />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+        <div className="shrink-0 border-t border-white/[0.06] px-10 py-4">
+          <p className={`text-[13px] text-zinc-500 ${isArmenian ? "font-armenian" : ""}`}>
+            {about.heroSubtitle}
+          </p>
+        </div>
+      </section>
+    );
+  }
 
   if (viewMode === "services") {
     return (
