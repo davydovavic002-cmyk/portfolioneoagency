@@ -16,14 +16,26 @@ export default function Home() {
 
   const strings = dictionary[language];
 
-  const handleViewChange = (mode: ViewMode) => {
-    setViewMode(mode);
-    if (mode === "work") setActiveTier(null);
+  const handleProjectSelect = (id: ProjectId) => {
+    setActiveProject(id);
+    setViewMode("work");
+    setActiveTier(null);
   };
 
   const handleTierSelect = (tierId: ServiceTierId) => {
+    setViewMode("services");
     setActiveTier(tierId);
-    document.getElementById(`tier-${tierId}`)?.scrollIntoView({ behavior: "smooth" });
+    requestAnimationFrame(() => {
+      document.getElementById(`tier-${tierId}`)?.scrollIntoView({ behavior: "smooth" });
+    });
+  };
+
+  const handleShowAllServices = () => {
+    setViewMode("services");
+    setActiveTier(null);
+    requestAnimationFrame(() => {
+      document.getElementById("pricing-top")?.scrollIntoView({ behavior: "smooth" });
+    });
   };
 
   return (
@@ -39,9 +51,9 @@ export default function Home() {
         activeTier={activeTier}
         strings={strings}
         onLanguageChange={setLanguage}
-        onProjectSelect={setActiveProject}
-        onViewChange={handleViewChange}
+        onProjectSelect={handleProjectSelect}
         onTierSelect={handleTierSelect}
+        onShowAllServices={handleShowAllServices}
       />
       <RightPanel
         language={language}

@@ -21,7 +21,7 @@ export function PricingView({ language, scrollToTier }: PricingViewProps) {
     <div
       className={`preview-scroll h-full overflow-y-auto px-10 py-10 pb-16 ${isArmenian ? "font-armenian" : ""}`}
     >
-      <header className="mb-12 max-w-2xl">
+      <header className="mb-12 max-w-2xl" id="pricing-top">
         <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-600">
           Neo Studio · B2B
         </p>
