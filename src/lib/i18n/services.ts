@@ -35,7 +35,7 @@ const en: ServicesCopy = {
   heroTitle: "Services & Pricing",
   heroSubtitle:
     "Transparent packages — from a focused audit to a full product launch. Fixed scope, fixed price.",
-  bookCall: "Book an Intro Call",
+  bookCall: "Go to booking",
   forWhom: "For whom",
   includes: "What's included",
   timeline: "Timeline",
@@ -168,7 +168,7 @@ const ru: ServicesCopy = {
   heroTitle: "Услуги и прайс",
   heroSubtitle:
     "Прозрачные пакеты — от аудита до полноценного запуска продукта. Фиксированный scope и цена.",
-  bookCall: "Записаться на созвон",
+  bookCall: "Перейти к бронированию",
   forWhom: "Для кого",
   includes: "Что входит",
   timeline: "Срок",
@@ -301,7 +301,7 @@ const am: ServicesCopy = {
   heroTitle: "Ծառայություններ և գներ",
   heroSubtitle:
     "Թափանցիկ փաթեթներ՝ աուդիտից մինչև ամբողջական արտադրանքի գործարկում։",
-  bookCall: "Պայմանավորվել զանգ",
+  bookCall: "Անցնել ամրագրման",
   forWhom: "Ում համար",
   includes: "Ինչ է ներառված",
   timeline: "Ժամկետ",

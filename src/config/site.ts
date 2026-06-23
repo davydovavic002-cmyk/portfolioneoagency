@@ -1,5 +1,5 @@
-/** Update with your Calendly intro-call link */
 export const SITE_CONFIG = {
-  calendlyUrl: "https://calendly.com/",
+  bookingUrl: "https://t.me/neostudio_space",
+  telegramHandle: "@neostudio_space",
   brandName: "Neo Studio",
 } as const;

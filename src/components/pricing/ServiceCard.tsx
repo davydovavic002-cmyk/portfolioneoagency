@@ -86,7 +86,7 @@ export function ServiceCard({
       </div>
 
       <a
-        href={SITE_CONFIG.calendlyUrl}
+        href={SITE_CONFIG.bookingUrl}
         target="_blank"
         rel="noopener noreferrer"
         className={`relative mt-6 inline-flex items-center justify-center gap-2 rounded-full border px-5 py-2.5 text-[12px] font-medium tracking-wide transition-all ${
