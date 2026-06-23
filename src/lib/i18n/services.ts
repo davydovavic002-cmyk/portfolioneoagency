@@ -10,7 +10,6 @@ export interface ServiceItem {
   audience?: string;
   description: string;
   deliverables: string[];
-  note?: string;
   featured?: boolean;
 }
 
@@ -35,7 +34,7 @@ export interface ServicesCopy {
 const en: ServicesCopy = {
   heroTitle: "Services & Pricing",
   heroSubtitle:
-    "Transparent B2B packages — from a quick audit to a full AI product launch. Fixed scope, fixed price.",
+    "Transparent packages — from a focused audit to a full product launch. Fixed scope, fixed price.",
   bookCall: "Book an Intro Call",
   forWhom: "For whom",
   includes: "What's included",
@@ -44,21 +43,21 @@ const en: ServicesCopy = {
     {
       id: "hooks",
       level: "Level 1",
-      title: "Entry B2B Products",
-      subtitle: "The Hooks — fixed-price offers to prove quality and move clients to larger engagements.",
+      title: "Discovery & Quick Wins",
+      subtitle: "Focused entry points with clear deliverables — a practical way to start working together.",
       items: [
         {
           id: "audit",
           name: "AI Automation Audit & Consulting",
           price: "$450",
           description:
-            "A 90-minute call plus an interactive B2B roadmap in Miro/Notion. We map your process (or site) and outline architecture: which AI models to deploy, how to connect frontend to Supabase, and what to automate.",
+            "A 90-minute strategy session plus an interactive roadmap in Miro or Notion. We review your product or workflow and outline architecture: which AI models fit, how to connect frontend to Supabase, and what to automate first.",
           deliverables: [
-            "90-min strategy call",
-            "Interactive process map in Miro/Notion",
+            "90-minute strategy session",
+            "Process map in Miro / Notion",
             "AI stack & automation recommendations",
+            "Written summary with next-step options",
           ],
-          note: "~50% of audits convert into a full build with us.",
         },
         {
           id: "hero",
@@ -66,7 +65,7 @@ const en: ServicesCopy = {
           price: "$1,200",
           timeline: "3–5 days",
           description:
-            "Design and fullstack development of your site's hero in Neo Studio style — interactive 3D/AI element, glass forms, premium typography.",
+            "Design and fullstack development of your landing hero — interactive 3D or AI element, glass UI, premium typography, production-ready code.",
           deliverables: [
             "Hero concept & visual design",
             "Next.js + Tailwind implementation",
@@ -79,7 +78,7 @@ const en: ServicesCopy = {
       id: "packages",
       level: "Level 2",
       title: "Productized Services",
-      subtitle: "Core tier grid — clearly scoped packages for Western B2B buyers.",
+      subtitle: "Fixed-scope packages for launches, pitches, and growth-stage products.",
       items: [
         {
           id: "aesthetic-web",
@@ -88,11 +87,11 @@ const en: ServicesCopy = {
           timeline: "10–14 days",
           featured: true,
           audience:
-            "Pre-seed startups, crypto projects, AI SaaS — teams that need to look like a million dollars before investors.",
-          description: "Premium design & frontend package.",
+            "Startups preparing for launch, crypto and AI SaaS teams building a polished, investor-ready presence.",
+          description: "Premium design and frontend — brand-first, performance-driven.",
           deliverables: [
             "Unique Figma concept (up to 5 pages)",
-            "Blazing-fast Next.js / Tailwind frontend",
+            "Next.js / Tailwind frontend",
             "Framer Motion micro-interactions",
             "Desktop & mobile responsive, basic SEO",
           ],
@@ -104,13 +103,13 @@ const en: ServicesCopy = {
           timeline: "14–21 days",
           featured: true,
           audience:
-            "Companies that need a working B2B product with AI inside — not just a landing page.",
-          description: "Fullstack + AI integration package.",
+            "Teams that need a working product with real AI inside — not just a marketing site.",
+          description: "Fullstack build with AI integration, auth, and payments.",
           deliverables: [
             "Database & backend on Supabase / FastAPI / PostgreSQL",
-            "Custom AI tools via API (ComfyUI/RunPod media, LLM agents, smart chat)",
-            "Auth & Stripe payments integrated",
-            "Clean functional dashboard UI/UX",
+            "Custom AI tools via API (media gen, LLM agents, smart chat)",
+            "Auth & Stripe payments",
+            "Functional dashboard UI/UX",
           ],
         },
       ],
@@ -119,7 +118,7 @@ const en: ServicesCopy = {
       id: "flagship",
       level: "Level 3",
       title: "Flagship Package",
-      subtitle: "Full-cycle B2B production for complex product launches.",
+      subtitle: "End-to-end delivery for complex products — from research to production deploy.",
       items: [
         {
           id: "neo-venture",
@@ -128,14 +127,14 @@ const en: ServicesCopy = {
           timeline: "30–45 days",
           featured: true,
           audience:
-            "International startups, EdTech platforms, B2B SaaS launching a complex product from zero.",
-          description: "Product from scratch — research to deploy.",
+            "EdTech platforms, B2B SaaS, and teams launching a multi-module product from scratch.",
+          description: "Full product build — strategy, design, engineering, and launch.",
           deliverables: [
             "Market research & UX architecture",
             "Premium custom design (20+ screens/states)",
-            "Fullstack Next.js + Supabase + heavy AI workflows (video gen, advanced bots)",
-            "QA, deploy on custom infrastructure",
-            "Bonus: 1 month post-launch technical support",
+            "Fullstack Next.js + Supabase + advanced AI workflows",
+            "QA and production deployment",
+            "1 month of post-launch technical support",
           ],
         },
       ],
@@ -143,8 +142,8 @@ const en: ServicesCopy = {
     {
       id: "retainer",
       level: "Level 4",
-      title: "Recurring Revenue",
-      subtitle: "In-house team on demand — for ongoing product iteration.",
+      title: "Ongoing Partnership",
+      subtitle: "Dedicated capacity for iteration, new features, and long-term product growth.",
       items: [
         {
           id: "neo-dedicated",
@@ -152,12 +151,12 @@ const en: ServicesCopy = {
           price: "$4,500 / month",
           featured: true,
           description:
-            "Dedicated pool of fullstack & design hours. Tasks go into Notion — new features, page redesigns, AI API endpoints — executed in priority order.",
+            "A reserved block of fullstack and design hours each month. You add tasks to Notion — features, redesigns, API work — and we ship them in priority order.",
           deliverables: [
             "Dedicated development & design capacity",
             "One active task at a time",
-            "Small tasks delivered in 24–48 hours",
-            "Notion-based task queue",
+            "Small tasks delivered within 24–48 hours",
+            "Shared Notion task board",
           ],
         },
       ],
@@ -168,7 +167,7 @@ const en: ServicesCopy = {
 const ru: ServicesCopy = {
   heroTitle: "Услуги и прайс",
   heroSubtitle:
-    "Прозрачные B2B-пакеты — от быстрого аудита до полноценного AI-продукта. Фиксированный scope и цена.",
+    "Прозрачные пакеты — от аудита до полноценного запуска продукта. Фиксированный scope и цена.",
   bookCall: "Записаться на созвон",
   forWhom: "Для кого",
   includes: "Что входит",
@@ -177,22 +176,21 @@ const ru: ServicesCopy = {
     {
       id: "hooks",
       level: "Уровень 1",
-      title: "Входные B2B-продукты",
-      subtitle:
-        "The Hooks — продукты с фиксированной ценой, чтобы клиент легко расстался с первыми деньгами и пошёл на большой чек.",
+      title: "Старт и быстрые результаты",
+      subtitle: "Точечные услуги с понятным результатом — удобный формат для первого проекта.",
       items: [
         {
           id: "audit",
           name: "AI Automation Audit & Consulting",
           price: "$450",
           description:
-            "Полуторачасовой созвон + интерактивная B2B-карта в Miro/Notion. Анализируем процесс (или сайт) и расписываем архитектуру: какие AI-модели внедрить, как связать фронтенд с Supabase и автоматизировать рутину.",
+            "Полуторачасовая сессия + интерактивная карта в Miro/Notion. Разбираем продукт или процесс и описываем архитектуру: какие AI-модели подойдут, как связать фронтенд с Supabase и что автоматизировать в первую очередь.",
           deliverables: [
-            "90-минутный стратегический созвон",
-            "Интерактивная карта процессов в Miro/Notion",
+            "90-минутная стратегическая сессия",
+            "Карта процессов в Miro / Notion",
             "Рекомендации по AI-стеку и автоматизации",
+            "Письменное резюме и варианты следующих шагов",
           ],
-          note: "~50% аудитов конвертируются в заказ на разработку у нас.",
         },
         {
           id: "hero",
@@ -200,7 +198,7 @@ const ru: ServicesCopy = {
           price: "$1,200",
           timeline: "3–5 дней",
           description:
-            "Дизайн и fullstack-разработка главного экрана в фирменном стиле Neo Studio — интерактивный 3D/AI-элемент, стеклянные формы, идеальная типографика.",
+            "Дизайн и fullstack главного экрана — интерактивный 3D/AI-элемент, glass UI, типографика, готовый production-код.",
           deliverables: [
             "Концепт и визуальный дизайн hero",
             "Реализация на Next.js + Tailwind",
@@ -213,7 +211,7 @@ const ru: ServicesCopy = {
       id: "packages",
       level: "Уровень 2",
       title: "Пакетные решения",
-      subtitle: "Основная сетка тарифов для западного B2B-рынка.",
+      subtitle: "Фиксированные пакеты для запусков, питчей и продуктов на стадии роста.",
       items: [
         {
           id: "aesthetic-web",
@@ -222,12 +220,12 @@ const ru: ServicesCopy = {
           timeline: "10–14 дней",
           featured: true,
           audience:
-            "Стартапы на стадии презентации, крипто-проекты, AI-SaaS — нужно выглядеть на миллион перед инвесторами.",
-          description: "Premium Design & Frontend.",
+            "Стартапы перед запуском, crypto и AI SaaS — сильный визуал и аккуратный фронтенд для презентации продукта.",
+          description: "Premium design и frontend — бренд, скорость, детали.",
           deliverables: [
             "Уникальный концепт в Figma (до 5 страниц)",
-            "Сверхбыстрый фронтенд на Next.js / Tailwind CSS",
-            "Сложные B2B-анимации (Framer Motion)",
+            "Фронтенд на Next.js / Tailwind CSS",
+            "Микро-анимации на Framer Motion",
             "Адаптив, базовая SEO-оптимизация",
           ],
         },
@@ -238,13 +236,13 @@ const ru: ServicesCopy = {
           timeline: "14–21 день",
           featured: true,
           audience:
-            "Компании, которым нужен работающий B2B-продукт с искусственным интеллектом внутри.",
-          description: "Fullstack + AI Integration.",
+            "Команды, которым нужен рабочий продукт с AI внутри — не только лендинг.",
+          description: "Fullstack + AI, авторизация и платежи.",
           deliverables: [
-            "Архитектура БД и бэкенда на Supabase / FastAPI / PostgreSQL",
-            "Кастомные AI-инструменты через API (ComfyUI/RunPod, LLM-агенты, чаты)",
+            "Бэкенд и БД на Supabase / FastAPI / PostgreSQL",
+            "AI-инструменты через API (медиа, LLM-агенты, чат)",
             "Auth и Stripe",
-            "Чистый UI/UX дашборда",
+            "UI/UX дашборда",
           ],
         },
       ],
@@ -253,7 +251,7 @@ const ru: ServicesCopy = {
       id: "flagship",
       level: "Уровень 3",
       title: "Флагманский пакет",
-      subtitle: "Full-cycle B2B-продакшн для сложных запусков.",
+      subtitle: "Полный цикл для сложных продуктов — от исследования до деплоя.",
       items: [
         {
           id: "neo-venture",
@@ -262,14 +260,14 @@ const ru: ServicesCopy = {
           timeline: "30–45 дней",
           featured: true,
           audience:
-            "Крупные зарубежные стартапы, EdTech, B2B-SaaS — сложный продукт с нуля под ключ.",
-          description: "Product from Scratch.",
+            "EdTech, B2B SaaS и команды, которые запускают многосоставной продукт с нуля.",
+          description: "Продукт под ключ — стратегия, дизайн, разработка, запуск.",
           deliverables: [
-            "Исследование рынка и UX-архитектура",
-            "Премиальный дизайн платформы (20+ экранов)",
-            "Fullstack Next.js + Supabase + тяжёлые AI-воркфлоу",
-            "Тестирование и деплой",
-            "Бонус: 1 месяц техподдержки после релиза",
+            "Исследование и UX-архитектура",
+            "Кастомный дизайн (20+ экранов)",
+            "Fullstack Next.js + Supabase + AI-воркфлоу",
+            "Тестирование и production-деплой",
+            "1 месяц техподдержки после релиза",
           ],
         },
       ],
@@ -277,8 +275,8 @@ const ru: ServicesCopy = {
     {
       id: "retainer",
       level: "Уровень 4",
-      title: "Модель удержания",
-      subtitle: "In-house команда на аутсорсе для постоянной работы.",
+      title: "Постоянное сопровождение",
+      subtitle: "Выделенная ёмкость для развития продукта, новых фич и долгосрочной поддержки.",
       items: [
         {
           id: "neo-dedicated",
@@ -286,12 +284,12 @@ const ru: ServicesCopy = {
           price: "$4,500 / месяц",
           featured: true,
           description:
-            "Выделенный пул часов fullstack и дизайна. Задачи в Notion — фичи, страницы, API для AI-бота — выполняем по очереди.",
+            "Зарезервированный объём часов fullstack и дизайна каждый месяц. Задачи в Notion — фичи, редизайн, API — выполняем по приоритету.",
           deliverables: [
             "Выделенная ёмкость разработки и дизайна",
             "Одна активная задача в моменте",
-            "Мелкие таски за 24–48 часов",
-            "Очередь задач в Notion",
+            "Небольшие задачи за 24–48 часов",
+            "Общая доска задач в Notion",
           ],
         },
       ],
@@ -302,7 +300,7 @@ const ru: ServicesCopy = {
 const am: ServicesCopy = {
   heroTitle: "Ծառայություններ և գներ",
   heroSubtitle:
-    "Թափանցիկ B2B փաթեթներ՝ արագ աուդիտից մինչև ամբողջական AI արտադրանք։",
+    "Թափանցիկ փաթեթներ՝ աուդիտից մինչև ամբողջական արտադրանքի գործարկում։",
   bookCall: "Պայմանավորվել զանգ",
   forWhom: "Ում համար",
   includes: "Ինչ է ներառված",
@@ -311,21 +309,21 @@ const am: ServicesCopy = {
     {
       id: "hooks",
       level: "Մակարդակ 1",
-      title: "Մուտքային B2B արտադրանքներ",
-      subtitle: "The Hooks — ֆիքսված գնով առաջին քայլեր մեծ նախագծերի համար։",
+      title: "Սկիզբ և արագ արդյունք",
+      subtitle: "Կենտրոնացված առաջարկներ հստակ արդյունքով։",
       items: [
         {
           id: "audit",
           name: "AI Automation Audit & Consulting",
           price: "$450",
           description:
-            "90 րոպե զանգ + ինտերակտիվ B2B քարտեզ Miro/Notion-ում։ Վերլուծում ենք գործընթացը և AI արխիտեկտուրան։",
+            "90 րոպե ռազմավարական սեսիա + ինտերակտիվ քարտեզ Miro/Notion-ում։ Վերլուծում ենք արտադրանքը և AI արխիտեկտուրան։",
           deliverables: [
-            "90 րոպե ռազմավարական զանգ",
-            "Miro/Notion քարտեզ",
+            "90 րոպե ռազմավարական սեսիա",
+            "Miro / Notion քարտեզ",
             "AI stack խորհուրդներ",
+            "Գրավոր ամփոփում և հաջորդ քայլեր",
           ],
-          note: "~50% աուդիտներ դառնում են ամբողջական նախագիծ։",
         },
         {
           id: "hero",
@@ -346,7 +344,7 @@ const am: ServicesCopy = {
       id: "packages",
       level: "Մակարդակ 2",
       title: "Փաթեթային լուծումներ",
-      subtitle: "Հիմնական B2B տարրային ցանց։",
+      subtitle: "Ֆիքսված scope-ով փաթեթներ գործարկման և աճի համար։",
       items: [
         {
           id: "aesthetic-web",
@@ -354,8 +352,8 @@ const am: ServicesCopy = {
           price: "$3,500",
           timeline: "10–14 օր",
           featured: true,
-          audience: "Ստարտափներ, crypto, AI SaaS — ներդրումներից առաջ պրեմիում տեսք։",
-          description: "Premium Design & Frontend.",
+          audience: "Ստարտափներ, crypto և AI SaaS — պրեմիում ներկայացում։",
+          description: "Premium design և frontend։",
           deliverables: [
             "Figma կոնցեպտ (մինչև 5 էջ)",
             "Next.js / Tailwind frontend",
@@ -369,11 +367,11 @@ const am: ServicesCopy = {
           price: "$6,000",
           timeline: "14–21 օր",
           featured: true,
-          audience: "Ընկերություններ, որոնց պետք է աշխատող AI արտադրանք։",
-          description: "Fullstack + AI Integration.",
+          audience: "Թիմեր, որոնց պետք է աշխատող AI արտադրանք։",
+          description: "Fullstack + AI ինտեգրացիա։",
           deliverables: [
             "Supabase / FastAPI / PostgreSQL backend",
-            "Custom AI API ինտեգրացիա",
+            "Custom AI API",
             "Auth և Stripe",
             "Dashboard UI/UX",
           ],
@@ -384,7 +382,7 @@ const am: ServicesCopy = {
       id: "flagship",
       level: "Մակարդակ 3",
       title: "Օռոգ փաթեթ",
-      subtitle: "Full-cycle B2B արտադրություն։",
+      subtitle: "Ամբողջական առաքում բարդ արտադրանքների համար։",
       items: [
         {
           id: "neo-venture",
@@ -393,7 +391,7 @@ const am: ServicesCopy = {
           timeline: "30–45 օր",
           featured: true,
           audience: "EdTech, B2B SaaS — բարդ արտադրանք զրոյից։",
-          description: "Product from Scratch.",
+          description: "Արտադրանք ամբողջությամբ՝ սկզբից մինչև գործարկում։",
           deliverables: [
             "Հետազոտություն և UX արխիտեկտուրա",
             "20+ էկրանների դիզայն",
@@ -406,20 +404,21 @@ const am: ServicesCopy = {
     {
       id: "retainer",
       level: "Մակարդակ 4",
-      title: "Բաժանորդագրություն",
-      subtitle: "In-house թիմ պահանջի հիման վրա։",
+      title: "Մշտական համագործակցություն",
+      subtitle: "Նվիրված հզորություն արտադրանքի զարգացման և աջակցության համար։",
       items: [
         {
           id: "neo-dedicated",
           name: "Neo Dedicated",
           price: "$4,500 / ամիս",
           featured: true,
-          description: "Նվիրված fullstack և դիզայն ժամեր Notion հերթով։",
+          description:
+            "Ամսական fullstack և դիզայն ժամեր։ Առաջադրանքները Notion-ում — կատարում ենք հերթականությամբ։",
           deliverables: [
             "Նվիրված զարգացման հզորություն",
             "Մեկ ակտիվ առաջադրանք",
             "Փոքր թասկեր 24–48 ժամում",
-            "Notion հերթ",
+            "Notion task board",
           ],
         },
       ],

@@ -16,6 +16,11 @@ export default function Home() {
 
   const strings = dictionary[language];
 
+  const handleViewChange = (mode: ViewMode) => {
+    setViewMode(mode);
+    if (mode === "work") setActiveTier(null);
+  };
+
   const handleProjectSelect = (id: ProjectId) => {
     setActiveProject(id);
     setViewMode("work");
@@ -27,14 +32,6 @@ export default function Home() {
     setActiveTier(tierId);
     requestAnimationFrame(() => {
       document.getElementById(`tier-${tierId}`)?.scrollIntoView({ behavior: "smooth" });
-    });
-  };
-
-  const handleShowAllServices = () => {
-    setViewMode("services");
-    setActiveTier(null);
-    requestAnimationFrame(() => {
-      document.getElementById("pricing-top")?.scrollIntoView({ behavior: "smooth" });
     });
   };
 
@@ -52,8 +49,8 @@ export default function Home() {
         strings={strings}
         onLanguageChange={setLanguage}
         onProjectSelect={handleProjectSelect}
+        onViewChange={handleViewChange}
         onTierSelect={handleTierSelect}
-        onShowAllServices={handleShowAllServices}
       />
       <RightPanel
         language={language}

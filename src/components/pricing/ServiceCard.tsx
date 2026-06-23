@@ -85,12 +85,6 @@ export function ServiceCard({
         </ul>
       </div>
 
-      {item.note && (
-        <p className="relative mt-4 border-t border-white/[0.06] pt-4 text-[12px] italic text-zinc-500">
-          {item.note}
-        </p>
-      )}
-
       <a
         href={SITE_CONFIG.calendlyUrl}
         target="_blank"
