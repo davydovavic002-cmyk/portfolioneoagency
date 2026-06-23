@@ -1,17 +1,30 @@
 "use client";
 
 import { useState } from "react";
-import type { Language, ProjectId } from "@/lib/types";
+import type { Language, ProjectId, ViewMode } from "@/lib/types";
 import { dictionary } from "@/lib/i18n/dictionary";
 import { defaultProjectId } from "@/lib/projects";
 import { LeftPanel } from "@/components/layout/LeftPanel";
 import { RightPanel } from "@/components/layout/RightPanel";
+import type { ServiceTierId } from "@/lib/types";
 
 export default function Home() {
   const [activeProject, setActiveProject] = useState<ProjectId>(defaultProjectId);
   const [language, setLanguage] = useState<Language>("en");
+  const [viewMode, setViewMode] = useState<ViewMode>("work");
+  const [activeTier, setActiveTier] = useState<ServiceTierId | null>(null);
 
   const strings = dictionary[language];
+
+  const handleViewChange = (mode: ViewMode) => {
+    setViewMode(mode);
+    if (mode === "work") setActiveTier(null);
+  };
+
+  const handleTierSelect = (tierId: ServiceTierId) => {
+    setActiveTier(tierId);
+    document.getElementById(`tier-${tierId}`)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <main
@@ -22,13 +35,19 @@ export default function Home() {
       <LeftPanel
         language={language}
         activeProject={activeProject}
+        viewMode={viewMode}
+        activeTier={activeTier}
         strings={strings}
         onLanguageChange={setLanguage}
         onProjectSelect={setActiveProject}
+        onViewChange={handleViewChange}
+        onTierSelect={handleTierSelect}
       />
       <RightPanel
         language={language}
         activeProject={activeProject}
+        viewMode={viewMode}
+        activeTier={activeTier}
         strings={strings}
       />
     </main>

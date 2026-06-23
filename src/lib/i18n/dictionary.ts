@@ -7,6 +7,8 @@ export const dictionary: Dictionary = {
     availability: "Открыт к проектам",
     deviceMonitor: "Desktop",
     devicePhone: "Mobile",
+    navWork: "Работы",
+    navServices: "Услуги",
     projects: {
       "neuro-academy": {
         title: "Академия Нейро-Инжиниринга",
@@ -51,6 +53,8 @@ export const dictionary: Dictionary = {
     availability: "Available for projects",
     deviceMonitor: "Desktop",
     devicePhone: "Mobile",
+    navWork: "Work",
+    navServices: "Services",
     projects: {
       "neuro-academy": {
         title: "Neuro-Engineering Academy",
@@ -95,6 +99,8 @@ export const dictionary: Dictionary = {
     availability: "Բաց եմ նոր նախագծերի համար",
     deviceMonitor: "Desktop",
     devicePhone: "Mobile",
+    navWork: "Աշխատանքներ",
+    navServices: "Ծառայություններ",
     projects: {
       "neuro-academy": {
         title: "Նեյրո-ինժեներիայի ակադեմիա",

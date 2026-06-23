@@ -3,6 +3,10 @@ export const DESKTOP_VIEWPORT_HEIGHT = 800;
 
 export type Language = "ru" | "en" | "am";
 
+export type ViewMode = "work" | "services";
+
+export type ServiceTierId = "hooks" | "packages" | "flagship" | "retainer";
+
 export type ProjectId =
   | "neuro-academy"
   | "neuro-shpora"
@@ -36,6 +40,8 @@ export interface UIStrings {
   availability: string;
   deviceMonitor: string;
   devicePhone: string;
+  navWork: string;
+  navServices: string;
   projects: Record<ProjectId, ProjectTranslation>;
 }
 
