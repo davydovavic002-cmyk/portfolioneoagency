@@ -19,6 +19,7 @@ interface RightPanelProps {
   activeTier: ServiceTierId | null;
   activeAboutSection: AboutSectionId | null;
   strings: UIStrings;
+  isMobile?: boolean;
 }
 
 export function RightPanel({
@@ -28,6 +29,7 @@ export function RightPanel({
   activeTier,
   activeAboutSection,
   strings,
+  isMobile = false,
 }: RightPanelProps) {
   const meta = getProjectMeta(activeProject);
   const theme = getProjectTheme(activeProject);
@@ -56,7 +58,7 @@ export function RightPanel({
             </motion.div>
           </AnimatePresence>
         </div>
-        <div className="shrink-0 border-t border-white/[0.06] px-10 py-4">
+        <div className="shrink-0 border-t border-white/[0.06] px-5 py-3 safe-bottom lg:px-10 lg:py-4">
           <p className={`text-[13px] text-zinc-500 ${isArmenian ? "font-armenian" : ""}`}>
             {about.heroSubtitle}
           </p>
@@ -83,7 +85,7 @@ export function RightPanel({
             </motion.div>
           </AnimatePresence>
         </div>
-        <div className="shrink-0 border-t border-white/[0.06] px-10 py-4">
+        <div className="shrink-0 border-t border-white/[0.06] px-5 py-3 safe-bottom lg:px-10 lg:py-4">
           <p className={`text-[13px] text-zinc-500 ${isArmenian ? "font-armenian" : ""}`}>
             {services.heroSubtitle}
           </p>
@@ -104,7 +106,7 @@ export function RightPanel({
       )}
 
       <div className="relative flex min-h-0 flex-1 flex-col">
-        {!isDesktopSite && (
+        {!isDesktopSite && !isMobile && (
           <div className="flex shrink-0 items-center justify-end gap-4 px-12 pt-10">
             <span className="text-[12px] tabular-nums text-zinc-600">{meta.year}</span>
             <span className="text-[12px]" style={{ color: theme.accent }}>
@@ -115,15 +117,19 @@ export function RightPanel({
 
         <div
           className={`relative min-h-0 flex-1 ${
-            isDesktopSite ? "px-5 pb-4 pt-5" : "px-8 pb-6 pt-2"
+            isDesktopSite
+              ? "px-3 pb-3 pt-3 lg:px-5 lg:pb-4 lg:pt-5"
+              : isMobile
+                ? "px-3 pb-3 pt-2"
+                : "px-8 pb-6 pt-2"
           }`}
         >
           <SimulatorView activeProject={activeProject} language={language} />
         </div>
 
         <div
-          className={`shrink-0 border-t border-white/[0.06] ${
-            isDesktopSite ? "px-5 py-3" : "px-12 py-5"
+          className={`shrink-0 border-t border-white/[0.06] safe-bottom ${
+            isDesktopSite ? "px-3 py-2.5 lg:px-5 lg:py-3" : "px-4 py-3 lg:px-12 lg:py-5"
           }`}
         >
           <div className="flex items-center justify-between gap-4">

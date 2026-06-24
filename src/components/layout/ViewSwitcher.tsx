@@ -8,6 +8,7 @@ interface ViewSwitcherProps {
   servicesLabel: string;
   aboutLabel: string;
   onChange: (mode: ViewMode) => void;
+  fullWidth?: boolean;
 }
 
 const TABS: { id: ViewMode; key: "work" | "services" | "about" }[] = [
@@ -22,6 +23,7 @@ export function ViewSwitcher({
   servicesLabel,
   aboutLabel,
   onChange,
+  fullWidth = false,
 }: ViewSwitcherProps) {
   const labels = {
     work: workLabel,
@@ -30,13 +32,19 @@ export function ViewSwitcher({
   };
 
   return (
-    <div className="flex gap-0.5 rounded-full border border-white/[0.08] bg-white/[0.03] p-1">
+    <div
+      className={`flex gap-0.5 rounded-full border border-white/[0.08] bg-white/[0.03] p-1 ${
+        fullWidth ? "w-full" : ""
+      }`}
+    >
       {TABS.map(({ id, key }) => (
         <button
           key={id}
           type="button"
           onClick={() => onChange(id)}
-          className={`rounded-full px-3 py-1.5 text-[11px] transition-all duration-200 ${
+          className={`rounded-full py-1.5 text-[11px] transition-all duration-200 ${
+            fullWidth ? "flex-1 px-2 text-center" : "px-3"
+          } ${
             mode === id
               ? "bg-white text-black"
               : "text-zinc-500 hover:text-zinc-300"

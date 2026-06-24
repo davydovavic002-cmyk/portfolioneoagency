@@ -20,6 +20,21 @@ body {
   overflow: hidden;
 }
 
+@supports (height: 100dvh) {
+  html,
+  body {
+    height: 100dvh;
+  }
+}
+
+.safe-top {
+  padding-top: max(0px, env(safe-area-inset-top));
+}
+
+.safe-bottom {
+  padding-bottom: max(0px, env(safe-area-inset-bottom));
+}
+
 body {
   background: var(--color-surface);
   color: #f4f4f5;

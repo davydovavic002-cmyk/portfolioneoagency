@@ -55,28 +55,29 @@ export function LeftPanel({
         : strings.heroLine;
 
   return (
-    <aside className="flex h-full w-[38%] min-w-[400px] max-w-[480px] flex-col border-r border-white/[0.06]">
-      <header className="shrink-0 px-10 pt-12 pb-8">
+    <aside className="flex h-full w-full flex-col border-white/[0.06] lg:border-r">
+      <header className="shrink-0 px-5 pt-8 pb-6 safe-top lg:px-10 lg:pt-12 lg:pb-8">
         <div className="min-w-0">
-          <p className={`text-[13px] leading-relaxed text-zinc-500 ${fontClass}`}>
+          <p className={`text-[12px] leading-relaxed text-zinc-500 lg:text-[13px] ${fontClass}`}>
             {strings.portfolioSubtitle}
           </p>
           <h1
-            className={`font-display mt-3 text-[2.75rem] leading-[1.05] tracking-[-0.02em] text-zinc-50 ${fontClass}`}
+            className={`font-display mt-2 text-[2rem] leading-[1.05] tracking-[-0.02em] text-zinc-50 lg:mt-3 lg:text-[2.75rem] ${fontClass}`}
           >
             {heroTitle}
           </h1>
         </div>
-        <div className="mt-6">
+        <div className="mt-5 w-full lg:mt-6">
           <ViewSwitcher
             mode={viewMode}
             workLabel={strings.navWork}
             servicesLabel={strings.navServices}
             aboutLabel={strings.navAbout}
             onChange={onViewChange}
+            fullWidth
           />
         </div>
-        <div className="mt-6 flex items-center justify-between">
+        <div className="mt-5 flex items-center justify-between lg:mt-6">
           <span className={`text-[13px] text-zinc-600 ${fontClass}`}>
             {strings.availability}
           </span>
@@ -84,7 +85,7 @@ export function LeftPanel({
         </div>
       </header>
 
-      <nav className="flex-1 overflow-y-auto px-6">
+      <nav className="flex-1 overflow-y-auto px-4 lg:px-6">
         {viewMode === "work" && (
           <ul>
             {projects.map((project) => {
@@ -115,7 +116,7 @@ export function LeftPanel({
                         </h2>
                       </div>
                       <span
-                        className={`hidden shrink-0 text-[12px] sm:block ${
+                        className={`shrink-0 text-[11px] lg:text-[12px] ${
                           isActive ? "text-zinc-500" : "text-zinc-700"
                         }`}
                       >
@@ -243,7 +244,7 @@ export function LeftPanel({
         )}
       </nav>
 
-      <footer className="shrink-0 px-10 py-6">
+      <footer className="shrink-0 px-5 py-4 safe-bottom lg:px-10 lg:py-6">
         <p className="text-[12px] tabular-nums text-zinc-700">
           {viewMode === "work" && (
             <>

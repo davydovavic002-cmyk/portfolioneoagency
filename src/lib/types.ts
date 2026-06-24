@@ -43,6 +43,7 @@ export interface UIStrings {
   navWork: string;
   navServices: string;
   navAbout: string;
+  backToMenu: string;
   projects: Record<ProjectId, ProjectTranslation>;
 }
 

@@ -24,8 +24,8 @@ export function ServiceCard({
       layout
       className={`group relative flex flex-col overflow-hidden rounded-2xl border transition-colors duration-300 ${
         featured
-          ? "border-white/[0.12] bg-white/[0.04] p-8 backdrop-blur-xl"
-          : "border-white/[0.07] bg-white/[0.02] p-6 backdrop-blur-md hover:border-white/[0.12] hover:bg-white/[0.04]"
+          ? "border-white/[0.12] bg-white/[0.04] p-6 backdrop-blur-xl lg:p-8"
+          : "border-white/[0.07] bg-white/[0.02] p-5 backdrop-blur-md hover:border-white/[0.12] hover:bg-white/[0.04] lg:p-6"
       }`}
       style={{
         boxShadow: featured

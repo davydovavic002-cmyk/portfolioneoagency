@@ -56,8 +56,8 @@ export function DeviceFrame({ device, projectId, children }: DeviceFrameProps) {
       <motion.div
         className={`relative ${
           isPhone
-            ? "h-[min(76vh,660px)] w-[min(300px,80%)]"
-            : "h-[min(68vh,560px)] w-full max-w-[860px]"
+            ? "h-[min(56dvh,560px)] w-[min(270px,92vw)] lg:h-[min(76vh,660px)] lg:w-[min(300px,80%)]"
+            : "h-[min(60vh,480px)] w-full max-w-full lg:h-[min(68vh,560px)] lg:max-w-[860px]"
         }`}
         initial={{ opacity: 0, y: 24, rotateX: 2 }}
         animate={{ opacity: 1, y: 0, rotateX: 0 }}

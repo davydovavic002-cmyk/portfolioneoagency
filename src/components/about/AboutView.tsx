@@ -5,6 +5,7 @@ import { SITE_CONFIG } from "@/config/site";
 import {
   aboutByLanguage,
   ABOUT_ACCENT,
+  ABOUT_SECTIONS,
   type AboutSectionId,
 } from "@/lib/i18n/about";
 import type { Language } from "@/lib/types";
@@ -19,31 +20,54 @@ export function AboutView({ language, scrollToSection }: AboutViewProps) {
   const isArmenian = language === "am";
   const fontClass = isArmenian ? "font-armenian" : "";
 
+  const scrollToAboutSection = (sectionId: AboutSectionId) => {
+    document.getElementById(`about-${sectionId}`)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const sectionScrollClass = (sectionId: AboutSectionId) =>
+    scrollToSection === sectionId
+      ? "scroll-mt-20 rounded-2xl ring-1 ring-white/[0.08] lg:scroll-mt-8"
+      : "scroll-mt-20 lg:scroll-mt-8";
+
   return (
     <div
-      className={`preview-scroll h-full overflow-y-auto px-10 py-10 pb-16 ${fontClass}`}
+      className={`preview-scroll h-full overflow-y-auto px-5 py-6 pb-12 lg:px-10 lg:py-10 lg:pb-16 ${fontClass}`}
     >
-      <header className="mb-12 max-w-2xl" id="about-top">
+      <header className="mb-8 max-w-2xl lg:mb-12" id="about-top">
         <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-600">
           Neo Studio
         </p>
-        <h1 className="font-display mt-3 text-4xl tracking-[-0.02em] text-zinc-50">
+        <h1 className="font-display mt-3 text-3xl tracking-[-0.02em] text-zinc-50 lg:text-4xl">
           {copy.heroTitle}
         </h1>
-        <p className="mt-4 text-[14px] leading-relaxed text-zinc-500">
+        <p className="mt-3 text-[13px] leading-relaxed text-zinc-500 lg:mt-4 lg:text-[14px]">
           {copy.heroSubtitle}
         </p>
       </header>
 
-      <div className="space-y-16">
+      <nav className="sticky top-0 z-10 -mx-5 mb-8 flex gap-2 overflow-x-auto border-b border-white/[0.06] bg-[#080808]/95 px-5 py-3 backdrop-blur-md lg:hidden">
+        {ABOUT_SECTIONS.map((sectionId) => (
+          <button
+            key={sectionId}
+            type="button"
+            onClick={() => scrollToAboutSection(sectionId)}
+            className="shrink-0 rounded-full border border-white/[0.08] px-3 py-1.5 text-[11px] text-zinc-400 transition-colors hover:text-zinc-200"
+            style={
+              scrollToSection === sectionId
+                ? { borderColor: `${ABOUT_ACCENT}66`, color: ABOUT_ACCENT }
+                : undefined
+            }
+          >
+            {copy.sections[sectionId]}
+          </button>
+        ))}
+      </nav>
+
+      <div className="space-y-12 lg:space-y-16">
         {/* Studio */}
         <section
           id="about-studio"
-          className={
-            scrollToSection === "studio"
-              ? "scroll-mt-8 rounded-2xl ring-1 ring-white/[0.08]"
-              : "scroll-mt-8"
-          }
+          className={sectionScrollClass("studio")}
         >
           <SectionHeader label={copy.sections.studio} title={copy.studio.title} />
           <div className="mt-6 space-y-4 max-w-2xl">
@@ -53,14 +77,14 @@ export function AboutView({ language, scrollToSection }: AboutViewProps) {
               </p>
             ))}
           </div>
-          <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg">
+          <div className="mt-6 grid grid-cols-3 gap-2 max-w-lg sm:gap-4">
             {copy.studio.stats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-xl border border-white/[0.07] bg-white/[0.02] px-4 py-4 backdrop-blur-md"
+                className="rounded-xl border border-white/[0.07] bg-white/[0.02] px-3 py-3 backdrop-blur-md sm:px-4 sm:py-4"
               >
                 <p
-                  className="font-display text-2xl tracking-tight"
+                  className="font-display text-xl tracking-tight sm:text-2xl"
                   style={{ color: ABOUT_ACCENT }}
                 >
                   {stat.value}
@@ -74,11 +98,7 @@ export function AboutView({ language, scrollToSection }: AboutViewProps) {
         {/* Process */}
         <section
           id="about-process"
-          className={
-            scrollToSection === "process"
-              ? "scroll-mt-8 rounded-2xl ring-1 ring-white/[0.08]"
-              : "scroll-mt-8"
-          }
+          className={sectionScrollClass("process")}
         >
           <SectionHeader label={copy.sections.process} title={copy.process.title} />
           <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-zinc-500">
@@ -113,11 +133,7 @@ export function AboutView({ language, scrollToSection }: AboutViewProps) {
         {/* Reviews */}
         <section
           id="about-reviews"
-          className={
-            scrollToSection === "reviews"
-              ? "scroll-mt-8 rounded-2xl ring-1 ring-white/[0.08]"
-              : "scroll-mt-8"
-          }
+          className={sectionScrollClass("reviews")}
         >
           <SectionHeader label={copy.sections.reviews} title={copy.reviews.title} />
           <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-zinc-500">
@@ -163,11 +179,7 @@ export function AboutView({ language, scrollToSection }: AboutViewProps) {
         {/* Contact */}
         <section
           id="about-contact"
-          className={
-            scrollToSection === "contact"
-              ? "scroll-mt-8 rounded-2xl ring-1 ring-white/[0.08]"
-              : "scroll-mt-8"
-          }
+          className={sectionScrollClass("contact")}
         >
           <SectionHeader label={copy.sections.contact} title={copy.contact.title} />
           <p className="mt-3 max-w-xl text-[13px] leading-relaxed text-zinc-500">
