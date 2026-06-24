@@ -128,7 +128,7 @@ const en: AboutCopy = {
       {
         id: "r1",
         quote:
-          "Took our EdTech platform from concept to production in under three months. Clean architecture, thoughtful UX — students actually use the labs every day.",
+          "Built a polished landing page for an education brand — strong visual identity, clear offer structure, and inbound leads within the first weeks after launch.",
         author: "Product Lead",
         role: "Neuro-Engineering Academy",
       },
@@ -229,7 +229,7 @@ const ru: AboutCopy = {
       {
         id: "r1",
         quote:
-          "Вывели EdTech-платформу от концепта до продакшна меньше чем за три месяца. Чистая архитектура, продуманный UX — студенты реально пользуются лабораториями каждый день.",
+          "Собрали продающий лендинг под образовательный бренд — сильная визуальная подача, понятная структура оффера, заявки пошли уже в первые недели после запуска.",
         author: "Product Lead",
         role: "Академия Нейро-Инжиниринга",
       },
@@ -330,7 +330,7 @@ const am: AboutCopy = {
       {
         id: "r1",
         quote:
-          "EdTech հարթակը կոնցեպտից մինչև արտադրություն հասցրինք երեք ամսից պակաս։ Մաքուր ճարտարապետություն, մտածված UX — ուսանողները ամեն օր օգտագործում են լաբորատորիաները։",
+          "Կրթական բրենդի համար հավաքեցինք վաճառքային լենդինգ — ուժեղ վիզուալ, պարզ առաջարկի կառուցվածք, դիմումները սկսեցին գալ արձակման առաջին շաբաթներին։",
         author: "Product Lead",
         role: "Նեյրո-ինժեներիայի ակադեմիա",
       },
