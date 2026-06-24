@@ -80,9 +80,9 @@ const en: AboutCopy = {
       "Every project in our portfolio is a live product — platforms, bots, and storefronts you can open and test right now.",
     ],
     stats: [
-      { value: "5+", label: "Shipped products" },
+      { value: "20", label: "Shipped products" },
       { value: "3", label: "Languages" },
-      { value: "2024", label: "Since" },
+      { value: "2021", label: "Since" },
     ],
   },
   process: {
@@ -181,9 +181,9 @@ const ru: AboutCopy = {
       "Каждый проект в портфолио — живой продукт: платформы, боты и магазины, которые можно открыть и протестировать прямо сейчас.",
     ],
     stats: [
-      { value: "5+", label: "Запущенных продуктов" },
+      { value: "20", label: "Запущенных продуктов" },
       { value: "3", label: "Языка" },
-      { value: "2024", label: "С года" },
+      { value: "2021", label: "С года" },
     ],
   },
   process: {
@@ -282,9 +282,9 @@ const am: AboutCopy = {
       "Պորտֆոլիոյի յուրաքանչյուր նախագիծը կենդանի արտադրանք է՝ հարթակներ, բոտեր և խանութներ, որոնք կարող եք բացել և փորձարկել հենց հիմա։",
     ],
     stats: [
-      { value: "5+", label: "Գործարկված արտադրանք" },
+      { value: "20", label: "Գործարկված արտադրանք" },
       { value: "3", label: "Լեզու" },
-      { value: "2024", label: "Սկսած" },
+      { value: "2021", label: "Սկսած" },
     ],
   },
   process: {
