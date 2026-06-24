@@ -14,9 +14,9 @@ export const dictionary: Dictionary = {
       "neuro-academy": {
         title: "Академия Нейро-Инжиниринга",
         role: "Lead Developer",
-        category: "EdTech · AI",
+        category: "EdTech · Landing",
         description:
-          "Платформа с модульной архитектурой, лабораторными средами и трекингом прогресса. Проектирование UX для сложного образовательного контента.",
+          "Продающий лендинг образовательного бренда: сильная визуальная подача, понятная структура оффера и UX, заточенный на конверсию в заявку.",
       },
       "neuro-shpora": {
         title: "NeuroShpora",
@@ -61,9 +61,9 @@ export const dictionary: Dictionary = {
       "neuro-academy": {
         title: "Neuro-Engineering Academy",
         role: "Lead Developer",
-        category: "EdTech · AI",
+        category: "EdTech · Landing",
         description:
-          "Platform with modular architecture, lab environments, and progress tracking. UX design for complex educational content.",
+          "Conversion-focused landing page for an education brand — strong visual identity, clear offer structure, and UX built to drive inbound leads.",
       },
       "neuro-shpora": {
         title: "NeuroShpora",
@@ -108,9 +108,9 @@ export const dictionary: Dictionary = {
       "neuro-academy": {
         title: "Նեյրո-ինժեներիայի ակադեմիա",
         role: "Lead Developer",
-        category: "EdTech · AI",
+        category: "EdTech · Landing",
         description:
-          "Հարթակ մոդուլար ճարտարապետությամբ, լաբորատոր միջավայրերով և առաջընթացի հաշվառմամբ։ UX դիզայն բարդ կրթական բովանդակության համար։",
+          "Կրթական բրենդի վաճառքային լենդինգ՝ ուժեղ վիզուալ, պարզ առաջարկի կառուցվածք և UX, որը կենտրոնացած է դիմումների վրա։",
       },
       "neuro-shpora": {
         title: "NeuroShpora",
