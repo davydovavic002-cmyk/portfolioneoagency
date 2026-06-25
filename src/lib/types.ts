@@ -46,6 +46,8 @@ export interface UIStrings {
   navServices: string;
   navAbout: string;
   backToMenu: string;
+  packageLabel: string;
+  viewInServices: string;
   projects: Record<ProjectId, ProjectTranslation>;
 }
 

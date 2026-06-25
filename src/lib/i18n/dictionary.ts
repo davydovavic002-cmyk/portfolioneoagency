@@ -13,6 +13,8 @@ export const dictionary: Dictionary = {
     navServices: "Услуги",
     navAbout: "О нас",
     backToMenu: "Меню",
+    packageLabel: "Пакет",
+    viewInServices: "Смотреть в прайсе",
     projects: {
       "neuro-academy": {
         title: "Академия Нейро-Инжиниринга",
@@ -63,6 +65,8 @@ export const dictionary: Dictionary = {
     navServices: "Services",
     navAbout: "About",
     backToMenu: "Menu",
+    packageLabel: "Package",
+    viewInServices: "View in Services",
     projects: {
       "neuro-academy": {
         title: "Neuro-Engineering Academy",
@@ -113,6 +117,8 @@ export const dictionary: Dictionary = {
     navServices: "Ծառայություններ",
     navAbout: "Մեր մասին",
     backToMenu: "Մենյու",
+    packageLabel: "Փաթեթ",
+    viewInServices: "Դիտել գնացուցակում",
     projects: {
       "neuro-academy": {
         title: "Նեյրո-ինժեներիայի ակադեմիա",

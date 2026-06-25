@@ -7,13 +7,20 @@ import {
   type ServiceTierId,
 } from "@/lib/i18n/services";
 import { ServiceCard } from "./ServiceCard";
+import type { ServiceItemId } from "@/lib/project-packages";
+import { serviceItemElementId } from "@/lib/project-packages";
 
 interface PricingViewProps {
   language: Language;
   scrollToTier?: ServiceTierId | null;
+  scrollToServiceItem?: ServiceItemId | null;
 }
 
-export function PricingView({ language, scrollToTier }: PricingViewProps) {
+export function PricingView({
+  language,
+  scrollToTier,
+  scrollToServiceItem,
+}: PricingViewProps) {
   const copy = servicesByLanguage[language];
   const isArmenian = language === "am";
 
@@ -71,13 +78,22 @@ export function PricingView({ language, scrollToTier }: PricingViewProps) {
               }
             >
               {tier.items.map((item) => (
-                <ServiceCard
+                <div
                   key={item.id}
-                  item={item}
-                  copy={copy}
-                  accent={TIER_ACCENTS[tier.id]}
-                  featured={!!item.featured}
-                />
+                  id={serviceItemElementId(item.id)}
+                  className={`scroll-mt-8 ${
+                    scrollToServiceItem === (item.id as ServiceItemId)
+                      ? "rounded-2xl ring-1 ring-white/[0.14]"
+                      : ""
+                  }`}
+                >
+                  <ServiceCard
+                    item={item}
+                    copy={copy}
+                    accent={TIER_ACCENTS[tier.id]}
+                    featured={!!item.featured}
+                  />
+                </div>
               ))}
             </div>
           </section>

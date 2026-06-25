@@ -10,6 +10,11 @@ import { MobileContentHeader } from "@/components/layout/MobileContentHeader";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import type { ServiceTierId } from "@/lib/types";
 import type { AboutSectionId } from "@/lib/i18n/about";
+import {
+  getProjectPackage,
+  serviceItemElementId,
+  type ServiceItemId,
+} from "@/lib/project-packages";
 
 export default function Home() {
   const isMobile = useIsMobile();
@@ -17,6 +22,7 @@ export default function Home() {
   const [language, setLanguage] = useState<Language>("en");
   const [viewMode, setViewMode] = useState<ViewMode>("work");
   const [activeTier, setActiveTier] = useState<ServiceTierId | null>(null);
+  const [activeServiceItem, setActiveServiceItem] = useState<ServiceItemId | null>(null);
   const [activeAboutSection, setActiveAboutSection] = useState<AboutSectionId | null>(
     null,
   );
@@ -28,10 +34,24 @@ export default function Home() {
     if (!isMobile) setMobileShowContent(false);
   }, [isMobile]);
 
+  const scrollToServiceItem = (itemId: ServiceItemId, tierId: ServiceTierId) => {
+    requestAnimationFrame(() => {
+      document.getElementById(serviceItemElementId(itemId))?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+      document.getElementById(`tier-${tierId}`)?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
+    });
+  };
+
   const handleViewChange = (mode: ViewMode) => {
     setViewMode(mode);
     if (mode === "work") {
       setActiveTier(null);
+      setActiveServiceItem(null);
       setActiveAboutSection(null);
       if (isMobile) setMobileShowContent(false);
     }
@@ -41,6 +61,7 @@ export default function Home() {
     }
     if (mode === "about") {
       setActiveTier(null);
+      setActiveServiceItem(null);
       if (isMobile) setMobileShowContent(true);
     }
     if (isMobile && (mode === "services" || mode === "about")) {
@@ -54,6 +75,7 @@ export default function Home() {
     setActiveProject(id);
     setViewMode("work");
     setActiveTier(null);
+    setActiveServiceItem(null);
     setActiveAboutSection(null);
     if (isMobile) setMobileShowContent(true);
   };
@@ -61,6 +83,7 @@ export default function Home() {
   const handleTierSelect = (tierId: ServiceTierId) => {
     setViewMode("services");
     setActiveTier(tierId);
+    setActiveServiceItem(null);
     setActiveAboutSection(null);
     if (isMobile) setMobileShowContent(true);
     requestAnimationFrame(() => {
@@ -71,11 +94,24 @@ export default function Home() {
   const handleAboutSectionSelect = (sectionId: AboutSectionId) => {
     setViewMode("about");
     setActiveTier(null);
+    setActiveServiceItem(null);
     setActiveAboutSection(sectionId);
     if (isMobile) setMobileShowContent(true);
     requestAnimationFrame(() => {
       document.getElementById(`about-${sectionId}`)?.scrollIntoView({ behavior: "smooth" });
     });
+  };
+
+  const handleViewPackage = (projectId: ProjectId = activeProject) => {
+    const pkg = getProjectPackage(projectId, language);
+    if (!pkg) return;
+
+    setViewMode("services");
+    setActiveTier(pkg.tierId);
+    setActiveServiceItem(pkg.itemId);
+    setActiveAboutSection(null);
+    if (isMobile) setMobileShowContent(true);
+    scrollToServiceItem(pkg.itemId, pkg.tierId);
   };
 
   const showNav = !isMobile || !mobileShowContent;
@@ -101,6 +137,7 @@ export default function Home() {
             onViewChange={handleViewChange}
             onTierSelect={handleTierSelect}
             onAboutSectionSelect={handleAboutSectionSelect}
+            onViewPackage={handleViewPackage}
           />
         </div>
       )}
@@ -123,9 +160,11 @@ export default function Home() {
             activeProject={activeProject}
             viewMode={viewMode}
             activeTier={activeTier}
+            activeServiceItem={activeServiceItem}
             activeAboutSection={activeAboutSection}
             strings={strings}
             isMobile={isMobile}
+            onViewPackage={handleViewPackage}
           />
         </div>
       )}

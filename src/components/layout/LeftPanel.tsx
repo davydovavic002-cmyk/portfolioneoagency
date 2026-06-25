@@ -16,6 +16,7 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 import { ViewSwitcher } from "./ViewSwitcher";
 import { NeoLogo } from "@/components/brand/NeoLogo";
 import { caseStudiesByLanguage } from "@/lib/i18n/case-studies";
+import { PackageBadge } from "@/components/projects/PackageLink";
 
 interface LeftPanelProps {
   language: Language;
@@ -29,6 +30,7 @@ interface LeftPanelProps {
   onViewChange: (mode: ViewMode) => void;
   onTierSelect: (tierId: ServiceTierId) => void;
   onAboutSectionSelect: (sectionId: AboutSectionId) => void;
+  onViewPackage: (projectId: ProjectId) => void;
 }
 
 export function LeftPanel({
@@ -43,6 +45,7 @@ export function LeftPanel({
   onViewChange,
   onTierSelect,
   onAboutSectionSelect,
+  onViewPackage,
 }: LeftPanelProps) {
   const isArmenian = language === "am";
   const fontClass = isArmenian ? "font-armenian" : "";
@@ -155,6 +158,14 @@ export function LeftPanel({
                               ),
                             )}
                           </div>
+                          <PackageBadge
+                            projectId={project.id}
+                            language={language}
+                            strings={strings}
+                            accent={theme.accent}
+                            onViewPackage={onViewPackage}
+                            className="mt-3"
+                          />
                           <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1">
                             <span className="text-[12px] text-zinc-600">
                               {translation.role}

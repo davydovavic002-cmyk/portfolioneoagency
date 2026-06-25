@@ -2,19 +2,25 @@
 
 import { motion } from "framer-motion";
 import type { Language, ProjectId } from "@/lib/types";
+import type { UIStrings } from "@/lib/types";
 import { caseStudiesByLanguage } from "@/lib/i18n/case-studies";
 import { getProjectTheme } from "@/lib/project-themes";
+import { PackageStrip } from "@/components/projects/PackageLink";
 
 interface CaseStudyStripProps {
   projectId: ProjectId;
   language: Language;
+  strings: UIStrings;
   isMobile?: boolean;
+  onViewPackage: (projectId: ProjectId) => void;
 }
 
 export function CaseStudyStrip({
   projectId,
   language,
+  strings,
   isMobile = false,
+  onViewPackage,
 }: CaseStudyStripProps) {
   const copy = caseStudiesByLanguage[language];
   const study = copy.byProject[projectId];
@@ -31,9 +37,18 @@ export function CaseStudyStrip({
         isMobile ? "px-3 py-3" : "px-5 py-4 lg:px-8 lg:py-5"
       }`}
     >
+      <PackageStrip
+        projectId={projectId}
+        language={language}
+        strings={strings}
+        accent={theme.accent}
+        onViewPackage={onViewPackage}
+        isMobile={isMobile}
+      />
+
       <div
-        className={`mb-3 flex gap-2 overflow-x-auto pb-1 ${
-          isMobile ? "" : "lg:gap-3"
+        className={`flex gap-2 overflow-x-auto pb-1 ${
+          isMobile ? "mb-3" : "mb-4 lg:gap-3"
         }`}
       >
         {study.metrics.map((metric) => (

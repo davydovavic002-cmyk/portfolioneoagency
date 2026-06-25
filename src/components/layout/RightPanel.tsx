@@ -12,15 +12,19 @@ import { getProjectMeta } from "@/lib/projects";
 import { getProjectTheme } from "@/lib/project-themes";
 import { servicesByLanguage } from "@/lib/i18n/services";
 import { aboutByLanguage, type AboutSectionId } from "@/lib/i18n/about";
+import type { ServiceItemId } from "@/lib/project-packages";
+import { PackageBadge } from "@/components/projects/PackageLink";
 
 interface RightPanelProps {
   language: Language;
   activeProject: ProjectId;
   viewMode: ViewMode;
   activeTier: ServiceTierId | null;
+  activeServiceItem: ServiceItemId | null;
   activeAboutSection: AboutSectionId | null;
   strings: UIStrings;
   isMobile?: boolean;
+  onViewPackage: (projectId: ProjectId) => void;
 }
 
 export function RightPanel({
@@ -28,9 +32,11 @@ export function RightPanel({
   activeProject,
   viewMode,
   activeTier,
+  activeServiceItem,
   activeAboutSection,
   strings,
   isMobile = false,
+  onViewPackage,
 }: RightPanelProps) {
   const meta = getProjectMeta(activeProject);
   const theme = getProjectTheme(activeProject);
@@ -82,7 +88,11 @@ export function RightPanel({
               exit={{ opacity: 0 }}
               transition={{ duration: 0.35 }}
             >
-              <PricingView language={language} scrollToTier={activeTier} />
+              <PricingView
+                language={language}
+                scrollToTier={activeTier}
+                scrollToServiceItem={activeServiceItem}
+              />
             </motion.div>
           </AnimatePresence>
         </div>
@@ -137,7 +147,9 @@ export function RightPanel({
         <CaseStudyStrip
           projectId={activeProject}
           language={language}
+          strings={strings}
           isMobile={isMobile}
+          onViewPackage={onViewPackage}
         />
 
         <div
@@ -162,17 +174,13 @@ export function RightPanel({
                 </p>
               )}
             </div>
-            {isDesktopSite && (
-              <span className="shrink-0 text-[12px] text-zinc-600">
-                {isMobile ? strings.livePreview : deviceLabel}
-              </span>
-            )}
-            {!isDesktopSite && (
-              <div
-                className="h-px w-12 shrink-0"
-                style={{ backgroundColor: theme.accent, opacity: 0.5 }}
-              />
-            )}
+            <PackageBadge
+              projectId={activeProject}
+              language={language}
+              strings={strings}
+              accent={theme.accent}
+              onViewPackage={onViewPackage}
+            />
           </div>
         </div>
       </div>
