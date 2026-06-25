@@ -5,6 +5,7 @@ import type { Language, ProjectId, ServiceTierId, ViewMode } from "@/lib/types";
 import { isDesktopSiteProject } from "@/lib/types";
 import type { UIStrings } from "@/lib/types";
 import { SimulatorView } from "@/components/simulator/SimulatorView";
+import { CaseStudyStrip } from "@/components/projects/CaseStudyStrip";
 import { PricingView } from "@/components/pricing/PricingView";
 import { AboutView } from "@/components/about/AboutView";
 import { getProjectMeta } from "@/lib/projects";
@@ -132,6 +133,12 @@ export function RightPanel({
             isMobile={isMobile}
           />
         </div>
+
+        <CaseStudyStrip
+          projectId={activeProject}
+          language={language}
+          isMobile={isMobile}
+        />
 
         <div
           className={`shrink-0 border-t border-white/[0.06] safe-bottom ${

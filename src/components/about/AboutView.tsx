@@ -135,6 +135,15 @@ export function AboutView({ language, scrollToSection }: AboutViewProps) {
                   className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full opacity-15 blur-3xl"
                   style={{ backgroundColor: ABOUT_ACCENT }}
                 />
+                <span
+                  className="relative mb-4 inline-flex w-fit rounded-full border px-3 py-1 text-[10px] font-medium uppercase tracking-wider"
+                  style={{
+                    borderColor: `${ABOUT_ACCENT}44`,
+                    color: ABOUT_ACCENT,
+                  }}
+                >
+                  {item.highlight}
+                </span>
                 <blockquote className="relative flex-1">
                   <p
                     className={`leading-relaxed text-zinc-300 ${

@@ -13,6 +13,7 @@ export interface Testimonial {
   quote: string;
   author: string;
   role: string;
+  highlight: string;
 }
 
 export interface Stat {
@@ -70,7 +71,7 @@ const en: AboutCopy = {
   },
   sectionMeta: {
     process: "5 steps",
-    reviews: "3 reviews",
+    reviews: "5 reviews",
   },
   studio: {
     title: "Neo Studio",
@@ -128,23 +129,42 @@ const en: AboutCopy = {
       {
         id: "r1",
         quote:
-          "Built a polished landing page for an education brand — strong visual identity, clear offer structure, and inbound leads within the first weeks after launch.",
-        author: "Product Lead",
-        role: "Neuro-Engineering Academy",
+          "Built a polished landing page for our education brand — strong visual identity, clear offer structure, and inbound leads within the first weeks after launch.",
+        author: "Marina",
+        role: "Product Lead · Neuro-Engineering Academy",
+        highlight: "2 weeks to live",
       },
       {
         id: "r2",
         quote:
           "We needed a premium storefront that felt like a real boutique, not a Shopify theme. Launched on schedule, Stripe checkout works flawlessly.",
-        author: "Founder",
-        role: "Jellybead · Luxury E-commerce",
+        author: "Sofia",
+        role: "Founder · Jellybead",
+        highlight: "6-week launch",
       },
       {
         id: "r3",
         quote:
           "The AI audit alone saved us months of wrong turns. They mapped our clinic workflow and shipped an MVP we could demo to partners the same quarter.",
-        author: "Operations Lead",
-        role: "PetCare AI · HealthTech",
+        author: "Alex",
+        role: "Operations Lead · PetCare AI",
+        highlight: "MVP in 10 weeks",
+      },
+      {
+        id: "r4",
+        quote:
+          "Students actually use it daily — the bot handles exam prep inside Telegram without friction. Subject flows and the AI tutor feel native, not bolted on.",
+        author: "Denis",
+        role: "Founder · NeuroShpora",
+        highlight: "12+ subjects",
+      },
+      {
+        id: "r5",
+        quote:
+          "The configurator elevated the brand — customers spend time exploring options instead of bouncing. Motion and visuals match the premium positioning.",
+        author: "Lena",
+        role: "Brand Director · Blessed Angel",
+        highlight: "8 weeks to launch",
       },
     ],
   },
@@ -171,7 +191,7 @@ const ru: AboutCopy = {
   },
   sectionMeta: {
     process: "5 этапов",
-    reviews: "3 отзыва",
+    reviews: "5 отзывов",
   },
   studio: {
     title: "Neo Studio",
@@ -229,23 +249,42 @@ const ru: AboutCopy = {
       {
         id: "r1",
         quote:
-          "Собрали продающий лендинг под образовательный бренд — сильная визуальная подача, понятная структура оффера, заявки пошли уже в первые недели после запуска.",
-        author: "Product Lead",
-        role: "Академия Нейро-Инжиниринга",
+          "Собрали продающий лендинг под наш образовательный бренд — сильная визуальная подача, понятная структура оффера, заявки пошли уже в первые недели после запуска.",
+        author: "Марина",
+        role: "Product Lead · Академия Нейро-Инжиниринга",
+        highlight: "2 недели до релиза",
       },
       {
         id: "r2",
         quote:
           "Нужен был премиальный магазин, который ощущается как бутик, а не тема Shopify. Запустились в срок, Stripe-чекаут работает без сбоев.",
-        author: "Founder",
-        role: "Jellybead · Luxury E-commerce",
+        author: "София",
+        role: "Founder · Jellybead",
+        highlight: "Запуск за 6 недель",
       },
       {
         id: "r3",
         quote:
           "Один AI-аудит сэкономил месяцы неверных решений. Разобрали workflow клиники и отгрузили MVP, который смогли показать партнёрам в том же квартале.",
-        author: "Operations Lead",
-        role: "PetCare AI · HealthTech",
+        author: "Алекс",
+        role: "Operations Lead · PetCare AI",
+        highlight: "MVP за 10 недель",
+      },
+      {
+        id: "r4",
+        quote:
+          "Студенты реально пользуются каждый день — бот ведёт подготовку к экзаменам в Telegram без трения. Предметы и AI-репетитор ощущаются нативно.",
+        author: "Денис",
+        role: "Founder · NeuroShpora",
+        highlight: "12+ предметов",
+      },
+      {
+        id: "r5",
+        quote:
+          "Конфигуратор поднял бренд — клиенты изучают варианты, а не уходят с первого экрана. Анимации и визуал соответствуют премиум-позиционированию.",
+        author: "Лена",
+        role: "Brand Director · Blessed Angel",
+        highlight: "8 недель до запуска",
       },
     ],
   },
@@ -272,7 +311,7 @@ const am: AboutCopy = {
   },
   sectionMeta: {
     process: "5 քայլ",
-    reviews: "3 կարծիք",
+    reviews: "5 կարծիք",
   },
   studio: {
     title: "Neo Studio",
@@ -331,22 +370,41 @@ const am: AboutCopy = {
         id: "r1",
         quote:
           "Կրթական բրենդի համար հավաքեցինք վաճառքային լենդինգ — ուժեղ վիզուալ, պարզ առաջարկի կառուցվածք, դիմումները սկսեցին գալ արձակման առաջին շաբաթներին։",
-        author: "Product Lead",
-        role: "Նեյրո-ինժեներիայի ակադեմիա",
+        author: "Մարինա",
+        role: "Product Lead · Նեյրո-ինժեներիայի ակադեմիա",
+        highlight: "2 շաբաթ մինչև live",
       },
       {
         id: "r2",
         quote:
           "Պետք էր պրեմիում խանութ, որը զգացվում է որպես բուտիկ, ոչ թե Shopify թեմա։ Ժամանակին գործարկվեցինք, Stripe checkout-ը անխափան աշխատում է։",
-        author: "Founder",
-        role: "Jellybead · Luxury E-commerce",
+        author: "Սոֆիա",
+        role: "Founder · Jellybead",
+        highlight: "6 շաբաթ գործարկում",
       },
       {
         id: "r3",
         quote:
           "Մեկ AI աուդիտը խնայեց ամիսներ սխալ ուղղություններից։ Քարտեզագրեցինք կլինիկայի workflow-ը և հանձնեցինք MVP, որը կարողացանք ցույց տալ գործընկերներին նույն եռամսյակում։",
-        author: "Operations Lead",
-        role: "PetCare AI · HealthTech",
+        author: "Ալեքս",
+        role: "Operations Lead · PetCare AI",
+        highlight: "MVP 10 շաբաթ",
+      },
+      {
+        id: "r4",
+        quote:
+          "Ուսանողները ամեն օր օգտագործում են — բոտը քննության նախապատրաստություն է վարում Telegram-ում առանց բարդության։ Առարկաները և AI դասատուն բնական են։",
+        author: "Դենիս",
+        role: "Founder · NeuroShpora",
+        highlight: "12+ առարկա",
+      },
+      {
+        id: "r5",
+        quote:
+          "Կոնֆիգուրատորը բարձրացրեց բրենդը — հաճախորդները ուսումնասիրում են տարբերակները, ոչ թե հեռանում առաջին էկրանից։",
+        author: "Լենա",
+        role: "Brand Director · Blessed Angel",
+        highlight: "8 շաբաթ մինչև launch",
       },
     ],
   },

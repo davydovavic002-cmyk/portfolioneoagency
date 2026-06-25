@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { EB_Garamond, Inter, Noto_Sans_Armenian } from "next/font/google";
 import "./globals.css";
 
+const SITE_URL = "https://neostudio.space";
+
 const inter = Inter({
   variable: "--font-ui",
   subsets: ["latin", "cyrillic"],
@@ -20,9 +22,28 @@ const notoArmenian = Noto_Sans_Armenian({
 });
 
 export const metadata: Metadata = {
-  title: "Selected Work — Full-stack & AI Engineer",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Neo Studio — Product Engineering & AI",
+    template: "%s · Neo Studio",
+  },
   description:
-    "Curated portfolio of product engineering, AI systems, and interface design.",
+    "Product studio for full-stack development, AI systems, and interface design. Live portfolio, transparent pricing, remote-first.",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: "Neo Studio",
+    title: "Neo Studio — Product Engineering & AI",
+    description:
+      "Build products that feel inevitable. Full-stack, AI engineering, and product design.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Neo Studio — Product Engineering & AI",
+    description:
+      "Build products that feel inevitable. Full-stack, AI engineering, and product design.",
+  },
 };
 
 export const viewport: Viewport = {
@@ -37,7 +58,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="en">
       <body
         className={`${inter.variable} ${editorial.variable} ${notoArmenian.variable} antialiased`}
       >

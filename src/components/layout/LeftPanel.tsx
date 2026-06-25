@@ -14,6 +14,8 @@ import {
 } from "@/lib/i18n/about";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { ViewSwitcher } from "./ViewSwitcher";
+import { NeoLogo } from "@/components/brand/NeoLogo";
+import { caseStudiesByLanguage } from "@/lib/i18n/case-studies";
 
 interface LeftPanelProps {
   language: Language;
@@ -57,6 +59,7 @@ export function LeftPanel({
   return (
     <aside className="flex h-full w-full flex-col border-white/[0.06] lg:border-r">
       <header className="shrink-0 px-5 pt-8 pb-6 safe-top lg:px-10 lg:pt-12 lg:pb-8">
+        <NeoLogo className="mb-4" size={28} showWordmark />
         <div className="min-w-0">
           <p className={`text-[12px] leading-relaxed text-zinc-500 lg:text-[13px] ${fontClass}`}>
             {strings.portfolioSubtitle}
@@ -138,6 +141,20 @@ export function LeftPanel({
                           >
                             {translation.description}
                           </p>
+                          <div className="mt-4 flex flex-wrap gap-2">
+                            {caseStudiesByLanguage[language].byProject[project.id].metrics.map(
+                              (metric) => (
+                                <span
+                                  key={metric.label}
+                                  className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 text-[10px] text-zinc-500"
+                                >
+                                  <span style={{ color: theme.accent }}>{metric.value}</span>
+                                  <span className="mx-1 text-zinc-700">·</span>
+                                  {metric.label}
+                                </span>
+                              ),
+                            )}
+                          </div>
                           <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1">
                             <span className="text-[12px] text-zinc-600">
                               {translation.role}
