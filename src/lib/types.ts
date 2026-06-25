@@ -40,6 +40,8 @@ export interface UIStrings {
   availability: string;
   deviceMonitor: string;
   devicePhone: string;
+  livePreview: string;
+  openSite: string;
   navWork: string;
   navServices: string;
   navAbout: string;

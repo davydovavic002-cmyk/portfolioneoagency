@@ -118,13 +118,19 @@ export function RightPanel({
         <div
           className={`relative min-h-0 flex-1 ${
             isDesktopSite
-              ? "px-3 pb-3 pt-3 lg:px-5 lg:pb-4 lg:pt-5"
+              ? isMobile
+                ? "flex flex-col px-2 pb-2 pt-2"
+                : "px-3 pb-3 pt-3 lg:px-5 lg:pb-4 lg:pt-5"
               : isMobile
                 ? "px-3 pb-3 pt-2"
                 : "px-8 pb-6 pt-2"
           }`}
         >
-          <SimulatorView activeProject={activeProject} language={language} />
+          <SimulatorView
+            activeProject={activeProject}
+            language={language}
+            isMobile={isMobile}
+          />
         </div>
 
         <div
@@ -150,7 +156,9 @@ export function RightPanel({
               )}
             </div>
             {isDesktopSite && (
-              <span className="shrink-0 text-[12px] text-zinc-600">{deviceLabel}</span>
+              <span className="shrink-0 text-[12px] text-zinc-600">
+                {isMobile ? strings.livePreview : deviceLabel}
+              </span>
             )}
             {!isDesktopSite && (
               <div

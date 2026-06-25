@@ -98,6 +98,7 @@ interface DesktopSitePreviewProps {
   previewUrl?: string;
   title: string;
   language?: Language;
+  isMobile?: boolean;
   children?: React.ReactNode;
 }
 
@@ -112,6 +113,7 @@ export function DesktopSitePreview({
   previewUrl,
   title,
   language = "en",
+  isMobile = false,
   children,
 }: DesktopSitePreviewProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -120,6 +122,20 @@ export function DesktopSitePreview({
   useEffect(() => {
     postLanguageToIframe(iframeRef.current, language);
   }, [language, src]);
+
+  if (previewUrl && isMobile) {
+    return (
+      <iframe
+        ref={iframeRef}
+        key={src}
+        src={src}
+        title={title}
+        className="block h-full min-h-0 w-full flex-1 border-0 bg-white"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+        onLoad={() => postLanguageToIframe(iframeRef.current, language)}
+      />
+    );
+  }
 
   if (previewUrl) {
     return (

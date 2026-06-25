@@ -5,6 +5,7 @@ import type { Language, ProjectId } from "@/lib/types";
 import { isDesktopSiteProject } from "@/lib/types";
 import { getProjectMeta } from "@/lib/projects";
 import { dictionary } from "@/lib/i18n/dictionary";
+import { buildPreviewUrl } from "@/lib/preview-url";
 import { DeviceFrame } from "./DeviceFrame";
 import { DesktopSitePreview } from "./DesktopSitePreview";
 import { NeuroShporaSim } from "@/components/projects/NeuroShporaSim";
@@ -15,6 +16,7 @@ import { PetCareSim } from "@/components/projects/PetCareSim";
 interface SimulatorViewProps {
   activeProject: ProjectId;
   language: Language;
+  isMobile?: boolean;
 }
 
 function ProjectMock({
@@ -38,13 +40,23 @@ function ProjectMock({
   }
 }
 
-export function SimulatorView({ activeProject, language }: SimulatorViewProps) {
+export function SimulatorView({
+  activeProject,
+  language,
+  isMobile = false,
+}: SimulatorViewProps) {
   const meta = getProjectMeta(activeProject);
   const isDesktopSite = isDesktopSiteProject(meta);
-  const title = dictionary[language].projects[activeProject].title;
+  const strings = dictionary[language];
+  const title = strings.projects[activeProject].title;
 
   const content = isDesktopSite ? (
-    <DesktopSitePreview previewUrl={meta.previewUrl} title={title} language={language}>
+    <DesktopSitePreview
+      previewUrl={meta.previewUrl}
+      title={title}
+      language={language}
+      isMobile={isMobile}
+    >
       <ProjectMock projectId={activeProject} language={language} />
     </DesktopSitePreview>
   ) : (
@@ -52,11 +64,19 @@ export function SimulatorView({ activeProject, language }: SimulatorViewProps) {
   );
 
   return (
-    <DeviceFrame device={meta.device} projectId={activeProject}>
+    <DeviceFrame
+      device={meta.device}
+      projectId={activeProject}
+      isMobile={isMobile}
+      openSiteLabel={strings.openSite}
+      openSiteUrl={
+        meta.previewUrl ? buildPreviewUrl(meta.previewUrl, language) : undefined
+      }
+    >
       <AnimatePresence mode="wait">
         <motion.div
           key={activeProject}
-          className="h-full w-full"
+          className="flex h-full min-h-0 w-full flex-col"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
