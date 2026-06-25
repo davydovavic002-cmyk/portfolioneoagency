@@ -46,6 +46,7 @@ interface PackageStripProps {
   accent: string;
   onViewPackage: (projectId: ProjectId) => void;
   isMobile?: boolean;
+  inline?: boolean;
 }
 
 export function PackageStrip({
@@ -55,11 +56,32 @@ export function PackageStrip({
   accent,
   onViewPackage,
   isMobile = false,
+  inline = false,
 }: PackageStripProps) {
   const pkg = getProjectPackage(projectId, language);
   if (!pkg) return null;
 
   const isArmenian = language === "am";
+
+  if (inline) {
+    return (
+      <button
+        type="button"
+        onClick={() => onViewPackage(projectId)}
+        className="group flex shrink-0 items-center gap-2 text-left"
+      >
+        <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-zinc-600">
+          {strings.packageLabel}
+        </span>
+        <span className={`text-[13px] text-zinc-300 ${isArmenian ? "font-armenian" : ""}`}>
+          <span style={{ color: accent }}>{pkg.item.name}</span>
+          <span className="mx-1.5 text-zinc-600">·</span>
+          <span className="text-zinc-400">{pkg.item.price}</span>
+        </span>
+        <ArrowUpRight className="h-3.5 w-3.5 text-zinc-600 transition-colors group-hover:text-zinc-400" />
+      </button>
+    );
+  }
 
   return (
     <div

@@ -56,23 +56,22 @@ export function DesktopPreviewViewport({ children }: DesktopPreviewViewportProps
 
   const { width: cw, height: ch } = layout;
   const ready = cw > 0 && ch > 0;
-  const fitsNative = cw >= DESKTOP_VIEWPORT_WIDTH;
-  const zoom = fitsNative ? 1 : cw / DESKTOP_VIEWPORT_WIDTH;
+  const fitsNative = cw >= DESKTOP_VIEWPORT_WIDTH && ch >= DESKTOP_VIEWPORT_HEIGHT;
+  const zoomW = cw / DESKTOP_VIEWPORT_WIDTH;
+  const zoomH = ch / DESKTOP_VIEWPORT_HEIGHT;
+  const zoom = fitsNative ? 1 : Math.min(zoomW, zoomH);
 
   return (
     <div
       ref={containerRef}
-      className="h-full w-full overflow-y-auto overflow-x-hidden"
+      className="h-full w-full overflow-hidden"
     >
       {ready && fitsNative && (
         <div className="h-full w-full">{children}</div>
       )}
 
       {ready && !fitsNative && useZoom && (
-        <div
-          className="w-full"
-          style={{ height: Math.ceil(DESKTOP_VIEWPORT_HEIGHT * zoom) }}
-        >
+        <div className="flex h-full w-full items-start justify-center overflow-hidden">
           <div
             style={{
               width: DESKTOP_VIEWPORT_WIDTH,
@@ -86,8 +85,24 @@ export function DesktopPreviewViewport({ children }: DesktopPreviewViewportProps
       )}
 
       {ready && !fitsNative && !useZoom && (
-        <div className="h-full w-full overflow-auto" style={{ width: cw }}>
-          <div style={{ width: cw, minHeight: ch }}>{children}</div>
+        <div className="flex h-full w-full items-center justify-center overflow-hidden">
+          <div
+            style={{
+              width: Math.floor(DESKTOP_VIEWPORT_WIDTH * zoom),
+              height: Math.floor(DESKTOP_VIEWPORT_HEIGHT * zoom),
+            }}
+          >
+            <div
+              style={{
+                width: DESKTOP_VIEWPORT_WIDTH,
+                height: DESKTOP_VIEWPORT_HEIGHT,
+                transform: `scale(${zoom})`,
+                transformOrigin: "top left",
+              }}
+            >
+              {children}
+            </div>
+          </div>
         </div>
       )}
     </div>

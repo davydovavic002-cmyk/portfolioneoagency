@@ -143,7 +143,7 @@ export default function Home() {
       )}
 
       {showContent && (
-        <div className="flex min-h-0 flex-1 flex-col lg:h-full">
+        <div className="flex min-h-0 flex-1 flex-col overflow-hidden lg:h-full lg:min-w-0">
           {isMobile && mobileShowContent && (
             <MobileContentHeader
               strings={strings}

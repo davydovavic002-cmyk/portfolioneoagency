@@ -31,7 +31,7 @@ export function DeviceFrame({
 
   if (isDesktopSite) {
     return (
-      <div className="flex h-full min-h-0 w-full flex-col">
+      <div className="flex h-full min-h-0 w-full flex-col overflow-hidden">
         <motion.div
           className={`flex h-full min-h-0 w-full flex-col overflow-hidden bg-[#1a1a1a] ring-1 ring-white/[0.08] ${
             isMobile ? "rounded-xl" : "rounded-lg"

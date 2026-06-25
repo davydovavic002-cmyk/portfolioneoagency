@@ -49,7 +49,7 @@ export function RightPanel({
 
   if (viewMode === "about") {
     return (
-      <section className="relative flex h-full flex-1 flex-col overflow-hidden bg-[#080808]">
+      <section className="relative flex h-full min-h-0 flex-1 flex-col overflow-hidden bg-[#080808]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_0%,rgba(167,139,250,0.08)_0%,transparent_55%),radial-gradient(ellipse_60%_50%_at_20%_100%,rgba(96,165,250,0.06)_0%,transparent_50%)]" />
         <div className="relative min-h-0 flex-1">
           <AnimatePresence mode="wait">
@@ -76,7 +76,7 @@ export function RightPanel({
 
   if (viewMode === "services") {
     return (
-      <section className="relative flex h-full flex-1 flex-col overflow-hidden bg-[#080808]">
+      <section className="relative flex h-full min-h-0 flex-1 flex-col overflow-hidden bg-[#080808]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_0%,rgba(96,165,250,0.08)_0%,transparent_55%),radial-gradient(ellipse_60%_50%_at_20%_100%,rgba(167,139,250,0.06)_0%,transparent_50%)]" />
         <div className="relative min-h-0 flex-1">
           <AnimatePresence mode="wait">
@@ -106,7 +106,7 @@ export function RightPanel({
   }
 
   return (
-    <section className="relative flex h-full flex-1 flex-col overflow-hidden bg-[#080808]">
+    <section className="relative flex h-full min-h-0 flex-1 flex-col overflow-hidden bg-[#080808]">
       {!isDesktopSite && (
         <div
           className="pointer-events-none absolute inset-0 transition-all duration-700 ease-out"
@@ -116,9 +116,9 @@ export function RightPanel({
         />
       )}
 
-      <div className="relative flex min-h-0 flex-1 flex-col">
+      <div className="relative grid min-h-0 flex-1 grid-rows-[minmax(0,1fr)_auto_auto] overflow-hidden">
         {!isDesktopSite && !isMobile && (
-          <div className="flex shrink-0 items-center justify-end gap-4 px-12 pt-10">
+          <div className="pointer-events-none absolute right-12 top-10 z-10 flex items-center gap-4">
             <span className="text-[12px] tabular-nums text-zinc-600">{meta.year}</span>
             <span className="text-[12px]" style={{ color: theme.accent }}>
               {deviceLabel}
@@ -127,14 +127,14 @@ export function RightPanel({
         )}
 
         <div
-          className={`relative min-h-0 flex-1 ${
+          className={`relative min-h-0 overflow-hidden ${
             isDesktopSite
               ? isMobile
                 ? "flex flex-col px-2 pb-2 pt-2"
-                : "px-3 pb-3 pt-3 lg:px-5 lg:pb-4 lg:pt-5"
+                : "flex flex-col px-5 pb-3 pt-5"
               : isMobile
                 ? "px-3 pb-3 pt-2"
-                : "px-8 pb-6 pt-2"
+                : "px-8 pb-4 pt-2"
           }`}
         >
           <SimulatorView
@@ -154,7 +154,7 @@ export function RightPanel({
 
         <div
           className={`shrink-0 border-t border-white/[0.06] safe-bottom ${
-            isDesktopSite ? "px-3 py-2.5 lg:px-5 lg:py-3" : "px-4 py-3 lg:px-12 lg:py-5"
+            isDesktopSite ? "px-5 py-2.5" : "px-4 py-3 lg:px-12 lg:py-4"
           }`}
         >
           <div className="flex items-center justify-between gap-4">
@@ -174,13 +174,22 @@ export function RightPanel({
                 </p>
               )}
             </div>
-            <PackageBadge
-              projectId={activeProject}
-              language={language}
-              strings={strings}
-              accent={theme.accent}
-              onViewPackage={onViewPackage}
-            />
+            {isMobile ? (
+              <PackageBadge
+                projectId={activeProject}
+                language={language}
+                strings={strings}
+                accent={theme.accent}
+                onViewPackage={onViewPackage}
+              />
+            ) : isDesktopSite ? (
+              <span className="shrink-0 text-[12px] text-zinc-600">{deviceLabel}</span>
+            ) : (
+              <div
+                className="h-px w-12 shrink-0"
+                style={{ backgroundColor: theme.accent, opacity: 0.5 }}
+              />
+            )}
           </div>
         </div>
       </div>
