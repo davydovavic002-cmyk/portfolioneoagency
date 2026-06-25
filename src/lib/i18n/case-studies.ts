@@ -27,11 +27,11 @@ const en: CaseStudiesCopy = {
       challenge:
         "Vet clinics needed a demo-ready AI product without rebuilding their entire stack.",
       solution:
-        "Scoped an MVP with diagnostic AI, feed analysis, and a clinic-facing dashboard — shipped in fixed sprints.",
+        "Scoped an MVP with diagnostic AI, feed analysis, and a clinic-facing dashboard — shipped in 18 days on the AI Core MVP package.",
       metrics: [
-        { value: "10 wks", label: "MVP delivered" },
+        { value: "18 days", label: "MVP delivered" },
         { value: "3", label: "Clinic workflows" },
-        { value: "1", label: "Quarter to partner demo" },
+        { value: "AI Core", label: "Package tier" },
       ],
     },
     "jewelry-store": {
@@ -40,7 +40,7 @@ const en: CaseStudiesCopy = {
       solution:
         "Custom Next.js boutique with Stripe, CMS-driven catalog, and motion-led product storytelling.",
       metrics: [
-        { value: "6 wks", label: "Launch timeline" },
+        { value: "12 days", label: "Launch timeline" },
         { value: "Stripe", label: "Live payments" },
         { value: "100%", label: "Custom UI" },
       ],
@@ -51,19 +51,19 @@ const en: CaseStudiesCopy = {
       solution:
         "Editorial layout, structured offer blocks, and conversion-focused UX with trilingual support.",
       metrics: [
-        { value: "2 wks", label: "From brief to live" },
+        { value: "12 days", label: "From brief to live" },
         { value: "3", label: "Languages" },
-        { value: "↑", label: "Lead flow from week 1" },
+        { value: "↑", label: "Leads from week 1" },
       ],
     },
     "neuro-shpora": {
       challenge:
         "Students needed exam prep that works inside Telegram — fast, contextual, and always available.",
       solution:
-        "Agentic bot with subject flows, SOS kits, streaming AI tutor, and Redis-backed session memory.",
+        "Agentic bot with subject flows, SOS kits, streaming AI tutor — delivered in 12 days on the Telegram AI Bot package.",
       metrics: [
+        { value: "12 days", label: "Bot delivered" },
         { value: "12+", label: "Exam subjects" },
-        { value: "24/7", label: "AI tutor" },
         { value: "<2s", label: "First response" },
       ],
     },
@@ -73,8 +73,8 @@ const en: CaseStudiesCopy = {
       solution:
         "3D-inspired configurator with Framer Motion, brand-led visuals, and checkout-ready flows.",
       metrics: [
+        { value: "14 days", label: "Concept to launch" },
         { value: "3D", label: "Configurator UX" },
-        { value: "8 wks", label: "Concept to launch" },
         { value: "↑", label: "Engagement vs catalog" },
       ],
     },
@@ -92,9 +92,9 @@ const ru: CaseStudiesCopy = {
       solution:
         "MVP с диагностическим AI, анализом кормов и клиническим дашбордом — фиксированные спринты.",
       metrics: [
-        { value: "10 нед", label: "MVP в продакшн" },
+        { value: "18 дн", label: "MVP в продакшн" },
         { value: "3", label: "Workflow клиники" },
-        { value: "1", label: "Квартал до демо" },
+        { value: "AI Core", label: "Пакет" },
       ],
     },
     "jewelry-store": {
@@ -103,7 +103,7 @@ const ru: CaseStudiesCopy = {
       solution:
         "Кастомный Next.js бутик со Stripe, CMS-каталогом и motion-историями вокруг продуктов.",
       metrics: [
-        { value: "6 нед", label: "Срок запуска" },
+        { value: "12 дн", label: "Срок запуска" },
         { value: "Stripe", label: "Оплата в проде" },
         { value: "100%", label: "Кастомный UI" },
       ],
@@ -114,7 +114,7 @@ const ru: CaseStudiesCopy = {
       solution:
         "Редакционная вёрстка, структура оффера и UX на конверсию с поддержкой трёх языков.",
       metrics: [
-        { value: "2 нед", label: "От брифа до релиза" },
+        { value: "12 дн", label: "От брифа до релиза" },
         { value: "3", label: "Языка" },
         { value: "↑", label: "Заявки с 1-й недели" },
       ],
@@ -125,8 +125,8 @@ const ru: CaseStudiesCopy = {
       solution:
         "Агентный бот с предметами, SOS-наборами, streaming AI-репетитором и памятью сессий в Redis.",
       metrics: [
+        { value: "12 дн", label: "Бот в проде" },
         { value: "12+", label: "Предметов ЕГЭ" },
-        { value: "24/7", label: "AI-репетитор" },
         { value: "<2с", label: "Первый ответ" },
       ],
     },
@@ -136,8 +136,8 @@ const ru: CaseStudiesCopy = {
       solution:
         "Конфигуратор с 3D-эстетикой, Framer Motion, визуалом бренда и готовностью к checkout.",
       metrics: [
+        { value: "14 дн", label: "От концепта" },
         { value: "3D", label: "Конфигуратор" },
-        { value: "8 нед", label: "От концепта" },
         { value: "↑", label: "Вовлечённость" },
       ],
     },
@@ -155,9 +155,9 @@ const am: CaseStudiesCopy = {
       solution:
         "MVP ախտորոշական AI-ով, կերերի վերլուծությամբ և կլինիկական dashboard-ով՝ ֆիքսված sprint-երով։",
       metrics: [
-        { value: "10 շ", label: "MVP գործարկում" },
+        { value: "18 օր", label: "MVP գործարկում" },
         { value: "3", label: "Workflow" },
-        { value: "1", label: "Եռամսյակ դեմո" },
+        { value: "AI Core", label: "Փաթեթ" },
       ],
     },
     "jewelry-store": {
@@ -166,7 +166,7 @@ const am: CaseStudiesCopy = {
       solution:
         "Պատվերով Next.js բուտիկ Stripe-ով, CMS կատալոգով և motion-պատմություններով։",
       metrics: [
-        { value: "6 շ", label: "Գործարկման ժամկետ" },
+        { value: "12 օր", label: "Գործարկման ժամկետ" },
         { value: "Stripe", label: "Վճարումներ" },
         { value: "100%", label: "Custom UI" },
       ],
@@ -177,7 +177,7 @@ const am: CaseStudiesCopy = {
       solution:
         "Խմբագրական դիզայն, առաջարկի կառուցվածք և կոնվերսիային UX երեք լեզվով։",
       metrics: [
-        { value: "2 շ", label: "Բրիֆից մինչև live" },
+        { value: "12 օր", label: "Բրիֆից մինչև live" },
         { value: "3", label: "Լեզու" },
         { value: "↑", label: "Դիմումներ 1-ին շաբաթ" },
       ],
@@ -188,8 +188,8 @@ const am: CaseStudiesCopy = {
       solution:
         "Ագենտային բոտ առարկաներով, SOS հավաքածուներով, streaming AI դասատուով և Redis հիշողությամբ։",
       metrics: [
+        { value: "12 օր", label: "Բոտի գործարկում" },
         { value: "12+", label: "Առարկա" },
-        { value: "24/7", label: "AI դասատու" },
         { value: "<2վ", label: "Առաջին պատասխան" },
       ],
     },
@@ -199,8 +199,8 @@ const am: CaseStudiesCopy = {
       solution:
         "3D-գունավոր կոնֆիգուրատոր Framer Motion-ով, բրենդային վիզուալ և checkout-ready հոսքեր։",
       metrics: [
+        { value: "14 օր", label: "Կոնցեպտից" },
         { value: "3D", label: "Կոնֆիգուրատոր" },
-        { value: "8 շ", label: "Կոնցեպտից" },
         { value: "↑", label: "Ներգրավվածություն" },
       ],
     },

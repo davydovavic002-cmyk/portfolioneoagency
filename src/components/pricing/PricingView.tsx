@@ -63,9 +63,11 @@ export function PricingView({ language, scrollToTier }: PricingViewProps) {
 
             <div
               className={
-                tier.id === "packages" || tier.id === "retainer"
-                  ? "grid gap-5 lg:grid-cols-2"
-                  : "grid gap-4"
+                tier.id === "packages"
+                  ? "grid gap-5 lg:grid-cols-3"
+                  : tier.id === "retainer"
+                    ? "grid gap-5 lg:grid-cols-2"
+                    : "grid gap-4"
               }
             >
               {tier.items.map((item) => (

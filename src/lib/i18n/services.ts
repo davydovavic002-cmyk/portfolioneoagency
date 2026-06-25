@@ -97,6 +97,23 @@ const en: ServicesCopy = {
           ],
         },
         {
+          id: "telegram-bot",
+          name: "Telegram AI Bot",
+          price: "$4,500",
+          timeline: "10–14 days",
+          audience:
+            "EdTech, support, and SaaS teams that need an AI agent where users already are — Telegram.",
+          description:
+            "Production-ready Telegram bot with LLM agents, dialog flows, and session memory.",
+          deliverables: [
+            "Conversation design & bot architecture",
+            "Python (aiogram) or Node.js implementation",
+            "OpenAI / LLM integration with streaming",
+            "Redis or database session memory",
+            "Deploy, docs & handoff",
+          ],
+        },
+        {
           id: "ai-core-mvp",
           name: "AI Core MVP",
           price: "$6,000",
@@ -230,6 +247,23 @@ const ru: ServicesCopy = {
           ],
         },
         {
+          id: "telegram-bot",
+          name: "Telegram AI Bot",
+          price: "$4,500",
+          timeline: "10–14 дней",
+          audience:
+            "EdTech, поддержка и SaaS — AI-агент там, где пользователи уже есть: в Telegram.",
+          description:
+            "Telegram-бот в продакшн: LLM-агенты, сценарии диалогов и память сессий.",
+          deliverables: [
+            "Проектирование диалогов и архитектура бота",
+            "Реализация на Python (aiogram) или Node.js",
+            "Интеграция OpenAI / LLM со streaming",
+            "Память сессий в Redis или БД",
+            "Деплой, документация и передача",
+          ],
+        },
+        {
           id: "ai-core-mvp",
           name: "AI Core MVP",
           price: "$6,000",
@@ -359,6 +393,23 @@ const am: ServicesCopy = {
             "Next.js / Tailwind frontend",
             "Framer Motion անիմացիաներ",
             "Ադապտիվ և SEO",
+          ],
+        },
+        {
+          id: "telegram-bot",
+          name: "Telegram AI Bot",
+          price: "$4,500",
+          timeline: "10–14 օր",
+          audience:
+            "EdTech, support և SaaS — AI ագենտ այնտեղ, որտեղ օգտատերերն արդեն կան՝ Telegram-ում։",
+          description:
+            "Production-ready Telegram բոտ LLM ագենտներով, դիալոգային հոսքերով և session memory-ով։",
+          deliverables: [
+            "Զրույցի դիզայն և բոտի ճարտարապետություն",
+            "Python (aiogram) կամ Node.js իրականացում",
+            "OpenAI / LLM ինտեգրացիա streaming-ով",
+            "Redis կամ DB session memory",
+            "Deploy, փաստաթղթավորում",
           ],
         },
         {
