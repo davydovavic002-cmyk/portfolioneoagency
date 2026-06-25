@@ -78,8 +78,25 @@ const en: ServicesCopy = {
       id: "packages",
       level: "Level 2",
       title: "Productized Services",
-      subtitle: "Fixed-scope packages for launches, pitches, and growth-stage products.",
+      subtitle:
+        "Websites, stores, bots, and AI products — fixed scope, fixed price, clear timelines.",
       items: [
+        {
+          id: "landing-page",
+          name: "Landing Page",
+          price: "$2,500",
+          timeline: "7–10 days",
+          audience:
+            "Founders and brands that need one strong page to sell, collect leads, or pitch an offer.",
+          description:
+            "Single-page site built for conversion — clear structure, fast load, mobile-ready.",
+          deliverables: [
+            "UX structure & visual design (1 page)",
+            "Next.js + Tailwind implementation",
+            "Lead form or CTA integration",
+            "Responsive layout & basic SEO",
+          ],
+        },
         {
           id: "aesthetic-web",
           name: "Aesthetic Web",
@@ -87,13 +104,29 @@ const en: ServicesCopy = {
           timeline: "10–14 days",
           featured: true,
           audience:
-            "Startups preparing for launch, crypto and AI SaaS teams building a polished, investor-ready presence.",
-          description: "Premium design and frontend — brand-first, performance-driven.",
+            "Startups preparing for launch — premium visual identity and motion-led storytelling.",
+          description: "Design-forward web experience — brand-first, investor-ready polish.",
           deliverables: [
             "Unique Figma concept (up to 5 pages)",
             "Next.js / Tailwind frontend",
             "Framer Motion micro-interactions",
             "Desktop & mobile responsive, basic SEO",
+          ],
+        },
+        {
+          id: "multi-page-site",
+          name: "Multi-page Website",
+          price: "$4,200",
+          timeline: "12–16 days",
+          audience:
+            "Businesses that need a full company site — services, about, contacts, and room to grow.",
+          description:
+            "Structured multi-page website with navigation, content sections, and CMS-ready setup.",
+          deliverables: [
+            "Site map & design (up to 10 pages)",
+            "Next.js frontend with shared layout system",
+            "Blog or news section structure",
+            "Contact forms, SEO basics, deploy",
           ],
         },
         {
@@ -111,6 +144,40 @@ const en: ServicesCopy = {
             "OpenAI / LLM integration with streaming",
             "Redis or database session memory",
             "Deploy, docs & handoff",
+          ],
+        },
+        {
+          id: "web-app",
+          name: "Web App / Dashboard",
+          price: "$5,200",
+          timeline: "14–18 days",
+          audience:
+            "Teams launching a SaaS tool, client portal, or internal dashboard — without heavy AI scope.",
+          description:
+            "Authenticated web application with backend, database, and a functional product UI.",
+          deliverables: [
+            "UX flows & dashboard/product UI design",
+            "Auth (email, OAuth, or magic link)",
+            "Supabase / PostgreSQL backend",
+            "Core features & admin views",
+            "Production deploy & handoff",
+          ],
+        },
+        {
+          id: "ecommerce-store",
+          name: "E-commerce Store",
+          price: "$5,800",
+          timeline: "14–18 days",
+          featured: true,
+          audience:
+            "Brands selling physical or digital products — boutique feel with real checkout.",
+          description:
+            "Online store with catalog, cart, and Stripe payments — custom UI, not a template theme.",
+          deliverables: [
+            "Storefront design & product pages",
+            "Cart, checkout & Stripe integration",
+            "CMS or admin for products & categories",
+            "Order flow, responsive polish, deploy",
           ],
         },
         {
@@ -228,8 +295,25 @@ const ru: ServicesCopy = {
       id: "packages",
       level: "Уровень 2",
       title: "Пакетные решения",
-      subtitle: "Фиксированные пакеты для запусков, питчей и продуктов на стадии роста.",
+      subtitle:
+        "Сайты, магазины, боты и AI-продукты — фиксированный scope, цена и срок.",
       items: [
+        {
+          id: "landing-page",
+          name: "Landing Page",
+          price: "$2,500",
+          timeline: "7–10 дней",
+          audience:
+            "Фаундерам и брендам, которым нужна одна сильная страница для продаж, заявок или оффера.",
+          description:
+            "Одностраничник под конверсию — понятная структура, быстрая загрузка, адаптив.",
+          deliverables: [
+            "UX-структура и дизайн (1 страница)",
+            "Реализация на Next.js + Tailwind",
+            "Форма заявки или CTA-интеграция",
+            "Адаптив и базовая SEO",
+          ],
+        },
         {
           id: "aesthetic-web",
           name: "Aesthetic Web",
@@ -237,13 +321,29 @@ const ru: ServicesCopy = {
           timeline: "10–14 дней",
           featured: true,
           audience:
-            "Стартапы перед запуском, crypto и AI SaaS — сильный визуал и аккуратный фронтенд для презентации продукта.",
-          description: "Premium design и frontend — бренд, скорость, детали.",
+            "Стартапы перед запуском — премиальная визуальная идентичность и motion-история.",
+          description: "Дизайн-ориентированный сайт — бренд, детали, готовность к питчу.",
           deliverables: [
             "Уникальный концепт в Figma (до 5 страниц)",
             "Фронтенд на Next.js / Tailwind CSS",
             "Микро-анимации на Framer Motion",
             "Адаптив, базовая SEO-оптимизация",
+          ],
+        },
+        {
+          id: "multi-page-site",
+          name: "Многостраничный сайт",
+          price: "$4,200",
+          timeline: "12–16 дней",
+          audience:
+            "Бизнесу нужен полноценный сайт компании — услуги, о нас, контакты и задел на рост.",
+          description:
+            "Структурированный многостраничник с навигацией, контентными блоками и CMS-ready основой.",
+          deliverables: [
+            "Карта сайта и дизайн (до 10 страниц)",
+            "Next.js с общей layout-системой",
+            "Структура блога или новостей",
+            "Формы, SEO-база, деплой",
           ],
         },
         {
@@ -261,6 +361,40 @@ const ru: ServicesCopy = {
             "Интеграция OpenAI / LLM со streaming",
             "Память сессий в Redis или БД",
             "Деплой, документация и передача",
+          ],
+        },
+        {
+          id: "web-app",
+          name: "Web App / Dashboard",
+          price: "$5,200",
+          timeline: "14–18 дней",
+          audience:
+            "SaaS, клиентский портал или внутренний дашборд — без тяжёлого AI-scope.",
+          description:
+            "Веб-приложение с авторизацией, бэкендом, БД и рабочим продуктовым интерфейсом.",
+          deliverables: [
+            "UX-сценарии и дизайн dashboard/product UI",
+            "Auth (email, OAuth или magic link)",
+            "Бэкенд на Supabase / PostgreSQL",
+            "Ключевые фичи и admin-виды",
+            "Production-деплой и передача",
+          ],
+        },
+        {
+          id: "ecommerce-store",
+          name: "Интернет-магазин",
+          price: "$5,800",
+          timeline: "14–18 дней",
+          featured: true,
+          audience:
+            "Бренды с физическими или цифровыми товарами — бутик-ощущение и реальный checkout.",
+          description:
+            "Магазин с каталогом, корзиной и Stripe — кастомный UI, не шаблонная тема.",
+          deliverables: [
+            "Дизайн витрины и карточек товаров",
+            "Корзина, checkout и интеграция Stripe",
+            "CMS или админка для товаров и категорий",
+            "Флоу заказа, адаптив, деплой",
           ],
         },
         {
@@ -378,21 +512,54 @@ const am: ServicesCopy = {
       id: "packages",
       level: "Մակարդակ 2",
       title: "Փաթեթային լուծումներ",
-      subtitle: "Ֆիքսված scope-ով փաթեթներ գործարկման և աճի համար։",
+      subtitle:
+        "Կայքեր, խանութներ, բոտեր և AI արտադրանք — ֆիքսված scope, գին և ժամկետ։",
       items: [
+        {
+          id: "landing-page",
+          name: "Landing Page",
+          price: "$2,500",
+          timeline: "7–10 օր",
+          audience:
+            "Հիմնադիրներին և բրենդներին, ովքերին պետք է մեկ ուժեղ էջ վաճառքի, դիմումների կամ առաջարկի համար։",
+          description:
+            "Մի էջանոց կայք կոնվերսիայի համար — պարզ կառուցվածք, արագ բեռնում, ադապտիվ։",
+          deliverables: [
+            "UX կառուցվածք և դիզայն (1 էջ)",
+            "Next.js + Tailwind իրականացում",
+            "Դիմումի ձև կամ CTA ինտեգրացիա",
+            "Ադապտիվ և SEO հիմունք",
+          ],
+        },
         {
           id: "aesthetic-web",
           name: "Aesthetic Web",
           price: "$3,500",
           timeline: "10–14 օր",
           featured: true,
-          audience: "Ստարտափներ, crypto և AI SaaS — պրեմիում ներկայացում։",
-          description: "Premium design և frontend։",
+          audience: "Ստարտափներ գործարկումից առաջ — պրեմիում վիզուալ և motion-պատմություն։",
+          description: "Դիզայն-կենտրոնացված վեբ փորձ — բրենդ և pitch-ready լուք։",
           deliverables: [
             "Figma կոնցեպտ (մինչև 5 էջ)",
             "Next.js / Tailwind frontend",
             "Framer Motion անիմացիաներ",
             "Ադապտիվ և SEO",
+          ],
+        },
+        {
+          id: "multi-page-site",
+          name: "Բազմաէջ կայք",
+          price: "$4,200",
+          timeline: "12–16 օր",
+          audience:
+            "Բիզնեսին պետք է ամբողջական կորպորատիվ կայք — ծառայություններ, մեր մասին, կապ և աճի հիմք։",
+          description:
+            "Կառուցվածքային բազմաէջ կայք նավիգացիայով, բովանդակային բլոկներով և CMS-ready հիմքով։",
+          deliverables: [
+            "Կայքի քարտեզ և դիզայն (մինչև 10 էջ)",
+            "Next.js frontend ընդհանուր layout-ով",
+            "Բլոգի կամ նորությունների կառուցվածք",
+            "Ձևեր, SEO, deploy",
           ],
         },
         {
@@ -410,6 +577,40 @@ const am: ServicesCopy = {
             "OpenAI / LLM ինտեգրացիա streaming-ով",
             "Redis կամ DB session memory",
             "Deploy, փաստաթղթավորում",
+          ],
+        },
+        {
+          id: "web-app",
+          name: "Web App / Dashboard",
+          price: "$5,200",
+          timeline: "14–18 օր",
+          audience:
+            "SaaS, client portal կամ ներքին dashboard — առանց ծանր AI scope-ի։",
+          description:
+            "Ավտորիզացիայով վեբ հավելված backend-ով, DB-ով և աշխատող product UI-ով։",
+          deliverables: [
+            "UX հոսքեր և dashboard/product դիզայն",
+            "Auth (email, OAuth կամ magic link)",
+            "Supabase / PostgreSQL backend",
+            "Հիմնական ֆիչեր և admin տեսքեր",
+            "Production deploy",
+          ],
+        },
+        {
+          id: "ecommerce-store",
+          name: "Ինտերնետ խանութ",
+          price: "$5,800",
+          timeline: "14–18 օր",
+          featured: true,
+          audience:
+            "Բրենդներ ֆիզիկական կամ թվային ապրանքներով — բուտիկի զգացողություն և իրական checkout։",
+          description:
+            "Առցանց խանութ կատալոգով, զամբյուղով և Stripe-ով — custom UI, ոչ թե թեմա։",
+          deliverables: [
+            "Խանութի և ապրանքների էջերի դիզայն",
+            "Զամբյուղ, checkout և Stripe",
+            "CMS կամ ադմին ապրանքների համար",
+            "Պատվերի հոսք, ադապտիվ, deploy",
           ],
         },
         {
