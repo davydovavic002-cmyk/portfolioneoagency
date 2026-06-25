@@ -5,7 +5,6 @@ import { SITE_CONFIG } from "@/config/site";
 import {
   aboutByLanguage,
   ABOUT_ACCENT,
-  ABOUT_SECTIONS,
   type AboutSectionId,
 } from "@/lib/i18n/about";
 import type { Language } from "@/lib/types";
@@ -20,14 +19,10 @@ export function AboutView({ language, scrollToSection }: AboutViewProps) {
   const isArmenian = language === "am";
   const fontClass = isArmenian ? "font-armenian" : "";
 
-  const scrollToAboutSection = (sectionId: AboutSectionId) => {
-    document.getElementById(`about-${sectionId}`)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   const sectionScrollClass = (sectionId: AboutSectionId) =>
     scrollToSection === sectionId
-      ? "scroll-mt-20 rounded-2xl ring-1 ring-white/[0.08] lg:scroll-mt-8"
-      : "scroll-mt-20 lg:scroll-mt-8";
+      ? "scroll-mt-8 rounded-2xl ring-1 ring-white/[0.08]"
+      : "scroll-mt-8";
 
   return (
     <div
@@ -44,24 +39,6 @@ export function AboutView({ language, scrollToSection }: AboutViewProps) {
           {copy.heroSubtitle}
         </p>
       </header>
-
-      <nav className="sticky top-0 z-10 -mx-5 mb-8 flex gap-2 overflow-x-auto border-b border-white/[0.06] bg-[#080808]/95 px-5 py-3 backdrop-blur-md lg:hidden">
-        {ABOUT_SECTIONS.map((sectionId) => (
-          <button
-            key={sectionId}
-            type="button"
-            onClick={() => scrollToAboutSection(sectionId)}
-            className="shrink-0 rounded-full border border-white/[0.08] px-3 py-1.5 text-[11px] text-zinc-400 transition-colors hover:text-zinc-200"
-            style={
-              scrollToSection === sectionId
-                ? { borderColor: `${ABOUT_ACCENT}66`, color: ABOUT_ACCENT }
-                : undefined
-            }
-          >
-            {copy.sections[sectionId]}
-          </button>
-        ))}
-      </nav>
 
       <div className="space-y-12 lg:space-y-16">
         {/* Studio */}

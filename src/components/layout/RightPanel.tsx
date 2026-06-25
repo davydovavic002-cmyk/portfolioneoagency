@@ -47,7 +47,7 @@ export function RightPanel({
         <div className="relative min-h-0 flex-1">
           <AnimatePresence mode="wait">
             <motion.div
-              key={language}
+              key={`about-${language}`}
               className="h-full"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -74,7 +74,7 @@ export function RightPanel({
         <div className="relative min-h-0 flex-1">
           <AnimatePresence mode="wait">
             <motion.div
-              key={language}
+              key={`services-${language}`}
               className="h-full"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

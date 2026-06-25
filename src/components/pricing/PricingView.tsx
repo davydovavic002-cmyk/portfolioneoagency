@@ -17,10 +17,6 @@ export function PricingView({ language, scrollToTier }: PricingViewProps) {
   const copy = servicesByLanguage[language];
   const isArmenian = language === "am";
 
-  const scrollToTierSection = (tierId: ServiceTierId) => {
-    document.getElementById(`tier-${tierId}`)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <div
       className={`preview-scroll h-full overflow-y-auto px-5 py-6 pb-12 lg:px-10 lg:py-10 lg:pb-16 ${isArmenian ? "font-armenian" : ""}`}
@@ -37,24 +33,6 @@ export function PricingView({ language, scrollToTier }: PricingViewProps) {
         </p>
       </header>
 
-      <nav className="sticky top-0 z-10 -mx-5 mb-8 flex gap-2 overflow-x-auto border-b border-white/[0.06] bg-[#080808]/95 px-5 py-3 backdrop-blur-md lg:hidden">
-        {copy.tiers.map((tier) => (
-          <button
-            key={tier.id}
-            type="button"
-            onClick={() => scrollToTierSection(tier.id)}
-            className="shrink-0 rounded-full border border-white/[0.08] px-3 py-1.5 text-[11px] text-zinc-400 transition-colors hover:text-zinc-200"
-            style={
-              scrollToTier === tier.id
-                ? { borderColor: `${TIER_ACCENTS[tier.id]}66`, color: TIER_ACCENTS[tier.id] }
-                : undefined
-            }
-          >
-            {tier.title}
-          </button>
-        ))}
-      </nav>
-
       <div className="space-y-12 lg:space-y-16">
         {copy.tiers.map((tier) => (
           <section
@@ -62,8 +40,8 @@ export function PricingView({ language, scrollToTier }: PricingViewProps) {
             id={`tier-${tier.id}`}
             className={
               scrollToTier === tier.id
-                ? "scroll-mt-20 rounded-2xl ring-1 ring-white/[0.08] lg:scroll-mt-8"
-                : "scroll-mt-20 lg:scroll-mt-8"
+                ? "scroll-mt-8 rounded-2xl ring-1 ring-white/[0.08]"
+                : "scroll-mt-8"
             }
           >
             <div className="mb-6 flex items-end justify-between gap-4 border-b border-white/[0.06] pb-4">

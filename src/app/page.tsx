@@ -43,6 +43,11 @@ export default function Home() {
       setActiveTier(null);
       if (isMobile) setMobileShowContent(true);
     }
+    if (isMobile && (mode === "services" || mode === "about")) {
+      requestAnimationFrame(() => {
+        document.querySelector<HTMLElement>(".preview-scroll")?.scrollTo({ top: 0 });
+      });
+    }
   };
 
   const handleProjectSelect = (id: ProjectId) => {
