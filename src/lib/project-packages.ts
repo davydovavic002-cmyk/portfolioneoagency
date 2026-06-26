@@ -15,7 +15,7 @@ export type ServiceItemId =
   | "neo-dedicated";
 
 export const PROJECT_PACKAGE_MAP: Record<ProjectId, ServiceItemId> = {
-  "aura-hair": "multi-page-site",
+  "aura-hair": "aesthetic-web",
   "neuro-academy": "landing-page",
   "jewelry-store": "ecommerce-store",
   "petcare-ai": "ai-core-mvp",
