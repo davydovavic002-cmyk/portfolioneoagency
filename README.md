@@ -1,14 +1,15 @@
-# Living Simulator — Developer Portfolio
+# Neo Studio — Portfolio
 
-Personal portfolio with a "Living Simulator" aesthetic — dark brutalism / Cyber-Laboratory.
+Product studio portfolio with live project previews, transparent pricing, and tri-lingual UI (EN / RU / AM).
+
+**Live:** [neostudio.space](https://neostudio.space)
 
 ## Stack
 
 - **Next.js 15** (App Router)
 - **Tailwind CSS 4**
-- **Framer Motion** — animations
-- **Lucide React** — icons
-- **i18n** — RU / EN / AM
+- **Framer Motion**
+- **TypeScript**
 
 ## Getting Started
 
@@ -19,42 +20,44 @@ npm run dev
 
 Open [http://localhost:3001](http://localhost:3001).
 
-> Port 3000 is reserved for the Neuro-Engineering Academy project. This portfolio runs on **3001**.
+> Port **3001** in production/PM2. Port 3000 is used by Neuro-Engineering Academy preview on the same server.
 
 ## Structure
 
 ```
 src/
-├── app/
-│   ├── layout.tsx       # Root layout, fonts (Geist + Noto Armenian)
-│   ├── page.tsx         # Main page with activeProject + language state
-│   └── globals.css      # Tailwind + brutalist styles
+├── app/                    # Layout, page, OG image, icon
 ├── components/
-│   ├── layout/
-│   │   ├── LeftPanel.tsx
-│   │   ├── RightPanel.tsx
-│   │   └── LanguageSwitcher.tsx
-│   ├── simulator/
-│   │   ├── DeviceFrame.tsx
-│   │   └── SimulatorView.tsx
-│   └── projects/
-│       ├── NeuroAcademySim.tsx    # iframe → live site
-│       ├── NeuroShporaSim.tsx     # Telegram bot UI
-│       ├── BlessedAngelSim.tsx    # 2D configurator
-│       ├── JewelryStoreSim.tsx    # luxury e-commerce
-│       └── PetCareSim.tsx         # AI vet dashboard
+│   ├── about/              # About tab
+│   ├── brand/              # NeoLogo
+│   ├── layout/             # LeftPanel, RightPanel, nav
+│   ├── pricing/            # Services / packages
+│   ├── projects/           # Case study strip, simulators
+│   └── simulator/          # Device frame, iframe previews
+├── config/site.ts          # Telegram, brand
 └── lib/
-    ├── types.ts
-    ├── projects.ts
-    └── i18n/dictionary.ts
+    ├── i18n/               # dictionary, services, about, case-studies
+    ├── projects.ts         # Project list + preview URLs
+    └── project-packages.ts # Project ↔ pricing package map
 ```
 
-## Projects
+## Projects (live previews)
 
-| # | Case | Device | Status |
-|---|------|--------|--------|
-| 1 | Neuro-Engineering Academy | Monitor | Live iframe |
-| 2 | AI Telegram Bot (NeuroShpora) | Phone | Interactive chat |
-| 3 | Blessed Angel | Monitor | Configurator stub |
-| 4 | Jewelry Luxury Store | Monitor | E-commerce stub |
-| 5 | PetCare AI | Phone | Diagnostic stub |
+| Project | Preview |
+|---------|---------|
+| AURA Hair Space | aura.neostudio.space |
+| Jellybead | jelly.neostudio.space |
+| PetCare AI | petcare.neostudio.space |
+| Neuro-Engineering Academy | academy.neostudio.space |
+| NeuroShpora | In-app Telegram sim |
+| Blessed Angel | blessedangel.store |
+
+Preview subdomains are proxied via nginx — see `deploy/nginx/preview-sites.conf`.
+
+## Deploy
+
+```bash
+git pull
+npm run build
+pm2 restart portfolio
+```

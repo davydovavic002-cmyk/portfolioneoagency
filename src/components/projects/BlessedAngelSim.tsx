@@ -15,7 +15,7 @@ const ITEMS: Record<
 > = {
   ru: [
     { name: "Кристальный Ангел", tag: "SIGNATURE", price: "₽ 12 400" },
-    { name: "Нeon Halo Charm", tag: "LIMITED", price: "₽ 8 900" },
+    { name: "Neon Halo Charm", tag: "LIMITED", price: "₽ 8 900" },
     { name: "Void Chain Link", tag: "CORE", price: "₽ 6 200" },
     { name: "Prism Drop", tag: "NEW", price: "₽ 9 600" },
   ],

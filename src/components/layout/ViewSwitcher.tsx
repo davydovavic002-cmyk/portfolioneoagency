@@ -33,6 +33,8 @@ export function ViewSwitcher({
 
   return (
     <div
+      role="tablist"
+      aria-label="Main navigation"
       className={`flex gap-0.5 rounded-full border border-white/[0.08] bg-white/[0.03] p-1 ${
         fullWidth ? "w-full" : ""
       }`}
@@ -41,8 +43,10 @@ export function ViewSwitcher({
         <button
           key={id}
           type="button"
+          role="tab"
+          aria-selected={mode === id}
           onClick={() => onChange(id)}
-          className={`rounded-full py-1.5 text-[11px] transition-all duration-200 ${
+          className={`rounded-full py-1.5 text-[11px] transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 ${
             fullWidth ? "flex-1 px-2 text-center" : "px-3"
           } ${
             mode === id

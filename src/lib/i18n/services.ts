@@ -35,7 +35,7 @@ const en: ServicesCopy = {
   heroTitle: "Services & Pricing",
   heroSubtitle:
     "Transparent packages — from a focused audit to a full product launch. Fixed scope, fixed price.",
-  bookCall: "Go to booking",
+  bookCall: "Message on Telegram",
   forWhom: "For whom",
   includes: "What's included",
   timeline: "Timeline",
@@ -61,7 +61,7 @@ const en: ServicesCopy = {
         },
         {
           id: "hero",
-          name: "High-Converting Web3/AI Hero Section",
+          name: "High-Converting AI Hero Section",
           price: "$1,200",
           timeline: "3–5 days",
           description:
@@ -252,7 +252,7 @@ const ru: ServicesCopy = {
   heroTitle: "Услуги и прайс",
   heroSubtitle:
     "Прозрачные пакеты — от аудита до полноценного запуска продукта. Фиксированный scope и цена.",
-  bookCall: "Перейти к бронированию",
+  bookCall: "Написать в Telegram",
   forWhom: "Для кого",
   includes: "Что входит",
   timeline: "Срок",
@@ -265,7 +265,7 @@ const ru: ServicesCopy = {
       items: [
         {
           id: "audit",
-          name: "AI Automation Audit & Consulting",
+          name: "AI-аудит и консалтинг по автоматизации",
           price: "$450",
           description:
             "Полуторачасовая сессия + интерактивная карта в Miro/Notion. Разбираем продукт или процесс и описываем архитектуру: какие AI-модели подойдут, как связать фронтенд с Supabase и что автоматизировать в первую очередь.",
@@ -278,11 +278,11 @@ const ru: ServicesCopy = {
         },
         {
           id: "hero",
-          name: "High-Converting Web3/AI Hero Section",
+          name: "Конверсионный hero-блок с AI",
           price: "$1,200",
           timeline: "3–5 дней",
           description:
-            "Дизайн и fullstack главного экрана — интерактивный 3D/AI-элемент, glass UI, типографика, готовый production-код.",
+            "Дизайн и фулстек главного экрана — интерактивный 3D/AI-элемент, glass UI, типографика, готовый продакшн-код.",
           deliverables: [
             "Концепт и визуальный дизайн hero",
             "Реализация на Next.js + Tailwind",
@@ -296,11 +296,11 @@ const ru: ServicesCopy = {
       level: "Уровень 2",
       title: "Пакетные решения",
       subtitle:
-        "Сайты, магазины, боты и AI-продукты — фиксированный scope, цена и срок.",
+        "Сайты, магазины, боты и AI-продукты — фиксированный объём, цена и срок.",
       items: [
         {
           id: "landing-page",
-          name: "Landing Page",
+          name: "Лендинг",
           price: "$2,500",
           timeline: "7–10 дней",
           audience:
@@ -316,7 +316,7 @@ const ru: ServicesCopy = {
         },
         {
           id: "aesthetic-web",
-          name: "Aesthetic Web",
+          name: "Эстетичный веб",
           price: "$3,500",
           timeline: "10–14 дней",
           featured: true,
@@ -348,7 +348,7 @@ const ru: ServicesCopy = {
         },
         {
           id: "telegram-bot",
-          name: "Telegram AI Bot",
+          name: "Telegram AI-бот",
           price: "$4,500",
           timeline: "10–14 дней",
           audience:
@@ -365,7 +365,7 @@ const ru: ServicesCopy = {
         },
         {
           id: "web-app",
-          name: "Web App / Dashboard",
+          name: "Веб-приложение / Дашборд",
           price: "$5,200",
           timeline: "14–18 дней",
           audience:
@@ -405,7 +405,8 @@ const ru: ServicesCopy = {
           featured: true,
           audience:
             "Команды, которым нужен рабочий продукт с AI внутри — не только лендинг.",
-          description: "Fullstack + AI, авторизация и платежи.",
+          description:
+            "Фулстек-продукт с AI-модулями, авторизацией и платежами.",
           deliverables: [
             "Бэкенд и БД на Supabase / FastAPI / PostgreSQL",
             "AI-инструменты через API (медиа, LLM-агенты, чат)",
@@ -469,7 +470,7 @@ const am: ServicesCopy = {
   heroTitle: "Ծառայություններ և գներ",
   heroSubtitle:
     "Թափանցիկ փաթեթներ՝ աուդիտից մինչև ամբողջական արտադրանքի գործարկում։",
-  bookCall: "Անցնել ամրագրման",
+  bookCall: "Գրել Telegram-ում",
   forWhom: "Ում համար",
   includes: "Ինչ է ներառված",
   timeline: "Ժամկետ",
@@ -482,24 +483,24 @@ const am: ServicesCopy = {
       items: [
         {
           id: "audit",
-          name: "AI Automation Audit & Consulting",
+          name: "AI ավտոմատացման աուդիտ և խորհրդատվություն",
           price: "$450",
           description:
             "90 րոպե ռազմավարական սեսիա + ինտերակտիվ քարտեզ Miro/Notion-ում։ Վերլուծում ենք արտադրանքը և AI արխիտեկտուրան։",
           deliverables: [
             "90 րոպե ռազմավարական սեսիա",
             "Miro / Notion քարտեզ",
-            "AI stack խորհուրդներ",
+            "AI-յի խորհուրդներ",
             "Գրավոր ամփոփում և հաջորդ քայլեր",
           ],
         },
         {
           id: "hero",
-          name: "High-Converting Web3/AI Hero Section",
+          name: "Կոնվերսիոն AI hero բլոկ",
           price: "$1,200",
           timeline: "3–5 օր",
           description:
-            "Hero էկրանի դիզայն և fullstack՝ ինտերակտիվ 3D/AI, glass UI, պրեմիում տիպոգրաֆիա։",
+            "Hero էկրանի դիզայն և լիաէջ իրականացում՝ ինտերակտիվ 3D/AI, glass UI, պրեմիում տիպոգրաֆիա։",
           deliverables: [
             "Hero կոնցեպտ",
             "Next.js + Tailwind",
@@ -513,11 +514,11 @@ const am: ServicesCopy = {
       level: "Մակարդակ 2",
       title: "Փաթեթային լուծումներ",
       subtitle:
-        "Կայքեր, խանութներ, բոտեր և AI արտադրանք — ֆիքսված scope, գին և ժամկետ։",
+        "Կայքեր, խանութներ, բոտեր և AI արտադրանք — ֆիքսված շրջանակ, գին և ժամկետ։",
       items: [
         {
           id: "landing-page",
-          name: "Landing Page",
+          name: "Լենդինգ",
           price: "$2,500",
           timeline: "7–10 օր",
           audience:
@@ -533,7 +534,7 @@ const am: ServicesCopy = {
         },
         {
           id: "aesthetic-web",
-          name: "Aesthetic Web",
+          name: "Էսթետիկ վեբ",
           price: "$3,500",
           timeline: "10–14 օր",
           featured: true,
@@ -564,11 +565,11 @@ const am: ServicesCopy = {
         },
         {
           id: "telegram-bot",
-          name: "Telegram AI Bot",
+          name: "Telegram AI բոտ",
           price: "$4,500",
           timeline: "10–14 օր",
           audience:
-            "EdTech, support և SaaS — AI ագենտ այնտեղ, որտեղ օգտատերերն արդեն կան՝ Telegram-ում։",
+            "EdTech, աջակցություն և SaaS — AI ագենտ այնտեղ, որտեղ օգտատերերն արդեն կան՝ Telegram-ում։",
           description:
             "Production-ready Telegram բոտ LLM ագենտներով, դիալոգային հոսքերով և session memory-ով։",
           deliverables: [
@@ -581,11 +582,11 @@ const am: ServicesCopy = {
         },
         {
           id: "web-app",
-          name: "Web App / Dashboard",
+          name: "Վեբ հավելված / Dashboard",
           price: "$5,200",
           timeline: "14–18 օր",
           audience:
-            "SaaS, client portal կամ ներքին dashboard — առանց ծանր AI scope-ի։",
+            "SaaS, հաճախորդի պորտալ կամ ներքին dashboard — առանց ծանր AI շրջանակի։",
           description:
             "Ավտորիզացիայով վեբ հավելված backend-ով, DB-ով և աշխատող product UI-ով։",
           deliverables: [
@@ -619,11 +620,13 @@ const am: ServicesCopy = {
           price: "$6,000",
           timeline: "14–21 օր",
           featured: true,
-          audience: "Թիմեր, որոնց պետք է աշխատող AI արտադրանք։",
-          description: "Fullstack + AI ինտեգրացիա։",
+          audience:
+            "Թիմեր, որոնց պետք է աշխատող AI արտադրանք՝ ոչ միայն լենդինգ։",
+          description:
+            "Լիաէջ արտադրանք AI մոդուլներով, ավտորիզացիայով և վճարումներով։",
           deliverables: [
             "Supabase / FastAPI / PostgreSQL backend",
-            "Custom AI API",
+            "AI գործիքներ API-ով (մեդիա, LLM ագենտներ, չատ)",
             "Auth և Stripe",
             "Dashboard UI/UX",
           ],

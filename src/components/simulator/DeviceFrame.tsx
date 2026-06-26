@@ -61,7 +61,7 @@ export function DeviceFrame({
                 {meta.browserLabel}
               </span>
             </div>
-            {isMobile && openSiteUrl && openSiteLabel && (
+            {openSiteUrl && openSiteLabel && (
               <a
                 href={openSiteUrl}
                 target="_blank"

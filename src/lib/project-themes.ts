@@ -4,6 +4,10 @@ export const projectThemes: Record<
   ProjectId,
   { accent: string; glow: string }
 > = {
+  "aura-hair": {
+    accent: "#b85c6e",
+    glow: "rgba(184, 92, 110, 0.16)",
+  },
   "neuro-academy": {
     accent: "#8b9cf6",
     glow: "rgba(139, 156, 246, 0.18)",

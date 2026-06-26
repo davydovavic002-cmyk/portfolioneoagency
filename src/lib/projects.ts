@@ -2,6 +2,14 @@ import type { ProjectId, ProjectMeta } from "./types";
 
 export const projects: ProjectMeta[] = [
   {
+    id: "aura-hair",
+    device: "monitor",
+    year: "2026",
+    stack: ["Next.js", "Framer Motion", "TypeScript"],
+    browserLabel: "aurahair.sg",
+    previewUrl: "https://aura.neostudio.space/",
+  },
+  {
     id: "jewelry-store",
     device: "monitor",
     year: "2026",

@@ -13,6 +13,27 @@ interface Layout {
   height: number;
 }
 
+const PREVIEW_COPY: Record<
+  Language,
+  { loading: string; error: string; retry: string }
+> = {
+  en: {
+    loading: "Loading preview…",
+    error: "Preview could not load.",
+    retry: "Open site",
+  },
+  ru: {
+    loading: "Загрузка превью…",
+    error: "Не удалось загрузить превью.",
+    retry: "Открыть сайт",
+  },
+  am: {
+    loading: "Նախադիտումը բեռնվում է…",
+    error: "Չհաջողվեց բեռնել նախադիտումը։",
+    retry: "Բացել կայքը",
+  },
+};
+
 function supportsZoom(): boolean {
   if (typeof CSS === "undefined" || !CSS.supports) return false;
   return CSS.supports("zoom", "1");
@@ -124,6 +145,35 @@ function postLanguageToIframe(iframe: HTMLIFrameElement | null, language: Langua
   );
 }
 
+function PreviewStatus({
+  language,
+  state,
+  openUrl,
+}: {
+  language: Language;
+  state: "loading" | "error";
+  openUrl?: string;
+}) {
+  const copy = PREVIEW_COPY[language];
+  return (
+    <div className="flex h-full min-h-[200px] flex-col items-center justify-center gap-3 bg-[#0a0a0a] px-6 text-center">
+      <p className="text-[13px] text-zinc-500">
+        {state === "loading" ? copy.loading : copy.error}
+      </p>
+      {state === "error" && openUrl && (
+        <a
+          href={openUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-full border border-white/[0.12] px-4 py-2 text-[12px] text-zinc-300 transition-colors hover:border-white/25 hover:text-white"
+        >
+          {copy.retry}
+        </a>
+      )}
+    </div>
+  );
+}
+
 export function DesktopSitePreview({
   previewUrl,
   title,
@@ -133,44 +183,77 @@ export function DesktopSitePreview({
 }: DesktopSitePreviewProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const src = previewUrl ? buildPreviewUrl(previewUrl, language) : undefined;
+  const [loadState, setLoadState] = useState<"loading" | "ready" | "error">(
+    previewUrl ? "loading" : "ready",
+  );
+
+  useEffect(() => {
+    if (previewUrl) setLoadState("loading");
+  }, [previewUrl, src]);
 
   useEffect(() => {
     postLanguageToIframe(iframeRef.current, language);
   }, [language, src]);
 
+  const iframeProps = {
+    ref: iframeRef,
+    key: src,
+    src,
+    title,
+    sandbox: "allow-scripts allow-same-origin allow-forms allow-popups" as const,
+    onLoad: () => {
+      setLoadState("ready");
+      postLanguageToIframe(iframeRef.current, language);
+    },
+    onError: () => setLoadState("error"),
+  };
+
   if (previewUrl && isMobile) {
     return (
-      <iframe
-        ref={iframeRef}
-        key={src}
-        src={src}
-        title={title}
-        className="block h-full min-h-0 w-full flex-1 border-0 bg-white"
-        sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-        onLoad={() => postLanguageToIframe(iframeRef.current, language)}
-      />
+      <div className="relative flex min-h-0 flex-1 flex-col">
+        {loadState === "loading" && (
+          <div className="absolute inset-0 z-10">
+            <PreviewStatus language={language} state="loading" />
+          </div>
+        )}
+        {loadState === "error" && (
+          <PreviewStatus language={language} state="error" openUrl={src} />
+        )}
+        <iframe
+          {...iframeProps}
+          className={`block h-full min-h-0 w-full flex-1 border-0 bg-white ${
+            loadState === "error" ? "hidden" : ""
+          }`}
+        />
+      </div>
     );
   }
 
   if (previewUrl) {
     return (
-      <DesktopPreviewViewport>
-        <iframe
-          ref={iframeRef}
-          key={src}
-          src={src}
-          title={title}
-          width={DESKTOP_VIEWPORT_WIDTH}
-          height={DESKTOP_VIEWPORT_HEIGHT}
-          className="block h-full w-full border-0 bg-white"
-          style={{
-            minWidth: DESKTOP_VIEWPORT_WIDTH,
-            minHeight: DESKTOP_VIEWPORT_HEIGHT,
-          }}
-          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-          onLoad={() => postLanguageToIframe(iframeRef.current, language)}
-        />
-      </DesktopPreviewViewport>
+      <div className="relative flex min-h-0 flex-1 flex-col">
+        {loadState === "loading" && (
+          <div className="absolute inset-0 z-10">
+            <PreviewStatus language={language} state="loading" />
+          </div>
+        )}
+        {loadState === "error" ? (
+          <PreviewStatus language={language} state="error" openUrl={src} />
+        ) : (
+          <DesktopPreviewViewport>
+            <iframe
+              {...iframeProps}
+              width={DESKTOP_VIEWPORT_WIDTH}
+              height={DESKTOP_VIEWPORT_HEIGHT}
+              className="block h-full w-full border-0 bg-white"
+              style={{
+                minWidth: DESKTOP_VIEWPORT_WIDTH,
+                minHeight: DESKTOP_VIEWPORT_HEIGHT,
+              }}
+            />
+          </DesktopPreviewViewport>
+        )}
+      </div>
     );
   }
 

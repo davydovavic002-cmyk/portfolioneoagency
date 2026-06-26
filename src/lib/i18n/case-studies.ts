@@ -23,13 +23,24 @@ const en: CaseStudiesCopy = {
   solutionLabel: "Solution",
   resultsLabel: "Results",
   byProject: {
+    "aura-hair": {
+      challenge:
+        "A premium salon needed a digital presence that matches in-chair experience — not a generic booking widget.",
+      solution:
+        "Multi-step booking flow with stylist profiles, service menu, hair diagnostics, and live slot picker — on the Multi-page Website package.",
+      metrics: [
+        { value: "12–16d", label: "Package timeline" },
+        { value: "4", label: "Booking steps" },
+        { value: "Dark mode", label: "Theme support" },
+      ],
+    },
     "petcare-ai": {
       challenge:
         "Vet clinics needed a demo-ready AI product without rebuilding their entire stack.",
       solution:
-        "Scoped an MVP with diagnostic AI, feed analysis, and a clinic-facing dashboard — shipped in 18 days on the AI Core MVP package.",
+        "Scoped an MVP with diagnostic AI, feed analysis, and a clinic-facing dashboard — on the AI Core MVP package.",
       metrics: [
-        { value: "18 days", label: "MVP delivered" },
+        { value: "14–21d", label: "Package timeline" },
         { value: "3", label: "Clinic workflows" },
         { value: "AI Core", label: "Package tier" },
       ],
@@ -40,9 +51,9 @@ const en: CaseStudiesCopy = {
       solution:
         "Custom Next.js boutique with Stripe, CMS-driven catalog, and motion-led product storytelling.",
       metrics: [
-        { value: "12 days", label: "Launch timeline" },
+        { value: "14–18d", label: "Package timeline" },
         { value: "Stripe", label: "Live payments" },
-        { value: "100%", label: "Custom UI" },
+        { value: "CMS", label: "Catalog" },
       ],
     },
     "neuro-academy": {
@@ -51,20 +62,20 @@ const en: CaseStudiesCopy = {
       solution:
         "Editorial layout, structured offer blocks, and conversion-focused UX with trilingual support.",
       metrics: [
-        { value: "12 days", label: "From brief to live" },
+        { value: "7–10d", label: "Package timeline" },
         { value: "3", label: "Languages" },
-        { value: "↑", label: "Leads from week 1" },
+        { value: "Landing", label: "Package tier" },
       ],
     },
     "neuro-shpora": {
       challenge:
         "Students needed exam prep that works inside Telegram — fast, contextual, and always available.",
       solution:
-        "Agentic bot with subject flows, SOS kits, streaming AI tutor — delivered in 12 days on the Telegram AI Bot package.",
+        "Agentic bot with subject flows, SOS kits, and streaming AI tutor — on the Telegram AI Bot package.",
       metrics: [
-        { value: "12 days", label: "Bot delivered" },
+        { value: "10–14d", label: "Package timeline" },
         { value: "12+", label: "Exam subjects" },
-        { value: "<2s", label: "First response" },
+        { value: "Telegram", label: "Native UX" },
       ],
     },
     "blessed-angel": {
@@ -73,9 +84,9 @@ const en: CaseStudiesCopy = {
       solution:
         "3D-inspired configurator with Framer Motion, brand-led visuals, and checkout-ready flows.",
       metrics: [
-        { value: "14 days", label: "Concept to launch" },
+        { value: "10–14d", label: "Package timeline" },
         { value: "3D", label: "Configurator UX" },
-        { value: "↑", label: "Engagement vs catalog" },
+        { value: "Aesthetic", label: "Package tier" },
       ],
     },
   },
@@ -86,13 +97,24 @@ const ru: CaseStudiesCopy = {
   solutionLabel: "Решение",
   resultsLabel: "Результат",
   byProject: {
+    "aura-hair": {
+      challenge:
+        "Премиальному салону нужен цифровой опыт уровня кресла — не типовой виджет записи.",
+      solution:
+        "Многошаговое бронирование: профили стилистов, меню услуг, диагностика ухода и выбор слотов — пакет «Многостраничный сайт».",
+      metrics: [
+        { value: "12–16д", label: "Срок пакета" },
+        { value: "4", label: "Шага записи" },
+        { value: "Dark mode", label: "Темы" },
+      ],
+    },
     "petcare-ai": {
       challenge:
         "Ветклиникам нужен был AI-продукт для демо партнёрам без перестройки всего стека.",
       solution:
-        "MVP с диагностическим AI, анализом кормов и клиническим дашбордом — фиксированные спринты.",
+        "MVP с диагностическим AI, анализом кормов и клиническим дашбордом — пакет AI Core MVP.",
       metrics: [
-        { value: "18 дн", label: "MVP в продакшн" },
+        { value: "14–21д", label: "Срок пакета" },
         { value: "3", label: "Workflow клиники" },
         { value: "AI Core", label: "Пакет" },
       ],
@@ -103,9 +125,9 @@ const ru: CaseStudiesCopy = {
       solution:
         "Кастомный Next.js бутик со Stripe, CMS-каталогом и motion-историями вокруг продуктов.",
       metrics: [
-        { value: "12 дн", label: "Срок запуска" },
+        { value: "14–18д", label: "Срок пакета" },
         { value: "Stripe", label: "Оплата в проде" },
-        { value: "100%", label: "Кастомный UI" },
+        { value: "CMS", label: "Каталог" },
       ],
     },
     "neuro-academy": {
@@ -114,9 +136,9 @@ const ru: CaseStudiesCopy = {
       solution:
         "Редакционная вёрстка, структура оффера и UX на конверсию с поддержкой трёх языков.",
       metrics: [
-        { value: "12 дн", label: "От брифа до релиза" },
+        { value: "7–10д", label: "Срок пакета" },
         { value: "3", label: "Языка" },
-        { value: "↑", label: "Заявки с 1-й недели" },
+        { value: "Landing", label: "Пакет" },
       ],
     },
     "neuro-shpora": {
@@ -125,9 +147,9 @@ const ru: CaseStudiesCopy = {
       solution:
         "Агентный бот с предметами, SOS-наборами, streaming AI-репетитором и памятью сессий в Redis.",
       metrics: [
-        { value: "12 дн", label: "Бот в проде" },
+        { value: "10–14д", label: "Срок пакета" },
         { value: "12+", label: "Предметов ЕГЭ" },
-        { value: "<2с", label: "Первый ответ" },
+        { value: "Telegram", label: "Нативный UX" },
       ],
     },
     "blessed-angel": {
@@ -136,9 +158,9 @@ const ru: CaseStudiesCopy = {
       solution:
         "Конфигуратор с 3D-эстетикой, Framer Motion, визуалом бренда и готовностью к checkout.",
       metrics: [
-        { value: "14 дн", label: "От концепта" },
+        { value: "10–14д", label: "Срок пакета" },
         { value: "3D", label: "Конфигуратор" },
-        { value: "↑", label: "Вовлечённость" },
+        { value: "Aesthetic", label: "Пакет" },
       ],
     },
   },
@@ -149,13 +171,24 @@ const am: CaseStudiesCopy = {
   solutionLabel: "Լուծում",
   resultsLabel: "Արդյունք",
   byProject: {
+    "aura-hair": {
+      challenge:
+        "Պրեմիում սրահին պետք էր թվային փորձ, որը համապատասխանում է աթոռի մակարդակին՝ ոչ թե ստանդարտ ամրագրման վիդջետ։",
+      solution:
+        "Բազմաստիճան ամրագրում՝ ստայլիստների պրոֆիլներ, ծառայությունների մենյու, խնամքի ախտորոշում և ազատ slot-երի ընտրություն։",
+      metrics: [
+        { value: "12–16օ", label: "Փաթեթի ժամկետ" },
+        { value: "4", label: "Ամրագրման քայլ" },
+        { value: "Dark mode", label: "Թեմաներ" },
+      ],
+    },
     "petcare-ai": {
       challenge:
         "Վետկլինիկաներին պետք էր AI արտադրանք գործընկերներին ցույց տալու համար՝ առանց ամբողջ stack-ը փոխելու։",
       solution:
-        "MVP ախտորոշական AI-ով, կերերի վերլուծությամբ և կլինիկական dashboard-ով՝ ֆիքսված sprint-երով։",
+        "MVP ախտորոշական AI-ով, կերերի վերլուծությամբ և կլինիկական dashboard-ով՝ AI Core MVP փաթեթով։",
       metrics: [
-        { value: "18 օր", label: "MVP գործարկում" },
+        { value: "14–21օ", label: "Փաթեթի ժամկետ" },
         { value: "3", label: "Workflow" },
         { value: "AI Core", label: "Փաթեթ" },
       ],
@@ -166,9 +199,9 @@ const am: CaseStudiesCopy = {
       solution:
         "Պատվերով Next.js բուտիկ Stripe-ով, CMS կատալոգով և motion-պատմություններով։",
       metrics: [
-        { value: "12 օր", label: "Գործարկման ժամկետ" },
+        { value: "14–18օ", label: "Փաթեթի ժամկետ" },
         { value: "Stripe", label: "Վճարումներ" },
-        { value: "100%", label: "Custom UI" },
+        { value: "CMS", label: "Կատալոգ" },
       ],
     },
     "neuro-academy": {
@@ -177,9 +210,9 @@ const am: CaseStudiesCopy = {
       solution:
         "Խմբագրական դիզայն, առաջարկի կառուցվածք և կոնվերսիային UX երեք լեզվով։",
       metrics: [
-        { value: "12 օր", label: "Բրիֆից մինչև live" },
+        { value: "7–10օ", label: "Փաթեթի ժամկետ" },
         { value: "3", label: "Լեզու" },
-        { value: "↑", label: "Դիմումներ 1-ին շաբաթ" },
+        { value: "Landing", label: "Փաթեթ" },
       ],
     },
     "neuro-shpora": {
@@ -188,9 +221,9 @@ const am: CaseStudiesCopy = {
       solution:
         "Ագենտային բոտ առարկաներով, SOS հավաքածուներով, streaming AI դասատուով և Redis հիշողությամբ։",
       metrics: [
-        { value: "12 օր", label: "Բոտի գործարկում" },
+        { value: "10–14օ", label: "Փաթեթի ժամկետ" },
         { value: "12+", label: "Առարկա" },
-        { value: "<2վ", label: "Առաջին պատասխան" },
+        { value: "Telegram", label: "Native UX" },
       ],
     },
     "blessed-angel": {
@@ -199,9 +232,9 @@ const am: CaseStudiesCopy = {
       solution:
         "3D-գունավոր կոնֆիգուրատոր Framer Motion-ով, բրենդային վիզուալ և checkout-ready հոսքեր։",
       metrics: [
-        { value: "14 օր", label: "Կոնցեպտից" },
+        { value: "10–14օ", label: "Փաթեթի ժամկետ" },
         { value: "3D", label: "Կոնֆիգուրատոր" },
-        { value: "↑", label: "Ներգրավվածություն" },
+        { value: "Aesthetic", label: "Փաթեթ" },
       ],
     },
   },

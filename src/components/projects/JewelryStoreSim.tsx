@@ -39,10 +39,10 @@ export function JewelryStoreSim({ language }: JewelryStoreSimProps) {
 
   const labels =
     language === "ru"
-      ? { brand: "ATELIER", collection: "Коллекция SS26", view: "Смотреть" }
+      ? { brand: "Jellybead", collection: "Коллекция SS26", view: "Смотреть" }
       : language === "am"
-        ? { brand: "ATELIER", collection: "SS26 Հավաքածու", view: "Դիտել" }
-        : { brand: "ATELIER", collection: "SS26 Collection", view: "View" };
+        ? { brand: "Jellybead", collection: "SS26 Հավաքածու", view: "Դիտել" }
+        : { brand: "Jellybead", collection: "SS26 Collection", view: "View" };
 
   return (
     <div className="h-full overflow-y-auto bg-[#050505] text-white">

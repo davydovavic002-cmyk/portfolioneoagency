@@ -8,6 +8,7 @@ export type ViewMode = "work" | "services" | "about";
 export type ServiceTierId = "hooks" | "packages" | "flagship" | "retainer";
 
 export type ProjectId =
+  | "aura-hair"
   | "neuro-academy"
   | "neuro-shpora"
   | "blessed-angel"

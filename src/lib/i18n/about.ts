@@ -10,9 +10,13 @@ export interface ProcessStep {
 
 export interface Testimonial {
   id: string;
+  /** Factual delivery summary — not a client quote */
   quote: string;
+  /** Project / product name */
   author: string;
+  /** Package or deliverable line */
   role: string;
+  /** Timeline aligned with Services packages */
   highlight: string;
 }
 
@@ -66,12 +70,12 @@ const en: AboutCopy = {
   sections: {
     studio: "Studio",
     process: "Process",
-    reviews: "Reviews",
+    reviews: "Deliveries",
     contact: "Contact",
   },
   sectionMeta: {
     process: "5 steps",
-    reviews: "5 reviews",
+    reviews: "6 shipped cases",
   },
   studio: {
     title: "Neo Studio",
@@ -81,7 +85,7 @@ const en: AboutCopy = {
       "Every project in our portfolio is a live product — platforms, bots, and storefronts you can open and test right now.",
     ],
     stats: [
-      { value: "20", label: "Shipped products" },
+      { value: "6", label: "Live case studies" },
       { value: "3", label: "Languages" },
       { value: "2021", label: "Since" },
     ],
@@ -123,48 +127,57 @@ const en: AboutCopy = {
     ],
   },
   reviews: {
-    title: "What clients say",
-    subtitle: "Feedback from founders and product leads we've worked with.",
+    title: "What we delivered",
+    subtitle:
+      "Scope and timelines from cases in this portfolio — open each project in Work to try the live product.",
     items: [
       {
-        id: "r1",
+        id: "aura-hair",
         quote:
-          "We needed a landing that actually converts — not just looks good. They shipped in under two weeks: sharp visuals, clear offer flow, and leads coming in from week one.",
-        author: "Emily",
-        role: "Product Lead · Neuro-Engineering Academy",
-        highlight: "Live in 12 days",
+          "Premium salon site: stylist discovery, service menu, hair-care guide, and multi-step booking in a luxury editorial layout.",
+        author: "AURA Hair Space",
+        role: "Multi-page Website · Beauty",
+        highlight: "12–16 days",
       },
       {
-        id: "r2",
+        id: "jewelry-store",
         quote:
-          "Our store had to feel like a real boutique. They delivered a custom build with Stripe live in twelve days — no template vibes, no checkout surprises.",
-        author: "Sophie",
-        role: "Founder · Jellybead",
-        highlight: "12-day launch",
+          "Custom luxury boutique with Stripe checkout, CMS-driven catalog, and motion-led product storytelling.",
+        author: "Jellybead",
+        role: "E-commerce Store · Luxury",
+        highlight: "14–18 days",
       },
       {
-        id: "r3",
+        id: "petcare-ai",
         quote:
-          "We went from scattered ideas to a demo-ready AI product in eighteen days. The clinic workflow mapping alone was worth it — partners saw the MVP the same month.",
-        author: "Marcus",
-        role: "Operations Lead · PetCare AI",
-        highlight: "MVP in 18 days",
+          "Clinic-facing MVP with diagnostic AI module, feed analysis, and dashboard workflows for partner demos.",
+        author: "PetCare AI",
+        role: "AI Core MVP · HealthTech",
+        highlight: "14–21 days",
       },
       {
-        id: "r4",
+        id: "neuro-academy",
         quote:
-          "Our students live in Telegram — the bot had to feel native there. Subject flows, SOS kits, streaming tutor replies — all shipped in twelve days and used daily.",
-        author: "Daniel",
-        role: "Founder · NeuroShpora",
-        highlight: "Bot live in 12 days",
+          "Conversion-focused education landing with editorial layout, structured offer blocks, and trilingual support.",
+        author: "Neuro-Engineering Academy",
+        role: "Landing Page · EdTech",
+        highlight: "7–10 days",
       },
       {
-        id: "r5",
+        id: "neuro-shpora",
         quote:
-          "We wanted an experience, not a catalog. The configurator launched in two weeks — customers explore variants instead of bouncing, and the brand finally feels premium.",
-        author: "Laura",
-        role: "Brand Director · Blessed Angel",
-        highlight: "Live in 14 days",
+          "Telegram study bot with subject flows, SOS kits, streaming AI tutor, and session memory.",
+        author: "NeuroShpora",
+        role: "Telegram AI Bot · EdTech",
+        highlight: "10–14 days",
+      },
+      {
+        id: "blessed-angel",
+        quote:
+          "Interactive accessory configurator with brand-led visuals, variant exploration, and checkout-ready flows.",
+        author: "Blessed Angel",
+        role: "Aesthetic Web · E-commerce",
+        highlight: "10–14 days",
       },
     ],
   },
@@ -175,7 +188,7 @@ const en: AboutCopy = {
     telegramLabel: "Telegram",
     responseTime: "Typical reply: within 24h",
     timezone: "UTC+4 · Yerevan",
-    cta: "Go to booking",
+    cta: "Message on Telegram",
   },
 };
 
@@ -186,22 +199,22 @@ const ru: AboutCopy = {
   sections: {
     studio: "Студия",
     process: "Процесс",
-    reviews: "Отзывы",
+    reviews: "Кейсы",
     contact: "Контакты",
   },
   sectionMeta: {
     process: "5 этапов",
-    reviews: "5 отзывов",
+    reviews: "6 кейсов",
   },
   studio: {
     title: "Neo Studio",
     paragraphs: [
-      "Создаём цифровые продукты для фаундеров и команд, которым важен уровень исполнения — не шаблонные решения. Full-stack, AI-интеграция и продуктовый дизайн в одном процессе.",
+      "Создаём цифровые продукты для фаундеров и команд, которым важен уровень исполнения — не шаблонные решения. Фулстек-разработка, AI-интеграция и продуктовый дизайн в одном процессе.",
       "Работаем со стартапами, SMB и образовательными брендами в СНГ, Европе и США. Удалённо, с понятным скоупом и фиксированной ценой в каждом пакете.",
       "Каждый проект в портфолио — живой продукт: платформы, боты и магазины, которые можно открыть и протестировать прямо сейчас.",
     ],
     stats: [
-      { value: "20", label: "Запущенных продуктов" },
+      { value: "6", label: "Живых кейсов" },
       { value: "3", label: "Языка" },
       { value: "2021", label: "С года" },
     ],
@@ -243,48 +256,57 @@ const ru: AboutCopy = {
     ],
   },
   reviews: {
-    title: "Отзывы клиентов",
-    subtitle: "Обратная связь от фаундеров и продакт-лидов, с которыми мы работали.",
+    title: "Что сделали",
+    subtitle:
+      "Скоуп и сроки по кейсам из портфолио — откройте любой проект во вкладке «Работы» и протестируйте live.",
     items: [
       {
-        id: "r1",
+        id: "aura-hair",
         quote:
-          "Нужен был лендинг, который реально конвертит — не просто красивый. Отгрузили за две недели: сильный визуал, понятный оффер, заявки пошли с первой недели.",
-        author: "Emily",
-        role: "Product Lead · Академия Нейро-Инжиниринга",
-        highlight: "12 дней до релиза",
+          "Премиальный сайт салона: выбор стилиста, меню услуг, гид по уходу и многошаговое бронирование в luxury-эстетике.",
+        author: "AURA Hair Space",
+        role: "Многостраничный сайт · Beauty",
+        highlight: "12–16 дней",
       },
       {
-        id: "r2",
+        id: "jewelry-store",
         quote:
-          "Магазин должен был ощущаться как бутик. Кастомная сборка со Stripe в проде за двенадцать дней — без ощущения шаблона и без сюрпризов на чекауте.",
-        author: "Sophie",
-        role: "Founder · Jellybead",
-        highlight: "Запуск за 12 дней",
+          "Кастомный luxury-бутик со Stripe, CMS-каталогом и motion-историями вокруг продуктов.",
+        author: "Jellybead",
+        role: "E-commerce · Luxury",
+        highlight: "14–18 дней",
       },
       {
-        id: "r3",
+        id: "petcare-ai",
         quote:
-          "За восемнадцать дней — от идей к demo-ready AI-продукту. Карта workflow клиники уже окупилась: партнёрам показали MVP в том же месяце.",
-        author: "Marcus",
-        role: "Operations Lead · PetCare AI",
-        highlight: "MVP за 18 дней",
+          "MVP для клиник: диагностический AI, анализ кормов и дашборд рабочих процессов для демо партнёрам.",
+        author: "PetCare AI",
+        role: "AI Core MVP · HealthTech",
+        highlight: "14–21 день",
       },
       {
-        id: "r4",
+        id: "neuro-academy",
         quote:
-          "Студенты живут в Telegram — бот должен был быть нативным. Предметы, SOS-наборы, streaming-репетитор — всё за двенадцать дней, пользуются каждый день.",
-        author: "Daniel",
-        role: "Founder · NeuroShpora",
-        highlight: "Бот за 12 дней",
+          "Продающий лендинг с редакционной вёрсткой, структурой оффера и поддержкой трёх языков.",
+        author: "Академия Нейро-Инжиниринга",
+        role: "Landing Page · EdTech",
+        highlight: "7–10 дней",
       },
       {
-        id: "r5",
+        id: "neuro-shpora",
         quote:
-          "Нужен был опыт, а не каталог. Конфигуратор в проде за две недели — клиенты крутят варианты вместо отскока, бренд наконец ощущается премиальным.",
-        author: "Laura",
-        role: "Brand Director · Blessed Angel",
-        highlight: "14 дней до запуска",
+          "Telegram-бот для подготовки к экзаменам: предметы, SOS-наборы, streaming AI-репетитор и память сессий.",
+        author: "NeuroShpora",
+        role: "Telegram AI Bot · EdTech",
+        highlight: "10–14 дней",
+      },
+      {
+        id: "blessed-angel",
+        quote:
+          "Интерактивный конфигуратор аксессуаров с визуалом бренда, вариантами и готовностью к checkout.",
+        author: "Blessed Angel",
+        role: "Aesthetic Web · E-commerce",
+        highlight: "10–14 дней",
       },
     ],
   },
@@ -295,7 +317,7 @@ const ru: AboutCopy = {
     telegramLabel: "Telegram",
     responseTime: "Обычно отвечаем за 24ч",
     timezone: "UTC+4 · Ереван",
-    cta: "Перейти к бронированию",
+    cta: "Написать в Telegram",
   },
 };
 
@@ -306,22 +328,22 @@ const am: AboutCopy = {
   sections: {
     studio: "Ստուդիա",
     process: "Գործընթաց",
-    reviews: "Կարծիքներ",
+    reviews: "Կեյսեր",
     contact: "Կապ",
   },
   sectionMeta: {
     process: "5 քայլ",
-    reviews: "5 կարծիք",
+    reviews: "6 նախագիծ",
   },
   studio: {
     title: "Neo Studio",
     paragraphs: [
-      "Ստեղծում ենք թվային արտադրանքներ հիմնադիրների և թիմերի համար, ովքեր արժեք են տալիս որակին՝ ոչ թե կաղապարներին։ Full-stack, AI ինտեգրացիա և product design մեկ workflow-ում։",
-      "Աշխատում ենք ստարտափների, SMB-ների և կրթական բրենդների հետ՝ ՍՊԾ, Եվրոպա և ԱՄՆ։ Հեռակա, հստակ scope-ով և ֆիքսված գնով յուրաքանչյուր փաթեթում։",
+      "Ստեղծում ենք թվային արտադրանքներ հիմնադիրների և թիմերի համար, ովքեր արժեք են տալիս որակին՝ ոչ թե կաղապարներին։ Լիաէջ զարգացում, AI ինտեգրացիա և արտադրանքի դիզայն՝ մեկ գործընթացով։",
+      "Աշխատում ենք ստարտափների, փոքր և միջին բիզնեսների և կրթական բրենդների հետ՝ ՀՅՄ, Եվրոպա և ԱՄՆ։ Հեռակա, հստակ շրջանակներով և ֆիքսված գնով յուրաքանչյուր փաթեթում։",
       "Պորտֆոլիոյի յուրաքանչյուր նախագիծը կենդանի արտադրանք է՝ հարթակներ, բոտեր և խանութներ, որոնք կարող եք բացել և փորձարկել հենց հիմա։",
     ],
     stats: [
-      { value: "20", label: "Գործարկված արտադրանք" },
+      { value: "6", label: "Կենդանի կեյս" },
       { value: "3", label: "Լեզու" },
       { value: "2021", label: "Սկսած" },
     ],
@@ -332,79 +354,88 @@ const am: AboutCopy = {
     steps: [
       {
         id: "discovery",
-        title: "Discovery",
+        title: "Հետազոտում",
         description:
-          "Համաձայնեցնում ենք նպատակները, լսարանը և սահմանափակումները։ Մեծ նախագծերի համար՝ աուդիտ կամ ճանապարհային քարտեզ մինչև մշակումը։",
+          "Համաձայնեցնում ենք նպատակները, լսարանը և սահմանափակումները։ Մեծ նախագծերի համար՝ աուդիտ կամ ճանապարհային քարտեզ մշակումից առաջ։",
       },
       {
         id: "design",
         title: "Դիզայն և ճարտարապետություն",
         description:
-          "UX հոսքեր, համակարգի ճարտարապետություն և տեխնոլոգիական stack։ Պլանը տեսանելի է մինչև production կոդը։",
+          "UX հոսքեր, համակարգի ճարտարապետություն և տեխնոլոգիական stack։ Պլանը տեսանելի է արտադրական կոդից առաջ։",
       },
       {
         id: "build",
         title: "Մշակում",
         description:
-          "Իտերատիվ sprint-եր, դեմո և թարմացումներ։ Frontend, backend, AI մոդուլներ՝ մեկ թիմ, մեկ timeline։",
+          "Իտերատիվ ցիկլեր, դեմո և թարմացումներ։ Frontend, backend և AI մոդուլներ՝ մեկ թիմ, մեկ ժամկետ։",
       },
       {
         id: "launch",
         title: "Գործարկում",
         description:
-          "Deploy, փաստաթղթավորում և հանձնում։ Կոդը, ինֆրաստրուկտուրան և մուտքերը՝ ձեր մոտ։",
+          "Գործարկում, փաստաթղթավորում և հանձնում։ Կոդը, ինֆրաստրուկտուրան և մուտքերը՝ ձեր մոտ։",
       },
       {
         id: "support",
         title: "Աջակցություն",
         description:
-          "Ընտրովի retainer՝ թարմացումներ, մոնիտորինգ և նոր ֆիչեր գործարկումից հետո։",
+          "Ընտրովի պայմանագրային աջակցություն՝ թարմացումներ, մոնիտորինգ և նոր ֆունկցիաներ գործարկումից հետո։",
       },
     ],
   },
   reviews: {
-    title: "Ինչ են ասում հաճախորդները",
-    subtitle: "Հետադարձ կապ հիմնադիրներից և product lead-երից, ում հետ ենք աշխատել։",
+    title: "Ինչ ենք արել",
+    subtitle:
+      "Շրջանակ և ժամկետներ պորտֆոլիոյի կեյսերից — բացեք ցանկացած նախագիծ «Աշխատանքներ» բաժնում և փորձարկեք կենդանի։",
     items: [
       {
-        id: "r1",
+        id: "aura-hair",
         quote:
-          "Պետք էր լենդինգ, որը իրականում կոնվերտի է — ոչ միայն գեղեցիկ։ Տասներկու օրում live՝ ուժեղ վիզուալ, պարզ առաջարկ, դիմումներ առաջին շաբաթից։",
-        author: "Անի",
-        role: "Product Lead · Նեյրո-ինժեներիայի ակադեմիա",
-        highlight: "12 օր մինչև live",
+          "Պրեմիում սրահի կայք՝ ստայլիստի ընտրություն, ծառայությունների մենյու, խնամքի ուղեցույց և բազմաստիճան ամրագրում։",
+        author: "AURA Hair Space",
+        role: "Բազմաէջ կայք · Beauty",
+        highlight: "12–16 օր",
       },
       {
-        id: "r2",
+        id: "jewelry-store",
         quote:
-          "Խանութը պետք է զգացվեր որպես բուտիկ։ Պատվերով build Stripe-ով՝ տասներկու օրում, առանց կաղապարի և checkout-ի սյուրպրիզների։",
-        author: "Սոֆի",
-        role: "Founder · Jellybead",
-        highlight: "12 օրյա գործարկում",
+          "Պատվերով luxury բուտիկ Stripe checkout-ով, CMS կատալոգով և motion-պատմություններով։",
+        author: "Jellybead",
+        role: "E-commerce · Luxury",
+        highlight: "14–18 օր",
       },
       {
-        id: "r3",
+        id: "petcare-ai",
         quote:
-          "Տասնութ օրում՝ գաղափարներից demo-ready AI արտադրանք։ Կլինիկայի workflow-ի քարտեզը արդեն իսկ արժե էր — MVP-ն գործընկերներին ցույց տվեցին նույն ամսում։",
-        author: "Արմեն",
-        role: "Operations Lead · PetCare AI",
-        highlight: "MVP 18 օրում",
+          "Կլինիկաների MVP՝ ախտորոշական AI, կերերի վերլուծություն և աշխատանքային հոսքերի դաշտբորդ գործընկերների դեմոների համար։",
+        author: "PetCare AI",
+        role: "AI Core MVP · HealthTech",
+        highlight: "14–21 օր",
       },
       {
-        id: "r4",
+        id: "neuro-academy",
         quote:
-          "Ուսանողները ապրում են Telegram-ում — բոտը պետք է բնական լիներ։ Առարկաներ, SOS հավաքածուներ, streaming դասատու — տասներկու օրում, օգտագործում են ամեն օր։",
-        author: "Դավիթ",
-        role: "Founder · NeuroShpora",
-        highlight: "Բոտ 12 օրում",
+          "Կոնվերսիոն լենդինգ խմբագրական դիզայնով, առաջարկի կառուցվածքով և երեք լեզվի աջակցությամբ։",
+        author: "Նեյրո-ինժեներիայի ակադեմիա",
+        role: "Landing Page · EdTech",
+        highlight: "7–10 օր",
       },
       {
-        id: "r5",
+        id: "neuro-shpora",
         quote:
-          "Պետք էր փորձ, ոչ թե կատալոգ։ Կոնֆիգուրատորը live՝ երկու շաբաթում — հաճախորդները ուսումնասիրում են տարբերակները, բրենդը վերջապես պրեմիում է զգացվում։",
-        author: "Լիլիթ",
-        role: "Brand Director · Blessed Angel",
-        highlight: "14 օր մինչև launch",
+          "Telegram ուսումնական բոտ՝ առարկաներ, SOS հավաքածուներ, հոսքային AI դասատու և սեսիայի հիշողություն։",
+        author: "NeuroShpora",
+        role: "Telegram AI Bot · EdTech",
+        highlight: "10–14 օր",
+      },
+      {
+        id: "blessed-angel",
+        quote:
+          "Ինտերակտիվ աքսեսուարների կոնֆիգուրատոր՝ բրենդային վիզուալ, տարբերակներ և վճարման պատրաստ հոսքեր։",
+        author: "Blessed Angel",
+        role: "Aesthetic Web · E-commerce",
+        highlight: "10–14 օր",
       },
     ],
   },
@@ -415,7 +446,7 @@ const am: AboutCopy = {
     telegramLabel: "Telegram",
     responseTime: "Սովորաբար պատասխանում ենք 24ժ-ում",
     timezone: "UTC+4 · Երևան",
-    cta: "Անցնել ամրագրման",
+    cta: "Գրել Telegram-ում",
   },
 };
 

@@ -107,7 +107,7 @@ export function AboutView({ language, scrollToSection }: AboutViewProps) {
           </ol>
         </section>
 
-        {/* Reviews */}
+        {/* Deliveries */}
         <section
           id="about-reviews"
           className={sectionScrollClass("reviews")}
@@ -144,19 +144,17 @@ export function AboutView({ language, scrollToSection }: AboutViewProps) {
                 >
                   {item.highlight}
                 </span>
-                <blockquote className="relative flex-1">
+                <div className="relative flex-1">
+                  <h3 className="font-display text-lg text-zinc-100">{item.author}</h3>
+                  <p className="mt-1 text-[12px] text-zinc-500">{item.role}</p>
                   <p
-                    className={`leading-relaxed text-zinc-300 ${
+                    className={`mt-4 leading-relaxed text-zinc-400 ${
                       i === 0 ? "text-[15px]" : "text-[14px]"
                     }`}
                   >
-                    &ldquo;{item.quote}&rdquo;
+                    {item.quote}
                   </p>
-                </blockquote>
-                <footer className="relative mt-6 border-t border-white/[0.06] pt-4">
-                  <p className="text-[13px] font-medium text-zinc-200">{item.author}</p>
-                  <p className="mt-0.5 text-[12px] text-zinc-500">{item.role}</p>
-                </footer>
+                </div>
               </article>
             ))}
           </div>

@@ -2,7 +2,11 @@
 
 import type { Language } from "@/lib/types";
 
-const LANGUAGES: Language[] = ["en", "ru", "am"];
+const LANGUAGES: { code: Language; label: string }[] = [
+  { code: "en", label: "English" },
+  { code: "ru", label: "Русский" },
+  { code: "am", label: "Հայերեն" },
+];
 
 interface LanguageSwitcherProps {
   language: Language;
@@ -11,18 +15,25 @@ interface LanguageSwitcherProps {
 
 export function LanguageSwitcher({ language, onChange }: LanguageSwitcherProps) {
   return (
-    <div className="flex items-center gap-3 text-[13px]">
-      {LANGUAGES.map((lang) => (
+    <div
+      className="flex items-center gap-3 text-[13px]"
+      role="group"
+      aria-label="Language"
+    >
+      {LANGUAGES.map(({ code, label }) => (
         <button
-          key={lang}
-          onClick={() => onChange(lang)}
-          className={`transition-colors duration-200 ${
-            language === lang
+          key={code}
+          type="button"
+          onClick={() => onChange(code)}
+          aria-current={language === code ? "true" : undefined}
+          aria-label={label}
+          className={`transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 ${
+            language === code
               ? "text-zinc-100"
               : "text-zinc-600 hover:text-zinc-400"
           }`}
         >
-          {lang.toUpperCase()}
+          {code.toUpperCase()}
         </button>
       ))}
     </div>

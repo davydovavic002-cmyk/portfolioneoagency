@@ -16,6 +16,12 @@ import {
   type ServiceItemId,
 } from "@/lib/project-packages";
 
+const LANG_STORAGE_KEY = "neo-portfolio-lang";
+
+function isLanguage(value: string | null): value is Language {
+  return value === "en" || value === "ru" || value === "am";
+}
+
 export default function Home() {
   const isMobile = useIsMobile();
   const [activeProject, setActiveProject] = useState<ProjectId>(defaultProjectId);
@@ -29,6 +35,16 @@ export default function Home() {
   const [mobileShowContent, setMobileShowContent] = useState(false);
 
   const strings = dictionary[language];
+
+  useEffect(() => {
+    const stored = localStorage.getItem(LANG_STORAGE_KEY);
+    if (isLanguage(stored)) setLanguage(stored);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(LANG_STORAGE_KEY, language);
+    document.documentElement.lang = language === "am" ? "hy" : language;
+  }, [language]);
 
   useEffect(() => {
     if (!isMobile) setMobileShowContent(false);

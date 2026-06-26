@@ -96,6 +96,8 @@ export interface ShporaInteractiveStrings {
 export interface ShporaChatStrings {
   botName: string;
   botStatus: string;
+  aiTutorModeLabel: string;
+  aiInputPrefix: string;
   typing: string;
   typingHeader: string;
   buttons: Record<ShporaAction, string>;
@@ -443,7 +445,9 @@ const amInteractive: ShporaInteractiveStrings = {
 export const neuroShporaChat: ShporaChatDictionary = {
   ru: {
     botName: "NeuroShpora",
-    botStatus: "bot",
+    botStatus: "в сети",
+    aiTutorModeLabel: "🤖 ИИ-репетитор",
+    aiInputPrefix: "ИИ: ",
     typing: "Бот печатает...",
     typingHeader: "Бот печатает...",
     buttons: ruButtons,
@@ -460,7 +464,9 @@ export const neuroShporaChat: ShporaChatDictionary = {
   },
   en: {
     botName: "NeuroShpora",
-    botStatus: "bot",
+    botStatus: "online",
+    aiTutorModeLabel: "🤖 AI tutor",
+    aiInputPrefix: "AI: ",
     typing: "Bot is typing...",
     typingHeader: "Bot is typing...",
     buttons: enButtons,
@@ -477,7 +483,9 @@ export const neuroShporaChat: ShporaChatDictionary = {
   },
   am: {
     botName: "NeuroShpora",
-    botStatus: "bot",
+    botStatus: "առցանց",
+    aiTutorModeLabel: "🤖 AI դասատու",
+    aiInputPrefix: "AI: ",
     typing: "Բոտը գրում է...",
     typingHeader: "Բոտը գրում է...",
     buttons: amButtons,

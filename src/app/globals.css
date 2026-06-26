@@ -116,3 +116,9 @@ body {
 .project-row[data-active="true"]::before {
   opacity: 1;
 }
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.35);
+  outline-offset: 2px;
+}

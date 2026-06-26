@@ -3,11 +3,11 @@ import type { Dictionary } from "../types";
 export const dictionary: Dictionary = {
   ru: {
     heroLine: "Избранные работы",
-    portfolioSubtitle: "Full-stack · AI-инженерия · Продуктовый дизайн",
+    portfolioSubtitle: "Фулстек · AI-инженерия · Продуктовый дизайн",
     availability: "Открыт к проектам",
-    deviceMonitor: "Desktop",
-    devicePhone: "Mobile",
-    livePreview: "Живой превью",
+    deviceMonitor: "Десктоп",
+    devicePhone: "Мобильный",
+    livePreview: "Живое превью",
     openSite: "Открыть сайт",
     navWork: "Работы",
     navServices: "Услуги",
@@ -16,6 +16,13 @@ export const dictionary: Dictionary = {
     packageLabel: "Пакет",
     viewInServices: "Смотреть в прайсе",
     projects: {
+      "aura-hair": {
+        title: "AURA Hair Space",
+        role: "Lead Developer",
+        category: "Beauty · Booking",
+        description:
+          "Премиальный сайт салона в Сингапуре: выбор стилиста, меню услуг, диагностика ухода и онлайн-бронирование в luxury-эстетике.",
+      },
       "neuro-academy": {
         title: "Академия Нейро-Инжиниринга",
         role: "Lead Developer",
@@ -28,7 +35,7 @@ export const dictionary: Dictionary = {
         role: "AI Engineer",
         category: "Telegram · NLP",
         description:
-          "Агентный бот с контекстной памятью, code review и streaming-ответами. Проектирование диалоговых сценариев под реальные задачи обучения.",
+          "Агентный бот с контекстной памятью, ревью кода и потоковыми ответами. Проектирование диалоговых сценариев под реальные задачи обучения.",
       },
       "blessed-angel": {
         title: "Blessed Angel",
@@ -68,6 +75,13 @@ export const dictionary: Dictionary = {
     packageLabel: "Package",
     viewInServices: "View in Services",
     projects: {
+      "aura-hair": {
+        title: "AURA Hair Space",
+        role: "Lead Developer",
+        category: "Beauty · Booking",
+        description:
+          "Premium Singapore salon site — stylist discovery, service menu, hair-care diagnostics, and online booking in a luxury editorial aesthetic.",
+      },
       "neuro-academy": {
         title: "Neuro-Engineering Academy",
         role: "Lead Developer",
@@ -107,10 +121,10 @@ export const dictionary: Dictionary = {
   },
   am: {
     heroLine: "Ընտրված աշխատանքներ",
-    portfolioSubtitle: "Full-stack · AI ինժեներիա · Product design",
+    portfolioSubtitle: "Լիաէջ զարգացում · AI ինժեներիա · Արտադրանքի դիզայն",
     availability: "Բաց եմ նոր նախագծերի համար",
-    deviceMonitor: "Desktop",
-    devicePhone: "Mobile",
+    deviceMonitor: "Դեսկտոպ",
+    devicePhone: "Բջջային",
     livePreview: "Կենդանի նախադիտում",
     openSite: "Բացել կայքը",
     navWork: "Աշխատանքներ",
@@ -120,6 +134,13 @@ export const dictionary: Dictionary = {
     packageLabel: "Փաթեթ",
     viewInServices: "Դիտել գնացուցակում",
     projects: {
+      "aura-hair": {
+        title: "AURA Hair Space",
+        role: "Lead Developer",
+        category: "Beauty · Booking",
+        description:
+          "Սինգապուրի պրեմիում սրահի կայք՝ ստայլիստի ընտրություն, ծառայությունների մենյու, մազերի խնամքի ախտորոշում և օնլայն ամրագրում պրեմիում էսթետիկայում։",
+      },
       "neuro-academy": {
         title: "Նեյրո-ինժեներիայի ակադեմիա",
         role: "Lead Developer",
@@ -132,7 +153,7 @@ export const dictionary: Dictionary = {
         role: "AI Engineer",
         category: "Telegram · NLP",
         description:
-          "Ագենտային բոտ համատեքստային հիշողությամբ, code review-ով և streaming պատասխաններով։",
+          "Ագենտային բոտ համատեքստային հիշողությամբ, կոդի վերանայմամբ և հոսքային պատասխաններով։",
       },
       "blessed-angel": {
         title: "Blessed Angel",

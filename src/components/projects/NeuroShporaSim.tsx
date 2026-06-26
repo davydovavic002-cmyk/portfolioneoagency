@@ -321,7 +321,7 @@ export function NeuroShporaSim({ language }: NeuroShporaSimProps) {
             {isTyping
               ? strings.typingHeader
               : isAiTutorMode
-                ? "🤖 AI"
+                ? strings.aiTutorModeLabel
                 : selectedSubject
                   ? getSubjectHeaderLabel(strings, selectedSubject)
                   : strings.botStatus}
@@ -407,7 +407,7 @@ export function NeuroShporaSim({ language }: NeuroShporaSimProps) {
             onKeyDown={(e) => e.key === "Enter" && handleSendText()}
             placeholder={
               isAiTutorMode
-                ? `🤖 ${strings.interactive.inputPlaceholder}`
+                ? `${strings.aiInputPrefix}${strings.interactive.inputPlaceholder}`
                 : strings.interactive.inputPlaceholder
             }
             disabled={isTyping}
