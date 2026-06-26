@@ -54,6 +54,13 @@ src/
 
 Preview subdomains are proxied via nginx — see `deploy/nginx/preview-sites.conf`.
 
+**AURA not loading?** Two common causes:
+
+1. **DNS** — add an A record `aura` → `45.91.169.30` (same as `academy.neostudio.space`).
+2. **Nginx** — `aura` must `proxy_pass` to port `3323`, not `try_files` / default welcome page.
+
+On the server: `sudo bash deploy/setup-aura-nginx.sh`
+
 ## Deploy
 
 ```bash
