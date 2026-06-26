@@ -21,7 +21,7 @@ export const dictionary: Dictionary = {
         role: "Lead Developer",
         category: "Beauty · Booking",
         description:
-          "Премиальный одностраничный сайт салона в Сингапуре: выбор стилиста, меню услуг, диагностика ухода и онлайн-бронирование в luxury-эстетике.",
+          "Премиальный сайт салона в Сингапуре: выбор стилиста, меню услуг, диагностика ухода и онлайн-бронирование в luxury-эстетике.",
       },
       "neuro-academy": {
         title: "Академия Нейро-Инжиниринга",
@@ -80,7 +80,7 @@ export const dictionary: Dictionary = {
         role: "Lead Developer",
         category: "Beauty · Booking",
         description:
-          "Premium Singapore salon — single-page editorial site with stylist discovery, service menu, hair-care diagnostics, and online booking.",
+          "Premium Singapore salon site — stylist discovery, service menu, hair-care diagnostics, and online booking in a luxury editorial aesthetic.",
       },
       "neuro-academy": {
         title: "Neuro-Engineering Academy",

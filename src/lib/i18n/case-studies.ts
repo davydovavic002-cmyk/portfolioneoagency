@@ -27,9 +27,9 @@ const en: CaseStudiesCopy = {
       challenge:
         "A premium salon needed a digital presence that matches in-chair experience — not a generic booking widget.",
       solution:
-        "Single-page editorial experience with multi-step booking, stylist profiles, service menu, and hair diagnostics — on the Aesthetic Web package.",
+        "Multi-step booking flow with stylist profiles, service menu, hair diagnostics, and live slot picker — on the Multi-page Website package.",
       metrics: [
-        { value: "10–14d", label: "Package timeline" },
+        { value: "12–16d", label: "Package timeline" },
         { value: "4", label: "Booking steps" },
         { value: "Dark mode", label: "Theme support" },
       ],
@@ -101,9 +101,9 @@ const ru: CaseStudiesCopy = {
       challenge:
         "Премиальному салону нужен цифровой опыт уровня кресла — не типовой виджет записи.",
       solution:
-        "Одностраничный editorial-сайт с многошаговым бронированием, профилями стилистов, меню услуг и диагностикой ухода — пакет «Aesthetic Web».",
+        "Многошаговое бронирование: профили стилистов, меню услуг, диагностика ухода и выбор слотов — пакет «Многостраничный сайт».",
       metrics: [
-        { value: "10–14д", label: "Срок пакета" },
+        { value: "12–16д", label: "Срок пакета" },
         { value: "4", label: "Шага записи" },
         { value: "Dark mode", label: "Темы" },
       ],
@@ -175,9 +175,9 @@ const am: CaseStudiesCopy = {
       challenge:
         "Պրեմիում սրահին պետք էր թվային փորձ, որը համապատասխանում է աթոռի մակարդակին՝ ոչ թե ստանդարտ ամրագրման վիդջետ։",
       solution:
-        "Միաէջ editorial փորձ բազմաստիճան ամրագրման, ստայլիստների պրոֆիլներով, ծառայությունների մենյուով և խնամքի ախտորոշմամբ — Aesthetic Web փաթեթ։",
+        "Բազմաստիճան ամրագրում՝ ստայլիստների պրոֆիլներ, ծառայությունների մենյու, խնամքի ախտորոշում և ազատ slot-երի ընտրություն։",
       metrics: [
-        { value: "10–14օ", label: "Փաթեթի ժամկետ" },
+        { value: "12–16օ", label: "Փաթեթի ժամկետ" },
         { value: "4", label: "Ամրագրման քայլ" },
         { value: "Dark mode", label: "Թեմաներ" },
       ],

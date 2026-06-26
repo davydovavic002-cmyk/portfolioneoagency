@@ -136,8 +136,8 @@ const en: AboutCopy = {
         quote:
           "Premium salon site: stylist discovery, service menu, hair-care guide, and multi-step booking in a luxury editorial layout.",
         author: "AURA Hair Space",
-        role: "Aesthetic Web · Beauty",
-        highlight: "10–14 days",
+        role: "Multi-page Website · Beauty",
+        highlight: "12–16 days",
       },
       {
         id: "jewelry-store",
@@ -265,8 +265,8 @@ const ru: AboutCopy = {
         quote:
           "Премиальный сайт салона: выбор стилиста, меню услуг, гид по уходу и многошаговое бронирование в luxury-эстетике.",
         author: "AURA Hair Space",
-        role: "Aesthetic Web · Beauty",
-        highlight: "10–14 дней",
+        role: "Многостраничный сайт · Beauty",
+        highlight: "12–16 дней",
       },
       {
         id: "jewelry-store",
@@ -394,8 +394,8 @@ const am: AboutCopy = {
         quote:
           "Պրեմիում սրահի կայք՝ ստայլիստի ընտրություն, ծառայությունների մենյու, խնամքի ուղեցույց և բազմաստիճան ամրագրում։",
         author: "AURA Hair Space",
-        role: "Aesthetic Web · Beauty",
-        highlight: "10–14 օր",
+        role: "Բազմաէջ կայք · Beauty",
+        highlight: "12–16 օր",
       },
       {
         id: "jewelry-store",
