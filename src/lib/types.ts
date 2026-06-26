@@ -1,7 +1,5 @@
 export const DESKTOP_VIEWPORT_WIDTH = 1280;
 export const DESKTOP_VIEWPORT_HEIGHT = 800;
-/** Tall embed viewport — parent panel scrolls with a custom scrollbar */
-export const PREVIEW_IFRAME_HEIGHT = 3600;
 
 export type Language = "ru" | "en" | "am";
 
