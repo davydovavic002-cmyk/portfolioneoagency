@@ -4,13 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import {
   DESKTOP_VIEWPORT_HEIGHT,
   DESKTOP_VIEWPORT_WIDTH,
-  PREVIEW_IFRAME_HEIGHT,
   type Language,
 } from "@/lib/types";
 import { buildPreviewUrl, PORTFOLIO_LANG_MESSAGE } from "@/lib/preview-url";
 
 interface Layout {
   width: number;
+  height: number;
 }
 
 const PREVIEW_COPY: Record<
@@ -41,35 +41,32 @@ function supportsZoom(): boolean {
 
 interface DesktopPreviewViewportProps {
   children: React.ReactNode;
-  contentHeight?: number;
-  scrollable?: boolean;
 }
 
 /**
- * Fixed desktop width (1280px), width-first zoom.
- * When scrollable, the parent panel scrolls with a custom scrollbar.
+ * Renders children at a fixed desktop viewport (1280×800) and fits them
+ * into the available panel width using zoom — sharp, width-first.
  */
-export function DesktopPreviewViewport({
-  children,
-  contentHeight = DESKTOP_VIEWPORT_HEIGHT,
-  scrollable = false,
-}: DesktopPreviewViewportProps) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const measureRef = useRef<HTMLDivElement>(null);
-  const [layout, setLayout] = useState<Layout>({ width: 0 });
+export function DesktopPreviewViewport({ children }: DesktopPreviewViewportProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [layout, setLayout] = useState<Layout>({ width: 0, height: 0 });
   const useZoom = supportsZoom();
 
   useEffect(() => {
-    const target = measureRef.current;
-    if (!target) return;
+    const container = containerRef.current;
+    if (!container) return;
 
     const measure = () => {
-      setLayout({ width: Math.floor(target.getBoundingClientRect().width) });
+      const { width, height } = container.getBoundingClientRect();
+      setLayout({
+        width: Math.floor(width),
+        height: Math.floor(height),
+      });
     };
 
     measure();
     const observer = new ResizeObserver(measure);
-    observer.observe(target);
+    observer.observe(container);
     window.addEventListener("resize", measure);
 
     return () => {
@@ -78,89 +75,50 @@ export function DesktopPreviewViewport({
     };
   }, []);
 
-  useEffect(() => {
-    if (!scrollable) return;
-    const host = scrollRef.current;
-    if (!host) return;
-
-    const onWheel = (e: WheelEvent) => {
-      const iframe = host.querySelector("iframe");
-      if (!iframe) return;
-
-      const rect = iframe.getBoundingClientRect();
-      const overIframe =
-        e.clientX >= rect.left &&
-        e.clientX <= rect.right &&
-        e.clientY >= rect.top &&
-        e.clientY <= rect.bottom;
-
-      if (!overIframe) return;
-
-      host.scrollTop += e.deltaY;
-      e.preventDefault();
-    };
-
-    host.addEventListener("wheel", onWheel, { passive: false });
-    return () => host.removeEventListener("wheel", onWheel);
-  }, [scrollable]);
-
-  const { width: cw } = layout;
-  const ready = cw > 0;
+  const { width: cw, height: ch } = layout;
+  const ready = cw > 0 && ch > 0;
   const zoomW = cw / DESKTOP_VIEWPORT_WIDTH;
   const zoom = zoomW;
 
-  const scaledContent = ready && useZoom && (
-    <div
-      style={{
-        width: DESKTOP_VIEWPORT_WIDTH,
-        height: contentHeight,
-        zoom,
-        transformOrigin: "top left",
-      }}
-    >
-      {children}
-    </div>
-  );
-
-  const scaledContentFallback = ready && !useZoom && (
-    <div
-      style={{
-        width: Math.ceil(DESKTOP_VIEWPORT_WIDTH * zoom),
-        height: Math.ceil(contentHeight * zoom),
-      }}
-    >
-      <div
-        style={{
-          width: DESKTOP_VIEWPORT_WIDTH,
-          height: contentHeight,
-          transform: `scale(${zoom})`,
-          transformOrigin: "top left",
-        }}
-      >
-        {children}
-      </div>
-    </div>
-  );
-
-  const inner = (
-    <div ref={measureRef} className="w-full">
-      {scaledContent}
-      {scaledContentFallback}
-    </div>
-  );
-
-  if (scrollable) {
-    return (
-      <div ref={scrollRef} className="preview-iframe-scroll h-full w-full min-h-0">
-        {inner}
-      </div>
-    );
-  }
-
   return (
-    <div ref={measureRef} className="h-full w-full overflow-hidden">
-      {scaledContent}
-      {scaledContentFallback}
+    <div ref={containerRef} className="h-full w-full overflow-hidden">
+      {ready && useZoom && (
+        <div className="h-full w-full overflow-hidden">
+          <div
+            style={{
+              width: DESKTOP_VIEWPORT_WIDTH,
+              height: DESKTOP_VIEWPORT_HEIGHT,
+              zoom,
+              transformOrigin: "top left",
+            }}
+          >
+            {children}
+          </div>
+        </div>
+      )}
+
+      {ready && !useZoom && (
+        <div className="h-full w-full overflow-hidden">
+          <div
+            style={{
+              width: Math.ceil(DESKTOP_VIEWPORT_WIDTH * zoom),
+              height: Math.ceil(DESKTOP_VIEWPORT_HEIGHT * zoom),
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                width: DESKTOP_VIEWPORT_WIDTH,
+                height: DESKTOP_VIEWPORT_HEIGHT,
+                transform: `scale(${zoom})`,
+                transformOrigin: "top left",
+              }}
+            >
+              {children}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -178,6 +136,38 @@ function postLanguageToIframe(iframe: HTMLIFrameElement | null, language: Langua
     { type: PORTFOLIO_LANG_MESSAGE, language },
     "*",
   );
+}
+
+/** Wheel over a cross-origin iframe does not bubble — scroll the embed document directly. */
+function useIframeWheelScroll(
+  iframeRef: React.RefObject<HTMLIFrameElement | null>,
+  enabled: boolean,
+) {
+  useEffect(() => {
+    if (!enabled) return;
+
+    const onWheel = (e: WheelEvent) => {
+      const iframe = iframeRef.current;
+      const win = iframe?.contentWindow;
+      if (!iframe || !win) return;
+
+      const rect = iframe.getBoundingClientRect();
+      const overIframe =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom;
+
+      if (!overIframe) return;
+
+      win.scrollBy({ top: e.deltaY, left: 0, behavior: "auto" });
+      e.preventDefault();
+    };
+
+    window.addEventListener("wheel", onWheel, { passive: false, capture: true });
+    return () =>
+      window.removeEventListener("wheel", onWheel, { capture: true });
+  }, [iframeRef, enabled]);
 }
 
 function PreviewStatus({
@@ -230,6 +220,11 @@ export function DesktopSitePreview({
     postLanguageToIframe(iframeRef.current, language);
   }, [language, src]);
 
+  useIframeWheelScroll(
+    iframeRef,
+    Boolean(previewUrl && !isMobile && loadState === "ready"),
+  );
+
   const iframeProps = {
     ref: iframeRef,
     key: src,
@@ -255,17 +250,13 @@ export function DesktopSitePreview({
         {loadState === "error" && (
           <PreviewStatus language={language} state="error" openUrl={src} />
         )}
-        <div
-          className={`preview-iframe-scroll min-h-0 flex-1 ${
+        <iframe
+          {...iframeProps}
+          scrolling="yes"
+          className={`portfolio-preview-iframe block h-full min-h-0 w-full flex-1 border-0 bg-white ${
             loadState === "error" ? "hidden" : ""
           }`}
-        >
-          <iframe
-            {...iframeProps}
-            className="portfolio-preview-iframe block w-full border-0 bg-white"
-            style={{ height: PREVIEW_IFRAME_HEIGHT }}
-          />
-        </div>
+        />
       </div>
     );
   }
@@ -281,15 +272,12 @@ export function DesktopSitePreview({
         {loadState === "error" ? (
           <PreviewStatus language={language} state="error" openUrl={src} />
         ) : (
-          <DesktopPreviewViewport
-            contentHeight={PREVIEW_IFRAME_HEIGHT}
-            scrollable
-          >
+          <DesktopPreviewViewport>
             <iframe
               {...iframeProps}
               width={DESKTOP_VIEWPORT_WIDTH}
-              height={PREVIEW_IFRAME_HEIGHT}
-              className="portfolio-preview-iframe block w-full border-0 bg-white"
+              height={DESKTOP_VIEWPORT_HEIGHT}
+              className="portfolio-preview-iframe block h-full w-full border-0 bg-white"
             />
           </DesktopPreviewViewport>
         )}
