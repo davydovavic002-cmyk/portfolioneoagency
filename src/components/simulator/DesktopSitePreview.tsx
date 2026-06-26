@@ -77,27 +77,23 @@ export function DesktopPreviewViewport({ children }: DesktopPreviewViewportProps
 
   const { width: cw, height: ch } = layout;
   const ready = cw > 0 && ch > 0;
-  const fitsNative = cw >= DESKTOP_VIEWPORT_WIDTH && ch >= DESKTOP_VIEWPORT_HEIGHT;
   const zoomW = cw / DESKTOP_VIEWPORT_WIDTH;
-  const zoomH = ch / DESKTOP_VIEWPORT_HEIGHT;
-  const zoom = fitsNative ? 1 : Math.min(zoomW, zoomH);
+  /** Width-first: fill the panel edge-to-edge, clip vertical overflow */
+  const zoom = zoomW;
 
   return (
     <div
       ref={containerRef}
       className="h-full w-full overflow-hidden"
     >
-      {ready && fitsNative && (
-        <div className="h-full w-full">{children}</div>
-      )}
-
-      {ready && !fitsNative && useZoom && (
-        <div className="flex h-full w-full items-start justify-center overflow-hidden">
+      {ready && useZoom && (
+        <div className="h-full w-full overflow-hidden">
           <div
             style={{
               width: DESKTOP_VIEWPORT_WIDTH,
               height: DESKTOP_VIEWPORT_HEIGHT,
               zoom,
+              transformOrigin: "top left",
             }}
           >
             {children}
@@ -105,12 +101,13 @@ export function DesktopPreviewViewport({ children }: DesktopPreviewViewportProps
         </div>
       )}
 
-      {ready && !fitsNative && !useZoom && (
-        <div className="flex h-full w-full items-center justify-center overflow-hidden">
+      {ready && !useZoom && (
+        <div className="h-full w-full overflow-hidden">
           <div
             style={{
-              width: Math.floor(DESKTOP_VIEWPORT_WIDTH * zoom),
-              height: Math.floor(DESKTOP_VIEWPORT_HEIGHT * zoom),
+              width: Math.ceil(DESKTOP_VIEWPORT_WIDTH * zoom),
+              height: Math.ceil(DESKTOP_VIEWPORT_HEIGHT * zoom),
+              overflow: "hidden",
             }}
           >
             <div
@@ -200,6 +197,7 @@ export function DesktopSitePreview({
     key: src,
     src,
     title,
+    scrolling: "no" as const,
     sandbox: "allow-scripts allow-same-origin allow-forms allow-popups" as const,
     onLoad: () => {
       setLoadState("ready");
@@ -221,7 +219,7 @@ export function DesktopSitePreview({
         )}
         <iframe
           {...iframeProps}
-          className={`block h-full min-h-0 w-full flex-1 border-0 bg-white ${
+          className={`block h-full min-h-0 w-full flex-1 border-0 bg-white overflow-hidden ${
             loadState === "error" ? "hidden" : ""
           }`}
         />
@@ -245,7 +243,7 @@ export function DesktopSitePreview({
               {...iframeProps}
               width={DESKTOP_VIEWPORT_WIDTH}
               height={DESKTOP_VIEWPORT_HEIGHT}
-              className="block h-full w-full border-0 bg-white"
+              className="portfolio-preview-iframe block h-full w-full border-0 bg-white"
               style={{
                 minWidth: DESKTOP_VIEWPORT_WIDTH,
                 minHeight: DESKTOP_VIEWPORT_HEIGHT,

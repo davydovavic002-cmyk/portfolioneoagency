@@ -131,7 +131,7 @@ export function RightPanel({
             isDesktopSite
               ? isMobile
                 ? "flex flex-col px-2 pb-2 pt-2"
-                : "flex flex-col px-5 pb-3 pt-5"
+                : "flex flex-col px-2 pb-2 pt-3 lg:px-3 lg:pb-3 lg:pt-4"
               : isMobile
                 ? "px-3 pb-3 pt-2"
                 : "px-8 pb-4 pt-2"

@@ -50,7 +50,7 @@ export const projects: ProjectMeta[] = [
   },
 ];
 
-export const defaultProjectId: ProjectId = "neuro-academy";
+export const defaultProjectId: ProjectId = projects[0].id;
 
 export function getProjectMeta(id: ProjectId): ProjectMeta {
   return projects.find((p) => p.id === id) ?? projects[0];

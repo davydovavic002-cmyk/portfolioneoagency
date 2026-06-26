@@ -74,6 +74,11 @@ body {
   border-radius: 999px;
 }
 
+.portfolio-preview-iframe {
+  overflow: hidden;
+  display: block;
+}
+
 .preview-scroll {
   overflow: auto;
   scrollbar-width: thin;
