@@ -1,5 +1,6 @@
 "use client";
 
+import { SITE_CONFIG } from "@/config/site";
 import type { Language } from "@/lib/types";
 import {
   servicesByLanguage,
@@ -30,7 +31,7 @@ export function PricingView({
     >
       <header className="mb-8 max-w-2xl lg:mb-12" id="pricing-top">
         <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-600">
-          Neo Studio · B2B
+          {SITE_CONFIG.brandName} · B2B
         </p>
         <h1 className="font-display mt-3 text-3xl tracking-[-0.02em] text-zinc-50 lg:text-4xl">
           {copy.heroTitle}

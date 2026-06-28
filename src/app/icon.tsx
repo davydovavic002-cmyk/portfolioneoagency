@@ -13,25 +13,13 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#111111",
-          borderRadius: 8,
+          background: "#080808",
         }}
       >
-        <svg width="22" height="22" viewBox="0 0 48 48" fill="none">
-          <defs>
-            <linearGradient id="g" x1="8" y1="6" x2="40" y2="42">
-              <stop stopColor="#60a5fa" />
-              <stop offset="1" stopColor="#a78bfa" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M15 34V14l9 12 9-12v20"
-            stroke="url(#g)"
-            strokeWidth="4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <circle cx="36" cy="14" r="3.5" fill="url(#g)" />
+        <svg width="26" height="26" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="21.6" fill="none" stroke="#ffffff" strokeWidth="0.7" opacity="0.18" />
+          <circle cx="24" cy="24" r="17.4" fill="none" stroke="#ffffff" strokeWidth="0.9" opacity="0.45" />
+          <circle cx="24" cy="24" r="4.6" fill="#60a5fa" opacity="0.55" />
         </svg>
       </div>
     ),

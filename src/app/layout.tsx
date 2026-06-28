@@ -24,8 +24,8 @@ const notoArmenian = Noto_Sans_Armenian({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Neo Studio — Product Engineering & AI",
-    template: "%s · Neo Studio",
+    default: "Neo Studio Space — Product Engineering & AI",
+    template: "%s · Neo Studio Space",
   },
   description:
     "Product studio for full-stack development, AI systems, and interface design. Live portfolio, transparent pricing, remote-first.",
@@ -33,14 +33,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    siteName: "Neo Studio",
-    title: "Neo Studio — Product Engineering & AI",
+    siteName: "Neo Studio Space",
+    title: "Neo Studio Space — Product Engineering & AI",
     description:
       "Build products that feel inevitable. Full-stack, AI engineering, and product design.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Neo Studio — Product Engineering & AI",
+    title: "Neo Studio Space — Product Engineering & AI",
     description:
       "Build products that feel inevitable. Full-stack, AI engineering, and product design.",
   },

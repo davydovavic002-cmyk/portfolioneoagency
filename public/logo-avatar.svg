@@ -1,0 +1,55 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Neo Studio Space">
+  <defs>
+    <radialGradient id="avatar-blue-core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#dbeafe" stop-opacity="0.55"/>
+      <stop offset="40%" stop-color="#93c5fd" stop-opacity="0.42"/>
+      <stop offset="75%" stop-color="#3b82f6" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="avatar-white-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="48%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="58%" stop-color="#ffffff" stop-opacity="0.36"/>
+      <stop offset="68%" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="82%" stop-color="#ffffff" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="avatar-bg" cx="50%" cy="50%" r="72%">
+      <stop offset="0%" stop-color="#101010"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </radialGradient>
+    <filter id="avatar-white-neon" x="-80%" y="-80%" width="260%" height="260%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="avatar-blue-bloom" x="-120%" y="-120%" width="340%" height="340%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <circle cx="256" cy="256" r="256" fill="url(#avatar-bg)"/>
+
+  <!-- Lockup — optically centered in circle -->
+  <g transform="translate(256 256)">
+    <g transform="translate(-192 0)">
+      <g transform="translate(72 0)">
+        <circle cx="0" cy="0" r="72" fill="none" stroke="#ffffff" stroke-width="2.4" opacity="0.18"/>
+        <circle cx="0" cy="0" r="57" fill="url(#avatar-white-glow)" filter="url(#avatar-white-neon)" opacity="0.62"/>
+        <circle cx="0" cy="0" r="57" fill="none" stroke="#ffffff" stroke-width="2.7" opacity="0.52" filter="url(#avatar-white-neon)"/>
+        <circle cx="0" cy="0" r="15.5" fill="url(#avatar-blue-core)" filter="url(#avatar-blue-bloom)" opacity="0.88"/>
+      </g>
+
+      <g font-family="Inter, system-ui, sans-serif" text-anchor="start">
+        <text x="168" y="8" font-size="92" font-weight="600" fill="#e4e4e7" letter-spacing="-0.045em">NEO</text>
+        <text x="168" y="64" font-size="46" font-weight="300" fill="#71717a" letter-spacing="0.01em">Studio Space</text>
+      </g>
+    </g>
+  </g>
+</svg>

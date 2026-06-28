@@ -78,7 +78,7 @@ const en: AboutCopy = {
     reviews: "6 shipped cases",
   },
   studio: {
-    title: "Neo Studio",
+    title: "Neo Studio Space",
     paragraphs: [
       "We build digital products for founders and teams who care about craft — not cookie-cutter templates. Full-stack development, AI integration, and product design in one workflow.",
       "We work with startups, SMBs, and education brands across CIS, Europe, and the US. Remote-first, async-friendly, with clear scope and fixed pricing on every package.",
@@ -207,7 +207,7 @@ const ru: AboutCopy = {
     reviews: "6 кейсов",
   },
   studio: {
-    title: "Neo Studio",
+    title: "Neo Studio Space",
     paragraphs: [
       "Создаём цифровые продукты для фаундеров и команд, которым важен уровень исполнения — не шаблонные решения. Фулстек-разработка, AI-интеграция и продуктовый дизайн в одном процессе.",
       "Работаем со стартапами, SMB и образовательными брендами в СНГ, Европе и США. Удалённо, с понятным скоупом и фиксированной ценой в каждом пакете.",
@@ -336,7 +336,7 @@ const am: AboutCopy = {
     reviews: "6 նախագիծ",
   },
   studio: {
-    title: "Neo Studio",
+    title: "Neo Studio Space",
     paragraphs: [
       "Ստեղծում ենք թվային արտադրանքներ հիմնադիրների և թիմերի համար, ովքեր արժեք են տալիս որակին՝ ոչ թե կաղապարներին։ Լիաէջ զարգացում, AI ինտեգրացիա և արտադրանքի դիզայն՝ մեկ գործընթացով։",
       "Աշխատում ենք ստարտափների, փոքր և միջին բիզնեսների և կրթական բրենդների հետ՝ ՀՅՄ, Եվրոպա և ԱՄՆ։ Հեռակա, հստակ շրջանակներով և ֆիքսված գնով յուրաքանչյուր փաթեթում։",

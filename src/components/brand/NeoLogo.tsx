@@ -1,6 +1,6 @@
 "use client";
 
-import { useId } from "react";
+import { LogoMark } from "./LogoMark";
 
 interface NeoLogoProps {
   className?: string;
@@ -10,53 +10,46 @@ interface NeoLogoProps {
 
 export function NeoLogo({
   className = "",
-  size = 32,
+  size = 36,
   showWordmark = false,
 }: NeoLogoProps) {
-  const gradientId = useId();
+  if (!showWordmark) {
+    return (
+      <div className={className} role="img" aria-label="Neo Studio Space">
+        <LogoMark size={size} />
+      </div>
+    );
+  }
+
+  const titleSize = Math.round(size * 0.54);
+  const subtitleSize = Math.max(10, Math.round(size * 0.26));
+  const gap = Math.round(size * 0.38);
 
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
-      <svg
-        width={size}
-        height={size}
-        viewBox="0 0 48 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden={showWordmark ? undefined : true}
-        role={showWordmark ? "img" : undefined}
-        aria-label={showWordmark ? "Neo Studio" : undefined}
+    <div
+      className={`inline-flex items-center ${className}`}
+      style={{ gap }}
+      role="img"
+      aria-label="Neo Studio Space"
+    >
+      <LogoMark size={size} className="shrink-0" />
+      <div
+        className="flex flex-col justify-center"
+        style={{ gap: Math.max(2, Math.round(subtitleSize * 0.15)) }}
       >
-        <defs>
-          <linearGradient id={gradientId} x1="8" y1="6" x2="40" y2="42" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#60a5fa" />
-            <stop offset="1" stopColor="#a78bfa" />
-          </linearGradient>
-        </defs>
-        <rect x="2" y="2" width="44" height="44" rx="14" fill="#111111" />
-        <rect
-          x="2.5"
-          y="2.5"
-          width="43"
-          height="43"
-          rx="13.5"
-          stroke={`url(#${gradientId})`}
-          strokeOpacity="0.35"
-        />
-        <path
-          d="M15 34V14l9 12 9-12v20"
-          stroke={`url(#${gradientId})`}
-          strokeWidth="3.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="36" cy="14" r="3" fill={`url(#${gradientId})`} />
-      </svg>
-      {showWordmark && (
-        <span className="font-display text-[1.05rem] tracking-[-0.02em] text-zinc-100">
-          Neo Studio
+        <span
+          className="font-sans font-semibold leading-[0.92] tracking-[-0.045em] text-zinc-100"
+          style={{ fontSize: titleSize }}
+        >
+          NEO
         </span>
-      )}
+        <span
+          className="font-sans font-light leading-none tracking-[0.01em] text-zinc-500"
+          style={{ fontSize: subtitleSize }}
+        >
+          Studio Space
+        </span>
+      </div>
     </div>
   );
 }

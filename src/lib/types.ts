@@ -5,7 +5,7 @@ export const PREVIEW_IFRAME_HEIGHT = 3600;
 
 export type Language = "ru" | "en" | "am";
 
-export type ViewMode = "work" | "services" | "about";
+export type ViewMode = "brief" | "work" | "services" | "about";
 
 export type ServiceTierId = "hooks" | "packages" | "flagship" | "retainer";
 
@@ -45,9 +45,12 @@ export interface UIStrings {
   devicePhone: string;
   livePreview: string;
   openSite: string;
+  navBrief: string;
   navWork: string;
   navServices: string;
   navAbout: string;
+  briefHeroTitle: string;
+  briefHeroSubtitle: string;
   backToMenu: string;
   packageLabel: string;
   viewInServices: string;

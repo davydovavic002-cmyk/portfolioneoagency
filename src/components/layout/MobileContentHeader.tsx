@@ -26,7 +26,7 @@ export function MobileContentHeader({
   onLanguageChange,
 }: MobileContentHeaderProps) {
   return (
-    <header className="shrink-0 border-b border-white/[0.06] bg-[#080808]/95 px-4 py-3 backdrop-blur-md safe-top">
+    <header className="shrink-0 border-b border-white/[0.06] bg-[#080808]/95 px-4 pt-safe-3 pb-3 backdrop-blur-md">
       <div className="flex items-center gap-3">
         <button
           type="button"
@@ -39,6 +39,7 @@ export function MobileContentHeader({
         <div className="min-w-0 flex-1">
           <ViewSwitcher
             mode={viewMode}
+            briefLabel={strings.navBrief}
             workLabel={strings.navWork}
             servicesLabel={strings.navServices}
             aboutLabel={strings.navAbout}

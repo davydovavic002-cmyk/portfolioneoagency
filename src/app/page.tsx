@@ -1,15 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { Language, ProjectId, ViewMode } from "@/lib/types";
 import { dictionary } from "@/lib/i18n/dictionary";
 import { defaultProjectId } from "@/lib/projects";
 import { LeftPanel } from "@/components/layout/LeftPanel";
 import { RightPanel } from "@/components/layout/RightPanel";
 import { MobileContentHeader } from "@/components/layout/MobileContentHeader";
+import { INITIAL_BRIEF_PROGRESS, type BriefProgress } from "@/components/brief/BriefView";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import type { ServiceTierId } from "@/lib/types";
 import type { AboutSectionId } from "@/lib/i18n/about";
+import type { BriefAnswers, BriefProjectType } from "@/lib/brief/types";
 import {
   getProjectPackage,
   serviceItemElementId,
@@ -22,19 +24,50 @@ function isLanguage(value: string | null): value is Language {
   return value === "en" || value === "ru" || value === "am";
 }
 
+function isBriefProjectType(value: string | null): value is BriefProjectType {
+  return (
+    value === "landing" ||
+    value === "multipage" ||
+    value === "ecommerce" ||
+    value === "telegram-bot" ||
+    value === "ai-product" ||
+    value === "web-design"
+  );
+}
+
 export default function Home() {
   const isMobile = useIsMobile();
   const [activeProject, setActiveProject] = useState<ProjectId>(defaultProjectId);
   const [language, setLanguage] = useState<Language>("en");
-  const [viewMode, setViewMode] = useState<ViewMode>("work");
+  const [viewMode, setViewMode] = useState<ViewMode>("brief");
   const [activeTier, setActiveTier] = useState<ServiceTierId | null>(null);
   const [activeServiceItem, setActiveServiceItem] = useState<ServiceItemId | null>(null);
   const [activeAboutSection, setActiveAboutSection] = useState<AboutSectionId | null>(
     null,
   );
   const [mobileShowContent, setMobileShowContent] = useState(false);
+  const [briefProgress, setBriefProgress] = useState<BriefProgress>(INITIAL_BRIEF_PROGRESS);
+  const [briefInitialAnswers, setBriefInitialAnswers] = useState<
+    Partial<BriefAnswers> | undefined
+  >();
 
   const strings = dictionary[language];
+
+  const handleBriefProgressChange = useCallback((progress: BriefProgress) => {
+    setBriefProgress(progress);
+  }, []);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("brief") === "1") {
+      setViewMode("brief");
+      if (isMobile) setMobileShowContent(true);
+    }
+    const type = params.get("type");
+    if (isBriefProjectType(type)) {
+      setBriefInitialAnswers({ projectType: type });
+    }
+  }, [isMobile]);
 
   useEffect(() => {
     const stored = localStorage.getItem(LANG_STORAGE_KEY);
@@ -49,6 +82,10 @@ export default function Home() {
   useEffect(() => {
     if (!isMobile) setMobileShowContent(false);
   }, [isMobile]);
+
+  useEffect(() => {
+    if (isMobile && viewMode === "brief") setMobileShowContent(true);
+  }, [isMobile, viewMode]);
 
   const scrollToServiceItem = (itemId: ServiceItemId, tierId: ServiceTierId) => {
     requestAnimationFrame(() => {
@@ -65,6 +102,10 @@ export default function Home() {
 
   const handleViewChange = (mode: ViewMode) => {
     setViewMode(mode);
+    if (mode === "brief") {
+      if (isMobile) setMobileShowContent(true);
+      return;
+    }
     if (mode === "work") {
       setActiveTier(null);
       setActiveServiceItem(null);
@@ -147,6 +188,7 @@ export default function Home() {
             viewMode={viewMode}
             activeTier={activeTier}
             activeAboutSection={activeAboutSection}
+            briefProgress={briefProgress}
             strings={strings}
             onLanguageChange={setLanguage}
             onProjectSelect={handleProjectSelect}
@@ -178,6 +220,9 @@ export default function Home() {
             activeTier={activeTier}
             activeServiceItem={activeServiceItem}
             activeAboutSection={activeAboutSection}
+            briefProgress={briefProgress}
+            onBriefProgressChange={handleBriefProgressChange}
+            briefInitialAnswers={briefInitialAnswers}
             strings={strings}
             isMobile={isMobile}
             onViewPackage={handleViewPackage}

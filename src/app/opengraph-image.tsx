@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Neo Studio — Product engineering & AI";
+export const alt = "Neo Studio Space — Product engineering & AI";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -44,41 +44,28 @@ export default function OpenGraphImage() {
           }}
         />
 
-        <div style={{ display: "flex", alignItems: "center", gap: 24, zIndex: 1 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 8, zIndex: 1 }}>
           <div
             style={{
-              width: 72,
-              height: 72,
-              borderRadius: 22,
-              background: "#111111",
-              border: "1px solid rgba(255,255,255,0.12)",
               display: "flex",
               alignItems: "center",
-              justifyContent: "center",
+              gap: 14,
+              fontFamily: "system-ui, sans-serif",
+              letterSpacing: "-0.03em",
             }}
           >
-            <svg width="42" height="42" viewBox="0 0 48 48" fill="none">
-              <defs>
-                <linearGradient id="g" x1="8" y1="6" x2="40" y2="42">
-                  <stop stopColor="#60a5fa" />
-                  <stop offset="1" stopColor="#a78bfa" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M15 34V14l9 12 9-12v20"
-                stroke="url(#g)"
-                strokeWidth="3.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <circle cx="36" cy="14" r="3" fill="url(#g)" />
+            <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="21.6" fill="none" stroke="#ffffff" strokeWidth="0.7" opacity="0.18" />
+              <circle cx="24" cy="24" r="17.4" fill="none" stroke="#ffffff" strokeWidth="0.75" opacity="0.48" />
+              <circle cx="24" cy="24" r="4.6" fill="#93c5fd" opacity="0.6" />
             </svg>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            <div style={{ fontSize: 34, letterSpacing: "-0.03em" }}>Neo Studio</div>
-            <div style={{ fontSize: 18, color: "#a1a1aa" }}>
-              Full-stack · AI engineering · Product design
+            <div style={{ display: "flex", alignItems: "baseline", fontSize: 34 }}>
+              <span style={{ fontWeight: 600, color: "#f4f4f5" }}>NEO</span>
+              <span style={{ fontWeight: 300, color: "#71717a" }}> Studio Space</span>
             </div>
+          </div>
+          <div style={{ fontSize: 18, color: "#a1a1aa", paddingLeft: 2 }}>
+            Full-stack · AI engineering · Product design
           </div>
         </div>
 

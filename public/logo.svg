@@ -1,12 +1,44 @@
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="280" height="48" viewBox="0 0 280 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Neo Studio Space">
   <defs>
-    <linearGradient id="neo-gradient" x1="8" y1="6" x2="40" y2="42" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#60a5fa"/>
-      <stop offset="1" stop-color="#a78bfa"/>
-    </linearGradient>
+    <radialGradient id="logo-blue-core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#dbeafe" stop-opacity="0.55"/>
+      <stop offset="40%" stop-color="#93c5fd" stop-opacity="0.42"/>
+      <stop offset="75%" stop-color="#3b82f6" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="logo-white-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="48%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="58%" stop-color="#ffffff" stop-opacity="0.36"/>
+      <stop offset="68%" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="82%" stop-color="#ffffff" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="logo-white-neon" x="-80%" y="-80%" width="260%" height="260%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="logo-blue-bloom" x="-120%" y="-120%" width="340%" height="340%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <rect x="2" y="2" width="44" height="44" rx="14" fill="#111111"/>
-  <rect x="2.5" y="2.5" width="43" height="43" rx="13.5" stroke="url(#neo-gradient)" stroke-opacity="0.35"/>
-  <path d="M15 34V14l9 12 9-12v20" stroke="url(#neo-gradient)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="36" cy="14" r="3" fill="url(#neo-gradient)"/>
+
+  <g transform="translate(24 24)">
+    <circle cx="0" cy="0" r="21.6" fill="none" stroke="#ffffff" stroke-width="0.7" opacity="0.18"/>
+    <circle cx="0" cy="0" r="17.4" fill="url(#logo-white-glow)" filter="url(#logo-white-neon)" opacity="0.62"/>
+    <circle cx="0" cy="0" r="17.4" fill="none" stroke="#ffffff" stroke-width="0.75" opacity="0.52" filter="url(#logo-white-neon)"/>
+    <circle cx="0" cy="0" r="4.6" fill="url(#logo-blue-core)" filter="url(#logo-blue-bloom)" opacity="0.88"/>
+  </g>
+
+  <g font-family="Inter, system-ui, sans-serif" text-anchor="start">
+    <text x="58" y="21" font-size="19" font-weight="600" fill="#e4e4e7" letter-spacing="-0.045em">NEO</text>
+    <text x="58" y="37" font-size="9.5" font-weight="300" fill="#71717a" letter-spacing="0.01em">Studio Space</text>
+  </g>
 </svg>

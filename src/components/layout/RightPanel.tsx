@@ -8,6 +8,8 @@ import { SimulatorView } from "@/components/simulator/SimulatorView";
 import { CaseStudyStrip } from "@/components/projects/CaseStudyStrip";
 import { PricingView } from "@/components/pricing/PricingView";
 import { AboutView } from "@/components/about/AboutView";
+import { BriefView, type BriefProgress } from "@/components/brief/BriefView";
+import type { BriefAnswers } from "@/lib/brief/types";
 import { getProjectMeta } from "@/lib/projects";
 import { getProjectTheme } from "@/lib/project-themes";
 import { servicesByLanguage } from "@/lib/i18n/services";
@@ -22,6 +24,9 @@ interface RightPanelProps {
   activeTier: ServiceTierId | null;
   activeServiceItem: ServiceItemId | null;
   activeAboutSection: AboutSectionId | null;
+  briefProgress: BriefProgress;
+  onBriefProgressChange: (progress: BriefProgress) => void;
+  briefInitialAnswers?: Partial<BriefAnswers>;
   strings: UIStrings;
   isMobile?: boolean;
   onViewPackage: (projectId: ProjectId) => void;
@@ -34,6 +39,9 @@ export function RightPanel({
   activeTier,
   activeServiceItem,
   activeAboutSection,
+  briefProgress,
+  onBriefProgressChange,
+  briefInitialAnswers,
   strings,
   isMobile = false,
   onViewPackage,
@@ -46,6 +54,16 @@ export function RightPanel({
   const isArmenian = language === "am";
   const services = servicesByLanguage[language];
   const about = aboutByLanguage[language];
+
+  if (viewMode === "brief") {
+    return (
+      <BriefView
+        progress={briefProgress}
+        onProgressChange={onBriefProgressChange}
+        initialAnswers={briefInitialAnswers}
+      />
+    );
+  }
 
   if (viewMode === "about") {
     return (
@@ -65,7 +83,7 @@ export function RightPanel({
             </motion.div>
           </AnimatePresence>
         </div>
-        <div className="shrink-0 border-t border-white/[0.06] px-5 py-3 safe-bottom lg:px-10 lg:py-4">
+        <div className="shrink-0 border-t border-white/[0.06] px-5 py-safe-3 lg:px-10 lg:py-safe-4">
           <p className={`text-[13px] text-zinc-500 ${isArmenian ? "font-armenian" : ""}`}>
             {about.heroSubtitle}
           </p>
@@ -96,7 +114,7 @@ export function RightPanel({
             </motion.div>
           </AnimatePresence>
         </div>
-        <div className="shrink-0 border-t border-white/[0.06] px-5 py-3 safe-bottom lg:px-10 lg:py-4">
+        <div className="shrink-0 border-t border-white/[0.06] px-5 py-safe-3 lg:px-10 lg:py-safe-4">
           <p className={`text-[13px] text-zinc-500 ${isArmenian ? "font-armenian" : ""}`}>
             {services.heroSubtitle}
           </p>
@@ -153,8 +171,8 @@ export function RightPanel({
         />
 
         <div
-          className={`shrink-0 border-t border-white/[0.06] safe-bottom ${
-            isDesktopSite ? "px-5 py-2.5" : "px-4 py-3 lg:px-12 lg:py-4"
+          className={`shrink-0 border-t border-white/[0.06] ${
+            isDesktopSite ? "px-5 py-safe-3" : "px-4 py-safe-3 lg:px-12 lg:py-safe-4"
           }`}
         >
           <div className="flex items-center justify-between gap-4">

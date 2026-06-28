@@ -4,6 +4,7 @@ import type { ViewMode } from "@/lib/types";
 
 interface ViewSwitcherProps {
   mode: ViewMode;
+  briefLabel: string;
   workLabel: string;
   servicesLabel: string;
   aboutLabel: string;
@@ -11,7 +12,8 @@ interface ViewSwitcherProps {
   fullWidth?: boolean;
 }
 
-const TABS: { id: ViewMode; key: "work" | "services" | "about" }[] = [
+const TABS: { id: ViewMode; key: "brief" | "work" | "services" | "about" }[] = [
+  { id: "brief", key: "brief" },
   { id: "work", key: "work" },
   { id: "services", key: "services" },
   { id: "about", key: "about" },
@@ -19,6 +21,7 @@ const TABS: { id: ViewMode; key: "work" | "services" | "about" }[] = [
 
 export function ViewSwitcher({
   mode,
+  briefLabel,
   workLabel,
   servicesLabel,
   aboutLabel,
@@ -26,6 +29,7 @@ export function ViewSwitcher({
   fullWidth = false,
 }: ViewSwitcherProps) {
   const labels = {
+    brief: briefLabel,
     work: workLabel,
     services: servicesLabel,
     about: aboutLabel,
@@ -46,8 +50,8 @@ export function ViewSwitcher({
           role="tab"
           aria-selected={mode === id}
           onClick={() => onChange(id)}
-          className={`rounded-full py-1.5 text-[11px] transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 ${
-            fullWidth ? "flex-1 px-2 text-center" : "px-3"
+          className={`rounded-full py-1.5 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 ${
+            fullWidth ? "flex-1 px-1.5 text-center text-[10px] sm:px-2 sm:text-[11px]" : "px-3 text-[11px]"
           } ${
             mode === id
               ? "bg-white text-black"

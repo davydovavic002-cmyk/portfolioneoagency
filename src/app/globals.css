@@ -27,12 +27,60 @@ body {
   }
 }
 
-.safe-top {
-  padding-top: max(0px, env(safe-area-inset-top));
+/* Safe-area spacing — combined with standard padding (avoids overriding Tailwind pb/pt) */
+@utility pt-safe-3 {
+  padding-top: calc(0.75rem + env(safe-area-inset-top, 0px));
 }
 
-.safe-bottom {
-  padding-bottom: max(0px, env(safe-area-inset-bottom));
+@utility pt-safe-4 {
+  padding-top: calc(1rem + env(safe-area-inset-top, 0px));
+}
+
+@utility pt-safe-8 {
+  padding-top: calc(2rem + env(safe-area-inset-top, 0px));
+}
+
+@utility pt-safe-12 {
+  padding-top: calc(3rem + env(safe-area-inset-top, 0px));
+}
+
+@utility pb-safe-3 {
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+}
+
+@utility pb-safe-4 {
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+}
+
+@utility pb-safe-6 {
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+@utility pb-safe-8 {
+  padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+}
+
+@utility pb-safe-10 {
+  padding-bottom: calc(2.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+@utility py-safe-3 {
+  padding-top: calc(0.75rem + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+}
+
+@utility py-safe-4 {
+  padding-top: calc(1rem + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+}
+
+@utility py-safe-6 {
+  padding-top: calc(1.5rem + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+@utility top-safe-4 {
+  top: calc(1rem + env(safe-area-inset-top, 0px));
 }
 
 body {

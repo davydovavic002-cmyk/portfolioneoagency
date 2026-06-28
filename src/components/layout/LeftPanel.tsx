@@ -17,6 +17,12 @@ import { ViewSwitcher } from "./ViewSwitcher";
 import { NeoLogo } from "@/components/brand/NeoLogo";
 import { caseStudiesByLanguage } from "@/lib/i18n/case-studies";
 import { PackageBadge } from "@/components/projects/PackageLink";
+import {
+  BRIEF_STEP_ORDER,
+  BRIEF_TOTAL_STEPS,
+  type BriefProgress,
+} from "@/components/brief/BriefView";
+import { briefCopy } from "@/lib/brief/copy";
 
 interface LeftPanelProps {
   language: Language;
@@ -24,6 +30,7 @@ interface LeftPanelProps {
   viewMode: ViewMode;
   activeTier: ServiceTierId | null;
   activeAboutSection: AboutSectionId | null;
+  briefProgress: BriefProgress;
   strings: UIStrings;
   onLanguageChange: (lang: Language) => void;
   onProjectSelect: (id: ProjectId) => void;
@@ -39,6 +46,7 @@ export function LeftPanel({
   viewMode,
   activeTier,
   activeAboutSection,
+  briefProgress,
   strings,
   onLanguageChange,
   onProjectSelect,
@@ -53,19 +61,26 @@ export function LeftPanel({
   const about = aboutByLanguage[language];
 
   const heroTitle =
-    viewMode === "services"
-      ? services.heroTitle
-      : viewMode === "about"
-        ? about.heroTitle
-        : strings.heroLine;
+    viewMode === "brief"
+      ? strings.briefHeroTitle
+      : viewMode === "services"
+        ? services.heroTitle
+        : viewMode === "about"
+          ? about.heroTitle
+          : strings.heroLine;
+
+  const heroSubtitle =
+    viewMode === "brief"
+      ? strings.briefHeroSubtitle
+      : strings.portfolioSubtitle;
 
   return (
     <aside className="flex h-full w-full flex-col border-white/[0.06] lg:border-r">
-      <header className="shrink-0 px-5 pt-8 pb-6 safe-top lg:px-10 lg:pt-12 lg:pb-8">
-        <NeoLogo className="mb-4" size={28} showWordmark />
+      <header className="shrink-0 px-5 pt-safe-8 pb-6 lg:px-10 lg:pt-safe-12 lg:pb-8">
+        <NeoLogo className="mb-4" size={34} showWordmark />
         <div className="min-w-0">
           <p className={`text-[12px] leading-relaxed text-zinc-500 lg:text-[13px] ${fontClass}`}>
-            {strings.portfolioSubtitle}
+            {heroSubtitle}
           </p>
           <h1
             className={`font-display mt-2 text-[2rem] leading-[1.05] tracking-[-0.02em] text-zinc-50 lg:mt-3 lg:text-[2.75rem] ${fontClass}`}
@@ -76,6 +91,7 @@ export function LeftPanel({
         <div className="mt-5 w-full lg:mt-6">
           <ViewSwitcher
             mode={viewMode}
+            briefLabel={strings.navBrief}
             workLabel={strings.navWork}
             servicesLabel={strings.navServices}
             aboutLabel={strings.navAbout}
@@ -92,6 +108,98 @@ export function LeftPanel({
       </header>
 
       <nav className="flex-1 overflow-y-auto px-4 lg:px-6">
+        {viewMode === "brief" && (
+          <ul>
+            {BRIEF_STEP_ORDER.map((stepKey, index) => {
+              const isComplete =
+                briefProgress.showResult || index < briefProgress.step;
+              const isActive =
+                !briefProgress.showResult && index === briefProgress.step;
+              const stepLabels: Record<(typeof BRIEF_STEP_ORDER)[number], string> = {
+                projectType: briefCopy.projectType.label,
+                industry: briefCopy.industry.label,
+                budget: briefCopy.budget.label,
+                timeline: briefCopy.timeline.label,
+              };
+
+              return (
+                <li key={stepKey} className="border-t border-white/[0.06] last:border-b">
+                  <div
+                    className={`py-5 pl-5 pr-2 transition-colors ${
+                      isActive ? "bg-white/[0.02]" : ""
+                    }`}
+                  >
+                    <div className="flex items-start gap-4">
+                      <span
+                        className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-[10px] tabular-nums transition-colors ${
+                          isComplete
+                            ? "border-blue-400/40 bg-blue-500/15 text-blue-300"
+                            : isActive
+                              ? "border-white/20 bg-white/10 text-zinc-200"
+                              : "border-white/[0.08] text-zinc-600"
+                        }`}
+                      >
+                        0{index + 1}
+                      </span>
+                      <div className="min-w-0">
+                        <p
+                          className={`text-[10px] font-medium uppercase tracking-[0.2em] ${
+                            isActive ? "text-blue-300/80" : "text-zinc-600"
+                          }`}
+                        >
+                          {briefCopy.step(index + 1, BRIEF_TOTAL_STEPS)}
+                        </p>
+                        <h2
+                          className={`mt-1 text-[15px] font-medium ${
+                            isActive
+                              ? "text-zinc-50"
+                              : isComplete
+                                ? "text-zinc-400"
+                                : "text-zinc-600"
+                          }`}
+                        >
+                          {stepLabels[stepKey]}
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+            <li className="border-t border-white/[0.06] last:border-b">
+              <div
+                className={`py-5 pl-5 pr-2 ${
+                  briefProgress.showResult ? "bg-white/[0.02]" : ""
+                }`}
+              >
+                <div className="flex items-start gap-4">
+                  <span
+                    className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-[10px] ${
+                      briefProgress.showResult
+                        ? "border-violet-400/40 bg-violet-500/15 text-violet-300"
+                        : "border-white/[0.08] text-zinc-600"
+                    }`}
+                  >
+                    →
+                  </span>
+                  <div>
+                    <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-600">
+                      Result
+                    </p>
+                    <h2
+                      className={`mt-1 text-[15px] font-medium ${
+                        briefProgress.showResult ? "text-zinc-50" : "text-zinc-600"
+                      }`}
+                    >
+                      {briefCopy.resultTitle}
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        )}
+
         {viewMode === "work" && (
           <ul>
             {projects.map((project) => {
@@ -272,8 +380,15 @@ export function LeftPanel({
         )}
       </nav>
 
-      <footer className="shrink-0 px-5 py-4 safe-bottom lg:px-10 lg:py-6">
+      <footer className="shrink-0 px-5 py-safe-4 lg:px-10 lg:py-safe-6">
         <p className="text-[12px] tabular-nums text-zinc-700">
+          {viewMode === "brief" && (
+            <>
+              0{BRIEF_TOTAL_STEPS}
+              <span className="mx-1.5 text-zinc-800">·</span>
+              <span className="text-zinc-600">2 min</span>
+            </>
+          )}
           {viewMode === "work" && (
             <>
               0{projects.findIndex((p) => p.id === activeProject) + 1}

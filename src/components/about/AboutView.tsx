@@ -30,7 +30,7 @@ export function AboutView({ language, scrollToSection }: AboutViewProps) {
     >
       <header className="mb-8 max-w-2xl lg:mb-12" id="about-top">
         <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-600">
-          Neo Studio
+          {SITE_CONFIG.brandName}
         </p>
         <h1 className="font-display mt-3 text-3xl tracking-[-0.02em] text-zinc-50 lg:text-4xl">
           {copy.heroTitle}
