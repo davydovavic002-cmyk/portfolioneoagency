@@ -17,12 +17,6 @@ export const PREVIEW_FRAME_ORIGINS = [
   ...new Set([...PREVIEW_ORIGINS, ...BLESSED_ANGEL_EXTRA_ORIGINS]),
 ];
 
-const BLESSED_ANGEL_HOSTS = new Set(["blessedangel.store", "www.blessedangel.store"]);
-
-export function isBlessedAngelPreviewUrl(previewUrl: string): boolean {
-  return BLESSED_ANGEL_HOSTS.has(new URL(previewUrl).hostname);
-}
-
 export function isAllowedPreviewOrigin(origin: string): boolean {
   if (PREVIEW_ORIGINS.includes(origin)) return true;
   return BLESSED_ANGEL_EXTRA_ORIGINS.includes(

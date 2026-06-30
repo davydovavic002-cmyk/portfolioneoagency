@@ -5,13 +5,11 @@ import {
   DESKTOP_VIEWPORT_HEIGHT,
   DESKTOP_VIEWPORT_WIDTH,
   PREVIEW_IFRAME_DEFAULT_HEIGHT,
-  PREVIEW_IFRAME_FALLBACK_HEIGHT,
   type Language,
 } from "@/lib/types";
 import {
   getPreviewOrigin,
   isAllowedPreviewOrigin,
-  isBlessedAngelPreviewUrl,
 } from "@/lib/preview-origins";
 import { buildPreviewUrl, PORTFOLIO_LANG_MESSAGE } from "@/lib/preview-url";
 import {
@@ -248,12 +246,8 @@ export function DesktopSitePreview({
   children,
 }: DesktopSitePreviewProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const heightFromMessageRef = useRef(false);
   const src = previewUrl ? buildPreviewUrl(previewUrl, language) : undefined;
   const previewOrigin = previewUrl ? getPreviewOrigin(previewUrl) : undefined;
-  const isBlessedAngelPreview = previewUrl
-    ? isBlessedAngelPreviewUrl(previewUrl)
-    : false;
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">(
     previewUrl ? "loading" : "ready",
   );
@@ -264,21 +258,17 @@ export function DesktopSitePreview({
     if (!iframe) return;
 
     const measured = measureIframeDocumentHeight(iframe);
-    if (measured !== null) {
-      setIframeHeight(resolvePreviewIframeHeight(measured));
-      return;
-    }
+    if (measured === null) return;
 
-    // Cross-origin: keep tall fallback for sites without postMessage integration.
-    if (!heightFromMessageRef.current) {
-      setIframeHeight(PREVIEW_IFRAME_FALLBACK_HEIGHT);
-    }
+    setIframeHeight((current) => {
+      const next = resolvePreviewIframeHeight(measured);
+      return Math.max(current, next);
+    });
   }, []);
 
   useEffect(() => {
     if (previewUrl) {
       setLoadState("loading");
-      heightFromMessageRef.current = false;
       setIframeHeight(PREVIEW_IFRAME_DEFAULT_HEIGHT);
     }
   }, [previewUrl, src]);
@@ -292,20 +282,14 @@ export function DesktopSitePreview({
     const onMessage = (event: MessageEvent) => {
       if (!isAllowedPreviewOrigin(event.origin)) return;
       if (!isPreviewHeightMessage(event.data)) return;
-
-      const reported = clampPreviewHeight(event.data.height + 48);
-      setIframeHeight((current) => Math.max(current, reported));
-
-      // Blessed Angel may report a short height before images/layout settle.
-      const blessedAngelReady = isBlessedAngelPreview && reported >= 2400;
-      if (!isBlessedAngelPreview || blessedAngelReady) {
-        heightFromMessageRef.current = true;
-      }
+      setIframeHeight((current) =>
+        Math.max(current, clampPreviewHeight(event.data.height + 48)),
+      );
     };
 
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, [isBlessedAngelPreview]);
+  }, []);
 
   useEffect(() => {
     if (loadState !== "ready") return;

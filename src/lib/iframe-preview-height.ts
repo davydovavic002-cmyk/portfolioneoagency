@@ -37,7 +37,6 @@ export function measureIframeDocumentHeight(
   }
 }
 
-/** Same-origin: measured height. Cross-origin without postMessage: tall fallback scroll area. */
 export function resolvePreviewIframeHeight(measured: number | null): number {
   if (measured && measured > 0) {
     return clampPreviewHeight(measured + 48);
@@ -57,6 +56,3 @@ export function isPreviewHeightMessage(
     payload.height > 0
   );
 }
-
-/** @deprecated use resolvePreviewIframeHeight */
-export { PREVIEW_IFRAME_FALLBACK_HEIGHT };
