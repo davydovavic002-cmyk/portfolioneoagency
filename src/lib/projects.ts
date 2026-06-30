@@ -11,6 +11,9 @@ export const projects: ProjectMeta[] = [
     previewInitialHeight: 720,
     previewExactPostMessage: true,
     previewPostMessagePadding: 0,
+    previewSubpageMaxHeights: {
+      "/schedule": 2700,
+    },
   },
   {
     id: "aura-hair",

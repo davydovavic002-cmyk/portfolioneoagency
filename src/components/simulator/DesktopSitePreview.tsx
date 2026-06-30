@@ -18,6 +18,11 @@ import {
   measureIframeDocumentHeight,
   resolvePreviewIframeHeight,
 } from "@/lib/iframe-preview-height";
+import {
+  getPreviewHeightPath,
+  isPreviewRouteChangeMessage,
+  normalizePreviewSubpagePath,
+} from "@/lib/pilates-preview-height";
 
 interface Layout {
   width: number;
@@ -196,6 +201,7 @@ interface DesktopSitePreviewProps {
   previewMaxHeight?: number;
   previewExactPostMessage?: boolean;
   previewPostMessagePadding?: number;
+  previewSubpageMaxHeights?: Record<string, number>;
   title: string;
   language?: Language;
   children?: React.ReactNode;
@@ -267,12 +273,25 @@ export function DesktopSitePreview({
   previewMaxHeight,
   previewExactPostMessage = false,
   previewPostMessagePadding,
+  previewSubpageMaxHeights,
   title,
   language = "en",
   children,
 }: DesktopSitePreviewProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const src = previewUrl ? buildPreviewUrl(previewUrl, language) : undefined;
+  const onScheduleViewRef = useRef(false);
+  const iframeReadyAtRef = useRef(0);
+  const heightBurstRef = useRef<{ height: number; ts: number }[]>([]);
+  const scheduleCap = previewSubpageMaxHeights?.["/schedule"];
+  const src = previewUrl
+    ? buildPreviewUrl(
+        previewUrl,
+        language,
+        scheduleCap !== undefined
+          ? { scheduleMaxHeight: scheduleCap }
+          : undefined,
+      )
+    : undefined;
   const previewOrigin = previewUrl ? getPreviewOrigin(previewUrl) : undefined;
   const startingHeight = resolvePreviewInitialHeight(
     previewInitialHeight,
@@ -303,6 +322,9 @@ export function DesktopSitePreview({
     if (previewUrl) {
       setLoadState("loading");
       setIframeHeight(startingHeight);
+      onScheduleViewRef.current = false;
+      heightBurstRef.current = [];
+      iframeReadyAtRef.current = 0;
     }
   }, [previewUrl, src, startingHeight]);
 
@@ -313,9 +335,112 @@ export function DesktopSitePreview({
 
   useEffect(() => {
     const padding = previewPostMessagePadding ?? 48;
+    const subpageCaps = previewSubpageMaxHeights;
+    const scheduleMax = subpageCaps?.["/schedule"];
+
+    const applyScheduleCap = (height: number) => {
+      if (scheduleMax === undefined) return height;
+      onScheduleViewRef.current = true;
+      return Math.min(height, scheduleMax);
+    };
+
+    const trackHeightBurst = (height: number): boolean => {
+      if (scheduleMax === undefined) return false;
+
+      const now = Date.now();
+      const readyAt = iframeReadyAtRef.current;
+      if (readyAt === 0 || now - readyAt < 4_000) return false;
+
+      heightBurstRef.current.push({ height, ts: now });
+      heightBurstRef.current = heightBurstRef.current.filter(
+        (entry) => now - entry.ts < 2_500,
+      );
+
+      if (heightBurstRef.current.length < 4) return false;
+
+      const heights = heightBurstRef.current.map((entry) => entry.height);
+      const min = Math.min(...heights);
+      const max = Math.max(...heights);
+
+      return max - min <= 64 && max > scheduleMax * 1.35;
+    };
 
     const onMessage = (event: MessageEvent) => {
       if (!isAllowedPreviewOrigin(event.origin)) return;
+
+      if (subpageCaps) {
+        if (isPreviewRouteChangeMessage(event.data)) {
+          const path = normalizePreviewSubpagePath(event.data.path);
+
+          if (path === "/schedule" && scheduleMax !== undefined) {
+            onScheduleViewRef.current = true;
+            setIframeHeight(scheduleMax);
+            return;
+          }
+
+          if (path === "/" || path === "") {
+            onScheduleViewRef.current = false;
+          }
+
+          const cap = subpageCaps[path];
+          if (cap !== undefined) {
+            setIframeHeight(cap);
+          }
+          return;
+        }
+
+        if (!isPreviewHeightMessage(event.data)) return;
+
+        const path = getPreviewHeightPath(event.data);
+        const next = resolvePreviewHeight(
+          event.data.height + padding,
+          previewMaxHeight,
+        );
+
+        if (path === "/schedule") {
+          onScheduleViewRef.current = true;
+          setIframeHeight(applyScheduleCap(next));
+          return;
+        }
+
+        if (path === "/" || path === "") {
+          onScheduleViewRef.current = false;
+        }
+
+        if (onScheduleViewRef.current && scheduleMax !== undefined) {
+          setIframeHeight(Math.min(next, scheduleMax));
+          return;
+        }
+
+        if (trackHeightBurst(next)) {
+          setIframeHeight(applyScheduleCap(next));
+          return;
+        }
+
+        setIframeHeight((current) => {
+          if (
+            scheduleMax !== undefined &&
+            next < current * 0.72 &&
+            next <= scheduleMax + 400
+          ) {
+            onScheduleViewRef.current = true;
+            return Math.min(next, scheduleMax);
+          }
+
+          if (
+            scheduleMax !== undefined &&
+            next <= scheduleMax + 120 &&
+            next >= scheduleMax - 800
+          ) {
+            onScheduleViewRef.current = true;
+            return Math.min(next, scheduleMax);
+          }
+
+          return next < current ? next : Math.max(current, next);
+        });
+        return;
+      }
+
       if (!isPreviewHeightMessage(event.data)) return;
 
       const next = resolvePreviewHeight(event.data.height + padding, previewMaxHeight);
@@ -332,7 +457,12 @@ export function DesktopSitePreview({
 
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, [previewExactPostMessage, previewMaxHeight, previewPostMessagePadding]);
+  }, [
+    previewExactPostMessage,
+    previewMaxHeight,
+    previewPostMessagePadding,
+    previewSubpageMaxHeights,
+  ]);
 
   useEffect(() => {
     if (loadState !== "ready") return;
@@ -347,6 +477,7 @@ export function DesktopSitePreview({
 
   const handleIframeLoad = () => {
     setLoadState("ready");
+    iframeReadyAtRef.current = Date.now();
     if (previewOrigin) {
       postLanguageToIframe(iframeRef.current, language, previewOrigin);
     }

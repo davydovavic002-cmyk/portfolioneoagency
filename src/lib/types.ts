@@ -42,6 +42,8 @@ export interface ProjectMeta {
   previewExactPostMessage?: boolean;
   /** Extra px added to postMessage height (pilates measures to sentinel — use 0) */
   previewPostMessagePadding?: number;
+  /** Per-route iframe height caps — pilates /schedule only */
+  previewSubpageMaxHeights?: Record<string, number>;
 }
 
 export interface ProjectTranslation {
