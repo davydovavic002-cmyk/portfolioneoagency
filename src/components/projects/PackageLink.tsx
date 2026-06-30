@@ -29,7 +29,7 @@ export function PackageBadge({
     <button
       type="button"
       onClick={() => onViewPackage(projectId)}
-      className={`group inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-left text-[11px] text-zinc-400 transition-colors hover:border-white/[0.14] hover:text-zinc-200 ${className}`}
+      className={`group inline-flex min-h-11 items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-left text-[11px] text-zinc-400 transition-colors hover:border-white/[0.14] hover:text-zinc-200 ${className}`}
     >
       <span style={{ color: accent }}>{pkg.item.name}</span>
       <span className="text-zinc-600">·</span>
@@ -45,7 +45,7 @@ interface PackageStripProps {
   strings: UIStrings;
   accent: string;
   onViewPackage: (projectId: ProjectId) => void;
-  isMobile?: boolean;
+  mobile?: boolean;
   inline?: boolean;
 }
 
@@ -55,7 +55,7 @@ export function PackageStrip({
   strings,
   accent,
   onViewPackage,
-  isMobile = false,
+  mobile = false,
   inline = false,
 }: PackageStripProps) {
   const pkg = getProjectPackage(projectId, language);
@@ -85,8 +85,8 @@ export function PackageStrip({
 
   return (
     <div
-      className={`flex items-center justify-between gap-3 border-b border-white/[0.06] pb-3 ${
-        isMobile ? "mb-3" : "mb-4"
+      className={`flex items-center justify-between gap-3 border-b border-white/[0.06] pb-2.5 ${
+        mobile ? "mb-2" : "mb-4"
       }`}
     >
       <div className="min-w-0">

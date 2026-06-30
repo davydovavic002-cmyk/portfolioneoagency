@@ -28,7 +28,6 @@ interface RightPanelProps {
   onBriefProgressChange: (progress: BriefProgress) => void;
   briefInitialAnswers?: Partial<BriefAnswers>;
   strings: UIStrings;
-  isMobile?: boolean;
   onViewPackage: (projectId: ProjectId) => void;
 }
 
@@ -43,7 +42,6 @@ export function RightPanel({
   onBriefProgressChange,
   briefInitialAnswers,
   strings,
-  isMobile = false,
   onViewPackage,
 }: RightPanelProps) {
   const meta = getProjectMeta(activeProject);
@@ -134,9 +132,9 @@ export function RightPanel({
         />
       )}
 
-      <div className="relative grid min-h-0 flex-1 grid-rows-[minmax(0,1fr)_auto_auto] overflow-hidden">
-        {!isDesktopSite && !isMobile && (
-          <div className="pointer-events-none absolute right-12 top-10 z-10 flex items-center gap-4">
+      <div className="relative grid min-h-0 flex-1 grid-rows-[minmax(280px,1fr)_auto_auto] overflow-hidden max-lg:grid-rows-[minmax(320px,1fr)_auto_auto] lg:grid-rows-[minmax(0,1fr)_auto_auto]">
+        {!isDesktopSite && (
+          <div className="pointer-events-none absolute right-12 top-10 z-10 hidden items-center gap-4 lg:flex">
             <span className="text-[12px] tabular-nums text-zinc-600">{meta.year}</span>
             <span className="text-[12px]" style={{ color: theme.accent }}>
               {deviceLabel}
@@ -147,32 +145,25 @@ export function RightPanel({
         <div
           className={`relative min-h-0 overflow-hidden ${
             isDesktopSite
-              ? isMobile
-                ? "flex flex-col px-2 pb-2 pt-2"
-                : "flex flex-col px-2 pb-2 pt-3 lg:px-3 lg:pb-3 lg:pt-4"
-              : isMobile
-                ? "px-3 pb-3 pt-2"
-                : "px-8 pb-4 pt-2"
+              ? "flex flex-col px-1.5 pb-1 pt-1.5 max-lg:px-1.5 max-lg:pb-1 max-lg:pt-1.5 lg:px-3 lg:pb-3 lg:pt-4"
+              : "px-3 pb-2 pt-2 max-lg:px-3 lg:px-8 lg:pb-4"
           }`}
         >
-          <SimulatorView
-            activeProject={activeProject}
-            language={language}
-            isMobile={isMobile}
-          />
+          <SimulatorView activeProject={activeProject} language={language} />
         </div>
 
         <CaseStudyStrip
           projectId={activeProject}
           language={language}
           strings={strings}
-          isMobile={isMobile}
           onViewPackage={onViewPackage}
         />
 
         <div
           className={`shrink-0 border-t border-white/[0.06] ${
-            isDesktopSite ? "px-5 py-safe-3" : "px-4 py-safe-3 lg:px-12 lg:py-safe-4"
+            isDesktopSite
+              ? "px-4 py-2 max-lg:py-2 lg:px-5 lg:py-safe-3"
+              : "px-4 py-safe-3 lg:px-12 lg:py-safe-4"
           }`}
         >
           <div className="flex items-center justify-between gap-4">
@@ -192,7 +183,7 @@ export function RightPanel({
                 </p>
               )}
             </div>
-            {isMobile ? (
+            <div className="lg:hidden">
               <PackageBadge
                 projectId={activeProject}
                 language={language}
@@ -200,11 +191,14 @@ export function RightPanel({
                 accent={theme.accent}
                 onViewPackage={onViewPackage}
               />
-            ) : isDesktopSite ? (
-              <span className="shrink-0 text-[12px] text-zinc-600">{deviceLabel}</span>
+            </div>
+            {isDesktopSite ? (
+              <span className="hidden shrink-0 text-[12px] text-zinc-600 lg:inline">
+                {deviceLabel}
+              </span>
             ) : (
               <div
-                className="h-px w-12 shrink-0"
+                className="hidden h-px w-12 shrink-0 lg:block"
                 style={{ backgroundColor: theme.accent, opacity: 0.5 }}
               />
             )}

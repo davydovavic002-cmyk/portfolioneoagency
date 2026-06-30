@@ -196,7 +196,6 @@ interface DesktopSitePreviewProps {
   previewMaxHeight?: number;
   title: string;
   language?: Language;
-  isMobile?: boolean;
   children?: React.ReactNode;
 }
 
@@ -266,7 +265,6 @@ export function DesktopSitePreview({
   previewMaxHeight,
   title,
   language = "en",
-  isMobile = false,
   children,
 }: DesktopSitePreviewProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -351,32 +349,6 @@ export function DesktopSitePreview({
     onLoad: handleIframeLoad,
     onError: () => setLoadState("error"),
   };
-
-  if (previewUrl && isMobile) {
-    return (
-      <div className="relative flex min-h-0 flex-1 flex-col">
-        {loadState === "loading" && (
-          <div className="absolute inset-0 z-10">
-            <PreviewStatus language={language} state="loading" />
-          </div>
-        )}
-        {loadState === "error" && (
-          <PreviewStatus language={language} state="error" openUrl={src} />
-        )}
-        <div
-          className={`preview-iframe-scroll min-h-0 flex-1 ${
-            loadState === "error" ? "hidden" : ""
-          }`}
-        >
-          <iframe
-            {...iframeProps}
-            className="portfolio-preview-iframe block w-full border-0 bg-white"
-            style={{ height: iframeHeight }}
-          />
-        </div>
-      </div>
-    );
-  }
 
   if (previewUrl) {
     return (

@@ -10,6 +10,7 @@ interface ViewSwitcherProps {
   aboutLabel: string;
   onChange: (mode: ViewMode) => void;
   fullWidth?: boolean;
+  compact?: boolean;
 }
 
 const TABS: { id: ViewMode; key: "brief" | "work" | "services" | "about" }[] = [
@@ -27,6 +28,7 @@ export function ViewSwitcher({
   aboutLabel,
   onChange,
   fullWidth = false,
+  compact = false,
 }: ViewSwitcherProps) {
   const labels = {
     brief: briefLabel,
@@ -50,8 +52,10 @@ export function ViewSwitcher({
           role="tab"
           aria-selected={mode === id}
           onClick={() => onChange(id)}
-          className={`rounded-full py-1.5 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 ${
-            fullWidth ? "flex-1 px-1.5 text-center text-[10px] sm:px-2 sm:text-[11px]" : "px-3 text-[11px]"
+          className={`rounded-full transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 ${
+            fullWidth
+              ? `flex-1 px-1.5 text-center ${compact ? "min-h-10 py-2 text-[10px] leading-none" : "py-1.5 text-[10px] sm:px-2 sm:text-[11px]"}`
+              : "min-h-10 px-3 py-2 text-[11px]"
           } ${
             mode === id
               ? "bg-white text-black"

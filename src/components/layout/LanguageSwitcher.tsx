@@ -11,12 +11,19 @@ const LANGUAGES: { code: Language; label: string }[] = [
 interface LanguageSwitcherProps {
   language: Language;
   onChange: (lang: Language) => void;
+  compact?: boolean;
 }
 
-export function LanguageSwitcher({ language, onChange }: LanguageSwitcherProps) {
+export function LanguageSwitcher({
+  language,
+  onChange,
+  compact = false,
+}: LanguageSwitcherProps) {
   return (
     <div
-      className="flex items-center gap-3 text-[13px]"
+      className={`flex shrink-0 items-center text-[13px] ${
+        compact ? "gap-1" : "gap-3"
+      }`}
       role="group"
       aria-label="Language"
     >
@@ -27,10 +34,12 @@ export function LanguageSwitcher({ language, onChange }: LanguageSwitcherProps) 
           onClick={() => onChange(code)}
           aria-current={language === code ? "true" : undefined}
           aria-label={label}
-          className={`transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 ${
+          className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-full transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 ${
+            compact ? "px-2 text-[11px]" : "px-2.5"
+          } ${
             language === code
-              ? "text-zinc-100"
-              : "text-zinc-600 hover:text-zinc-400"
+              ? "bg-white/[0.08] text-zinc-100"
+              : "text-zinc-600 hover:bg-white/[0.04] hover:text-zinc-400"
           }`}
         >
           {code.toUpperCase()}

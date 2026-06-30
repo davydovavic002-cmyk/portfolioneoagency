@@ -8,7 +8,6 @@ import { LeftPanel } from "@/components/layout/LeftPanel";
 import { RightPanel } from "@/components/layout/RightPanel";
 import { MobileContentHeader } from "@/components/layout/MobileContentHeader";
 import { INITIAL_BRIEF_PROGRESS, type BriefProgress } from "@/components/brief/BriefView";
-import { useIsMobile } from "@/hooks/useIsMobile";
 import type { ServiceTierId } from "@/lib/types";
 import type { AboutSectionId } from "@/lib/i18n/about";
 import type { BriefAnswers, BriefProjectType } from "@/lib/brief/types";
@@ -17,6 +16,10 @@ import {
   serviceItemElementId,
   type ServiceItemId,
 } from "@/lib/project-packages";
+import {
+  isMobileViewport,
+  opensMobileContentForView,
+} from "@/lib/mobile-viewport";
 
 const LANG_STORAGE_KEY = "neo-portfolio-lang";
 
@@ -35,8 +38,12 @@ function isBriefProjectType(value: string | null): value is BriefProjectType {
   );
 }
 
+function syncMobileContentVisibility(mode: ViewMode): boolean {
+  if (mode === "work") return false;
+  return opensMobileContentForView(mode);
+}
+
 export default function Home() {
-  const isMobile = useIsMobile();
   const [activeProject, setActiveProject] = useState<ProjectId>(defaultProjectId);
   const [language, setLanguage] = useState<Language>("en");
   const [viewMode, setViewMode] = useState<ViewMode>("brief");
@@ -45,7 +52,7 @@ export default function Home() {
   const [activeAboutSection, setActiveAboutSection] = useState<AboutSectionId | null>(
     null,
   );
-  const [mobileShowContent, setMobileShowContent] = useState(false);
+  const [mobileShowContent, setMobileShowContent] = useState(true);
   const [briefProgress, setBriefProgress] = useState<BriefProgress>(INITIAL_BRIEF_PROGRESS);
   const [briefInitialAnswers, setBriefInitialAnswers] = useState<
     Partial<BriefAnswers> | undefined
@@ -61,13 +68,13 @@ export default function Home() {
     const params = new URLSearchParams(window.location.search);
     if (params.get("brief") === "1") {
       setViewMode("brief");
-      if (isMobile) setMobileShowContent(true);
+      setMobileShowContent(true);
     }
     const type = params.get("type");
     if (isBriefProjectType(type)) {
       setBriefInitialAnswers({ projectType: type });
     }
-  }, [isMobile]);
+  }, []);
 
   useEffect(() => {
     const stored = localStorage.getItem(LANG_STORAGE_KEY);
@@ -78,14 +85,6 @@ export default function Home() {
     localStorage.setItem(LANG_STORAGE_KEY, language);
     document.documentElement.lang = language === "am" ? "hy" : language;
   }, [language]);
-
-  useEffect(() => {
-    if (!isMobile) setMobileShowContent(false);
-  }, [isMobile]);
-
-  useEffect(() => {
-    if (isMobile && viewMode === "brief") setMobileShowContent(true);
-  }, [isMobile, viewMode]);
 
   const scrollToServiceItem = (itemId: ServiceItemId, tierId: ServiceTierId) => {
     requestAnimationFrame(() => {
@@ -102,26 +101,22 @@ export default function Home() {
 
   const handleViewChange = (mode: ViewMode) => {
     setViewMode(mode);
-    if (mode === "brief") {
-      if (isMobile) setMobileShowContent(true);
-      return;
+    if (isMobileViewport()) {
+      setMobileShowContent(syncMobileContentVisibility(mode));
     }
     if (mode === "work") {
       setActiveTier(null);
       setActiveServiceItem(null);
       setActiveAboutSection(null);
-      if (isMobile) setMobileShowContent(false);
     }
     if (mode === "services") {
       setActiveAboutSection(null);
-      if (isMobile) setMobileShowContent(true);
     }
     if (mode === "about") {
       setActiveTier(null);
       setActiveServiceItem(null);
-      if (isMobile) setMobileShowContent(true);
     }
-    if (isMobile && (mode === "services" || mode === "about")) {
+    if (isMobileViewport() && (mode === "services" || mode === "about")) {
       requestAnimationFrame(() => {
         document.querySelector<HTMLElement>(".preview-scroll")?.scrollTo({ top: 0 });
       });
@@ -134,7 +129,7 @@ export default function Home() {
     setActiveTier(null);
     setActiveServiceItem(null);
     setActiveAboutSection(null);
-    if (isMobile) setMobileShowContent(true);
+    if (isMobileViewport()) setMobileShowContent(true);
   };
 
   const handleTierSelect = (tierId: ServiceTierId) => {
@@ -142,7 +137,7 @@ export default function Home() {
     setActiveTier(tierId);
     setActiveServiceItem(null);
     setActiveAboutSection(null);
-    if (isMobile) setMobileShowContent(true);
+    if (isMobileViewport()) setMobileShowContent(true);
     requestAnimationFrame(() => {
       document.getElementById(`tier-${tierId}`)?.scrollIntoView({ behavior: "smooth" });
     });
@@ -153,7 +148,7 @@ export default function Home() {
     setActiveTier(null);
     setActiveServiceItem(null);
     setActiveAboutSection(sectionId);
-    if (isMobile) setMobileShowContent(true);
+    if (isMobileViewport()) setMobileShowContent(true);
     requestAnimationFrame(() => {
       document.getElementById(`about-${sectionId}`)?.scrollIntoView({ behavior: "smooth" });
     });
@@ -167,12 +162,9 @@ export default function Home() {
     setActiveTier(pkg.tierId);
     setActiveServiceItem(pkg.itemId);
     setActiveAboutSection(null);
-    if (isMobile) setMobileShowContent(true);
+    if (isMobileViewport()) setMobileShowContent(true);
     scrollToServiceItem(pkg.itemId, pkg.tierId);
   };
-
-  const showNav = !isMobile || !mobileShowContent;
-  const showContent = !isMobile || mobileShowContent;
 
   return (
     <main
@@ -180,55 +172,57 @@ export default function Home() {
         language === "am" ? "font-armenian" : ""
       }`}
     >
-      {showNav && (
-        <div className="flex min-h-0 flex-1 flex-col lg:h-full lg:min-w-[400px] lg:max-w-[480px] lg:flex-none lg:w-[38%]">
-          <LeftPanel
-            language={language}
-            activeProject={activeProject}
-            viewMode={viewMode}
-            activeTier={activeTier}
-            activeAboutSection={activeAboutSection}
-            briefProgress={briefProgress}
-            strings={strings}
-            onLanguageChange={setLanguage}
-            onProjectSelect={handleProjectSelect}
-            onViewChange={handleViewChange}
-            onTierSelect={handleTierSelect}
-            onAboutSectionSelect={handleAboutSectionSelect}
-            onViewPackage={handleViewPackage}
-          />
-        </div>
-      )}
+      <div
+        className={`flex min-h-0 flex-1 flex-col lg:h-full lg:min-w-[400px] lg:max-w-[480px] lg:flex-none lg:w-[38%] ${
+          mobileShowContent ? "max-lg:hidden" : "max-lg:flex"
+        }`}
+      >
+        <LeftPanel
+          language={language}
+          activeProject={activeProject}
+          viewMode={viewMode}
+          activeTier={activeTier}
+          activeAboutSection={activeAboutSection}
+          briefProgress={briefProgress}
+          strings={strings}
+          onLanguageChange={setLanguage}
+          onProjectSelect={handleProjectSelect}
+          onViewChange={handleViewChange}
+          onTierSelect={handleTierSelect}
+          onAboutSectionSelect={handleAboutSectionSelect}
+          onViewPackage={handleViewPackage}
+        />
+      </div>
 
-      {showContent && (
-        <div className="flex min-h-0 flex-1 flex-col overflow-hidden lg:h-full lg:min-w-0">
-          {isMobile && mobileShowContent && (
-            <MobileContentHeader
-              strings={strings}
-              language={language}
-              viewMode={viewMode}
-              backLabel={strings.backToMenu}
-              onBack={() => setMobileShowContent(false)}
-              onViewChange={handleViewChange}
-              onLanguageChange={setLanguage}
-            />
-          )}
-          <RightPanel
-            language={language}
-            activeProject={activeProject}
-            viewMode={viewMode}
-            activeTier={activeTier}
-            activeServiceItem={activeServiceItem}
-            activeAboutSection={activeAboutSection}
-            briefProgress={briefProgress}
-            onBriefProgressChange={handleBriefProgressChange}
-            briefInitialAnswers={briefInitialAnswers}
-            strings={strings}
-            isMobile={isMobile}
-            onViewPackage={handleViewPackage}
-          />
-        </div>
-      )}
+      <div
+        className={`flex min-h-0 flex-1 flex-col overflow-hidden lg:h-full lg:min-w-0 ${
+          mobileShowContent ? "max-lg:flex" : "max-lg:hidden"
+        }`}
+      >
+        <MobileContentHeader
+          strings={strings}
+          language={language}
+          viewMode={viewMode}
+          backLabel={strings.backToMenu}
+          visible={mobileShowContent}
+          onBack={() => setMobileShowContent(false)}
+          onViewChange={handleViewChange}
+          onLanguageChange={setLanguage}
+        />
+        <RightPanel
+          language={language}
+          activeProject={activeProject}
+          viewMode={viewMode}
+          activeTier={activeTier}
+          activeServiceItem={activeServiceItem}
+          activeAboutSection={activeAboutSection}
+          briefProgress={briefProgress}
+          onBriefProgressChange={handleBriefProgressChange}
+          briefInitialAnswers={briefInitialAnswers}
+          strings={strings}
+          onViewPackage={handleViewPackage}
+        />
+      </div>
     </main>
   );
 }

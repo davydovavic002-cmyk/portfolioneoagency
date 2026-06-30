@@ -16,7 +16,6 @@ import { PetCareSim } from "@/components/projects/PetCareSim";
 interface SimulatorViewProps {
   activeProject: ProjectId;
   language: Language;
-  isMobile?: boolean;
 }
 
 function ProjectMock({
@@ -40,11 +39,7 @@ function ProjectMock({
   }
 }
 
-export function SimulatorView({
-  activeProject,
-  language,
-  isMobile = false,
-}: SimulatorViewProps) {
+export function SimulatorView({ activeProject, language }: SimulatorViewProps) {
   const meta = getProjectMeta(activeProject);
   const isDesktopSite = isDesktopSiteProject(meta);
   const strings = dictionary[language];
@@ -57,7 +52,6 @@ export function SimulatorView({
       previewMaxHeight={meta.previewMaxHeight}
       title={title}
       language={language}
-      isMobile={isMobile}
     >
       <ProjectMock projectId={activeProject} language={language} />
     </DesktopSitePreview>
@@ -69,7 +63,6 @@ export function SimulatorView({
     <DeviceFrame
       device={meta.device}
       projectId={activeProject}
-      isMobile={isMobile}
       openSiteLabel={strings.openSite}
       openSiteUrl={
         meta.previewUrl ? buildPreviewUrl(meta.previewUrl, language) : undefined

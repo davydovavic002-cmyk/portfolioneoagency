@@ -10,7 +10,6 @@ import { isDesktopSiteProject } from "@/lib/types";
 interface DeviceFrameProps {
   device: DeviceType;
   projectId: ProjectId;
-  isMobile?: boolean;
   openSiteLabel?: string;
   openSiteUrl?: string;
   children: React.ReactNode;
@@ -19,7 +18,6 @@ interface DeviceFrameProps {
 export function DeviceFrame({
   device,
   projectId,
-  isMobile = false,
   openSiteLabel,
   openSiteUrl,
   children,
@@ -33,24 +31,17 @@ export function DeviceFrame({
     return (
       <div className="flex h-full min-h-0 w-full flex-col overflow-hidden">
         <motion.div
-          className={`flex h-full min-h-0 w-full flex-col overflow-hidden bg-[#1a1a1a] ring-1 ring-white/[0.08] ${
-            isMobile ? "rounded-xl" : "rounded-lg"
-          }`}
+          className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-xl bg-[#1a1a1a] ring-1 ring-white/[0.08] lg:rounded-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.35 }}
           key={projectId}
           style={{
-            boxShadow: isMobile
-              ? "0 12px 32px -16px rgba(0,0,0,0.8)"
-              : "0 20px 50px -20px rgba(0,0,0,0.7)",
+            boxShadow:
+              "0 12px 32px -16px rgba(0,0,0,0.8)",
           }}
         >
-          <div
-            className={`flex shrink-0 items-center gap-2 border-b border-white/[0.06] bg-[#141414] ${
-              isMobile ? "h-9 px-3" : "h-8 gap-3 px-4"
-            }`}
-          >
+          <div className="flex h-9 shrink-0 items-center gap-2 border-b border-white/[0.06] bg-[#141414] px-3 lg:h-8 lg:gap-3 lg:px-4">
             <div className="flex gap-1.5">
               <span className="h-[8px] w-[8px] rounded-full bg-[#ff5f57] lg:h-[10px] lg:w-[10px]" />
               <span className="h-[8px] w-[8px] rounded-full bg-[#febc2e] lg:h-[10px] lg:w-[10px]" />
@@ -66,7 +57,7 @@ export function DeviceFrame({
                 href={openSiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex shrink-0 items-center gap-1 rounded-full border border-white/[0.08] px-2 py-1 text-[10px] text-zinc-400 transition-colors hover:text-zinc-200"
+                className="flex min-h-9 shrink-0 items-center gap-1 rounded-full border border-white/[0.08] px-2.5 py-1.5 text-[10px] text-zinc-400 transition-colors hover:text-zinc-200 lg:min-h-0 lg:py-1"
               >
                 {openSiteLabel}
                 <ArrowUpRight className="h-3 w-3" />

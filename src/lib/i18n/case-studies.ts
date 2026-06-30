@@ -15,6 +15,8 @@ export interface CaseStudiesCopy {
   challengeLabel: string;
   solutionLabel: string;
   resultsLabel: string;
+  detailsShowLabel: string;
+  detailsHideLabel: string;
   byProject: Record<ProjectId, CaseStudy>;
 }
 
@@ -22,6 +24,8 @@ const en: CaseStudiesCopy = {
   challengeLabel: "Challenge",
   solutionLabel: "Solution",
   resultsLabel: "Results",
+  detailsShowLabel: "Show case details",
+  detailsHideLabel: "Hide case details",
   byProject: {
     "aura-hair": {
       challenge:
@@ -96,6 +100,8 @@ const ru: CaseStudiesCopy = {
   challengeLabel: "Задача",
   solutionLabel: "Решение",
   resultsLabel: "Результат",
+  detailsShowLabel: "Подробнее о кейсе",
+  detailsHideLabel: "Скрыть детали",
   byProject: {
     "aura-hair": {
       challenge:
@@ -170,6 +176,8 @@ const am: CaseStudiesCopy = {
   challengeLabel: "Խնդիր",
   solutionLabel: "Լուծում",
   resultsLabel: "Արդյունք",
+  detailsShowLabel: "Ցույց տալ case study",
+  detailsHideLabel: "Թաքցնել մանրամասները",
   byProject: {
     "aura-hair": {
       challenge:
