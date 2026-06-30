@@ -48,33 +48,31 @@ const en: ServicesCopy = {
       items: [
         {
           id: "aesthetic-micro",
-          name: "Aesthetic Micro-Site / MVP",
+          name: "Aesthetic Micro-Site / Landing Page",
           price: "$1,600",
           timeline: "6 days",
           audience:
-            "Founders and creators who need a launch-ready full-page site — product teaser, waitlist, or MVP presence. One scrollable page only.",
+            "Founders and creators who need a launch-ready full-page site — product teaser, waitlist, or landing presence. One scrollable page only.",
           description:
-            "One page only — a fully coded, ultra-modern micro-site, teaser layout, or product MVP. Hero, supporting sections, and footer in a single scroll. Glassmorphism aesthetics, responsive layouts, and smooth interactive animations.",
+            "Full-page delivery — a fully coded, ultra-modern 1-page landing, teaser layout, or product intro. Hero, supporting sections, and footer in one scrollable page. Glassmorphism aesthetics, responsive layouts, and smooth interactive animations.",
           deliverables: [
-            "Full 1-page layout (hero + 2–4 supporting sections)",
-            "Glassmorphism UI & premium typography",
-            "Framer Motion micro-interactions",
-            "Next.js / React production build",
-            "Deploy to your domain or Vercel",
-            "Basic SEO & performance pass",
+            "Full-page layout (hero + sections + footer)",
+            "Framer Motion interactions",
+            "Next.js / React build & deploy",
+            "Basic SEO",
           ],
         },
         {
           id: "hero",
-          name: "High-Converting AI Hero Section",
+          name: "Hero Section",
           price: "$1,200",
           timeline: "3–5 days",
           description:
-            "One section only — design and fullstack development of a single above-the-fold hero block. Interactive 3D or AI element, glass UI, premium typography, production-ready code. Ideal when you only need the top fold or plan to expand later.",
+            "One above-the-fold block only — design, code, and motion. Expand the site later if needed.",
           deliverables: [
-            "One hero section only (above the fold)",
+            "One hero section (above the fold)",
             "Next.js + Tailwind implementation",
-            "Motion & responsive polish",
+            "Motion & responsive layout",
           ],
         },
       ],
@@ -110,13 +108,13 @@ const en: ServicesCopy = {
           timeline: "10–14 days",
           featured: true,
           audience:
-            "Startups preparing for launch — premium visual identity and motion-led storytelling.",
-          description: "Design-forward web experience — brand-first, investor-ready polish.",
+            "Startups preparing for launch — strong visual identity and motion.",
+          description: "Brand-first site with custom design and micro-interactions — up to 5 pages.",
           deliverables: [
-            "Unique Figma concept (up to 5 pages)",
+            "Custom design & layout (up to 5 pages)",
             "Next.js / Tailwind frontend",
             "Framer Motion micro-interactions",
-            "Desktop & mobile responsive, basic SEO",
+            "Responsive layout, basic SEO & deploy",
           ],
         },
         {
@@ -127,11 +125,11 @@ const en: ServicesCopy = {
           audience:
             "Businesses that need a full company site — services, about, contacts, and room to grow.",
           description:
-            "Structured multi-page website with navigation, content sections, and CMS-ready setup.",
+            "Structured company website with navigation, content sections, and blog structure.",
           deliverables: [
             "Site map & design (up to 10 pages)",
-            "Next.js frontend with shared layout system",
-            "Blog or news section structure",
+            "Next.js frontend with shared layout",
+            "Blog or news section",
             "Contact forms, SEO basics, deploy",
           ],
         },
@@ -220,11 +218,10 @@ const en: ServicesCopy = {
             "EdTech platforms, B2B SaaS, and teams launching a multi-module product from scratch.",
           description: "Full product build — strategy, design, engineering, and launch.",
           deliverables: [
-            "Market research & UX architecture",
-            "Premium custom design (20+ screens/states)",
-            "Fullstack Next.js + Supabase + advanced AI workflows",
-            "QA and production deployment",
-            "1 month of post-launch technical support",
+            "Scope & UX architecture",
+            "Custom design (20+ screens)",
+            "Fullstack Next.js + Supabase + AI workflows",
+            "Production deploy & 1 month post-launch support",
           ],
         },
       ],
@@ -271,32 +268,30 @@ const ru: ServicesCopy = {
       items: [
         {
           id: "aesthetic-micro",
-          name: "Aesthetic Micro-Site / MVP",
+          name: "Aesthetic Micro-Site / Landing Page",
           price: "$1,600",
           timeline: "6 дней",
           audience:
-            "Фаундерам и создателям, которым нужен готовый к запуску full-page сайт — тизер, waitlist или MVP. Только одна прокручиваемая страница.",
+            "Фаундерам и создателям, которым нужен готовый к запуску full-page сайт — тизер, waitlist или landing. Только одна прокручиваемая страница.",
           description:
-            "One page only — полностью свёрстанный ультрасовременный micro-site, teaser или product MVP. Hero, блоки и footer в одном scroll. Glassmorphism, адаптив и плавные интерактивные анимации.",
+            "Full-page — полностью свёрстанный ультрасовременный landing, teaser-layout или intro продукта. Hero, блоки и footer в одной прокручиваемой странице. Glassmorphism, адаптив и плавные интерактивные анимации.",
           deliverables: [
-            "Полный layout одной страницы (hero + 2–4 блока)",
-            "Glassmorphism UI и премиальная типографика",
-            "Framer Motion микро-анимации",
-            "Production-сборка на Next.js / React",
-            "Деплой на ваш домен или Vercel",
-            "Базовая SEO и оптимизация скорости",
+            "Layout одной страницы (hero + блоки + footer)",
+            "Framer Motion анимации",
+            "Next.js / React сборка и деплой",
+            "Базовая SEO",
           ],
         },
         {
           id: "hero",
-          name: "Конверсионный hero-блок с AI",
+          name: "Hero-блок",
           price: "$1,200",
           timeline: "3–5 дней",
           description:
-            "Одна секция — дизайн и фулстек одного above-the-fold блока. Интерактивный 3D/AI-элемент, glass UI, типографика, продакшн-код. Подходит, если нужен только верх экрана или расширение позже.",
+            "Только above-the-fold — дизайн, код и motion. Сайт можно расширить позже.",
           deliverables: [
-            "Одна hero-секция (только above the fold)",
-            "Реализация на Next.js + Tailwind",
+            "Одна hero-секция",
+            "Next.js + Tailwind",
             "Анимации и адаптив",
           ],
         },
@@ -333,13 +328,13 @@ const ru: ServicesCopy = {
           timeline: "10–14 дней",
           featured: true,
           audience:
-            "Стартапы перед запуском — премиальная визуальная идентичность и motion-история.",
-          description: "Дизайн-ориентированный сайт — бренд, детали, готовность к питчу.",
+            "Стартапы перед запуском — сильная визуальная идентичность и motion.",
+          description: "Brand-first сайт с кастомным дизайном и micro-interactions — до 5 страниц.",
           deliverables: [
-            "Уникальный концепт в Figma (до 5 страниц)",
-            "Фронтенд на Next.js / Tailwind CSS",
-            "Микро-анимации на Framer Motion",
-            "Адаптив, базовая SEO-оптимизация",
+            "Кастомный дизайн и layout (до 5 страниц)",
+            "Фронтенд на Next.js / Tailwind",
+            "Framer Motion анимации",
+            "Адаптив, базовая SEO и деплой",
           ],
         },
         {
@@ -350,11 +345,11 @@ const ru: ServicesCopy = {
           audience:
             "Бизнесу нужен полноценный сайт компании — услуги, о нас, контакты и задел на рост.",
           description:
-            "Структурированный многостраничник с навигацией, контентными блоками и CMS-ready основой.",
+            "Структурированный корпоративный сайт с навигацией, контентными блоками и разделом блога.",
           deliverables: [
             "Карта сайта и дизайн (до 10 страниц)",
             "Next.js с общей layout-системой",
-            "Структура блога или новостей",
+            "Раздел блога или новостей",
             "Формы, SEO-база, деплой",
           ],
         },
@@ -444,11 +439,10 @@ const ru: ServicesCopy = {
             "EdTech, B2B SaaS и команды, которые запускают многосоставной продукт с нуля.",
           description: "Продукт под ключ — стратегия, дизайн, разработка, запуск.",
           deliverables: [
-            "Исследование и UX-архитектура",
+            "Scope и UX-архитектура",
             "Кастомный дизайн (20+ экранов)",
             "Fullstack Next.js + Supabase + AI-воркфлоу",
-            "Тестирование и production-деплой",
-            "1 месяц техподдержки после релиза",
+            "Production-деплой и 1 месяц поддержки",
           ],
         },
       ],
@@ -495,31 +489,29 @@ const am: ServicesCopy = {
       items: [
         {
           id: "aesthetic-micro",
-          name: "Aesthetic Micro-Site / MVP",
+          name: "Aesthetic Micro-Site / Landing Page",
           price: "$1,600",
           timeline: "6 օր",
           audience:
-            "Հիմնադիրներին և creator-ներին, ովքերին պետք է գործարկման պատրաստ full-page կայք՝ teaser, waitlist կամ MVP։ Միայն մեկ scrollable էջ։",
+            "Հիմնադիրներին և creator-ներին, ովքերին պետք է գործարկման պատրաստ full-page կայք՝ teaser, waitlist կամ landing։ Միայն մեկ scrollable էջ։",
           description:
-            "One page only — լիովին կոդավորված ultra-modern micro-site, teaser layout կամ product MVP։ Hero, բլոկներ և footer մեկ scroll-ում։ Glassmorphism, ադապտիվ և smooth ինտերակտիվ անիմացիաներ։",
+            "Full-page — լիովին կոդավորված ultra-modern landing, teaser layout կամ product intro։ Hero, բլոկներ և footer մեկ scrollable էջում։ Glassmorphism, ադապտիվ և smooth ինտերակտիվ անիմացիաներ։",
           deliverables: [
-            "Մի էջի ամբողջական layout (hero + 2–4 բլոկ)",
-            "Glassmorphism UI և պրեմիում տիպոգրաֆիա",
-            "Framer Motion micro-interactions",
-            "Next.js / React production build",
-            "Deploy ձեր domain-ում կամ Vercel-ում",
-            "SEO և performance հիմունք",
+            "Մի էջի layout (hero + բլոկներ + footer)",
+            "Framer Motion անիմացիաներ",
+            "Next.js / React build և deploy",
+            "SEO հիմունք",
           ],
         },
         {
           id: "hero",
-          name: "Կոնվերսիոն AI hero բլոկ",
+          name: "Hero Section",
           price: "$1,200",
           timeline: "3–5 օր",
           description:
-            "Մեկ section միայն — above-the-fold բլոկի դիզայն և fullstack՝ ինտերակտիվ 3D/AI, glass UI, պրեմիում տիպոգրաֆիա։ Եթե պետք է միայն hero բլոկը կամ հետագա ընդլայնում։",
+            "Միայն above-the-fold — դիզայն, կոդ և motion։ Կայքը կարելի է ընդլայնել հետո։",
           deliverables: [
-            "Մեկ hero section (above the fold)",
+            "Մեկ hero section",
             "Next.js + Tailwind",
             "Անիմացիաներ և ադապտիվ",
           ],
@@ -556,13 +548,13 @@ const am: ServicesCopy = {
           price: "$3,500",
           timeline: "10–14 օր",
           featured: true,
-          audience: "Ստարտափներ գործարկումից առաջ — պրեմիում վիզուալ և motion-պատմություն։",
-          description: "Դիզայն-կենտրոնացված վեբ փորձ — բրենդ և pitch-ready լուք։",
+          audience: "Ստարտափներ գործարկումից առաջ — ուժեղ վիզուալ և motion։",
+          description: "Brand-first կայք custom դիզայնով և micro-interactions — մինչև 5 էջ։",
           deliverables: [
-            "Figma կոնցեպտ (մինչև 5 էջ)",
+            "Custom դիզայն և layout (մինչև 5 էջ)",
             "Next.js / Tailwind frontend",
             "Framer Motion անիմացիաներ",
-            "Ադապտիվ և SEO",
+            "Ադապտիվ, SEO և deploy",
           ],
         },
         {
@@ -573,11 +565,11 @@ const am: ServicesCopy = {
           audience:
             "Բիզնեսին պետք է ամբողջական կորպորատիվ կայք — ծառայություններ, մեր մասին, կապ և աճի հիմք։",
           description:
-            "Կառուցվածքային բազմաէջ կայք նավիգացիայով, բովանդակային բլոկներով և CMS-ready հիմքով։",
+            "Կառուցվածքային կորպորատիվ կայք նավիգացիայով, բովանդակային բլոկներով և blog բաժնով։",
           deliverables: [
             "Կայքի քարտեզ և դիզայն (մինչև 10 էջ)",
             "Next.js frontend ընդհանուր layout-ով",
-            "Բլոգի կամ նորությունների կառուցվածք",
+            "Blog կամ նորությունների բաժին",
             "Ձևեր, SEO, deploy",
           ],
         },

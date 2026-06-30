@@ -122,7 +122,7 @@ function applyBudget(
         projectId: match.projectId,
         serviceItemId: "hero",
         rationale:
-          "Start with a high-converting hero section — premium design and production code in days, then expand when ready.",
+          "Start with a hero section — design and code in days, then expand when ready.",
       };
     }
     if (projectType === "ai-product" || projectType === "telegram-bot") {
@@ -130,7 +130,7 @@ function applyBudget(
         projectId: match.projectId,
         serviceItemId: "aesthetic-micro",
         rationale:
-          "A one-page product teaser or MVP landing — ship a polished presence fast, then expand into a full build when scope is locked.",
+          "One scrollable landing page first — ship fast, then expand to Essential Site when you need separate pages.",
       };
     }
   }
@@ -158,7 +158,7 @@ function applyBudget(
       projectId: "aura-hair",
       serviceItemId: "aesthetic-web",
       rationale:
-        "A design-forward multi-section experience with motion and investor-ready polish — ideal for launches in the $6k range.",
+        "A design-forward multi-section experience with motion — ideal for launches in the $6k range.",
     };
   }
 

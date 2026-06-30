@@ -72,7 +72,7 @@ export const SERVICE_PAGES: Record<ServicePageSlug, ServicePageContent> = {
     ],
     includesTitle: "What our web design package includes",
     includes: [
-      "UX structure and visual design in Figma (up to 5 pages)",
+      "UX structure and visual design (up to 5 pages)",
       "Custom Next.js + Tailwind frontend — no page-builder lock-in",
       "Framer Motion micro-interactions and responsive polish",
       "Typography system, color tokens, and component library",
@@ -115,7 +115,7 @@ export const SERVICE_PAGES: Record<ServicePageSlug, ServicePageContent> = {
       price: "$3,500",
       timeline: "10–14 days",
       summary:
-        "Design-forward web experience for startups and brands preparing for launch — investor-ready polish with motion and SEO basics.",
+        "Design-forward web experience for startups and brands preparing for launch — custom design, motion, and SEO basics.",
     },
     faq: [
       {
@@ -126,7 +126,7 @@ export const SERVICE_PAGES: Record<ServicePageSlug, ServicePageContent> = {
       {
         question: "Do you only design, or also develop?",
         answer:
-          "We do both. Every web design engagement includes production-ready frontend code. You are not left with static Figma files and a separate developer search.",
+          "We do both. Every web design engagement includes production-ready frontend code — not mockups without implementation.",
       },
       {
         question: "Will my site work on mobile and rank in Google?",
@@ -221,12 +221,12 @@ export const SERVICE_PAGES: Record<ServicePageSlug, ServicePageContent> = {
       {
         question: "How is this different from Aesthetic Micro-Site?",
         answer:
-          "Micro-Site ($1,600) is one scrollable page with glassmorphism and motion — ideal for teasers and MVP wow. Essential Site ($2,500) gives you up to 3 separate pages with navigation and shared layout — like Stretch and Chill (home + schedule).",
+          "Micro-Site ($1,600) is one scrollable landing page with glass UI and motion. Essential Site ($2,500) gives you up to 3 separate pages with navigation — like Stretch and Chill (home + schedule).",
       },
       {
         question: "Can you redesign my existing site?",
         answer:
-          "Yes. Share your current URL in the project brief and we will recommend Essential Site, Aesthetic Micro-Site ($1,600) for a one-page teaser, or a Hero Section ($1,200) if only the top fold needs work.",
+          "Yes. Share your current URL in the project brief and we will recommend Essential Site, Aesthetic Micro-Site ($1,600) for a one-page landing, or Hero Section ($1,200) if only the top fold needs work.",
       },
       {
         question: "Do you write copy?",
@@ -417,7 +417,7 @@ export const SERVICE_PAGES: Record<ServicePageSlug, ServicePageContent> = {
       {
         question: "Should I start small or go straight to MVP?",
         answer:
-          "If you need a public teaser or one-page product presence first, Aesthetic Micro-Site / MVP ($1,600) ships in six days. If you have a defined product scope, AI Core MVP ($6,000) is the direct path to production.",
+          "If you need a one-page landing first, Aesthetic Micro-Site / Landing Page ($1,600) ships in six days. If you have a defined product scope, AI Core MVP ($6,000) is the direct path to production.",
       },
       {
         question: "How do you handle data privacy?",
