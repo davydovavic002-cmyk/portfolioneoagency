@@ -7,6 +7,10 @@ import {
   PREVIEW_IFRAME_DEFAULT_HEIGHT,
   type Language,
 } from "@/lib/types";
+import {
+  getPreviewOrigin,
+  isAllowedPreviewOrigin,
+} from "@/lib/preview-origins";
 import { buildPreviewUrl, PORTFOLIO_LANG_MESSAGE } from "@/lib/preview-url";
 import {
   clampPreviewHeight,
@@ -194,10 +198,14 @@ interface DesktopSitePreviewProps {
   children?: React.ReactNode;
 }
 
-function postLanguageToIframe(iframe: HTMLIFrameElement | null, language: Language) {
+function postLanguageToIframe(
+  iframe: HTMLIFrameElement | null,
+  language: Language,
+  targetOrigin: string,
+) {
   iframe?.contentWindow?.postMessage(
     { type: PORTFOLIO_LANG_MESSAGE, language },
-    "*",
+    targetOrigin,
   );
 }
 
@@ -239,6 +247,7 @@ export function DesktopSitePreview({
 }: DesktopSitePreviewProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const src = previewUrl ? buildPreviewUrl(previewUrl, language) : undefined;
+  const previewOrigin = previewUrl ? getPreviewOrigin(previewUrl) : undefined;
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">(
     previewUrl ? "loading" : "ready",
   );
@@ -263,11 +272,13 @@ export function DesktopSitePreview({
   }, [previewUrl, src]);
 
   useEffect(() => {
-    postLanguageToIframe(iframeRef.current, language);
-  }, [language, src]);
+    if (!previewOrigin) return;
+    postLanguageToIframe(iframeRef.current, language, previewOrigin);
+  }, [language, previewOrigin, src]);
 
   useEffect(() => {
     const onMessage = (event: MessageEvent) => {
+      if (!isAllowedPreviewOrigin(event.origin)) return;
       if (!isPreviewHeightMessage(event.data)) return;
       setIframeHeight((current) =>
         Math.max(current, clampPreviewHeight(event.data.height + 48)),
@@ -291,7 +302,9 @@ export function DesktopSitePreview({
 
   const handleIframeLoad = () => {
     setLoadState("ready");
-    postLanguageToIframe(iframeRef.current, language);
+    if (previewOrigin) {
+      postLanguageToIframe(iframeRef.current, language, previewOrigin);
+    }
     syncIframeHeight();
   };
 
@@ -301,7 +314,7 @@ export function DesktopSitePreview({
     src,
     title,
     scrolling: "no" as const,
-    sandbox: "allow-scripts allow-same-origin allow-forms allow-popups" as const,
+    sandbox: "allow-scripts allow-same-origin allow-forms" as const,
     onLoad: handleIframeLoad,
     onError: () => setLoadState("error"),
   };
