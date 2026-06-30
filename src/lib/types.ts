@@ -2,8 +2,8 @@ export const DESKTOP_VIEWPORT_WIDTH = 1280;
 export const DESKTOP_VIEWPORT_HEIGHT = 800;
 /** Tall embed viewport — parent panel scrolls with a custom scrollbar */
 export const PREVIEW_IFRAME_MIN_HEIGHT = 720;
-export const PREVIEW_IFRAME_DEFAULT_HEIGHT = 3600;
-/** Used when cross-origin blocks measurement — must fit long landing pages */
+export const PREVIEW_IFRAME_DEFAULT_HEIGHT = 900;
+/** Legacy fallback — do not apply to cross-origin iframes without postMessage */
 export const PREVIEW_IFRAME_FALLBACK_HEIGHT = 12000;
 export const PREVIEW_IFRAME_MAX_HEIGHT = 16000;
 /** @deprecated use PREVIEW_IFRAME_DEFAULT_HEIGHT */

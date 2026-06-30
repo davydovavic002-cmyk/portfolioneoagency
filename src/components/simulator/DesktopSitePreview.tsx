@@ -258,10 +258,10 @@ export function DesktopSitePreview({
     if (!iframe) return;
 
     const measured = measureIframeDocumentHeight(iframe);
-    setIframeHeight((current) => {
-      const next = resolvePreviewIframeHeight(measured);
-      return measured ? Math.max(current, next) : next;
-    });
+    const next = resolvePreviewIframeHeight(measured);
+    if (next === null) return;
+
+    setIframeHeight(next);
   }, []);
 
   useEffect(() => {
@@ -280,9 +280,7 @@ export function DesktopSitePreview({
     const onMessage = (event: MessageEvent) => {
       if (!isAllowedPreviewOrigin(event.origin)) return;
       if (!isPreviewHeightMessage(event.data)) return;
-      setIframeHeight((current) =>
-        Math.max(current, clampPreviewHeight(event.data.height + 48)),
-      );
+      setIframeHeight(clampPreviewHeight(event.data.height + 48));
     };
 
     window.addEventListener("message", onMessage);

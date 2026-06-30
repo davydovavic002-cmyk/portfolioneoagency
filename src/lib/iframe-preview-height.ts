@@ -37,11 +37,12 @@ export function measureIframeDocumentHeight(
   }
 }
 
-export function resolvePreviewIframeHeight(measured: number | null): number {
+/** Same-origin only — cross-origin sites must postMessage their height. */
+export function resolvePreviewIframeHeight(measured: number | null): number | null {
   if (measured && measured > 0) {
     return clampPreviewHeight(measured + 48);
   }
-  return PREVIEW_IFRAME_FALLBACK_HEIGHT;
+  return null;
 }
 
 export function isPreviewHeightMessage(
@@ -56,3 +57,6 @@ export function isPreviewHeightMessage(
     payload.height > 0
   );
 }
+
+/** @deprecated cross-origin previews should rely on postMessage, not fallback inflation */
+export { PREVIEW_IFRAME_FALLBACK_HEIGHT };
