@@ -18,20 +18,20 @@ export const projects: ProjectMeta[] = [
     previewUrl: "https://jelly.neostudio.space/",
   },
   {
+    id: "stretch-and-chill",
+    device: "monitor",
+    year: "2026",
+    stack: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
+    browserLabel: "pilates.neostudio.space",
+    previewUrl: "https://pilates.neostudio.space/",
+  },
+  {
     id: "petcare-ai",
     device: "monitor",
     year: "2026",
     stack: ["Next.js", "FastAPI", "OpenAI", "PostgreSQL"],
     browserLabel: "petcare.ai",
     previewUrl: "https://petcare.neostudio.space/",
-  },
-  {
-    id: "neuro-academy",
-    device: "monitor",
-    year: "2025",
-    stack: ["Next.js", "TypeScript", "PostgreSQL", "OpenAI"],
-    browserLabel: "neuro-academy.app",
-    previewUrl: "https://academy.neostudio.space/",
   },
   {
     id: "neuro-shpora",

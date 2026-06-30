@@ -8,10 +8,6 @@ export const projectThemes: Record<
     accent: "#b85c6e",
     glow: "rgba(184, 92, 110, 0.16)",
   },
-  "neuro-academy": {
-    accent: "#8b9cf6",
-    glow: "rgba(139, 156, 246, 0.18)",
-  },
   "neuro-shpora": {
     accent: "#5b9fd4",
     glow: "rgba(91, 159, 212, 0.16)",
@@ -27,6 +23,10 @@ export const projectThemes: Record<
   "petcare-ai": {
     accent: "#7cb89a",
     glow: "rgba(124, 184, 154, 0.16)",
+  },
+  "stretch-and-chill": {
+    accent: "#b895a8",
+    glow: "rgba(184, 149, 168, 0.16)",
   },
 };
 

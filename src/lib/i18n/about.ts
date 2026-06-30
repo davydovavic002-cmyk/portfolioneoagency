@@ -140,6 +140,14 @@ const en: AboutCopy = {
         highlight: "10–14 days",
       },
       {
+        id: "stretch-and-chill",
+        quote:
+          "Dreamy pilates studio SPA with magnetic interactions, class slider, team cards, and a notebook schedule with drag-to-save planning.",
+        author: "Stretch and Chill",
+        role: "Aesthetic Web · Wellness",
+        highlight: "10–14 days",
+      },
+      {
         id: "jewelry-store",
         quote:
           "Custom luxury boutique with Stripe checkout, CMS-driven catalog, and motion-led product storytelling.",
@@ -154,14 +162,6 @@ const en: AboutCopy = {
         author: "PetCare AI",
         role: "AI Core MVP · HealthTech",
         highlight: "14–21 days",
-      },
-      {
-        id: "neuro-academy",
-        quote:
-          "Conversion-focused education landing with editorial layout, structured offer blocks, and trilingual support.",
-        author: "Neuro-Engineering Academy",
-        role: "Landing Page · EdTech",
-        highlight: "7–10 days",
       },
       {
         id: "neuro-shpora",
@@ -269,6 +269,14 @@ const ru: AboutCopy = {
         highlight: "10–14 дней",
       },
       {
+        id: "stretch-and-chill",
+        quote:
+          "Dreamy pilates SPA: magnetic-кнопки, слайдер классов, карточки команды и планировщик расписания в стиле блокнота с drag-and-drop.",
+        author: "Stretch and Chill",
+        role: "Aesthetic Web · Wellness",
+        highlight: "10–14 дней",
+      },
+      {
         id: "jewelry-store",
         quote:
           "Кастомный luxury-бутик со Stripe, CMS-каталогом и motion-историями вокруг продуктов.",
@@ -283,14 +291,6 @@ const ru: AboutCopy = {
         author: "PetCare AI",
         role: "AI Core MVP · HealthTech",
         highlight: "14–21 день",
-      },
-      {
-        id: "neuro-academy",
-        quote:
-          "Продающий лендинг с редакционной вёрсткой, структурой оффера и поддержкой трёх языков.",
-        author: "Академия Нейро-Инжиниринга",
-        role: "Landing Page · EdTech",
-        highlight: "7–10 дней",
       },
       {
         id: "neuro-shpora",
@@ -398,6 +398,14 @@ const am: AboutCopy = {
         highlight: "10–14 օր",
       },
       {
+        id: "stretch-and-chill",
+        quote:
+          "Dreamy pilates SPA՝ magnetic կոճակներ, դասերի սլայդեր, թիմի քարտեր և notebook-style ժամանակացույց drag-and-drop-ով։",
+        author: "Stretch and Chill",
+        role: "Aesthetic Web · Wellness",
+        highlight: "10–14 օր",
+      },
+      {
         id: "jewelry-store",
         quote:
           "Պատվերով luxury բուտիկ Stripe checkout-ով, CMS կատալոգով և motion-պատմություններով։",
@@ -412,14 +420,6 @@ const am: AboutCopy = {
         author: "PetCare AI",
         role: "AI Core MVP · HealthTech",
         highlight: "14–21 օր",
-      },
-      {
-        id: "neuro-academy",
-        quote:
-          "Կոնվերսիոն լենդինգ խմբագրական դիզայնով, առաջարկի կառուցվածքով և երեք լեզվի աջակցությամբ։",
-        author: "Նեյրո-ինժեներիայի ակադեմիա",
-        role: "Landing Page · EdTech",
-        highlight: "7–10 օր",
       },
       {
         id: "neuro-shpora",

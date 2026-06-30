@@ -26,13 +26,6 @@ export const dictionary: Dictionary = {
         description:
           "Премиальный одностраничный сайт салона в Сингапуре: выбор стилиста, меню услуг, диагностика ухода и онлайн-бронирование в luxury-эстетике.",
       },
-      "neuro-academy": {
-        title: "Академия Нейро-Инжиниринга",
-        role: "Lead Developer",
-        category: "EdTech · Landing",
-        description:
-          "Продающий лендинг образовательного бренда: сильная визуальная подача, понятная структура оффера и UX, заточенный на конверсию в заявку.",
-      },
       "neuro-shpora": {
         title: "NeuroShpora",
         role: "AI Engineer",
@@ -61,6 +54,13 @@ export const dictionary: Dictionary = {
         description:
           "Экосистема для ветклиник: диагностический AI-модуль, анализ состава кормов и персонализированные планы питания.",
       },
+      "stretch-and-chill": {
+        title: "Stretch and Chill",
+        role: "Frontend Lead",
+        category: "Wellness · Studio",
+        description:
+          "Премиальный сайт pilates-студии в Белграде: dreamy-эстетика, magnetic-кнопки, слайдер классов и интерактивный планировщик расписания с drag-and-drop.",
+      },
     },
   },
   en: {
@@ -87,13 +87,6 @@ export const dictionary: Dictionary = {
         category: "Beauty · Booking",
         description:
           "Premium Singapore salon — single-page editorial site with stylist discovery, service menu, hair-care diagnostics, and online booking.",
-      },
-      "neuro-academy": {
-        title: "Neuro-Engineering Academy",
-        role: "Lead Developer",
-        category: "EdTech · Landing",
-        description:
-          "Conversion-focused landing page for an education brand — strong visual identity, clear offer structure, and UX built to drive inbound leads.",
       },
       "neuro-shpora": {
         title: "NeuroShpora",
@@ -123,6 +116,13 @@ export const dictionary: Dictionary = {
         description:
           "Vet clinic ecosystem: diagnostic AI module, feed composition analysis, and personalized nutrition plans.",
       },
+      "stretch-and-chill": {
+        title: "Stretch and Chill",
+        role: "Frontend Lead",
+        category: "Wellness · Studio",
+        description:
+          "Ultra-premium pilates studio for Belgrade — dreamy visual language, magnetic interactions, and a notebook-style schedule with drag-to-save class planning.",
+      },
     },
   },
   am: {
@@ -149,13 +149,6 @@ export const dictionary: Dictionary = {
         category: "Beauty · Booking",
         description:
           "Սինգապուրի պրեմիում սրահի կայք՝ ստայլիստի ընտրություն, ծառայությունների մենյու, մազերի խնամքի ախտորոշում և օնլայն ամրագրում պրեմիում էսթետիկայում։",
-      },
-      "neuro-academy": {
-        title: "Նեյրո-ինժեներիայի ակադեմիա",
-        role: "Lead Developer",
-        category: "EdTech · Landing",
-        description:
-          "Կրթական բրենդի վաճառքային լենդինգ՝ ուժեղ վիզուալ, պարզ առաջարկի կառուցվածք և UX, որը կենտրոնացած է դիմումների վրա։",
       },
       "neuro-shpora": {
         title: "NeuroShpora",
@@ -184,6 +177,13 @@ export const dictionary: Dictionary = {
         category: "HealthTech · B2B",
         description:
           "Վետկլինիկաների էկոհամակարգ՝ ախտորոշական AI մոդուլ, կերերի կազմի վերլուծություն և անհատական սննդակարգ։",
+      },
+      "stretch-and-chill": {
+        title: "Stretch and Chill",
+        role: "Frontend Lead",
+        category: "Wellness · Studio",
+        description:
+          "Բելգրադի պրեմիում pilates ստուդիայի կայք՝ dreamy էսթետիկա, magnetic կոճակներ, դասերի սլայդեր և drag-and-drop ժամանակացույց։",
       },
     },
   },

@@ -6,7 +6,9 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "capture-screenshots": "tsx scripts/capture-case-screenshots.ts",
+    "fiverr-assets": "tsx scripts/capture-case-screenshots.ts && tsx scripts/generate-fiverr-assets.tsx"
   },
   "dependencies": {
     "framer-motion": "^12.4.7",
@@ -22,7 +24,10 @@
     "@types/react-dom": "^19.0.4",
     "eslint": "^9.21.0",
     "eslint-config-next": "^15.2.0",
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.61.1",
     "tailwindcss": "^4.0.9",
+    "tsx": "^4.22.4",
     "typescript": "^5.7.3"
   }
 }

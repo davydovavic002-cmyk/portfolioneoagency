@@ -1,13 +1,19 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   DESKTOP_VIEWPORT_HEIGHT,
   DESKTOP_VIEWPORT_WIDTH,
-  PREVIEW_IFRAME_HEIGHT,
+  PREVIEW_IFRAME_DEFAULT_HEIGHT,
   type Language,
 } from "@/lib/types";
 import { buildPreviewUrl, PORTFOLIO_LANG_MESSAGE } from "@/lib/preview-url";
+import {
+  clampPreviewHeight,
+  isPreviewHeightMessage,
+  measureIframeDocumentHeight,
+  resolvePreviewIframeHeight,
+} from "@/lib/iframe-preview-height";
 
 interface Layout {
   width: number;
@@ -33,6 +39,8 @@ const PREVIEW_COPY: Record<
     retry: "Բացել կայքը",
   },
 };
+
+const HEIGHT_REMEASURE_DELAYS_MS = [400, 1200, 2800, 5500];
 
 function supportsZoom(): boolean {
   if (typeof CSS === "undefined" || !CSS.supports) return false;
@@ -96,18 +104,27 @@ export function DesktopPreviewViewport({
 
       if (!overIframe) return;
 
-      host.scrollTop += e.deltaY;
+      const maxScroll = host.scrollHeight - host.clientHeight;
+      const nextScrollTop = host.scrollTop + e.deltaY;
+      const canScrollDown = host.scrollTop < maxScroll - 1;
+      const canScrollUp = host.scrollTop > 0;
+
+      if ((e.deltaY > 0 && !canScrollDown) || (e.deltaY < 0 && !canScrollUp)) {
+        return;
+      }
+
+      host.scrollTop = Math.max(0, Math.min(maxScroll, nextScrollTop));
       e.preventDefault();
     };
 
     host.addEventListener("wheel", onWheel, { passive: false });
     return () => host.removeEventListener("wheel", onWheel);
-  }, [scrollable]);
+  }, [scrollable, contentHeight]);
 
   const { width: cw } = layout;
   const ready = cw > 0;
-  const zoomW = cw / DESKTOP_VIEWPORT_WIDTH;
-  const zoom = zoomW;
+  const zoom = cw / DESKTOP_VIEWPORT_WIDTH;
+  const scaledHeight = Math.ceil(contentHeight * zoom);
 
   const scaledContent = ready && useZoom && (
     <div
@@ -126,7 +143,7 @@ export function DesktopPreviewViewport({
     <div
       style={{
         width: Math.ceil(DESKTOP_VIEWPORT_WIDTH * zoom),
-        height: Math.ceil(contentHeight * zoom),
+        height: scaledHeight,
       }}
     >
       <div
@@ -143,7 +160,11 @@ export function DesktopPreviewViewport({
   );
 
   const inner = (
-    <div ref={measureRef} className="w-full">
+    <div
+      ref={measureRef}
+      className="w-full"
+      style={ready && scrollable ? { height: scaledHeight } : undefined}
+    >
       {scaledContent}
       {scaledContentFallback}
     </div>
@@ -221,14 +242,58 @@ export function DesktopSitePreview({
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">(
     previewUrl ? "loading" : "ready",
   );
+  const [iframeHeight, setIframeHeight] = useState(PREVIEW_IFRAME_DEFAULT_HEIGHT);
+
+  const syncIframeHeight = useCallback(() => {
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+
+    const measured = measureIframeDocumentHeight(iframe);
+    setIframeHeight((current) => {
+      const next = resolvePreviewIframeHeight(measured);
+      return measured ? Math.max(current, next) : next;
+    });
+  }, []);
 
   useEffect(() => {
-    if (previewUrl) setLoadState("loading");
+    if (previewUrl) {
+      setLoadState("loading");
+      setIframeHeight(PREVIEW_IFRAME_DEFAULT_HEIGHT);
+    }
   }, [previewUrl, src]);
 
   useEffect(() => {
     postLanguageToIframe(iframeRef.current, language);
   }, [language, src]);
+
+  useEffect(() => {
+    const onMessage = (event: MessageEvent) => {
+      if (!isPreviewHeightMessage(event.data)) return;
+      setIframeHeight((current) =>
+        Math.max(current, clampPreviewHeight(event.data.height + 48)),
+      );
+    };
+
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, []);
+
+  useEffect(() => {
+    if (loadState !== "ready") return;
+
+    syncIframeHeight();
+    const timers = HEIGHT_REMEASURE_DELAYS_MS.map((delay) =>
+      window.setTimeout(syncIframeHeight, delay),
+    );
+
+    return () => timers.forEach((timer) => window.clearTimeout(timer));
+  }, [loadState, src, syncIframeHeight]);
+
+  const handleIframeLoad = () => {
+    setLoadState("ready");
+    postLanguageToIframe(iframeRef.current, language);
+    syncIframeHeight();
+  };
 
   const iframeProps = {
     ref: iframeRef,
@@ -237,10 +302,7 @@ export function DesktopSitePreview({
     title,
     scrolling: "no" as const,
     sandbox: "allow-scripts allow-same-origin allow-forms allow-popups" as const,
-    onLoad: () => {
-      setLoadState("ready");
-      postLanguageToIframe(iframeRef.current, language);
-    },
+    onLoad: handleIframeLoad,
     onError: () => setLoadState("error"),
   };
 
@@ -263,7 +325,7 @@ export function DesktopSitePreview({
           <iframe
             {...iframeProps}
             className="portfolio-preview-iframe block w-full border-0 bg-white"
-            style={{ height: PREVIEW_IFRAME_HEIGHT }}
+            style={{ height: iframeHeight }}
           />
         </div>
       </div>
@@ -281,14 +343,11 @@ export function DesktopSitePreview({
         {loadState === "error" ? (
           <PreviewStatus language={language} state="error" openUrl={src} />
         ) : (
-          <DesktopPreviewViewport
-            contentHeight={PREVIEW_IFRAME_HEIGHT}
-            scrollable
-          >
+          <DesktopPreviewViewport contentHeight={iframeHeight} scrollable>
             <iframe
               {...iframeProps}
               width={DESKTOP_VIEWPORT_WIDTH}
-              height={PREVIEW_IFRAME_HEIGHT}
+              height={iframeHeight}
               className="portfolio-preview-iframe block w-full border-0 bg-white"
             />
           </DesktopPreviewViewport>

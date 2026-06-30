@@ -9,10 +9,10 @@ const BASE_MATCH: Record<
   { projectId: ProjectId; serviceItemId: ServiceItemId; rationale: string }
 > = {
   landing: {
-    projectId: "neuro-academy",
+    projectId: "aura-hair",
     serviceItemId: "landing-page",
     rationale:
-      "A conversion-focused landing with clear offer structure — ideal when you need one strong page to sell or collect leads.",
+      "A conversion-focused landing with clear offer structure and premium visual identity — ideal when you need one strong page to sell or collect leads.",
   },
   multipage: {
     projectId: "aura-hair",
@@ -56,20 +56,20 @@ const INDUSTRY_OVERRIDES: Partial<
       rationale:
         "Premium beauty brands need editorial layout, booking flow, and luxury aesthetics — like our AURA Hair Space case.",
     },
-    "web-design": {
-      projectId: "aura-hair",
+    multipage: {
+      projectId: "stretch-and-chill",
       serviceItemId: "aesthetic-web",
       rationale:
-        "Salon and wellness brands benefit from tactile visuals, service menus, and seamless booking UX.",
+        "Wellness studios benefit from brand-first multi-page experiences with tactile motion and interactive scheduling — see Stretch and Chill.",
+    },
+    "web-design": {
+      projectId: "stretch-and-chill",
+      serviceItemId: "aesthetic-web",
+      rationale:
+        "Salon and wellness brands benefit from dreamy visuals, class discovery, and interactive schedule UX.",
     },
   },
   edtech: {
-    landing: {
-      projectId: "neuro-academy",
-      serviceItemId: "landing-page",
-      rationale:
-        "EdTech landing pages need strong visual identity and a clear path to enrollment or lead capture.",
-    },
     "telegram-bot": {
       projectId: "neuro-shpora",
       serviceItemId: "telegram-bot",

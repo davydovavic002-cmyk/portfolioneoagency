@@ -198,11 +198,11 @@ export const SERVICE_PAGES: Record<ServicePageSlug, ServicePageContent> = {
       },
     ],
     caseStudy: {
-      projectId: "neuro-academy",
-      title: "Neuro-Engineering Academy",
+      projectId: "stretch-and-chill",
+      title: "Stretch and Chill",
       summary:
-        "EdTech landing with strong visual identity, structured offer, and UX tuned for inbound leads — a reference for conversion-first single pages.",
-      href: "https://academy.neostudio.space/",
+        "Wellness studio SPA with dreamy brand identity, magnetic interactions, and a conversion-ready home page — a reference for focused landing experiences.",
+      href: "https://pilates.neostudio.space/",
     },
     package: {
       serviceItemId: "landing-page",

@@ -56,17 +56,6 @@ const en: CaseStudiesCopy = {
         { value: "CMS", label: "Catalog" },
       ],
     },
-    "neuro-academy": {
-      challenge:
-        "Turn a complex education offer into a clear landing page that generates inbound leads.",
-      solution:
-        "Editorial layout, structured offer blocks, and conversion-focused UX with trilingual support.",
-      metrics: [
-        { value: "7–10d", label: "Package timeline" },
-        { value: "3", label: "Languages" },
-        { value: "Landing", label: "Package tier" },
-      ],
-    },
     "neuro-shpora": {
       challenge:
         "Students needed exam prep that works inside Telegram — fast, contextual, and always available.",
@@ -87,6 +76,17 @@ const en: CaseStudiesCopy = {
         { value: "10–14d", label: "Package timeline" },
         { value: "3D", label: "Configurator UX" },
         { value: "Aesthetic", label: "Package tier" },
+      ],
+    },
+    "stretch-and-chill": {
+      challenge:
+        "A pilates studio in Belgrade needed a brand-first site that feels dreamy and tactile — not a generic fitness template.",
+      solution:
+        "Two-page React SPA with glassmorphism, magnetic buttons, and a notebook-style schedule where users drag classes into sticky notes — on the Aesthetic Web package.",
+      metrics: [
+        { value: "10–14d", label: "Package timeline" },
+        { value: "2", label: "Pages" },
+        { value: "DnD", label: "Schedule planner" },
       ],
     },
   },
@@ -130,17 +130,6 @@ const ru: CaseStudiesCopy = {
         { value: "CMS", label: "Каталог" },
       ],
     },
-    "neuro-academy": {
-      challenge:
-        "Превратить сложный образовательный оффер в понятный лендинг с входящими заявками.",
-      solution:
-        "Редакционная вёрстка, структура оффера и UX на конверсию с поддержкой трёх языков.",
-      metrics: [
-        { value: "7–10д", label: "Срок пакета" },
-        { value: "3", label: "Языка" },
-        { value: "Landing", label: "Пакет" },
-      ],
-    },
     "neuro-shpora": {
       challenge:
         "Студентам нужна подготовка к экзаменам прямо в Telegram — быстро и с контекстом.",
@@ -161,6 +150,17 @@ const ru: CaseStudiesCopy = {
         { value: "10–14д", label: "Срок пакета" },
         { value: "3D", label: "Конфигуратор" },
         { value: "Aesthetic", label: "Пакет" },
+      ],
+    },
+    "stretch-and-chill": {
+      challenge:
+        "Pilates-студии в Белграде нужен brand-first сайт с dreamy-эстетикой — не типовой фитнес-шаблон.",
+      solution:
+        "Двухстраничный React SPA с glassmorphism, magnetic-кнопками и планировщиком в стиле блокнота с drag-and-drop — пакет Aesthetic Web.",
+      metrics: [
+        { value: "10–14д", label: "Срок пакета" },
+        { value: "2", label: "Страницы" },
+        { value: "DnD", label: "Расписание" },
       ],
     },
   },
@@ -204,17 +204,6 @@ const am: CaseStudiesCopy = {
         { value: "CMS", label: "Կատալոգ" },
       ],
     },
-    "neuro-academy": {
-      challenge:
-        "Բարդ կրթական առաջարկը դարձնել պարզ լենդինգ՝ մուտքային դիմումներ ստանալու համար։",
-      solution:
-        "Խմբագրական դիզայն, առաջարկի կառուցվածք և կոնվերսիային UX երեք լեզվով։",
-      metrics: [
-        { value: "7–10օ", label: "Փաթեթի ժամկետ" },
-        { value: "3", label: "Լեզու" },
-        { value: "Landing", label: "Փաթեթ" },
-      ],
-    },
     "neuro-shpora": {
       challenge:
         "Աբիտուրիենտներին պետք էր քննության նախապատրաստություն Telegram-ում՝ արագ և համատեքստային։",
@@ -235,6 +224,17 @@ const am: CaseStudiesCopy = {
         { value: "10–14օ", label: "Փաթեթի ժամկետ" },
         { value: "3D", label: "Կոնֆիգուրատոր" },
         { value: "Aesthetic", label: "Փաթեթ" },
+      ],
+    },
+    "stretch-and-chill": {
+      challenge:
+        "Բելգրադի pilates ստուդիային պետք էր brand-first կայք dreamy էսթետիկայով՝ ոչ թե ստանդարտ fitness կաղապար։",
+      solution:
+        "Երկու էջ React SPA glassmorphism-ով, magnetic կոճակներով և notebook-style ժամանակացույց drag-and-drop-ով՝ Aesthetic Web փաթեթով։",
+      metrics: [
+        { value: "10–14օ", label: "Փաթեթի ժամկետ" },
+        { value: "2", label: "Էջ" },
+        { value: "DnD", label: "Ժամանակացույց" },
       ],
     },
   },
