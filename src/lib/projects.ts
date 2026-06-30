@@ -8,6 +8,9 @@ export const projects: ProjectMeta[] = [
     stack: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
     browserLabel: "pilates.neostudio.space",
     previewUrl: "https://pilates.neostudio.space/",
+    previewInitialHeight: 720,
+    previewExactPostMessage: true,
+    previewPostMessagePadding: 0,
   },
   {
     id: "aura-hair",

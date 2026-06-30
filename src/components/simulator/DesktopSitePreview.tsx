@@ -194,6 +194,8 @@ interface DesktopSitePreviewProps {
   previewUrl?: string;
   previewInitialHeight?: number;
   previewMaxHeight?: number;
+  previewExactPostMessage?: boolean;
+  previewPostMessagePadding?: number;
   title: string;
   language?: Language;
   children?: React.ReactNode;
@@ -263,6 +265,8 @@ export function DesktopSitePreview({
   previewUrl,
   previewInitialHeight,
   previewMaxHeight,
+  previewExactPostMessage = false,
+  previewPostMessagePadding,
   title,
   language = "en",
   children,
@@ -308,17 +312,27 @@ export function DesktopSitePreview({
   }, [language, previewOrigin, src]);
 
   useEffect(() => {
+    const padding = previewPostMessagePadding ?? 48;
+
     const onMessage = (event: MessageEvent) => {
       if (!isAllowedPreviewOrigin(event.origin)) return;
       if (!isPreviewHeightMessage(event.data)) return;
-      setIframeHeight(
-        resolvePreviewHeight(event.data.height + 48, previewMaxHeight),
-      );
+
+      const next = resolvePreviewHeight(event.data.height + padding, previewMaxHeight);
+
+      if (previewExactPostMessage) {
+        setIframeHeight((current) =>
+          next < current ? next : Math.max(current, next),
+        );
+        return;
+      }
+
+      setIframeHeight((current) => Math.max(current, next));
     };
 
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, [previewMaxHeight]);
+  }, [previewExactPostMessage, previewMaxHeight, previewPostMessagePadding]);
 
   useEffect(() => {
     if (loadState !== "ready") return;

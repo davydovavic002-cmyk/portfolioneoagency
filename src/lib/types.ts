@@ -38,6 +38,10 @@ export interface ProjectMeta {
   previewInitialHeight?: number;
   /** Max iframe height cap (prevents stretched footers on short pages) */
   previewMaxHeight?: number;
+  /** Trust postMessage height as source of truth (allow shrink on route change) */
+  previewExactPostMessage?: boolean;
+  /** Extra px added to postMessage height (pilates measures to sentinel — use 0) */
+  previewPostMessagePadding?: number;
 }
 
 export interface ProjectTranslation {

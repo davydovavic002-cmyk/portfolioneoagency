@@ -50,6 +50,8 @@ export function SimulatorView({ activeProject, language }: SimulatorViewProps) {
       previewUrl={meta.previewUrl}
       previewInitialHeight={meta.previewInitialHeight}
       previewMaxHeight={meta.previewMaxHeight}
+      previewExactPostMessage={meta.previewExactPostMessage}
+      previewPostMessagePadding={meta.previewPostMessagePadding}
       title={title}
       language={language}
     >
