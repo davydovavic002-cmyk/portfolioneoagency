@@ -21,45 +21,45 @@ export const dictionary: Dictionary = {
     projects: {
       "aura-hair": {
         title: "AURA Hair Space",
-        role: "Lead Developer",
+        role: "Full-stack · AI",
         category: "Beauty · Booking",
         description:
           "Премиальный одностраничный сайт салона в Сингапуре: выбор стилиста, меню услуг, диагностика ухода и онлайн-бронирование в luxury-эстетике.",
       },
       "neuro-shpora": {
         title: "NeuroShpora",
-        role: "AI Engineer",
+        role: "Full-stack · AI",
         category: "Telegram · NLP",
         description:
           "Агентный бот с контекстной памятью, ревью кода и потоковыми ответами. Проектирование диалоговых сценариев под реальные задачи обучения.",
       },
       "blessed-angel": {
         title: "Blessed Angel",
-        role: "Creative Technologist",
+        role: "Full-stack · AI",
         category: "E-commerce · 3D",
         description:
           "Интерактивный конфигуратор аксессуаров с фокусом на визуальную идентичность бренда и конверсию в премиум-сегменте.",
       },
       "jewelry-store": {
         title: "Jellybead",
-        role: "Frontend Lead",
+        role: "Full-stack · AI",
         category: "Luxury · Commerce",
         description:
           "Премиальный бутик с акцентом на типографику, микроанимации и тактильное ощущение материалов через интерфейс.",
       },
       "petcare-ai": {
         title: "PetCare AI",
-        role: "AI Product Engineer",
+        role: "Full-stack · AI",
         category: "HealthTech · B2B",
         description:
           "Экосистема для ветклиник: диагностический AI-модуль, анализ состава кормов и персонализированные планы питания.",
       },
       "stretch-and-chill": {
         title: "Stretch and Chill",
-        role: "Frontend Lead",
+        role: "Full-stack · AI",
         category: "Wellness · Studio",
         description:
-          "Премиальный сайт pilates-студии в Белграде: dreamy-эстетика, magnetic-кнопки, слайдер классов и интерактивный планировщик расписания с drag-and-drop.",
+          "Премиальный сайт pilates-студии в Белграде: dreamy-эстетика, magnetic-кнопки, слайдер классов, карточки команды и страница расписания в стиле блокнота.",
       },
     },
   },
@@ -83,45 +83,45 @@ export const dictionary: Dictionary = {
     projects: {
       "aura-hair": {
         title: "AURA Hair Space",
-        role: "Lead Developer",
+        role: "Full-stack · AI",
         category: "Beauty · Booking",
         description:
           "Premium Singapore salon — single-page editorial site with stylist discovery, service menu, hair-care diagnostics, and online booking.",
       },
       "neuro-shpora": {
         title: "NeuroShpora",
-        role: "AI Engineer",
+        role: "Full-stack · AI",
         category: "Telegram · NLP",
         description:
           "Agentic bot with contextual memory, code review, and streaming responses. Dialog flows designed for real learning workflows.",
       },
       "blessed-angel": {
         title: "Blessed Angel",
-        role: "Creative Technologist",
+        role: "Full-stack · AI",
         category: "E-commerce · 3D",
         description:
           "Interactive accessory configurator focused on brand visual identity and conversion in the premium segment.",
       },
       "jewelry-store": {
         title: "Jellybead",
-        role: "Frontend Lead",
+        role: "Full-stack · AI",
         category: "Luxury · Commerce",
         description:
           "Premium boutique emphasizing typography, micro-interactions, and tactile material perception through the interface.",
       },
       "petcare-ai": {
         title: "PetCare AI",
-        role: "AI Product Engineer",
+        role: "Full-stack · AI",
         category: "HealthTech · B2B",
         description:
           "Vet clinic ecosystem: diagnostic AI module, feed composition analysis, and personalized nutrition plans.",
       },
       "stretch-and-chill": {
         title: "Stretch and Chill",
-        role: "Frontend Lead",
+        role: "Full-stack · AI",
         category: "Wellness · Studio",
         description:
-          "Ultra-premium pilates studio for Belgrade — dreamy visual language, magnetic interactions, and a notebook-style schedule with drag-to-save class planning.",
+          "Ultra-premium pilates studio for Belgrade — dreamy visual language, magnetic interactions, class slider, team cards, and a notebook-style schedule page.",
       },
     },
   },
@@ -145,45 +145,45 @@ export const dictionary: Dictionary = {
     projects: {
       "aura-hair": {
         title: "AURA Hair Space",
-        role: "Lead Developer",
+        role: "Full-stack · AI",
         category: "Beauty · Booking",
         description:
           "Սինգապուրի պրեմիում սրահի կայք՝ ստայլիստի ընտրություն, ծառայությունների մենյու, մազերի խնամքի ախտորոշում և օնլայն ամրագրում պրեմիում էսթետիկայում։",
       },
       "neuro-shpora": {
         title: "NeuroShpora",
-        role: "AI Engineer",
+        role: "Full-stack · AI",
         category: "Telegram · NLP",
         description:
           "Ագենտային բոտ համատեքստային հիշողությամբ, կոդի վերանայմամբ և հոսքային պատասխաններով։",
       },
       "blessed-angel": {
         title: "Blessed Angel",
-        role: "Creative Technologist",
+        role: "Full-stack · AI",
         category: "E-commerce · 3D",
         description:
           "Ինտերակտիվ աքսեսուարների կոնֆիգուրատոր՝ բրենդի վիզուալ ինքնություն և պրեմիում կոնվերսիա։",
       },
       "jewelry-store": {
         title: "Jellybead",
-        role: "Frontend Lead",
+        role: "Full-stack · AI",
         category: "Luxury · Commerce",
         description:
           "Պրեմիում բուտիկ՝ տիպոգրաֆիայի, միկրո-անիմացիաների և նյութերի տեսողական ընկալման վրա կենտրոնացված։",
       },
       "petcare-ai": {
         title: "PetCare AI",
-        role: "AI Product Engineer",
+        role: "Full-stack · AI",
         category: "HealthTech · B2B",
         description:
           "Վետկլինիկաների էկոհամակարգ՝ ախտորոշական AI մոդուլ, կերերի կազմի վերլուծություն և անհատական սննդակարգ։",
       },
       "stretch-and-chill": {
         title: "Stretch and Chill",
-        role: "Frontend Lead",
+        role: "Full-stack · AI",
         category: "Wellness · Studio",
         description:
-          "Բելգրադի պրեմիում pilates ստուդիայի կայք՝ dreamy էսթետիկա, magnetic կոճակներ, դասերի սլայդեր և drag-and-drop ժամանակացույց։",
+          "Բելգրադի պրեմիում pilates ստուդիայի կայք՝ dreamy էսթետիկա, magnetic կոճակներ, դասերի սլայդեր, թիմի քարտեր և notebook-style ժամանակացույց։",
       },
     },
   },

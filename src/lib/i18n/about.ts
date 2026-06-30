@@ -134,7 +134,7 @@ const en: AboutCopy = {
       {
         id: "stretch-and-chill",
         quote:
-          "Dreamy pilates studio SPA with magnetic interactions, class slider, team cards, and a notebook schedule with drag-to-save planning.",
+          "Dreamy pilates studio SPA with magnetic interactions, class slider, team cards, and a notebook-style schedule page.",
         author: "Stretch and Chill",
         role: "Aesthetic Web · Wellness",
         highlight: "10–14 days",
@@ -263,7 +263,7 @@ const ru: AboutCopy = {
       {
         id: "stretch-and-chill",
         quote:
-          "Dreamy pilates SPA: magnetic-кнопки, слайдер классов, карточки команды и планировщик расписания в стиле блокнота с drag-and-drop.",
+          "Dreamy pilates SPA: magnetic-кнопки, слайдер классов, карточки команды и страница расписания в стиле блокнота.",
         author: "Stretch and Chill",
         role: "Aesthetic Web · Wellness",
         highlight: "10–14 дней",
@@ -392,7 +392,7 @@ const am: AboutCopy = {
       {
         id: "stretch-and-chill",
         quote:
-          "Dreamy pilates SPA՝ magnetic կոճակներ, դասերի սլայդեր, թիմի քարտեր և notebook-style ժամանակացույց drag-and-drop-ով։",
+          "Dreamy pilates SPA՝ magnetic կոճակներ, դասերի սլայդեր, թիմի քարտեր և notebook-style ժամանակացույցի էջ։",
         author: "Stretch and Chill",
         role: "Aesthetic Web · Wellness",
         highlight: "10–14 օր",

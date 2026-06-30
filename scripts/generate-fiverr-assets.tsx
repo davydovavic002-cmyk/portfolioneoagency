@@ -67,7 +67,7 @@ const CASES = [
     id: "aura-hair",
     title: "AURA Hair Space",
     domain: "aurahair.sg",
-    role: "Lead Developer",
+    role: "Full-stack · AI",
     category: "Beauty · Booking",
     accent: "#b85c6e",
     glow: "rgba(184, 92, 110, 0.35)",
@@ -90,7 +90,7 @@ const CASES = [
     id: "petcare-ai",
     title: "PetCare AI",
     domain: "petcare.neostudio.space",
-    role: "AI Product Engineer",
+    role: "Full-stack · AI",
     category: "HealthTech · B2B",
     accent: "#7cb89a",
     glow: "rgba(124, 184, 154, 0.35)",
@@ -113,7 +113,7 @@ const CASES = [
     id: "jewelry-store",
     title: "Jellybead",
     domain: "jellybead.store",
-    role: "Frontend Lead",
+    role: "Full-stack · AI",
     category: "Luxury · Commerce",
     accent: "#c9b896",
     glow: "rgba(201, 184, 150, 0.35)",
@@ -136,7 +136,7 @@ const CASES = [
     id: "blessed-angel",
     title: "Blessed Angel",
     domain: "blessedangel.store",
-    role: "Creative Technologist",
+    role: "Full-stack · AI",
     category: "E-commerce · 3D",
     accent: "#d4c4a8",
     glow: "rgba(212, 196, 168, 0.35)",
@@ -159,7 +159,7 @@ const CASES = [
     id: "neuro-shpora",
     title: "NeuroShpora",
     domain: "t.me/neuroshpora",
-    role: "AI Engineer",
+    role: "Full-stack · AI",
     category: "Telegram · NLP",
     accent: "#5b9fd4",
     glow: "rgba(91, 159, 212, 0.35)",
@@ -359,7 +359,7 @@ function PortfolioHomeImage({
         <div style={{ display: "flex", justifyContent: "space-between", marginTop: 12, alignItems: "center" }}>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ fontSize: 15, fontWeight: 600 }}>AURA Hair Space</div>
-            <div style={{ fontSize: 11, color: MUTED, marginTop: 3 }}>Lead Developer · Beauty · Booking</div>
+            <div style={{ fontSize: 11, color: MUTED, marginTop: 3 }}>Full-stack · AI · Beauty · Booking</div>
           </div>
           <div style={{ fontSize: 10, color: MUTED }}>Live preview</div>
         </div>
