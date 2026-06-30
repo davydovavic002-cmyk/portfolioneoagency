@@ -7,9 +7,7 @@ export const projects: ProjectMeta[] = [
     year: "2026",
     stack: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
     browserLabel: "pilates.neostudio.space",
-    previewUrl: "https://pilates.neostudio.space/schedule",
-    previewInitialHeight: 2800,
-    previewMaxHeight: 3400,
+    previewUrl: "https://pilates.neostudio.space/",
   },
   {
     id: "aura-hair",
