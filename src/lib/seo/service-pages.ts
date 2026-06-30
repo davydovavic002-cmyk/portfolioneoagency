@@ -336,9 +336,9 @@ export const SERVICE_PAGES: Record<ServicePageSlug, ServicePageContent> = {
   "ai-automation": {
     slug: "ai-automation",
     title: "AI Automation & Product Engineering",
-    metaTitle: "AI Automation Services — Audits, MVPs & Integration",
+    metaTitle: "AI Automation Services — MVPs & Integration",
     metaDescription:
-      "AI automation for business: workflow audits, LLM agents, Supabase backends, and AI product MVPs. Neo Studio Space — strategy to production.",
+      "AI automation for business: LLM agents, Supabase backends, and AI product MVPs. Neo Studio Space — strategy to production.",
     keywords: [
       "AI automation",
       "AI development",
@@ -350,10 +350,10 @@ export const SERVICE_PAGES: Record<ServicePageSlug, ServicePageContent> = {
     heroEyebrow: "Neo Studio Space · AI Automation",
     heroTitle: "AI automation that ships — not slide decks.",
     heroSubtitle:
-      "From a 90-minute audit to a full AI product MVP: we map your stack, build agents, and put them in production.",
+      "From a scoped MVP to a full AI product: we map your stack, build agents, and put them in production.",
     intro: [
       "Search traffic around AI automation is exploding — and so is noise. Teams want to know which workflows to automate, which models to use, and how to connect frontend, backend, and LLM APIs without security holes.",
-      "We start practical: an AI Automation Audit maps your processes in Miro or Notion, recommends stack choices (OpenAI, Supabase, n8n, custom agents), and gives you a written roadmap with fixed next-step packages. No open-ended consulting retainers required to get value.",
+      "We start practical: the brief helps us map workflows and stack choices (OpenAI, Supabase, n8n, custom agents), then we quote a fixed-scope package — AI Core MVP or Neo Venture. No open-ended consulting retainers required to get value.",
       "When you are ready to build, our AI Core MVP package delivers auth, database, dashboard UI, Stripe if needed, and real AI features — media generation, smart chat, or tool-using agents. PetCare AI in our portfolio is the reference: diagnostics, nutrition analysis, and a B2B-facing product surface.",
     ],
     includesTitle: "AI Core MVP — what you get",
@@ -368,9 +368,9 @@ export const SERVICE_PAGES: Record<ServicePageSlug, ServicePageContent> = {
     processTitle: "AI project phases",
     process: [
       {
-        title: "Audit & architecture",
+        title: "Scope & architecture",
         description:
-          "Optional $450 session — map workflows, data, and model choices before code.",
+          "Kickoff call and written scope — workflows, data, and model choices before code.",
       },
       {
         title: "MVP scope",
@@ -410,9 +410,9 @@ export const SERVICE_PAGES: Record<ServicePageSlug, ServicePageContent> = {
           "It is replacing or augmenting manual workflows with LLM agents, scripted integrations, or custom tools — customer support triage, document processing, internal copilots, or product features powered by AI.",
       },
       {
-        question: "Should I start with an audit or a full build?",
+        question: "Should I start small or go straight to MVP?",
         answer:
-          "If stack and scope are unclear, start with the $450 AI Automation Audit. If you have a defined MVP, AI Core MVP ($6,000) is the direct path to production.",
+          "If you need a public teaser or one-page product presence first, Aesthetic Micro-Site / MVP ($1,600) ships in six days. If you have a defined product scope, AI Core MVP ($6,000) is the direct path to production.",
       },
       {
         question: "How do you handle data privacy?",
@@ -427,7 +427,7 @@ export const SERVICE_PAGES: Record<ServicePageSlug, ServicePageContent> = {
     ],
     briefProjectType: "ai-product",
     ctaTitle: "Exploring AI for your product?",
-    ctaSubtitle: "The brief takes two minutes — we will suggest an audit, MVP, or flagship path.",
+    ctaSubtitle: "The brief takes two minutes — we will suggest an MVP or flagship path.",
   },
 };
 

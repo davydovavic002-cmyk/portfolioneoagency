@@ -2,7 +2,7 @@ import type { Language, ProjectId, ServiceTierId } from "@/lib/types";
 import { servicesByLanguage, type ServiceItem } from "@/lib/i18n/services";
 
 export type ServiceItemId =
-  | "audit"
+  | "aesthetic-micro"
   | "hero"
   | "landing-page"
   | "aesthetic-web"

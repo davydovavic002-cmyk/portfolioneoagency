@@ -34,7 +34,7 @@ export interface ServicesCopy {
 const en: ServicesCopy = {
   heroTitle: "Services & Pricing",
   heroSubtitle:
-    "Transparent packages — from a focused audit to a full product launch. Fixed scope, fixed price.",
+    "Transparent packages — from a quick launch to a full product build. Fixed scope, fixed price.",
   bookCall: "Message on Telegram",
   forWhom: "For whom",
   includes: "What's included",
@@ -47,16 +47,21 @@ const en: ServicesCopy = {
       subtitle: "Focused entry points with clear deliverables — a practical way to start working together.",
       items: [
         {
-          id: "audit",
-          name: "AI Automation Audit & Consulting",
-          price: "$450",
+          id: "aesthetic-micro",
+          name: "Aesthetic Micro-Site / MVP",
+          price: "$1,600",
+          timeline: "6 days",
+          audience:
+            "Founders and creators who need a launch-ready full-page site — product teaser, waitlist, or MVP presence — without a multi-page build.",
           description:
-            "A 90-minute strategy session plus an interactive roadmap in Miro or Notion. We review your product or workflow and outline architecture: which AI models fit, how to connect frontend to Supabase, and what to automate first.",
+            "Full-page delivery — a fully coded, ultra-modern 1-page micro-site, teaser layout, or product MVP. Hero, supporting sections, and footer in one scrollable page. Glassmorphism aesthetics, responsive layouts, and smooth interactive animations.",
           deliverables: [
-            "90-minute strategy session",
-            "Process map in Miro / Notion",
-            "AI stack & automation recommendations",
-            "Written summary with next-step options",
+            "Full 1-page layout (hero + 2–4 supporting sections)",
+            "Glassmorphism UI & premium typography",
+            "Framer Motion micro-interactions",
+            "Next.js / React production build",
+            "Deploy to your domain or Vercel",
+            "Basic SEO & performance pass",
           ],
         },
         {
@@ -65,9 +70,9 @@ const en: ServicesCopy = {
           price: "$1,200",
           timeline: "3–5 days",
           description:
-            "Design and fullstack development of your landing hero — interactive 3D or AI element, glass UI, premium typography, production-ready code.",
+            "One section only — design and fullstack development of a single above-the-fold hero block. Interactive 3D or AI element, glass UI, premium typography, production-ready code. Ideal when you only need the top fold or plan to expand later.",
           deliverables: [
-            "Hero concept & visual design",
+            "One hero section only (above the fold)",
             "Next.js + Tailwind implementation",
             "Motion & responsive polish",
           ],
@@ -251,7 +256,7 @@ const en: ServicesCopy = {
 const ru: ServicesCopy = {
   heroTitle: "Услуги и прайс",
   heroSubtitle:
-    "Прозрачные пакеты — от аудита до полноценного запуска продукта. Фиксированный scope и цена.",
+    "Прозрачные пакеты — от быстрого запуска до полноценного продукта. Фиксированный scope и цена.",
   bookCall: "Написать в Telegram",
   forWhom: "Для кого",
   includes: "Что входит",
@@ -264,16 +269,21 @@ const ru: ServicesCopy = {
       subtitle: "Точечные услуги с понятным результатом — удобный формат для первого проекта.",
       items: [
         {
-          id: "audit",
-          name: "AI-аудит и консалтинг по автоматизации",
-          price: "$450",
+          id: "aesthetic-micro",
+          name: "Aesthetic Micro-Site / MVP",
+          price: "$1,600",
+          timeline: "6 дней",
+          audience:
+            "Фаундерам и создателям, которым нужен готовый к запуску full-page сайт — тизер продукта, waitlist или MVP без многостраничной сборки.",
           description:
-            "Полуторачасовая сессия + интерактивная карта в Miro/Notion. Разбираем продукт или процесс и описываем архитектуру: какие AI-модели подойдут, как связать фронтенд с Supabase и что автоматизировать в первую очередь.",
+            "Full-page — полностью свёрстанный ультрасовременный одностраничник, teaser-layout или product MVP. Hero, блоки и footer в одной прокручиваемой странице. Glassmorphism, адаптив и плавные интерактивные анимации.",
           deliverables: [
-            "90-минутная стратегическая сессия",
-            "Карта процессов в Miro / Notion",
-            "Рекомендации по AI-стеку и автоматизации",
-            "Письменное резюме и варианты следующих шагов",
+            "Полный layout одной страницы (hero + 2–4 блока)",
+            "Glassmorphism UI и премиальная типографика",
+            "Framer Motion микро-анимации",
+            "Production-сборка на Next.js / React",
+            "Деплой на ваш домен или Vercel",
+            "Базовая SEO и оптимизация скорости",
           ],
         },
         {
@@ -282,9 +292,9 @@ const ru: ServicesCopy = {
           price: "$1,200",
           timeline: "3–5 дней",
           description:
-            "Дизайн и фулстек главного экрана — интерактивный 3D/AI-элемент, glass UI, типографика, готовый продакшн-код.",
+            "Одна секция — дизайн и фулстек одного above-the-fold блока. Интерактивный 3D/AI-элемент, glass UI, типографика, продакшн-код. Подходит, если нужен только верх экрана или расширение позже.",
           deliverables: [
-            "Концепт и визуальный дизайн hero",
+            "Одна hero-секция (только above the fold)",
             "Реализация на Next.js + Tailwind",
             "Анимации и адаптив",
           ],
@@ -469,7 +479,7 @@ const ru: ServicesCopy = {
 const am: ServicesCopy = {
   heroTitle: "Ծառայություններ և գներ",
   heroSubtitle:
-    "Թափանցիկ փաթեթներ՝ աուդիտից մինչև ամբողջական արտադրանքի գործարկում։",
+    "Թափանցիկ փաթեթներ՝ արագ գործարկումից մինչև ամբողջական արտադրանք։",
   bookCall: "Գրել Telegram-ում",
   forWhom: "Ում համար",
   includes: "Ինչ է ներառված",
@@ -482,16 +492,21 @@ const am: ServicesCopy = {
       subtitle: "Կենտրոնացված առաջարկներ հստակ արդյունքով։",
       items: [
         {
-          id: "audit",
-          name: "AI ավտոմատացման աուդիտ և խորհրդատվություն",
-          price: "$450",
+          id: "aesthetic-micro",
+          name: "Aesthetic Micro-Site / MVP",
+          price: "$1,600",
+          timeline: "6 օր",
+          audience:
+            "Հիմնադիրներին և creator-ներին, ովքերին պետք է գործարկման պատրաստ full-page կայք՝ product teaser, waitlist կամ MVP առանց բազմաէջ կայքի։",
           description:
-            "90 րոպե ռազմավարական սեսիա + ինտերակտիվ քարտեզ Miro/Notion-ում։ Վերլուծում ենք արտադրանքը և AI արխիտեկտուրան։",
+            "Full-page — լիովին կոդավորված ultra-modern մի էջանոց, teaser layout կամ product MVP։ Hero, բլոկներ և footer մեկ scrollable էջում։ Glassmorphism, ադապտիվ և smooth ինտերակտիվ անիմացիաներ։",
           deliverables: [
-            "90 րոպե ռազմավարական սեսիա",
-            "Miro / Notion քարտեզ",
-            "AI-յի խորհուրդներ",
-            "Գրավոր ամփոփում և հաջորդ քայլեր",
+            "Մի էջի ամբողջական layout (hero + 2–4 բլոկ)",
+            "Glassmorphism UI և պրեմիում տիպոգրաֆիա",
+            "Framer Motion micro-interactions",
+            "Next.js / React production build",
+            "Deploy ձեր domain-ում կամ Vercel-ում",
+            "SEO և performance հիմունք",
           ],
         },
         {
@@ -500,9 +515,9 @@ const am: ServicesCopy = {
           price: "$1,200",
           timeline: "3–5 օր",
           description:
-            "Hero էկրանի դիզայն և լիաէջ իրականացում՝ ինտերակտիվ 3D/AI, glass UI, պրեմիում տիպոգրաֆիա։",
+            "Մեկ section միայն — above-the-fold բլոկի դիզայն և fullstack՝ ինտերակտիվ 3D/AI, glass UI, պրեմիում տիպոգրաֆիա։ Եթե պետք է միայն hero բլոկը կամ հետագա ընդլայնում։",
           deliverables: [
-            "Hero կոնցեպտ",
+            "Մեկ hero section (above the fold)",
             "Next.js + Tailwind",
             "Անիմացիաներ և ադապտիվ",
           ],

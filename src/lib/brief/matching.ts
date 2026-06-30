@@ -120,9 +120,9 @@ function applyBudget(
     if (projectType === "ai-product" || projectType === "telegram-bot") {
       return {
         projectId: match.projectId,
-        serviceItemId: "audit",
+        serviceItemId: "aesthetic-micro",
         rationale:
-          "An AI automation audit is the fastest way to map architecture, stack, and scope before a full build.",
+          "A one-page product teaser or MVP landing — ship a polished presence fast, then expand into a full build when scope is locked.",
       };
     }
   }
