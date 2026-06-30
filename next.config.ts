@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
-import { PREVIEW_ORIGINS } from "./src/lib/preview-origins";
+import { PREVIEW_FRAME_ORIGINS } from "./src/lib/preview-origins";
 
-const frameSrc = ["'self'", ...PREVIEW_ORIGINS].join(" ");
+const frameSrc = ["'self'", ...PREVIEW_FRAME_ORIGINS].join(" ");
 
 const contentSecurityPolicy = [
   "default-src 'self'",

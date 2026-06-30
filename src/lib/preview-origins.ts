@@ -10,8 +10,24 @@ export const PREVIEW_ORIGINS = [
   ),
 ];
 
+/** blessedangel.store serves both apex and www without redirect. */
+export const BLESSED_ANGEL_EXTRA_ORIGINS = ["https://www.blessedangel.store"] as const;
+
+export const PREVIEW_FRAME_ORIGINS = [
+  ...new Set([...PREVIEW_ORIGINS, ...BLESSED_ANGEL_EXTRA_ORIGINS]),
+];
+
+const BLESSED_ANGEL_HOSTS = new Set(["blessedangel.store", "www.blessedangel.store"]);
+
+export function isBlessedAngelPreviewUrl(previewUrl: string): boolean {
+  return BLESSED_ANGEL_HOSTS.has(new URL(previewUrl).hostname);
+}
+
 export function isAllowedPreviewOrigin(origin: string): boolean {
-  return PREVIEW_ORIGINS.includes(origin);
+  if (PREVIEW_ORIGINS.includes(origin)) return true;
+  return BLESSED_ANGEL_EXTRA_ORIGINS.includes(
+    origin as (typeof BLESSED_ANGEL_EXTRA_ORIGINS)[number],
+  );
 }
 
 export function getPreviewOrigin(previewUrl: string): string {

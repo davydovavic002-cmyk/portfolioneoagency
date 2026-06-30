@@ -37,12 +37,12 @@ export function measureIframeDocumentHeight(
   }
 }
 
-/** Same-origin only — cross-origin sites must postMessage their height. */
-export function resolvePreviewIframeHeight(measured: number | null): number | null {
+/** Same-origin: measured height. Cross-origin without postMessage: tall fallback scroll area. */
+export function resolvePreviewIframeHeight(measured: number | null): number {
   if (measured && measured > 0) {
     return clampPreviewHeight(measured + 48);
   }
-  return null;
+  return PREVIEW_IFRAME_FALLBACK_HEIGHT;
 }
 
 export function isPreviewHeightMessage(
@@ -58,5 +58,5 @@ export function isPreviewHeightMessage(
   );
 }
 
-/** @deprecated cross-origin previews should rely on postMessage, not fallback inflation */
+/** @deprecated use resolvePreviewIframeHeight */
 export { PREVIEW_IFRAME_FALLBACK_HEIGHT };
