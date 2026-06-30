@@ -313,11 +313,8 @@ export function DesktopSitePreview({
     const onMessage = (event: MessageEvent) => {
       if (!isAllowedPreviewOrigin(event.origin)) return;
       if (!isPreviewHeightMessage(event.data)) return;
-      setIframeHeight((current) =>
-        Math.max(
-          current,
-          resolvePreviewHeight(event.data.height + 48, previewMaxHeight),
-        ),
+      setIframeHeight(
+        resolvePreviewHeight(event.data.height + 48, previewMaxHeight),
       );
     };
 
