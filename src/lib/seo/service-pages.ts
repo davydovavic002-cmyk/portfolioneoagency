@@ -145,10 +145,10 @@ export const SERVICE_PAGES: Record<ServicePageSlug, ServicePageContent> = {
   },
   "landing-page": {
     slug: "landing-page",
-    title: "Landing Page Design & Development",
-    metaTitle: "Landing Page Design — High-Converting Pages from $2,500",
+    title: "Essential Site Design & Development",
+    metaTitle: "Essential Site — Up to 3 Pages from $2,500",
     metaDescription:
-      "Order a conversion-focused landing page: UX, design, Next.js build, lead forms, and SEO. Neo Studio Space — fixed price, 7–10 day delivery.",
+      "Compact site with navigation: up to 3 pages, UX, Next.js build, forms, and SEO. Neo Studio Space — fixed price, 8–12 day delivery.",
     keywords: [
       "landing page design",
       "landing page development",
@@ -156,23 +156,23 @@ export const SERVICE_PAGES: Record<ServicePageSlug, ServicePageContent> = {
       "landing page designer",
       "create landing page",
     ],
-    heroEyebrow: "Neo Studio Space · Landing Pages",
-    heroTitle: "Landing pages built to convert — not just to look good.",
+    heroEyebrow: "Neo Studio Space · Essential Sites",
+    heroTitle: "Small sites with structure — not one endless scroll.",
     heroSubtitle:
-      "One focused page: clear offer, fast load, mobile-ready, with a lead form or CTA wired in. Fixed scope, fixed price.",
+      "Up to 3 pages with navigation: home, pricing, FAQ, schedule, or contact — forms wired in. Fixed scope, fixed price.",
     intro: [
-      "A landing page is the highest-leverage asset for founders, course creators, and service businesses. It is where paid traffic, search visitors, and referrals decide whether to book, buy, or bounce.",
-      "We build single-page sites around one goal: conversion. That means hierarchy that guides the eye, copy structure that answers objections, and technical performance that does not waste your ad spend on slow loads.",
-      "Unlike drag-and-drop builders, our landings are custom Next.js pages — lightweight, ownable, and easy to extend when you are ready for a full site or product.",
+      "When a single scroll is not enough, a compact multi-page site gives each topic its own URL — pricing, proof, schedule, or contact — without jumping to a full company website.",
+      "We build Essential Sites around clear page flow: shared navigation, consistent layout, and production Next.js code that loads fast on mobile.",
+      "Unlike page builders, you get ownable code, basic SEO, and a path to Aesthetic Web or Multi-page when you outgrow three pages.",
     ],
-    includesTitle: "What's included in the Landing Page package",
+    includesTitle: "What's included in the Essential Site package",
     includes: [
-      "UX structure and visual design for one conversion-focused page",
+      "UX structure and visual design for up to 3 pages",
+      "Shared navigation, layout system, and page templates",
       "Next.js + Tailwind implementation with responsive layout",
-      "Lead form or primary CTA integration (Telegram, email, Calendly, etc.)",
+      "Contact form or CTA integration (Telegram, email, Calendly, etc.)",
       "Basic SEO: meta tags, Open Graph, semantic sections",
-      "Performance optimization and mobile QA",
-      "Deploy and handoff documentation",
+      "Performance optimization, deploy, and handoff documentation",
     ],
     processTitle: "From brief to live URL",
     process: [
@@ -201,27 +201,32 @@ export const SERVICE_PAGES: Record<ServicePageSlug, ServicePageContent> = {
       projectId: "stretch-and-chill",
       title: "Stretch and Chill",
       summary:
-        "Wellness studio SPA with dreamy brand identity, magnetic interactions, and a conversion-ready home page — a reference for focused landing experiences.",
+        "Wellness studio SPA with home and schedule pages, magnetic interactions, and a notebook-style planner — built on the Essential Site package.",
       href: "https://pilates.neostudio.space/",
     },
     package: {
       serviceItemId: "landing-page",
-      name: "Landing Page",
+      name: "Essential Site · up to 3 pages",
       price: "$2,500",
-      timeline: "7–10 days",
+      timeline: "8–12 days",
       summary:
-        "Single-page site for founders and brands that need one strong page to sell, collect leads, or pitch an offer.",
+        "Up to 3 linked pages with navigation — for founders and brands that need separate home, pricing, schedule, or contact pages.",
     },
     faq: [
       {
-        question: "How much does a landing page cost?",
+        question: "How much does an Essential Site cost?",
         answer:
-          "Our Landing Page package is $2,500 fixed — design, development, form/CTA, responsive layout, and basic SEO. No hourly surprises.",
+          "Our Essential Site package is $2,500 fixed — up to 3 pages, design, development, forms/CTAs, responsive layout, and basic SEO. No hourly surprises.",
       },
       {
-        question: "Can you redesign my existing landing page?",
+        question: "How is this different from Aesthetic Micro-Site?",
         answer:
-          "Yes. Share your current URL in the project brief and we will recommend either a full landing rebuild or a High-Converting Hero Section ($1,200) if only the top fold needs work.",
+          "Micro-Site ($1,600) is one scrollable page with glassmorphism and motion — ideal for teasers and MVP wow. Essential Site ($2,500) gives you up to 3 separate pages with navigation and shared layout — like Stretch and Chill (home + schedule).",
+      },
+      {
+        question: "Can you redesign my existing site?",
+        answer:
+          "Yes. Share your current URL in the project brief and we will recommend Essential Site, Aesthetic Micro-Site ($1,600) for a one-page teaser, or a Hero Section ($1,200) if only the top fold needs work.",
       },
       {
         question: "Do you write copy?",
@@ -235,7 +240,7 @@ export const SERVICE_PAGES: Record<ServicePageSlug, ServicePageContent> = {
       },
     ],
     briefProjectType: "landing",
-    ctaTitle: "Ready for a landing page estimate?",
+    ctaTitle: "Ready for an Essential Site estimate?",
     ctaSubtitle: "Answer four quick questions — get a matched case study and package on the spot.",
   },
   "telegram-bot": {

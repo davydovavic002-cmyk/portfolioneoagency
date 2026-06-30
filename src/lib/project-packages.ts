@@ -18,7 +18,7 @@ export const PROJECT_PACKAGE_MAP: Record<ProjectId, ServiceItemId> = {
   "aura-hair": "aesthetic-web",
   "jewelry-store": "ecommerce-store",
   "petcare-ai": "ai-core-mvp",
-  "stretch-and-chill": "aesthetic-web",
+  "stretch-and-chill": "landing-page",
   "neuro-shpora": "telegram-bot",
   "blessed-angel": "aesthetic-web",
 };

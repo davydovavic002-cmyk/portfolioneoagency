@@ -52,9 +52,9 @@ const en: ServicesCopy = {
           price: "$1,600",
           timeline: "6 days",
           audience:
-            "Founders and creators who need a launch-ready full-page site — product teaser, waitlist, or MVP presence — without a multi-page build.",
+            "Founders and creators who need a launch-ready full-page site — product teaser, waitlist, or MVP presence. One scrollable page only.",
           description:
-            "Full-page delivery — a fully coded, ultra-modern 1-page micro-site, teaser layout, or product MVP. Hero, supporting sections, and footer in one scrollable page. Glassmorphism aesthetics, responsive layouts, and smooth interactive animations.",
+            "One page only — a fully coded, ultra-modern micro-site, teaser layout, or product MVP. Hero, supporting sections, and footer in a single scroll. Glassmorphism aesthetics, responsive layouts, and smooth interactive animations.",
           deliverables: [
             "Full 1-page layout (hero + 2–4 supporting sections)",
             "Glassmorphism UI & premium typography",
@@ -88,18 +88,19 @@ const en: ServicesCopy = {
       items: [
         {
           id: "landing-page",
-          name: "Landing Page",
+          name: "Essential Site · up to 3 pages",
           price: "$2,500",
-          timeline: "7–10 days",
+          timeline: "8–12 days",
           audience:
-            "Founders and brands that need one strong page to sell, collect leads, or pitch an offer.",
+            "Founders and brands that need a small site with navigation — when one scroll is not enough for pricing, FAQ, schedule, or contact.",
           description:
-            "Single-page site built for conversion — clear structure, fast load, mobile-ready.",
+            "A compact site with navigation — up to 3 linked pages and shared layout. Clear structure, forms, fast load, and deploy included. Built for clarity and flow, not a single long scroll.",
           deliverables: [
-            "UX structure & visual design (1 page)",
+            "UX structure & design (up to 3 pages)",
+            "Shared navigation and page templates",
             "Next.js + Tailwind implementation",
-            "Lead form or CTA integration",
-            "Responsive layout & basic SEO",
+            "Contact form or CTA on key pages",
+            "Responsive layout, basic SEO & deploy",
           ],
         },
         {
@@ -274,9 +275,9 @@ const ru: ServicesCopy = {
           price: "$1,600",
           timeline: "6 дней",
           audience:
-            "Фаундерам и создателям, которым нужен готовый к запуску full-page сайт — тизер продукта, waitlist или MVP без многостраничной сборки.",
+            "Фаундерам и создателям, которым нужен готовый к запуску full-page сайт — тизер, waitlist или MVP. Только одна прокручиваемая страница.",
           description:
-            "Full-page — полностью свёрстанный ультрасовременный одностраничник, teaser-layout или product MVP. Hero, блоки и footer в одной прокручиваемой странице. Glassmorphism, адаптив и плавные интерактивные анимации.",
+            "One page only — полностью свёрстанный ультрасовременный micro-site, teaser или product MVP. Hero, блоки и footer в одном scroll. Glassmorphism, адаптив и плавные интерактивные анимации.",
           deliverables: [
             "Полный layout одной страницы (hero + 2–4 блока)",
             "Glassmorphism UI и премиальная типографика",
@@ -310,18 +311,19 @@ const ru: ServicesCopy = {
       items: [
         {
           id: "landing-page",
-          name: "Лендинг",
+          name: "Essential Site · до 3 страниц",
           price: "$2,500",
-          timeline: "7–10 дней",
+          timeline: "8–12 дней",
           audience:
-            "Фаундерам и брендам, которым нужна одна сильная страница для продаж, заявок или оффера.",
+            "Фаундерам и брендам, которым нужен небольшой сайт с навигацией — когда одного scroll мало для pricing, FAQ, расписания или контактов.",
           description:
-            "Одностраничник под конверсию — понятная структура, быстрая загрузка, адаптив.",
+            "Компактный сайт с навигацией — до 3 связанных страниц и общий layout. Понятная структура, формы, быстрая загрузка и деплой. Для ясной подачи, а не одного длинного scroll.",
           deliverables: [
-            "UX-структура и дизайн (1 страница)",
+            "UX-структура и дизайн (до 3 страниц)",
+            "Общая навигация и шаблоны страниц",
             "Реализация на Next.js + Tailwind",
-            "Форма заявки или CTA-интеграция",
-            "Адаптив и базовая SEO",
+            "Форма связи или CTA на ключевых страницах",
+            "Адаптив, базовая SEO и деплой",
           ],
         },
         {
@@ -497,9 +499,9 @@ const am: ServicesCopy = {
           price: "$1,600",
           timeline: "6 օր",
           audience:
-            "Հիմնադիրներին և creator-ներին, ովքերին պետք է գործարկման պատրաստ full-page կայք՝ product teaser, waitlist կամ MVP առանց բազմաէջ կայքի։",
+            "Հիմնադիրներին և creator-ներին, ովքերին պետք է գործարկման պատրաստ full-page կայք՝ teaser, waitlist կամ MVP։ Միայն մեկ scrollable էջ։",
           description:
-            "Full-page — լիովին կոդավորված ultra-modern մի էջանոց, teaser layout կամ product MVP։ Hero, բլոկներ և footer մեկ scrollable էջում։ Glassmorphism, ադապտիվ և smooth ինտերակտիվ անիմացիաներ։",
+            "One page only — լիովին կոդավորված ultra-modern micro-site, teaser layout կամ product MVP։ Hero, բլոկներ և footer մեկ scroll-ում։ Glassmorphism, ադապտիվ և smooth ինտերակտիվ անիմացիաներ։",
           deliverables: [
             "Մի էջի ամբողջական layout (hero + 2–4 բլոկ)",
             "Glassmorphism UI և պրեմիում տիպոգրաֆիա",
@@ -533,18 +535,19 @@ const am: ServicesCopy = {
       items: [
         {
           id: "landing-page",
-          name: "Լենդինգ",
+          name: "Essential Site · մինչև 3 էջ",
           price: "$2,500",
-          timeline: "7–10 օր",
+          timeline: "8–12 օր",
           audience:
-            "Հիմնադիրներին և բրենդներին, ովքերին պետք է մեկ ուժեղ էջ վաճառքի, դիմումների կամ առաջարկի համար։",
+            "Հիմնադիրներին և բրենդներին, ովքերին պետք է փոքր կայք նավիգացիայով — երբ մեկ scroll-ը բավարար չէ pricing, FAQ, schedule կամ contact-ի համար։",
           description:
-            "Մի էջանոց կայք կոնվերսիայի համար — պարզ կառուցվածք, արագ բեռնում, ադապտիվ։",
+            "Կոմպակտ կայք նավիգացիայով — մինչև 3 կապված էջ և ընդհանուր layout։ Պարզ կառուցվածք, ձևեր, արագ բեռնում և deploy։ Մեկ երկար scroll-ի փոխարեն — հստակ հոսք։",
           deliverables: [
-            "UX կառուցվածք և դիզայն (1 էջ)",
+            "UX կառուցվածք և դիզայն (մինչև 3 էջ)",
+            "Ընդհանուր նավիգացիա և page templates",
             "Next.js + Tailwind իրականացում",
-            "Դիմումի ձև կամ CTA ինտեգրացիա",
-            "Ադապտիվ և SEO հիմունք",
+            "Կապի ձև կամ CTA հիմնական էջերում",
+            "Ադապտիվ, SEO հիմունք և deploy",
           ],
         },
         {

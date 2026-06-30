@@ -86,9 +86,9 @@ const en: CaseStudiesCopy = {
       challenge:
         "A pilates studio in Belgrade needed a brand-first site that feels dreamy and tactile — not a generic fitness template.",
       solution:
-        "Two-page React SPA with glassmorphism, magnetic buttons, and a notebook-style schedule page — on the Aesthetic Web package.",
+        "Two-page React SPA with glassmorphism, magnetic buttons, and a notebook-style schedule page — on the Essential Site package.",
       metrics: [
-        { value: "10–14d", label: "Package timeline" },
+        { value: "8–12d", label: "Package timeline" },
         { value: "2", label: "Pages" },
         { value: "Motion", label: "Micro-interactions" },
       ],
@@ -162,9 +162,9 @@ const ru: CaseStudiesCopy = {
       challenge:
         "Pilates-студии в Белграде нужен brand-first сайт с dreamy-эстетикой — не типовой фитнес-шаблон.",
       solution:
-        "Двухстраничный React SPA с glassmorphism, magnetic-кнопками и страницей расписания в стиле блокнота — пакет Aesthetic Web.",
+        "Двухстраничный React SPA с glassmorphism, magnetic-кнопками и страницей расписания в стиле блокнота — пакет Essential Site.",
       metrics: [
-        { value: "10–14д", label: "Срок пакета" },
+        { value: "8–12д", label: "Срок пакета" },
         { value: "2", label: "Страницы" },
         { value: "Motion", label: "Микро-UX" },
       ],
@@ -238,9 +238,9 @@ const am: CaseStudiesCopy = {
       challenge:
         "Բելգրադի pilates ստուդիային պետք էր brand-first կայք dreamy էսթետիկայով՝ ոչ թե ստանդարտ fitness կաղապար։",
       solution:
-        "Երկու էջ React SPA glassmorphism-ով, magnetic կոճակներով և notebook-style ժամանակացույցի էջով՝ Aesthetic Web փաթեթով։",
+        "Երկու էջ React SPA glassmorphism-ով, magnetic կոճակներով և notebook-style ժամանակացույցի էջով՝ Essential Site փաթեթով։",
       metrics: [
-        { value: "10–14օ", label: "Փաթեթի ժամկետ" },
+        { value: "8–12օ", label: "Փաթեթի ժամկետ" },
         { value: "2", label: "Էջ" },
         { value: "Motion", label: "Micro-UX" },
       ],

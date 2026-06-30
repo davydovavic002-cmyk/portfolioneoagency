@@ -9,10 +9,10 @@ const BASE_MATCH: Record<
   { projectId: ProjectId; serviceItemId: ServiceItemId; rationale: string }
 > = {
   landing: {
-    projectId: "aura-hair",
+    projectId: "stretch-and-chill",
     serviceItemId: "landing-page",
     rationale:
-      "A conversion-focused landing with clear offer structure and premium visual identity — ideal when you need one strong page to sell or collect leads.",
+      "Essential Site — up to 3 pages with navigation and shared layout. See Stretch and Chill: home plus a dedicated schedule page.",
   },
   multipage: {
     projectId: "aura-hair",
@@ -109,7 +109,15 @@ function applyBudget(
   if (!budget) return match;
 
   if (budget === "under-3k") {
-    if (projectType === "landing" || projectType === "web-design") {
+    if (projectType === "landing") {
+      return {
+        projectId: "stretch-and-chill",
+        serviceItemId: "aesthetic-micro",
+        rationale:
+          "One scrollable page first — a polished teaser in days. Expand to Essential Site when you need separate pages with navigation.",
+      };
+    }
+    if (projectType === "web-design") {
       return {
         projectId: match.projectId,
         serviceItemId: "hero",
@@ -125,6 +133,15 @@ function applyBudget(
           "A one-page product teaser or MVP landing — ship a polished presence fast, then expand into a full build when scope is locked.",
       };
     }
+  }
+
+  if (budget === "3k-6k" && projectType === "landing") {
+    return {
+      projectId: "stretch-and-chill",
+      serviceItemId: "landing-page",
+      rationale:
+        "Essential Site fits a 2–3 page launch — structured navigation, forms, and deploy, like our Stretch and Chill studio site.",
+    };
   }
 
   if (budget === "12k-plus" && (projectType === "ai-product" || projectType === "multipage")) {

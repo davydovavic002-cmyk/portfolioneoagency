@@ -26,8 +26,8 @@ export const briefCopy = {
     label: "What do you need?",
     options: {
       landing: {
-        label: "Landing page",
-        description: "One focused page to sell, pitch, or collect leads.",
+        label: "Small website (up to 3 pages)",
+        description: "A few linked pages with navigation — home, offer, pricing, schedule, or contact.",
       },
       multipage: {
         label: "Multi-page website",
@@ -66,7 +66,7 @@ export const briefCopy = {
     label: "What's your budget range?",
     options: {
       "under-3k": { label: "Under $3,000", description: "Focused scope or a strong starting point." },
-      "3k-6k": { label: "$3,000 – $6,000", description: "Full landing, store, or bot build." },
+      "3k-6k": { label: "$3,000 – $6,000", description: "Essential Site, store, or bot build." },
       "6k-12k": { label: "$6,000 – $12,000", description: "AI product or larger web experience." },
       "12k-plus": { label: "$12,000+", description: "Flagship product or multi-module launch." },
     } satisfies Record<BriefBudget, { label: string; description: string }>,

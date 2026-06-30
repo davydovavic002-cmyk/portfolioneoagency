@@ -136,8 +136,8 @@ const en: AboutCopy = {
         quote:
           "Dreamy pilates studio SPA with magnetic interactions, class slider, team cards, and a notebook-style schedule page.",
         author: "Stretch and Chill",
-        role: "Aesthetic Web · Wellness",
-        highlight: "10–14 days",
+        role: "Essential Site · Wellness",
+        highlight: "8–12 days",
       },
       {
         id: "aura-hair",
@@ -265,8 +265,8 @@ const ru: AboutCopy = {
         quote:
           "Dreamy pilates SPA: magnetic-кнопки, слайдер классов, карточки команды и страница расписания в стиле блокнота.",
         author: "Stretch and Chill",
-        role: "Aesthetic Web · Wellness",
-        highlight: "10–14 дней",
+        role: "Essential Site · Wellness",
+        highlight: "8–12 дней",
       },
       {
         id: "aura-hair",
@@ -394,8 +394,8 @@ const am: AboutCopy = {
         quote:
           "Dreamy pilates SPA՝ magnetic կոճակներ, դասերի սլայդեր, թիմի քարտեր և notebook-style ժամանակացույցի էջ։",
         author: "Stretch and Chill",
-        role: "Aesthetic Web · Wellness",
-        highlight: "10–14 օր",
+        role: "Essential Site · Wellness",
+        highlight: "8–12 օր",
       },
       {
         id: "aura-hair",
