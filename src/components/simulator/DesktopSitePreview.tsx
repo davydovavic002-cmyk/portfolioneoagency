@@ -192,10 +192,32 @@ export function DesktopPreviewViewport({
 
 interface DesktopSitePreviewProps {
   previewUrl?: string;
+  previewInitialHeight?: number;
+  previewMaxHeight?: number;
   title: string;
   language?: Language;
   isMobile?: boolean;
   children?: React.ReactNode;
+}
+
+function resolvePreviewHeight(height: number, maxHeight?: number): number {
+  const clamped = clampPreviewHeight(height);
+  return maxHeight !== undefined ? Math.min(clamped, maxHeight) : clamped;
+}
+
+function resolvePreviewInitialHeight(
+  previewInitialHeight?: number,
+  previewMaxHeight?: number,
+): number {
+  if (previewInitialHeight !== undefined) {
+    return previewMaxHeight !== undefined
+      ? Math.min(previewInitialHeight, previewMaxHeight)
+      : previewInitialHeight;
+  }
+  if (previewMaxHeight !== undefined) {
+    return Math.min(PREVIEW_IFRAME_DEFAULT_HEIGHT, previewMaxHeight);
+  }
+  return PREVIEW_IFRAME_DEFAULT_HEIGHT;
 }
 
 function postLanguageToIframe(
@@ -240,6 +262,8 @@ function PreviewStatus({
 
 export function DesktopSitePreview({
   previewUrl,
+  previewInitialHeight,
+  previewMaxHeight,
   title,
   language = "en",
   isMobile = false,
@@ -248,10 +272,14 @@ export function DesktopSitePreview({
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const src = previewUrl ? buildPreviewUrl(previewUrl, language) : undefined;
   const previewOrigin = previewUrl ? getPreviewOrigin(previewUrl) : undefined;
+  const startingHeight = resolvePreviewInitialHeight(
+    previewInitialHeight,
+    previewMaxHeight,
+  );
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">(
     previewUrl ? "loading" : "ready",
   );
-  const [iframeHeight, setIframeHeight] = useState(PREVIEW_IFRAME_DEFAULT_HEIGHT);
+  const [iframeHeight, setIframeHeight] = useState(startingHeight);
 
   const syncIframeHeight = useCallback(() => {
     const iframe = iframeRef.current;
@@ -261,17 +289,20 @@ export function DesktopSitePreview({
     if (measured === null) return;
 
     setIframeHeight((current) => {
-      const next = resolvePreviewIframeHeight(measured);
+      const next = resolvePreviewHeight(
+        resolvePreviewIframeHeight(measured),
+        previewMaxHeight,
+      );
       return Math.max(current, next);
     });
-  }, []);
+  }, [previewMaxHeight]);
 
   useEffect(() => {
     if (previewUrl) {
       setLoadState("loading");
-      setIframeHeight(PREVIEW_IFRAME_DEFAULT_HEIGHT);
+      setIframeHeight(startingHeight);
     }
-  }, [previewUrl, src]);
+  }, [previewUrl, src, startingHeight]);
 
   useEffect(() => {
     if (!previewOrigin) return;
@@ -283,13 +314,16 @@ export function DesktopSitePreview({
       if (!isAllowedPreviewOrigin(event.origin)) return;
       if (!isPreviewHeightMessage(event.data)) return;
       setIframeHeight((current) =>
-        Math.max(current, clampPreviewHeight(event.data.height + 48)),
+        Math.max(
+          current,
+          resolvePreviewHeight(event.data.height + 48, previewMaxHeight),
+        ),
       );
     };
 
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, []);
+  }, [previewMaxHeight]);
 
   useEffect(() => {
     if (loadState !== "ready") return;

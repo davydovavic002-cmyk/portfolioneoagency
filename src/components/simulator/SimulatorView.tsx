@@ -53,6 +53,8 @@ export function SimulatorView({
   const content = isDesktopSite ? (
     <DesktopSitePreview
       previewUrl={meta.previewUrl}
+      previewInitialHeight={meta.previewInitialHeight}
+      previewMaxHeight={meta.previewMaxHeight}
       title={title}
       language={language}
       isMobile={isMobile}

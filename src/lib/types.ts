@@ -34,6 +34,10 @@ export interface ProjectMeta {
   browserLabel: string;
   /** Live site URL — when set, preview uses an iframe */
   previewUrl?: string;
+  /** Initial iframe height before postMessage (compact previews only) */
+  previewInitialHeight?: number;
+  /** Max iframe height cap (prevents stretched footers on short pages) */
+  previewMaxHeight?: number;
 }
 
 export interface ProjectTranslation {
