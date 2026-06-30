@@ -132,19 +132,19 @@ const en: AboutCopy = {
       "Scope and timelines from cases in this portfolio — open each project in Work to try the live product.",
     items: [
       {
-        id: "aura-hair",
-        quote:
-          "Premium salon site: stylist discovery, service menu, hair-care guide, and multi-step booking in a luxury editorial layout.",
-        author: "AURA Hair Space",
-        role: "Aesthetic Web · Beauty",
-        highlight: "10–14 days",
-      },
-      {
         id: "stretch-and-chill",
         quote:
           "Dreamy pilates studio SPA with magnetic interactions, class slider, team cards, and a notebook schedule with drag-to-save planning.",
         author: "Stretch and Chill",
         role: "Aesthetic Web · Wellness",
+        highlight: "10–14 days",
+      },
+      {
+        id: "aura-hair",
+        quote:
+          "Premium salon site: stylist discovery, service menu, hair-care guide, and multi-step booking in a luxury editorial layout.",
+        author: "AURA Hair Space",
+        role: "Aesthetic Web · Beauty",
         highlight: "10–14 days",
       },
       {
@@ -261,19 +261,19 @@ const ru: AboutCopy = {
       "Скоуп и сроки по кейсам из портфолио — откройте любой проект во вкладке «Работы» и протестируйте live.",
     items: [
       {
-        id: "aura-hair",
-        quote:
-          "Премиальный сайт салона: выбор стилиста, меню услуг, гид по уходу и многошаговое бронирование в luxury-эстетике.",
-        author: "AURA Hair Space",
-        role: "Aesthetic Web · Beauty",
-        highlight: "10–14 дней",
-      },
-      {
         id: "stretch-and-chill",
         quote:
           "Dreamy pilates SPA: magnetic-кнопки, слайдер классов, карточки команды и планировщик расписания в стиле блокнота с drag-and-drop.",
         author: "Stretch and Chill",
         role: "Aesthetic Web · Wellness",
+        highlight: "10–14 дней",
+      },
+      {
+        id: "aura-hair",
+        quote:
+          "Премиальный сайт салона: выбор стилиста, меню услуг, гид по уходу и многошаговое бронирование в luxury-эстетике.",
+        author: "AURA Hair Space",
+        role: "Aesthetic Web · Beauty",
         highlight: "10–14 дней",
       },
       {
@@ -390,19 +390,19 @@ const am: AboutCopy = {
       "Շրջանակ և ժամկետներ պորտֆոլիոյի կեյսերից — բացեք ցանկացած նախագիծ «Աշխատանքներ» բաժնում և փորձարկեք կենդանի։",
     items: [
       {
-        id: "aura-hair",
-        quote:
-          "Պրեմիում սրահի կայք՝ ստայլիստի ընտրություն, ծառայությունների մենյու, խնամքի ուղեցույց և բազմաստիճան ամրագրում։",
-        author: "AURA Hair Space",
-        role: "Aesthetic Web · Beauty",
-        highlight: "10–14 օր",
-      },
-      {
         id: "stretch-and-chill",
         quote:
           "Dreamy pilates SPA՝ magnetic կոճակներ, դասերի սլայդեր, թիմի քարտեր և notebook-style ժամանակացույց drag-and-drop-ով։",
         author: "Stretch and Chill",
         role: "Aesthetic Web · Wellness",
+        highlight: "10–14 օր",
+      },
+      {
+        id: "aura-hair",
+        quote:
+          "Պրեմիում սրահի կայք՝ ստայլիստի ընտրություն, ծառայությունների մենյու, խնամքի ուղեցույց և բազմաստիճան ամրագրում։",
+        author: "AURA Hair Space",
+        role: "Aesthetic Web · Beauty",
         highlight: "10–14 օր",
       },
       {

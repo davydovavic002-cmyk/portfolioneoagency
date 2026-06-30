@@ -2,6 +2,14 @@ import type { ProjectId, ProjectMeta } from "./types";
 
 export const projects: ProjectMeta[] = [
   {
+    id: "stretch-and-chill",
+    device: "monitor",
+    year: "2026",
+    stack: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
+    browserLabel: "pilates.neostudio.space",
+    previewUrl: "https://pilates.neostudio.space/",
+  },
+  {
     id: "aura-hair",
     device: "monitor",
     year: "2026",
@@ -18,17 +26,9 @@ export const projects: ProjectMeta[] = [
     previewUrl: "https://jelly.neostudio.space/",
   },
   {
-    id: "stretch-and-chill",
-    device: "monitor",
-    year: "2026",
-    stack: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
-    browserLabel: "pilates.neostudio.space",
-    previewUrl: "https://pilates.neostudio.space/",
-  },
-  {
     id: "petcare-ai",
     device: "monitor",
-    year: "2026",
+    year: "2025",
     stack: ["Next.js", "FastAPI", "OpenAI", "PostgreSQL"],
     browserLabel: "petcare.ai",
     previewUrl: "https://petcare.neostudio.space/",
