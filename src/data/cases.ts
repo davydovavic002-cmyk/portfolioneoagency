@@ -42,6 +42,50 @@ export interface CaseStudy {
 
 export const cases: CaseStudy[] = [
   {
+    id: 'doodle-drip',
+    title: 'Doodle & Drip',
+    pillar: 'fullstack',
+    tagline:
+      'Specialty coffee brand site for Gent — bold hand-drawn vibe, bilingual shop, events, and checkout-ready flows.',
+    description:
+      'Next.js storefront with EN/NL locales, menu, beans shop, cupping events, and a playful brand system.',
+    year: '2026',
+    client: 'Doodle & Drip · Gent',
+    duration: '12–16 days',
+    team: 'NEO Studio SPACE',
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Zustand'],
+    previewUrl: 'https://drip.neostudio.space/',
+    coverImage: '/cases/doodle-drip.webp',
+    relatedPackageId: 'ecommerce-store',
+    overview:
+      'Doodle & Drip needed a site that feels like the brand: small-batch coffee with a loud doodle personality — not another beige café template. We built a bilingual Next.js experience covering menu, retail beans, events, visit, and checkout paths, live at drip.neostudio.space.',
+    challenge:
+      'A Gent specialty roastery needed ecommerce + vibe in one place: café story, shop, events, and NL/EN without a bloated theme.',
+    approach: [
+      {
+        title: 'Brand-first UI system',
+        body: 'Brutal borders, coffee-blue accents, and motion that matches the hand-drawn identity — readable on mobile, loud on desktop.',
+      },
+      {
+        title: 'Bilingual storefront',
+        body: 'EN/NL locale routing with shared product and content models so Gent regulars and visitors get the same flow.',
+      },
+      {
+        title: 'Menu, shop & events',
+        body: 'Café menu, beans shop, cupping events, and visit page wired as one product — not five disconnected landing pages.',
+      },
+      {
+        title: 'Ship & stage',
+        body: 'Next.js standalone deploy on studio infrastructure at drip.neostudio.space with cart and checkout-ready architecture.',
+      },
+    ],
+    outcomes: [
+      'Live at drip.neostudio.space with EN/NL experience',
+      'Shop + menu + events in one cohesive brand system',
+      '12–16 day build from scope to production subdomain',
+    ],
+  },
+  {
     id: 'stretch-and-chill',
     title: 'Stretch and Chill',
     pillar: 'fullstack',
