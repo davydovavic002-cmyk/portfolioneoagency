@@ -36,6 +36,7 @@ export interface CaseStudy {
   team: string
   stack: string[]
   previewUrl: string
+  coverImage: string
   relatedPackageId?: string
   overview: string
   challenge: string
@@ -57,6 +58,7 @@ export const cases: CaseStudy[] = [
     team: 'NEO Studio SPACE',
     stack: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion'],
     previewUrl: 'https://pilates.neostudio.space/',
+    coverImage: '/cases/stretch-and-chill.webp',
     relatedPackageId: 'landing-page',
     overview:
       'Stretch and Chill needed a brand-first web presence that feels dreamy and tactile — not a generic fitness template. We shipped a compact two-page experience: a magnetic home page and a notebook-style schedule view.',
@@ -99,6 +101,7 @@ export const cases: CaseStudy[] = [
     team: 'NEO Studio SPACE',
     stack: ['Next.js', 'Framer Motion', 'TypeScript'],
     previewUrl: 'https://aura.neostudio.space/',
+    coverImage: '/cases/aura-hair.webp',
     relatedPackageId: 'aesthetic-web',
     overview:
       'A premium salon needed a digital presence that matches the in-chair experience — not a generic booking widget. We built a single-page editorial site with stylist profiles, service menu, hair diagnostics, and a four-step booking flow.',
@@ -141,6 +144,7 @@ export const cases: CaseStudy[] = [
     team: 'NEO Studio SPACE',
     stack: ['Next.js', 'Stripe', 'Sanity CMS'],
     previewUrl: 'https://jelly.neostudio.space/',
+    coverImage: '/cases/jewelry-store.webp',
     relatedPackageId: 'ecommerce-store',
     overview:
       'Jellybead needed a luxury storefront that feels bespoke — not a template — with reliable checkout. We delivered a custom Next.js boutique emphasizing typography, micro-interactions, and tactile material perception through the interface.',
@@ -183,6 +187,7 @@ export const cases: CaseStudy[] = [
     team: 'NEO Studio SPACE',
     stack: ['Next.js', 'FastAPI', 'OpenAI', 'PostgreSQL'],
     previewUrl: 'https://petcare.neostudio.space/',
+    coverImage: '/cases/petcare-ai.webp',
     relatedPackageId: 'ai-core-mvp',
     overview:
       'Vet clinics needed a demo-ready AI product without rebuilding their entire stack. We scoped an MVP with diagnostic AI, feed composition analysis, personalized nutrition plans, and a clinic-facing dashboard.',
@@ -225,6 +230,7 @@ export const cases: CaseStudy[] = [
     team: 'NEO Studio SPACE',
     stack: ['Next.js', 'Framer Motion', 'Three.js'],
     previewUrl: 'https://blessedangel.store',
+    coverImage: '/cases/blessed-angel.webp',
     relatedPackageId: 'aesthetic-web',
     overview:
       'A premium accessories brand needed an interactive experience, not a static catalog. We delivered a 3D-inspired configurator with Framer Motion, brand-led visuals, and flows ready for checkout integration.',

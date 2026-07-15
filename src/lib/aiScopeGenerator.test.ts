@@ -31,6 +31,7 @@ describe('cases data', () => {
     expect(new Set(ids).size).toBe(ids.length)
     for (const c of cases) {
       expect(c.previewUrl).toMatch(/^https:\/\//)
+      expect(c.coverImage).toMatch(/^\/cases\/.+\.webp$/)
       expect(getCaseById(c.id)?.title).toBe(c.title)
     }
   })

@@ -1,14 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
-const VIEWPORT_W = 1440
-const VIEWPORT_H = 900
-const LOAD_TIMEOUT_MS = 8000
-
-interface FrameLayout {
-  scale: number
-  offsetX: number
-}
+const LOAD_TIMEOUT_MS = 10000
 
 interface CasePreviewViewportProps {
   url: string
@@ -18,8 +11,7 @@ interface CasePreviewViewportProps {
 export function CasePreviewViewport({ url, title }: CasePreviewViewportProps) {
   const [loading, setLoading] = useState(true)
   const [blocked, setBlocked] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [layout, setLayout] = useState<FrameLayout>({ scale: 1, offsetX: 0 })
+  const frameRef = useRef<HTMLIFrameElement>(null)
   const displayUrl = url.replace(/^https?:\/\//, '')
 
   useEffect(() => {
@@ -34,31 +26,8 @@ export function CasePreviewViewport({ url, title }: CasePreviewViewportProps) {
     return () => window.clearTimeout(timer)
   }, [url])
 
-  useEffect(() => {
-    const el = containerRef.current
-    if (!el) return
-
-    const updateLayout = () => {
-      const cw = el.clientWidth
-      const ch = el.clientHeight
-      if (cw <= 0 || ch <= 0) return
-
-      const scale = Math.min(cw / VIEWPORT_W, ch / VIEWPORT_H)
-      const scaledW = VIEWPORT_W * scale
-      setLayout({
-        scale,
-        offsetX: (cw - scaledW) / 2,
-      })
-    }
-
-    updateLayout()
-    const observer = new ResizeObserver(updateLayout)
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <div className="relative mx-auto w-full max-w-[1120px]">
+    <div className="relative mx-auto w-full max-w-[1280px]">
       <div
         className="pointer-events-none absolute -inset-6 rounded-[2rem] opacity-80 blur-3xl md:-inset-10"
         aria-hidden
@@ -102,7 +71,7 @@ export function CasePreviewViewport({ url, title }: CasePreviewViewportProps) {
         </div>
 
         <div
-          className="relative h-[min(480px,58dvh)] w-full sm:h-[min(560px,62dvh)] md:h-[min(620px,65dvh)]"
+          className="relative h-[min(720px,78dvh)] w-full sm:h-[min(820px,80dvh)] md:h-[min(900px,82dvh)]"
           style={{
             background:
               'linear-gradient(145deg, color-mix(in srgb, var(--theme-bg) 70%, var(--theme-accent-2) 30%), color-mix(in srgb, var(--theme-bg) 80%, var(--theme-accent) 20%))',
@@ -122,8 +91,7 @@ export function CasePreviewViewport({ url, title }: CasePreviewViewportProps) {
           {blocked && (
             <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 bg-page-bg/80 px-6 text-center backdrop-blur-sm">
               <p className="max-w-sm text-sm text-page-muted">
-                Live preview is blocked by this site&apos;s frame policy (common on localhost). Open
-                the full site — on neostudio.space embeds work for our subdomain cases.
+                Live preview couldn&apos;t load in the frame. Open the full site instead.
               </p>
               <a
                 href={url}
@@ -137,34 +105,28 @@ export function CasePreviewViewport({ url, title }: CasePreviewViewportProps) {
           )}
 
           <div
-            ref={containerRef}
-            className="absolute inset-3 overflow-hidden rounded-xl shadow-lg ring-1 ring-page-text/10 sm:inset-4 md:inset-5 md:rounded-2xl"
+            className="absolute inset-2 overflow-hidden rounded-xl bg-page-surface shadow-lg ring-1 ring-page-text/10 sm:inset-3 md:inset-4 md:rounded-2xl"
+            data-lenis-prevent
           >
             <iframe
+              ref={frameRef}
               src={url}
               title={`${title} live preview`}
-              className="pointer-events-none absolute top-0 border-0 bg-page-surface"
-              style={{
-                left: layout.offsetX,
-                width: VIEWPORT_W,
-                height: VIEWPORT_H,
-                transform: `scale(${layout.scale})`,
-                transformOrigin: 'top left',
-              }}
+              className="h-full w-full border-0 bg-page-surface"
               onLoad={() => {
                 setLoading(false)
                 setBlocked(false)
               }}
               sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"
               referrerPolicy="no-referrer-when-downgrade"
-              tabIndex={-1}
+              loading="lazy"
             />
           </div>
         </div>
       </div>
 
       <p className="mt-4 text-center text-xs text-page-muted">
-        Scaled preview —{' '}
+        Interactive preview — scroll inside the frame, or{' '}
         <a
           href={url}
           target="_blank"
@@ -172,8 +134,7 @@ export function CasePreviewViewport({ url, title }: CasePreviewViewportProps) {
           className="underline underline-offset-2 hover:text-page-text"
         >
           open full site
-        </a>{' '}
-        to interact
+        </a>
       </p>
     </div>
   )

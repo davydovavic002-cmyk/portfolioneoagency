@@ -18,16 +18,27 @@ export function EditorialGridCard({ project, index }: EditorialGridCardProps) {
       <Link
         to={`/work/${project.id}`}
         className={cn(
-          'group flex flex-col border-b-2 border-r-2 border-page-text bg-page-surface text-left',
+          'group flex flex-col overflow-hidden border-b-2 border-r-2 border-page-text bg-page-surface text-left',
           'transition-colors hover:bg-page-accent-2/10',
         )}
       >
-        <div className="flex aspect-[4/3] items-end border-b-2 border-page-text bg-page-bg p-4">
-          <div>
+        <div className="relative aspect-[4/3] overflow-hidden border-b-2 border-page-text bg-page-bg">
+          <img
+            src={project.coverImage}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-page-bg/95 via-page-bg/35 to-transparent"
+            aria-hidden
+          />
+          <div className="absolute inset-x-0 bottom-0 p-4">
             <span className="font-mono text-[9px] tracking-widest uppercase text-page-muted">
               {project.client} — {project.year}
             </span>
-            <h3 className="mt-1 text-xl font-bold tracking-tight">{project.title}</h3>
+            <h3 className="mt-1 text-xl font-bold tracking-tight text-page-text">{project.title}</h3>
           </div>
         </div>
         <div className="flex flex-1 flex-col justify-between p-4">
