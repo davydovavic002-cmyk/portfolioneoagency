@@ -23,17 +23,35 @@ export function EditorialGridCard({ project, index }: EditorialGridCardProps) {
         )}
       >
         <div className="relative aspect-[4/3] overflow-hidden border-b-2 border-page-text bg-page-bg">
-          <img
-            src={project.coverImage}
-            alt=""
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-          />
+          {project.coverImage ? (
+            <img
+              src={project.coverImage}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+          ) : (
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  project.pillar === 'ai'
+                    ? 'linear-gradient(145deg, color-mix(in srgb, var(--theme-accent-2) 45%, var(--theme-bg)), color-mix(in srgb, var(--theme-text) 12%, var(--theme-bg)))'
+                    : 'linear-gradient(145deg, color-mix(in srgb, var(--theme-accent) 30%, var(--theme-bg)), var(--theme-bg))',
+              }}
+              aria-hidden
+            />
+          )}
           <div
             className="absolute inset-0 bg-gradient-to-t from-page-bg/95 via-page-bg/35 to-transparent"
             aria-hidden
           />
+          {!project.coverImage && (
+            <span className="absolute top-4 left-4 font-mono text-[9px] tracking-[0.3em] uppercase text-page-muted">
+              {project.pillar === 'ai' ? 'Agent build' : 'Case study'}
+            </span>
+          )}
           <div className="absolute inset-x-0 bottom-0 p-4">
             <span className="font-mono text-[9px] tracking-widest uppercase text-page-muted">
               {project.client} — {project.year}

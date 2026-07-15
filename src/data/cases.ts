@@ -1,4 +1,4 @@
-export type CasePillar = 'design' | 'fullstack' | 'ai'
+export type CasePillar = 'fullstack' | 'ai'
 
 export interface CasePillarMeta {
   id: CasePillar
@@ -8,19 +8,14 @@ export interface CasePillarMeta {
 
 export const CASE_PILLARS: CasePillarMeta[] = [
   {
-    id: 'design',
-    label: 'Design',
-    subtitle: 'Interfaces, branding, design systems',
-  },
-  {
     id: 'fullstack',
     label: 'Full-Stack',
-    subtitle: 'Web apps, APIs, and infrastructure',
+    subtitle: 'Web apps, APIs, and product UIs',
   },
   {
     id: 'ai',
     label: 'AI & Bots',
-    subtitle: 'Agents, RAG pipelines, automation',
+    subtitle: 'SMS, Slack, Discord, RAG agents — US-ready',
   },
 ]
 
@@ -35,8 +30,9 @@ export interface CaseStudy {
   duration: string
   team: string
   stack: string[]
-  previewUrl: string
-  coverImage: string
+  /** Live site for iframe preview — omit when not public yet */
+  previewUrl?: string
+  coverImage?: string
   relatedPackageId?: string
   overview: string
   challenge: string
@@ -48,8 +44,9 @@ export const cases: CaseStudy[] = [
   {
     id: 'stretch-and-chill',
     title: 'Stretch and Chill',
-    pillar: 'design',
-    tagline: 'Premium pilates studio site for Belgrade — dreamy aesthetics, magnetic interactions, notebook-style schedule.',
+    pillar: 'fullstack',
+    tagline:
+      'Premium pilates studio site for Belgrade — dreamy aesthetics, magnetic interactions, notebook-style schedule.',
     description:
       'Two-page React SPA with glassmorphism, class slider, team cards, and a tactile schedule page.',
     year: '2026',
@@ -91,8 +88,9 @@ export const cases: CaseStudy[] = [
   {
     id: 'aura-hair',
     title: 'AURA Hair Space',
-    pillar: 'design',
-    tagline: 'Premium Singapore salon — stylist discovery, service menu, diagnostics, and online booking.',
+    pillar: 'fullstack',
+    tagline:
+      'Premium Singapore salon — stylist discovery, service menu, diagnostics, and online booking.',
     description:
       'Single-page editorial salon site with multi-step booking and dark-mode luxury aesthetic.',
     year: '2026',
@@ -132,52 +130,9 @@ export const cases: CaseStudy[] = [
     ],
   },
   {
-    id: 'jewelry-store',
-    title: 'Jellybead',
-    pillar: 'fullstack',
-    tagline: 'Luxury jewelry boutique — typography-led storefront with Stripe and CMS catalog.',
-    description:
-      'Custom Next.js boutique with motion-led product storytelling and live checkout.',
-    year: '2026',
-    client: 'Jellybead',
-    duration: '14–18 days',
-    team: 'NEO Studio SPACE',
-    stack: ['Next.js', 'Stripe', 'Sanity CMS'],
-    previewUrl: 'https://jelly.neostudio.space/',
-    coverImage: '/cases/jewelry-store.webp',
-    relatedPackageId: 'ecommerce-store',
-    overview:
-      'Jellybead needed a luxury storefront that feels bespoke — not a template — with reliable checkout. We delivered a custom Next.js boutique emphasizing typography, micro-interactions, and tactile material perception through the interface.',
-    challenge:
-      'Launch a luxury storefront that feels bespoke — not a template — with reliable checkout.',
-    approach: [
-      {
-        title: 'Boutique UI & motion',
-        body: 'Product pages with micro-interactions and editorial layout — premium feel without clutter.',
-      },
-      {
-        title: 'Commerce stack',
-        body: 'Stripe checkout, cart flow, and CMS-driven catalog so the team can update products without deploys.',
-      },
-      {
-        title: 'Content architecture',
-        body: 'Sanity CMS for categories, product metadata, and campaign-ready landing sections.',
-      },
-      {
-        title: 'E-commerce Store package',
-        body: 'Full store scope: design, implementation, order flow, responsive polish, and production deploy.',
-      },
-    ],
-    outcomes: [
-      'Stripe live payments on custom storefront',
-      'CMS-managed product catalog',
-      'E-commerce Store package · 14–18 day timeline',
-    ],
-  },
-  {
     id: 'petcare-ai',
     title: 'PetCare AI',
-    pillar: 'ai',
+    pillar: 'fullstack',
     tagline: 'Vet clinic ecosystem — diagnostic AI, feed analysis, and clinic-facing dashboard.',
     description:
       'Demo-ready AI product with clinic workflows, nutrition plans, and a functional dashboard UI.',
@@ -220,8 +175,9 @@ export const cases: CaseStudy[] = [
   {
     id: 'blessed-angel',
     title: 'Blessed Angel',
-    pillar: 'design',
-    tagline: 'Premium accessory configurator — 3D-inspired UX, brand visuals, checkout-ready flows.',
+    pillar: 'fullstack',
+    tagline:
+      'Premium accessory configurator — 3D-inspired UX, brand visuals, checkout-ready flows.',
     description:
       'Interactive configurator with Framer Motion and Three.js — not a static catalog.',
     year: '2024',
@@ -258,6 +214,134 @@ export const cases: CaseStudy[] = [
       'Interactive configurator live on blessedangel.store',
       '3D-inspired UX on Aesthetic Web package',
       '10–14 day timeline from scope to launch',
+    ],
+  },
+
+  // ——— AI & Bots (US-market oriented; live demos coming) ———
+  {
+    id: 'relaydesk',
+    title: 'RelayDesk',
+    pillar: 'ai',
+    tagline:
+      'SMS + staff inbox AI for US boutique hotels — guest FAQs, late checkout, and local recommendations in under 60 seconds.',
+    description:
+      'Twilio SMS agent with a React ops console. Guests text the hotel number; the bot answers policy questions and escalates edge cases to humans.',
+    year: '2026',
+    client: 'NEO Lab · Hospitality agents',
+    duration: '10–14 days',
+    team: 'NEO Studio SPACE',
+    stack: ['Twilio SMS', 'OpenAI', 'FastAPI', 'React', 'Postgres'],
+    relatedPackageId: 'ai-core-mvp',
+    overview:
+      'US boutique hotels still lose evenings to repetitive texts: parking, wifi, late checkout, “what’s open nearby?”. RelayDesk is an SMS concierge that knows the property playbook, answers in brand voice, and routes sticky cases into a shared staff inbox with suggested replies.',
+    challenge:
+      'Front desks drown in after-hours SMS. Chat widgets don’t travel with guests who already have the hotel number saved.',
+    approach: [
+      {
+        title: 'Property knowledge pack',
+        body: 'Ingest house rules, amenity hours, and neighborhood tips into a RAG store — one source of truth per property.',
+      },
+      {
+        title: 'Twilio SMS conversation layer',
+        body: 'Threaded guest numbers, quiet hours, and safe fallbacks when confidence is low — no hallucinated policies.',
+      },
+      {
+        title: 'Staff inbox console',
+        body: 'React ops UI: live threads, handoff queue, and one-click “take over” without the guest switching channels.',
+      },
+      {
+        title: 'US-ready ops defaults',
+        body: 'Timezone-aware quiet hours, English-first copy templates, and webhook logging built for multi-property portfolios.',
+      },
+    ],
+    outcomes: [
+      'Guest texts answered in under a minute for routine asks',
+      'Human handoff without losing thread context',
+      'Playbook that clones across properties with new knowledge packs',
+    ],
+  },
+  {
+    id: 'lotscout',
+    title: 'LotScout',
+    pillar: 'ai',
+    tagline:
+      'Real-estate lead qualifier over SMS for US brokerages — budgets, timelines, and showing slots without burning agent hours.',
+    description:
+      'Inbound SMS agent that qualifies buyers/sellers, syncs Google Calendar, and pushes warm leads into the CRM.',
+    year: '2026',
+    client: 'NEO Lab · PropTech agents',
+    duration: '12–16 days',
+    team: 'NEO Studio SPACE',
+    stack: ['Twilio', 'OpenAI', 'Google Calendar API', 'Node.js', 'HubSpot'],
+    relatedPackageId: 'ai-core-mvp',
+    overview:
+      'Most US listing ads dump cold traffic onto phone numbers. LotScout greets new leads on SMS, runs a short qualification script (budget, pre-approval, timeline, preferred zip), books a showing into the agent’s calendar, and only wakes a human when the lead is hot.',
+    challenge:
+      'Agents lose evenings to “just looking” texts. Speed-to-lead wins deals — but scripts and CRM hygiene break when volume spikes.',
+    approach: [
+      {
+        title: 'Qualification graph',
+        body: 'Structured conversation states for buyer vs seller paths — no free-form rabbit holes, clear exit criteria.',
+      },
+      {
+        title: 'Calendar + CRM sync',
+        body: 'Google Calendar booking with buffer times; HubSpot/Realtor.com-ready lead write with tags and source tracking.',
+      },
+      {
+        title: 'Spam & compliance gates',
+        body: 'STOP handling, quiet hours, and rate limits aligned with US SMS expectations — opt-outs actually opt out.',
+      },
+      {
+        title: 'Agent digest',
+        body: 'Morning Slack/email summary of warm leads and missed handoffs so the team starts ahead, not behind the phone.',
+      },
+    ],
+    outcomes: [
+      'Cold traffic filtered before it hits agent phones',
+      'Showings booked without back-and-forth phone tag',
+      'CRM notes that agents actually trust',
+    ],
+  },
+  {
+    id: 'cartreply',
+    title: 'CartReply',
+    pillar: 'ai',
+    tagline:
+      'Shopify support agent for US DTC brands — order status, returns, and sizing via Discord + on-site chat, grounded in store data.',
+    description:
+      'RAG support bot wired to Shopify Admin API. Same brain on Discord for ops and a chat widget for shoppers.',
+    year: '2025',
+    client: 'NEO Lab · Commerce agents',
+    duration: '10–14 days',
+    team: 'NEO Studio SPACE',
+    stack: ['Shopify Admin API', 'OpenAI', 'Discord.js', 'Next.js', 'pgvector'],
+    relatedPackageId: 'ai-core-mvp',
+    overview:
+      'US DTC brands burn support seats on “where’s my order?” and size charts. CartReply answers from live Shopify orders + a product RAG index, offers return labels when policy allows, and escalates billing/legal edge cases to humans with a full transcript.',
+    challenge:
+      'Intercom macros drift from the real catalog. Discord is where ops hangs out — shoppers are on the storefront. Two channels, zero shared memory.',
+    approach: [
+      {
+        title: 'Shopify-grounded answers',
+        body: 'Order lookup by email/order number with live tracking links — no guessed ETAs.',
+      },
+      {
+        title: 'Dual surface',
+        body: 'Discord bot for the ops channel + embeddable Next.js chat widget for the storefront, one tool layer underneath.',
+      },
+      {
+        title: 'Returns playbook',
+        body: 'Policy-aware return windows and SKU exceptions; when automatic is unsafe, draft a human reply instead of guessing.',
+      },
+      {
+        title: 'Eval harness',
+        body: 'Golden-question set for sizing, shipping, and refund scenarios so updates don’t quietly regress support quality.',
+      },
+    ],
+    outcomes: [
+      'Routine WISMO tickets deflected without losing tone',
+      'Ops team gets Discord alerts only on escalations',
+      'One knowledge base feeding storefront + internal chat',
     ],
   },
 ]

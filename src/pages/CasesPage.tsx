@@ -30,16 +30,15 @@ export function CasesPage() {
       <Seo
         title="Work"
         path="/work"
-        description="Selected full-stack, design, and AI projects from NEO STUDIO SPACE."
+        description="Selected full-stack products and US-ready AI/bot systems from NEO STUDIO SPACE."
       />
       <section className="border-b-2 border-page-text px-4 py-14 md:px-10">
         <div className="mx-auto max-w-[1600px]">
           <span className="font-mono text-[10px] tracking-[0.35em] uppercase">Work</span>
           <h1 className="mt-3 text-4xl font-bold tracking-tight md:text-6xl">Projects we built from scratch</h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-page-muted md:text-lg">
-            Each one scoped individually — no template rebuilds. Pick a category or browse everything
-            below; every card opens a full write-up of what the client needed, how we approached it,
-            and what shipped.
+            Full-stack product builds and AI agents scoped for real ops — SMS, Slack, Discord, and
+            the storefront. Pick a category or browse everything.
           </p>
         </div>
       </section>

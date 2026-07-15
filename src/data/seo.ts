@@ -14,7 +14,7 @@ export const STATIC_ROUTE_SEO: RouteSeo[] = [
   {
     path: '/work',
     title: 'Work',
-    description: 'Selected full-stack, design, and AI projects from NEO STUDIO SPACE.',
+    description: 'Selected full-stack products and US-ready AI/bot systems from NEO STUDIO SPACE.',
   },
   {
     path: '/studio',

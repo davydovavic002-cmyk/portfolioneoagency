@@ -26,23 +26,27 @@ describe('generateScopeFromIdea', () => {
 })
 
 describe('cases data', () => {
-  it('has unique ids and valid preview URLs', () => {
+  it('has unique ids and valid fields', () => {
     const ids = cases.map((c) => c.id)
     expect(new Set(ids).size).toBe(ids.length)
+    expect(getCaseById('jewelry-store')).toBeUndefined()
     for (const c of cases) {
-      expect(c.previewUrl).toMatch(/^https:\/\//)
-      expect(c.coverImage).toMatch(/^\/cases\/.+\.webp$/)
+      if (c.previewUrl) expect(c.previewUrl).toMatch(/^https:\/\//)
+      if (c.coverImage) expect(c.coverImage).toMatch(/^\/cases\/.+\.webp$/)
       expect(getCaseById(c.id)?.title).toBe(c.title)
+      expect(['fullstack', 'ai']).toContain(c.pillar)
     }
   })
 
-  it('does not include neuro-shpora', () => {
-    expect(getCaseById('neuro-shpora')).toBeUndefined()
-    expect(cases.some((c) => /neuro/i.test(c.id))).toBe(false)
+  it('does not include design pillar or jellybead', () => {
+    expect(cases.some((c) => (c as { pillar: string }).pillar === 'design')).toBe(false)
+    expect(cases.some((c) => /jelly|jewelry/i.test(c.id))).toBe(false)
   })
 
   it('filters by pillar', () => {
     expect(getCasesByPillar('ai').every((c) => c.pillar === 'ai')).toBe(true)
+    expect(getCasesByPillar('ai').length).toBeGreaterThanOrEqual(2)
+    expect(getCasesByPillar('fullstack').length).toBeGreaterThanOrEqual(3)
   })
 })
 

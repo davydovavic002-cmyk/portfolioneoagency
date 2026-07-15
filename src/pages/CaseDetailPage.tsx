@@ -72,24 +72,35 @@ export function CaseDetailPage({ caseId }: CaseDetailPageProps) {
           </div>
         </header>
 
-        <section
-          className="border-b-2 border-page-text"
-          style={{
-            background:
-              'linear-gradient(180deg, color-mix(in srgb, var(--theme-bg) 92%, var(--theme-accent-2) 8%) 0%, var(--theme-bg) 100%)',
-          }}
-        >
-          <div className="mx-auto max-w-[1200px] px-4 py-8 md:px-10 md:py-12">
-            <p className="mb-6 text-center text-sm font-medium text-page-muted">Live preview</p>
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ ...SPRING, delay: 0.1 }}
-            >
-              <CasePreviewViewport url={project.previewUrl} title={project.title} />
-            </motion.div>
-          </div>
-        </section>
+        {project.previewUrl ? (
+          <section
+            className="border-b-2 border-page-text"
+            style={{
+              background:
+                'linear-gradient(180deg, color-mix(in srgb, var(--theme-bg) 92%, var(--theme-accent-2) 8%) 0%, var(--theme-bg) 100%)',
+            }}
+          >
+            <div className="mx-auto max-w-[1200px] px-4 py-8 md:px-10 md:py-12">
+              <p className="mb-6 text-center text-sm font-medium text-page-muted">Live preview</p>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ ...SPRING, delay: 0.1 }}
+              >
+                <CasePreviewViewport url={project.previewUrl} title={project.title} />
+              </motion.div>
+            </div>
+          </section>
+        ) : (
+          <section className="border-b-2 border-page-text bg-page-bg px-4 py-10 md:px-10">
+            <div className="mx-auto max-w-[900px] rounded-2xl bg-page-surface/80 px-6 py-8 text-center ring-1 ring-page-text/10">
+              <p className="text-sm font-medium text-page-text">Interactive demo coming soon</p>
+              <p className="mt-2 text-sm text-page-muted">
+                Architecture and outcomes below — live staging URL ships with the next client build.
+              </p>
+            </div>
+          </section>
+        )}
 
         <div className="mx-auto max-w-[900px] px-4 py-12 md:px-10 md:py-16">
           <motion.section
@@ -190,14 +201,16 @@ export function CaseDetailPage({ caseId }: CaseDetailPageProps) {
             >
               Start a similar project
             </Link>
-            <a
-              href={project.previewUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="brutal-border bg-page-surface px-6 py-3 font-mono text-xs tracking-widest uppercase transition-transform hover:scale-95"
-            >
-              Open preview ↗
-            </a>
+            {project.previewUrl && (
+              <a
+                href={project.previewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="brutal-border bg-page-surface px-6 py-3 font-mono text-xs tracking-widest uppercase transition-transform hover:scale-95"
+              >
+                Open preview ↗
+              </a>
+            )}
             <Link
               to="/work"
               className="font-mono text-[10px] tracking-widest uppercase text-page-muted underline-offset-4 hover:text-page-text hover:underline"
