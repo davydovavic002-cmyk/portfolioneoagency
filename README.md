@@ -1,70 +1,36 @@
-# Neo Studio — Portfolio
+# NEO STUDIO SPACE
 
-Product studio portfolio with live project previews, transparent pricing, and tri-lingual UI (EN / RU / AM).
-
-**Live:** [neostudio.space](https://neostudio.space)
+Brutalist / Y2K retro-futurist multi-page portfolio for NEO STUDIO SPACE.
 
 ## Stack
 
-- **Next.js 15** (App Router)
-- **Tailwind CSS 4**
-- **Framer Motion**
-- **TypeScript**
+- **Vite + React 19 + TypeScript** — fast SPA with React Router
+- **Tailwind CSS v4** — brutalist editorial styling
+- **Framer Motion** — page transitions, drag physics, layout morphs, spring micro-interactions
+- **Lenis** — inertial smooth scroll
+- **SVG / 2D vector** — liquid shapes, morphing paths (no 3D)
 
-## Getting Started
+## Pages
+
+| Route | Page |
+|-------|------|
+| `/` | Home — rubber headline, draggable sticker bomb |
+| `/work` | Case Studies — scattered polaroids → retro OS iframe viewports |
+| `/studio` | About — editorial grid, liquid stack capsules |
+| `/pricing` | Pricing — modular jelly blocks + receipt meter |
+| `/brief` | Contact — comic-book form + Generative Aesthetic Agent |
+
+## Run
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 npm run dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001).
+## Theme Agent (Brief page)
 
-> Port **3001** in production/PM2. Port 3000 is used by Neuro-Engineering Academy preview on the same server.
+Type commands in the aesthetic prompt bar:
 
-## Structure
+- `make it grunge` / `go pink` / `cyber mode` / `reset`
 
-```
-src/
-├── app/                    # Layout, page, OG image, icon
-├── components/
-│   ├── about/              # About tab
-│   ├── brand/              # NeoLogo
-│   ├── layout/             # LeftPanel, RightPanel, nav
-│   ├── pricing/            # Services / packages
-│   ├── projects/           # Case study strip, simulators
-│   └── simulator/          # Device frame, iframe previews
-├── config/site.ts          # Telegram, brand
-└── lib/
-    ├── i18n/               # dictionary, services, about, case-studies
-    ├── projects.ts         # Project list + preview URLs
-    └── project-packages.ts # Project ↔ pricing package map
-```
-
-## Projects (live previews)
-
-| Project | Preview |
-|---------|---------|
-| AURA Hair Space | aura.neostudio.space |
-| Jellybead | jelly.neostudio.space |
-| PetCare AI | petcare.neostudio.space |
-| Neuro-Engineering Academy | academy.neostudio.space |
-| NeuroShpora | In-app Telegram sim |
-| Blessed Angel | blessedangel.store |
-
-Preview subdomains are proxied via nginx — see `deploy/nginx/preview-sites.conf`.
-
-**AURA not loading?** Two common causes:
-
-1. **DNS** — add an A record `aura` → `45.91.169.30` (same as `academy.neostudio.space`).
-2. **Nginx** — `aura` must `proxy_pass` to port `3323`, not `try_files` / default welcome page.
-
-On the server: `sudo bash deploy/setup-aura-nginx.sh`
-
-## Deploy
-
-```bash
-git pull
-npm run build
-pm2 restart portfolio
-```
+Themes switch globally via CSS custom properties with fluid transitions.
