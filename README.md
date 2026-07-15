@@ -1,36 +1,36 @@
 # NEO STUDIO SPACE
 
-Brutalist / Y2K retro-futurist multi-page portfolio for NEO STUDIO SPACE.
+Vite + React portfolio for [neostudio.space](https://neostudio.space).
 
 ## Stack
 
-- **Vite + React 19 + TypeScript** — fast SPA with React Router
-- **Tailwind CSS v4** — brutalist editorial styling
-- **Framer Motion** — page transitions, drag physics, layout morphs, spring micro-interactions
-- **Lenis** — inertial smooth scroll
-- **SVG / 2D vector** — liquid shapes, morphing paths (no 3D)
+- Vite 8 + React 19 + TypeScript + React Router
+- Tailwind CSS v4 + Framer Motion + Lenis
+- Hono API (`/api/brief` → Telegram)
+- Vitest + GitHub Actions CI
+- Build-time prerender + `sitemap.xml` for SEO
 
-## Pages
-
-| Route | Page |
-|-------|------|
-| `/` | Home — rubber headline, draggable sticker bomb |
-| `/work` | Case Studies — scattered polaroids → retro OS iframe viewports |
-| `/studio` | About — editorial grid, liquid stack capsules |
-| `/pricing` | Pricing — modular jelly blocks + receipt meter |
-| `/brief` | Contact — comic-book form + Generative Aesthetic Agent |
-
-## Run
+## Scripts
 
 ```bash
 npm install --legacy-peer-deps
-npm run dev
+npm run dev          # SPA on :5173 (proxies /api → :8787)
+npm run dev:api      # Brief API on :8787
+npm run test
+npm run build        # tsc + vite + prerender routes
+npm start            # serve dist + API (SERVE_DIST=1)
 ```
 
-## Theme Agent (Brief page)
+## Env (brief API)
 
-Type commands in the aesthetic prompt bar:
+Copy `.env.example` → `.env`:
 
-- `make it grunge` / `go pink` / `cyber mode` / `reset`
+- `TELEGRAM_BOT_TOKEN`
+- `TELEGRAM_CHAT_ID`
+- `PORT` (default `8787`)
 
-Themes switch globally via CSS custom properties with fluid transitions.
+Without Telegram env, the brief form falls back to a manual Telegram deep link.
+
+## Git backup
+
+Previous Next.js site: branch `backup/next-portfolio-2026-07-16` (also `old-next-portfolio`).
