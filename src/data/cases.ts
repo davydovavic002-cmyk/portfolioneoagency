@@ -231,6 +231,7 @@ export const cases: CaseStudy[] = [
     duration: '10–14 days',
     team: 'NEO Studio SPACE',
     stack: ['Twilio SMS', 'OpenAI', 'FastAPI', 'React', 'Postgres'],
+    coverImage: '/cases/relaydesk.webp',
     relatedPackageId: 'ai-core-mvp',
     overview:
       'US boutique hotels still lose evenings to repetitive texts: parking, wifi, late checkout, “what’s open nearby?”. RelayDesk is an SMS concierge that knows the property playbook, answers in brand voice, and routes sticky cases into a shared staff inbox with suggested replies.',
@@ -273,6 +274,7 @@ export const cases: CaseStudy[] = [
     duration: '12–16 days',
     team: 'NEO Studio SPACE',
     stack: ['Twilio', 'OpenAI', 'Google Calendar API', 'Node.js', 'HubSpot'],
+    coverImage: '/cases/lotscout.webp',
     relatedPackageId: 'ai-core-mvp',
     overview:
       'Most US listing ads dump cold traffic onto phone numbers. LotScout greets new leads on SMS, runs a short qualification script (budget, pre-approval, timeline, preferred zip), books a showing into the agent’s calendar, and only wakes a human when the lead is hot.',
@@ -315,6 +317,7 @@ export const cases: CaseStudy[] = [
     duration: '10–14 days',
     team: 'NEO Studio SPACE',
     stack: ['Shopify Admin API', 'OpenAI', 'Discord.js', 'Next.js', 'pgvector'],
+    coverImage: '/cases/cartreply.webp',
     relatedPackageId: 'ai-core-mvp',
     overview:
       'US DTC brands burn support seats on “where’s my order?” and size charts. CartReply answers from live Shopify orders + a product RAG index, offers return labels when policy allows, and escalates billing/legal edge cases to humans with a full transcript.',

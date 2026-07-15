@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import { ThemeProvider } from '@/lib/theme'
-import { SmoothScroll } from '@/components/layout/SmoothScroll'
+import { SmoothScroll, ScrollToTop } from '@/components/layout/SmoothScroll'
 import { Navigation } from '@/components/layout/Navigation'
 import { HomePage } from '@/pages/HomePage'
 import { CasesPage } from '@/pages/CasesPage'
@@ -35,6 +35,7 @@ export default function App() {
     <ThemeProvider>
       <BrowserRouter>
         <SmoothScroll>
+          <ScrollToTop />
           <Navigation />
           <AnimatedRoutes />
           <footer className="border-t-2 border-page-text px-4 py-8 md:px-10">
