@@ -43,24 +43,20 @@ export function EditorialGridCard({ project, index }: EditorialGridCardProps) {
               aria-hidden
             />
           )}
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-page-bg/95 via-page-bg/35 to-transparent"
-            aria-hidden
-          />
           {!project.coverImage && (
             <span className="absolute top-4 left-4 font-mono text-[9px] tracking-[0.3em] uppercase text-page-muted">
               {project.pillar === 'ai' ? 'Agent build' : 'Case study'}
             </span>
           )}
-          <div className="absolute inset-x-0 bottom-0 p-4">
+        </div>
+        <div className="flex flex-1 flex-col justify-between p-4">
+          <div>
             <span className="font-mono text-[9px] tracking-widest uppercase text-page-muted">
               {project.client} — {project.year}
             </span>
-            <h3 className="mt-1 text-xl font-bold tracking-tight text-page-text">{project.title}</h3>
+            <h3 className="mt-1 text-xl font-bold tracking-tight">{project.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-page-muted">{project.description}</p>
           </div>
-        </div>
-        <div className="flex flex-1 flex-col justify-between p-4">
-          <p className="text-sm leading-relaxed text-page-muted">{project.description}</p>
           <span className="mt-4 font-mono text-[9px] tracking-[0.25em] uppercase opacity-0 transition-opacity group-hover:opacity-100">
             Read case study →
           </span>
