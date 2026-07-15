@@ -54,9 +54,25 @@ export interface ProjectTranslation {
 }
 
 export interface UIStrings {
+  heroHeadline: string;
+  heroTagline: string;
   heroLine: string;
   portfolioSubtitle: string;
   availability: string;
+  heroCtaWork: string;
+  heroCtaBrief: string;
+  heroCtaContact: string;
+  heroStickyLine1: string;
+  heroStickyLine2: string;
+  heroStickyLine3: string;
+  workSelectHint: string;
+  contentsWorkHint: string;
+  contentsServicesHint: string;
+  contentsBriefHint: string;
+  contentsAboutHint: string;
+  keepExploring: string;
+  navContact: string;
+  servicesCtaBrief: string;
   deviceMonitor: string;
   devicePhone: string;
   livePreview: string;

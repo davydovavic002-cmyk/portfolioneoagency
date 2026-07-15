@@ -15,31 +15,27 @@ interface PricingViewProps {
   language: Language;
   scrollToTier?: ServiceTierId | null;
   scrollToServiceItem?: ServiceItemId | null;
+  embedded?: boolean;
 }
 
 export function PricingView({
   language,
   scrollToTier,
   scrollToServiceItem,
+  embedded = false,
 }: PricingViewProps) {
   const copy = servicesByLanguage[language];
   const isArmenian = language === "am";
 
   return (
-    <div
-      className={`preview-scroll h-full overflow-y-auto px-5 py-6 pb-12 lg:px-10 lg:py-10 lg:pb-16 ${isArmenian ? "font-armenian" : ""}`}
-    >
-      <header className="mb-8 max-w-2xl lg:mb-12" id="pricing-top">
-        <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-600">
-          {SITE_CONFIG.brandName} · B2B
-        </p>
-        <h1 className="font-display mt-3 text-3xl tracking-[-0.02em] text-zinc-50 lg:text-4xl">
-          {copy.heroTitle}
-        </h1>
-        <p className="mt-3 text-[13px] leading-relaxed text-zinc-500 lg:mt-4 lg:text-[14px]">
-          {copy.heroSubtitle}
-        </p>
-      </header>
+    <div className={isArmenian ? "font-armenian" : ""}>
+      {!embedded && (
+        <header className="mb-8 max-w-2xl lg:mb-12" id="pricing-top">
+          <p className="section-label">{SITE_CONFIG.brandName} · B2B</p>
+          <h1 className="section-title mt-3">{copy.heroTitle}</h1>
+          <p className="section-subtitle">{copy.heroSubtitle}</p>
+        </header>
+      )}
 
       <div className="space-y-12 lg:space-y-16">
         {copy.tiers.map((tier) => (
@@ -48,11 +44,11 @@ export function PricingView({
             id={`tier-${tier.id}`}
             className={
               scrollToTier === tier.id
-                ? "scroll-mt-8 rounded-2xl ring-1 ring-white/[0.08]"
+                ? "scroll-mt-8 rounded-2xl ring-1 ring-accent/20"
                 : "scroll-mt-8"
             }
           >
-            <div className="mb-6 flex items-end justify-between gap-4 border-b border-white/[0.06] pb-4">
+            <div className="mb-6 flex items-end justify-between gap-4 border-b border-black/10 pb-4">
               <div>
                 <p
                   className="text-[11px] font-medium uppercase tracking-[0.22em]"
@@ -60,10 +56,10 @@ export function PricingView({
                 >
                   {tier.level}
                 </p>
-                <h2 className="font-display mt-1 text-2xl text-zinc-100">
+                <h2 className="font-display mt-1 text-2xl text-ink">
                   {tier.title}
                 </h2>
-                <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-zinc-500">
+                <p className="mt-2 max-w-xl text-[13px] leading-relaxed text-muted">
                   {tier.subtitle}
                 </p>
               </div>

@@ -29,12 +29,12 @@ export function PackageBadge({
     <button
       type="button"
       onClick={() => onViewPackage(projectId)}
-      className={`group inline-flex min-h-11 items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-left text-[11px] text-zinc-400 transition-colors hover:border-white/[0.14] hover:text-zinc-200 ${className}`}
+      className={`group inline-flex min-h-11 items-center gap-1.5 rounded-full border border-black/12 bg-accent-soft px-3 py-2 text-left text-[11px] text-muted transition-colors hover:border-black/15 hover:text-ink ${className}`}
     >
       <span style={{ color: accent }}>{pkg.item.name}</span>
-      <span className="text-zinc-600">·</span>
+      <span className="text-faint">·</span>
       <span>{pkg.item.price}</span>
-      <ArrowUpRight className="h-3 w-3 text-zinc-600 transition-colors group-hover:text-zinc-400" />
+      <ArrowUpRight className="h-3 w-3 text-faint transition-colors group-hover:text-muted" />
     </button>
   );
 }
@@ -70,37 +70,37 @@ export function PackageStrip({
         onClick={() => onViewPackage(projectId)}
         className="group flex shrink-0 items-center gap-2 text-left"
       >
-        <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-zinc-600">
+        <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-faint">
           {strings.packageLabel}
         </span>
-        <span className={`text-[13px] text-zinc-300 ${isArmenian ? "font-armenian" : ""}`}>
+        <span className={`text-[13px] text-muted ${isArmenian ? "font-armenian" : ""}`}>
           <span style={{ color: accent }}>{pkg.item.name}</span>
-          <span className="mx-1.5 text-zinc-600">·</span>
-          <span className="text-zinc-400">{pkg.item.price}</span>
+          <span className="mx-1.5 text-faint">·</span>
+          <span className="text-muted">{pkg.item.price}</span>
         </span>
-        <ArrowUpRight className="h-3.5 w-3.5 text-zinc-600 transition-colors group-hover:text-zinc-400" />
+        <ArrowUpRight className="h-3.5 w-3.5 text-faint transition-colors group-hover:text-muted" />
       </button>
     );
   }
 
   return (
     <div
-      className={`flex items-center justify-between gap-3 border-b border-white/[0.06] pb-2.5 ${
+      className={`flex items-center justify-between gap-3 border-b border-black/10 pb-2.5 ${
         mobile ? "mb-2" : "mb-4"
       }`}
     >
       <div className="min-w-0">
-        <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-zinc-600">
+        <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-faint">
           {strings.packageLabel}
         </p>
-        <p className={`mt-1 text-[13px] text-zinc-300 ${isArmenian ? "font-armenian" : ""}`}>
+        <p className={`mt-1 text-[13px] text-muted ${isArmenian ? "font-armenian" : ""}`}>
           <span style={{ color: accent }}>{pkg.item.name}</span>
-          <span className="mx-1.5 text-zinc-600">·</span>
-          <span className="text-zinc-400">{pkg.item.price}</span>
+          <span className="mx-1.5 text-faint">·</span>
+          <span className="text-muted">{pkg.item.price}</span>
           {pkg.item.timeline && (
             <>
-              <span className="mx-1.5 text-zinc-700">·</span>
-              <span className="text-zinc-500">{pkg.item.timeline}</span>
+              <span className="mx-1.5 text-faint">·</span>
+              <span className="text-muted">{pkg.item.timeline}</span>
             </>
           )}
         </p>
@@ -108,7 +108,7 @@ export function PackageStrip({
       <button
         type="button"
         onClick={() => onViewPackage(projectId)}
-        className="flex shrink-0 items-center gap-1 rounded-full border border-white/[0.1] px-3 py-1.5 text-[11px] text-zinc-400 transition-colors hover:border-white/[0.18] hover:text-zinc-200"
+        className="flex shrink-0 items-center gap-1 rounded-full border border-black/12 px-3 py-1.5 text-[11px] text-muted transition-colors hover:border-black/20 hover:text-ink"
       >
         <span className="hidden sm:inline">{strings.viewInServices}</span>
         <ArrowUpRight className="h-3.5 w-3.5" />

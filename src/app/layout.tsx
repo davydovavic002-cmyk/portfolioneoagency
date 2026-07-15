@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { EB_Garamond, Inter, Noto_Sans_Armenian } from "next/font/google";
+import { Inter, JetBrains_Mono, Noto_Sans_Armenian, Outfit } from "next/font/google";
 import "./globals.css";
 
 const SITE_URL = "https://neostudio.space";
@@ -9,15 +9,21 @@ const inter = Inter({
   subsets: ["latin", "cyrillic"],
 });
 
-const editorial = EB_Garamond({
-  variable: "--font-editorial",
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "500"],
+const outfit = Outfit({
+  variable: "--font-playful",
+  subsets: ["latin", "latin-ext"],
+  weight: ["500", "600", "700", "800"],
 });
 
 const notoArmenian = Noto_Sans_Armenian({
   variable: "--font-noto-armenian",
   subsets: ["armenian", "latin"],
+  weight: ["400", "500"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-code",
+  subsets: ["latin", "cyrillic"],
   weight: ["400", "500"],
 });
 
@@ -60,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${editorial.variable} ${notoArmenian.variable} antialiased`}
+        className={`${inter.variable} ${outfit.variable} ${jetbrainsMono.variable} ${notoArmenian.variable} antialiased`}
       >
         {children}
         <div className="noise-overlay" aria-hidden="true" />

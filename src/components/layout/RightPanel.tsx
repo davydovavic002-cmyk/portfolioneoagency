@@ -65,8 +65,8 @@ export function RightPanel({
 
   if (viewMode === "about") {
     return (
-      <section className="relative flex h-full min-h-0 flex-1 flex-col overflow-hidden bg-[#080808]">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_0%,rgba(167,139,250,0.08)_0%,transparent_55%),radial-gradient(ellipse_60%_50%_at_20%_100%,rgba(96,165,250,0.06)_0%,transparent_50%)]" />
+      <section className="relative flex h-full min-h-0 flex-1 flex-col overflow-hidden bg-paper">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_0%,rgba(0,71,255,0.06)_0%,transparent_55%)]" />
         <div className="relative min-h-0 flex-1">
           <AnimatePresence mode="wait">
             <motion.div
@@ -81,8 +81,8 @@ export function RightPanel({
             </motion.div>
           </AnimatePresence>
         </div>
-        <div className="shrink-0 border-t border-white/[0.06] px-5 py-safe-3 lg:px-10 lg:py-safe-4">
-          <p className={`text-[13px] text-zinc-500 ${isArmenian ? "font-armenian" : ""}`}>
+        <div className="shrink-0 border-t border-black/10 bg-canvas px-5 py-safe-3 lg:px-10 lg:py-safe-4">
+          <p className={`text-[13px] text-muted ${isArmenian ? "font-armenian" : ""}`}>
             {about.heroSubtitle}
           </p>
         </div>
@@ -92,8 +92,8 @@ export function RightPanel({
 
   if (viewMode === "services") {
     return (
-      <section className="relative flex h-full min-h-0 flex-1 flex-col overflow-hidden bg-[#080808]">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_0%,rgba(96,165,250,0.08)_0%,transparent_55%),radial-gradient(ellipse_60%_50%_at_20%_100%,rgba(167,139,250,0.06)_0%,transparent_50%)]" />
+      <section className="relative flex h-full min-h-0 flex-1 flex-col overflow-hidden bg-paper">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_0%,rgba(0,71,255,0.06)_0%,transparent_55%)]" />
         <div className="relative min-h-0 flex-1">
           <AnimatePresence mode="wait">
             <motion.div
@@ -112,8 +112,8 @@ export function RightPanel({
             </motion.div>
           </AnimatePresence>
         </div>
-        <div className="shrink-0 border-t border-white/[0.06] px-5 py-safe-3 lg:px-10 lg:py-safe-4">
-          <p className={`text-[13px] text-zinc-500 ${isArmenian ? "font-armenian" : ""}`}>
+        <div className="shrink-0 border-t border-black/10 bg-canvas px-5 py-safe-3 lg:px-10 lg:py-safe-4">
+          <p className={`text-[13px] text-muted ${isArmenian ? "font-armenian" : ""}`}>
             {services.heroSubtitle}
           </p>
         </div>
@@ -122,7 +122,7 @@ export function RightPanel({
   }
 
   return (
-    <section className="relative flex h-full min-h-0 flex-1 flex-col overflow-hidden bg-[#080808]">
+    <section className="relative flex h-full min-h-0 flex-1 flex-col overflow-hidden bg-canvas">
       {!isDesktopSite && (
         <div
           className="pointer-events-none absolute inset-0 transition-all duration-700 ease-out"
@@ -135,7 +135,7 @@ export function RightPanel({
       <div className="relative grid min-h-0 flex-1 grid-rows-[minmax(280px,1fr)_auto_auto] overflow-hidden max-lg:grid-rows-[minmax(320px,1fr)_auto_auto] lg:grid-rows-[minmax(0,1fr)_auto_auto]">
         {!isDesktopSite && (
           <div className="pointer-events-none absolute right-12 top-10 z-10 hidden items-center gap-4 lg:flex">
-            <span className="text-[12px] tabular-nums text-zinc-600">{meta.year}</span>
+            <span className="text-[12px] tabular-nums text-faint">{meta.year}</span>
             <span className="text-[12px]" style={{ color: theme.accent }}>
               {deviceLabel}
             </span>
@@ -160,7 +160,7 @@ export function RightPanel({
         />
 
         <div
-          className={`shrink-0 border-t border-white/[0.06] ${
+          className={`shrink-0 border-t border-black/10 bg-paper ${
             isDesktopSite
               ? "px-4 py-2 max-lg:py-2 lg:px-5 lg:py-safe-3"
               : "px-4 py-safe-3 lg:px-12 lg:py-safe-4"
@@ -169,16 +169,16 @@ export function RightPanel({
           <div className="flex items-center justify-between gap-4">
             <div className="min-w-0">
               <h2
-                className={`truncate font-display text-lg tracking-[-0.01em] text-zinc-100 ${
+                className={`truncate font-display text-lg tracking-[-0.01em] text-ink ${
                   isArmenian ? "font-armenian" : ""
                 }`}
               >
                 {strings.projects[activeProject].title}
               </h2>
               {!isDesktopSite && (
-                <p className="mt-1 text-[13px] text-zinc-500">
+                <p className="mt-1 text-[13px] text-muted">
                   {strings.projects[activeProject].role}
-                  <span className="mx-2 text-zinc-800">—</span>
+                  <span className="mx-2 text-faint">—</span>
                   {strings.projects[activeProject].category}
                 </p>
               )}
@@ -193,7 +193,7 @@ export function RightPanel({
               />
             </div>
             {isDesktopSite ? (
-              <span className="hidden shrink-0 text-[12px] text-zinc-600 lg:inline">
+              <span className="hidden shrink-0 text-[12px] text-faint lg:inline">
                 {deviceLabel}
               </span>
             ) : (

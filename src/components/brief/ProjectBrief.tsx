@@ -25,11 +25,11 @@ export function ProjectBrief({ open, onClose, initialAnswers }: ProjectBriefProp
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[70] flex flex-col bg-[#080808]">
+    <div className="fixed inset-0 z-[70] flex flex-col bg-canvas">
       <button
         type="button"
         onClick={onClose}
-        className="absolute right-4 top-safe-4 z-10 rounded-full border border-white/[0.08] px-3 py-1.5 text-[12px] text-zinc-500 transition hover:text-zinc-300"
+        className="absolute right-4 top-safe-4 z-10 rounded-full border border-black/12 bg-paper px-3 py-1.5 text-[12px] text-muted transition hover:text-ink"
       >
         Close
       </button>

@@ -11,41 +11,32 @@ export default function AppleIcon() {
           width: "100%",
           height: "100%",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "radial-gradient(circle at 50% 50%, #101010 0%, #080808 100%)",
-          fontFamily: "system-ui, sans-serif",
+          gap: 12,
+          background: "#F4F2EC",
+          fontFamily: "Georgia, serif",
         }}
       >
-        <div
+        <svg width="72" height="72" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="21.6" fill="none" stroke="#111111" strokeWidth="0.7" opacity="0.12" />
+          <circle cx="24" cy="24" r="17.4" fill="none" stroke="#111111" strokeWidth="0.75" opacity="0.28" />
+          <circle cx="24" cy="24" r="4.6" fill="#0047FF" opacity="0.85" />
+        </svg>
+        <span
           style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            gap: 10,
+            fontSize: 14,
+            fontWeight: 500,
+            color: "#111111",
+            letterSpacing: "-0.02em",
+            textAlign: "center",
+            lineHeight: 1.15,
+            maxWidth: 150,
           }}
         >
-          <svg width="68" height="68" viewBox="0 0 48 48" fill="none">
-            <circle cx="24" cy="24" r="21.6" fill="none" stroke="#ffffff" strokeWidth="0.7" opacity="0.18" />
-            <circle cx="24" cy="24" r="17.4" fill="none" stroke="#ffffff" strokeWidth="0.75" opacity="0.48" />
-            <circle cx="24" cy="24" r="4.6" fill="#93c5fd" opacity="0.6" />
-          </svg>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: 2,
-            }}
-          >
-            <span style={{ fontSize: 32, fontWeight: 600, color: "#e4e4e7", letterSpacing: "-0.045em", lineHeight: 0.92 }}>
-              NEO
-            </span>
-            <span style={{ fontSize: 15, fontWeight: 300, color: "#71717a", letterSpacing: "0.01em", lineHeight: 1 }}>
-              Studio Space
-            </span>
-          </div>
-        </div>
+          Neo Studio Space
+        </span>
       </div>
     ),
     { ...size },

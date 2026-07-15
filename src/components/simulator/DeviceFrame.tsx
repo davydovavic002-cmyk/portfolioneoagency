@@ -31,8 +31,8 @@ export function DeviceFrame({
     return (
       <div className="flex h-full min-h-0 w-full flex-col overflow-hidden">
         <motion.div
-          className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-xl bg-[#1a1a1a] ring-1 ring-white/[0.08] lg:rounded-lg"
-          initial={{ opacity: 0 }}
+          className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-xl bg-[#1a1a1a] ring-1 ring-accent/20 lg:rounded-lg"
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.35 }}
           key={projectId}
@@ -57,7 +57,7 @@ export function DeviceFrame({
                 href={openSiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex min-h-9 shrink-0 items-center gap-1 rounded-full border border-white/[0.08] px-2.5 py-1.5 text-[10px] text-zinc-400 transition-colors hover:text-zinc-200 lg:min-h-0 lg:py-1"
+                className="flex min-h-9 shrink-0 items-center gap-1 rounded-full border border-black/12 px-2.5 py-1.5 text-[10px] text-zinc-400 transition-colors hover:text-zinc-200 lg:min-h-0 lg:py-1"
               >
                 {openSiteLabel}
                 <ArrowUpRight className="h-3 w-3" />
@@ -118,7 +118,7 @@ export function DeviceFrame({
             </>
           ) : (
             <>
-              <div className="flex h-9 shrink-0 items-center border-b border-white/[0.05] px-4">
+              <div className="flex h-9 shrink-0 items-center border-b border-black/8 px-4">
                 <div className="flex gap-[7px]">
                   <span className="h-[11px] w-[11px] rounded-full bg-[#ff5f57]" />
                   <span className="h-[11px] w-[11px] rounded-full bg-[#febc2e]" />

@@ -249,8 +249,8 @@ function PreviewStatus({
 }) {
   const copy = PREVIEW_COPY[language];
   return (
-    <div className="flex h-full min-h-[200px] flex-col items-center justify-center gap-3 bg-[#0a0a0a] px-6 text-center">
-      <p className="text-[13px] text-zinc-500">
+    <div className="flex h-full min-h-[200px] flex-col items-center justify-center gap-3 bg-paper px-6 text-center">
+      <p className="text-[13px] text-muted">
         {state === "loading" ? copy.loading : copy.error}
       </p>
       {state === "error" && openUrl && (
@@ -258,7 +258,7 @@ function PreviewStatus({
           href={openUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full border border-white/[0.12] px-4 py-2 text-[12px] text-zinc-300 transition-colors hover:border-white/25 hover:text-white"
+          className="rounded-full bg-accent px-4 py-2 text-[12px] text-white transition-colors hover:bg-accent/90"
         >
           {copy.retry}
         </a>
@@ -499,7 +499,7 @@ export function DesktopSitePreview({
     return (
       <div className="relative flex min-h-0 flex-1 flex-col">
         {loadState === "loading" && (
-          <div className="absolute inset-0 z-10">
+          <div className="pointer-events-none absolute inset-0 z-10">
             <PreviewStatus language={language} state="loading" />
           </div>
         )}

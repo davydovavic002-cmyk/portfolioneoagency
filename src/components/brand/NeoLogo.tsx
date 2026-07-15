@@ -6,23 +6,24 @@ interface NeoLogoProps {
   className?: string;
   size?: number;
   showWordmark?: boolean;
+  inverted?: boolean;
 }
 
 export function NeoLogo({
   className = "",
   size = 36,
   showWordmark = false,
+  inverted = false,
 }: NeoLogoProps) {
   if (!showWordmark) {
     return (
       <div className={className} role="img" aria-label="Neo Studio Space">
-        <LogoMark size={size} />
+        <LogoMark size={size} className={inverted ? "brightness-0 invert" : undefined} />
       </div>
     );
   }
 
-  const titleSize = Math.round(size * 0.54);
-  const subtitleSize = Math.max(10, Math.round(size * 0.26));
+  const titleSize = Math.round(size * 0.48);
   const gap = Math.round(size * 0.38);
 
   return (
@@ -32,24 +33,15 @@ export function NeoLogo({
       role="img"
       aria-label="Neo Studio Space"
     >
-      <LogoMark size={size} className="shrink-0" />
-      <div
-        className="flex flex-col justify-center"
-        style={{ gap: Math.max(2, Math.round(subtitleSize * 0.15)) }}
+      <LogoMark size={size} className={`shrink-0 ${inverted ? "brightness-0 invert" : ""}`} />
+      <span
+        className={`font-display font-medium leading-[0.95] tracking-[-0.02em] ${
+          inverted ? "text-white" : "text-ink"
+        }`}
+        style={{ fontSize: titleSize }}
       >
-        <span
-          className="font-sans font-semibold leading-[0.92] tracking-[-0.045em] text-zinc-100"
-          style={{ fontSize: titleSize }}
-        >
-          NEO
-        </span>
-        <span
-          className="font-sans font-light leading-none tracking-[0.01em] text-zinc-500"
-          style={{ fontSize: subtitleSize }}
-        >
-          Studio Space
-        </span>
-      </div>
+        Neo Studio Space
+      </span>
     </div>
   );
 }

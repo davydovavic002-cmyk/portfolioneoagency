@@ -21,9 +21,7 @@ export function LanguageSwitcher({
 }: LanguageSwitcherProps) {
   return (
     <div
-      className={`flex shrink-0 items-center text-[13px] ${
-        compact ? "gap-1" : "gap-3"
-      }`}
+      className={`flex shrink-0 items-center rounded-full border border-line p-0.5 ${compact ? "text-[11px]" : "text-[12px]"}`}
       role="group"
       aria-label="Language"
     >
@@ -34,12 +32,8 @@ export function LanguageSwitcher({
           onClick={() => onChange(code)}
           aria-current={language === code ? "true" : undefined}
           aria-label={label}
-          className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-full transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 ${
-            compact ? "px-2 text-[11px]" : "px-2.5"
-          } ${
-            language === code
-              ? "bg-white/[0.08] text-zinc-100"
-              : "text-zinc-600 hover:bg-white/[0.04] hover:text-zinc-400"
+          className={`rounded-full px-2.5 py-1 font-semibold transition-colors ${
+            language === code ? "bg-pink text-white" : "text-muted hover:text-ink"
           }`}
         >
           {code.toUpperCase()}

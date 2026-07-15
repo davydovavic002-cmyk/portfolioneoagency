@@ -13,13 +13,13 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#080808",
+          background: "#F4F2EC",
         }}
       >
         <svg width="26" height="26" viewBox="0 0 48 48" fill="none">
-          <circle cx="24" cy="24" r="21.6" fill="none" stroke="#ffffff" strokeWidth="0.7" opacity="0.18" />
-          <circle cx="24" cy="24" r="17.4" fill="none" stroke="#ffffff" strokeWidth="0.9" opacity="0.45" />
-          <circle cx="24" cy="24" r="4.6" fill="#60a5fa" opacity="0.55" />
+          <circle cx="24" cy="24" r="21.6" fill="none" stroke="#111111" strokeWidth="0.7" opacity="0.12" />
+          <circle cx="24" cy="24" r="17.4" fill="none" stroke="#111111" strokeWidth="0.9" opacity="0.28" />
+          <circle cx="24" cy="24" r="4.6" fill="#0047FF" opacity="0.9" />
         </svg>
       </div>
     ),

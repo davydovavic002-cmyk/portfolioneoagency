@@ -1,14 +1,22 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import type { Language, ProjectId, ViewMode } from "@/lib/types";
+import type { Language, ProjectId, ServiceTierId } from "@/lib/types";
+import { SITE_CONFIG } from "@/config/site";
 import { dictionary } from "@/lib/i18n/dictionary";
 import { defaultProjectId } from "@/lib/projects";
-import { LeftPanel } from "@/components/layout/LeftPanel";
-import { RightPanel } from "@/components/layout/RightPanel";
-import { MobileContentHeader } from "@/components/layout/MobileContentHeader";
-import { INITIAL_BRIEF_PROGRESS, type BriefProgress } from "@/components/brief/BriefView";
-import type { ServiceTierId } from "@/lib/types";
+import { SiteHeader, SiteFooter } from "@/components/layout/SiteHeader";
+import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
+import { FloatingBriefCta } from "@/components/layout/FloatingBriefCta";
+import { MonicaHero } from "@/components/home/MonicaHero";
+import { ContentsPanel } from "@/components/home/ContentsPanel";
+import { StackMarquee } from "@/components/home/StackMarquee";
+import { PartDivider } from "@/components/home/PartDivider";
+import { WorkSection } from "@/components/work/WorkSection";
+import { SectionShell } from "@/components/layout/SectionShell";
+import { BriefView, INITIAL_BRIEF_PROGRESS, type BriefProgress } from "@/components/brief/BriefView";
+import { PricingView } from "@/components/pricing/PricingView";
+import { AboutView } from "@/components/about/AboutView";
 import type { AboutSectionId } from "@/lib/i18n/about";
 import type { BriefAnswers, BriefProjectType } from "@/lib/brief/types";
 import {
@@ -16,10 +24,10 @@ import {
   serviceItemElementId,
   type ServiceItemId,
 } from "@/lib/project-packages";
-import {
-  isMobileViewport,
-  opensMobileContentForView,
-} from "@/lib/mobile-viewport";
+import { SITE_SECTIONS } from "@/lib/site-sections";
+import { scrollToSection, useScrollSpy } from "@/lib/scroll-spy";
+import { servicesByLanguage } from "@/lib/i18n/services";
+import { aboutByLanguage } from "@/lib/i18n/about";
 
 const LANG_STORAGE_KEY = "neo-portfolio-lang";
 
@@ -38,27 +46,42 @@ function isBriefProjectType(value: string | null): value is BriefProjectType {
   );
 }
 
-function syncMobileContentVisibility(mode: ViewMode): boolean {
-  if (mode === "work") return false;
-  return opensMobileContentForView(mode);
+function scrollInMain(element: HTMLElement | null, block: ScrollLogicalPosition = "start") {
+  const root = document.querySelector<HTMLElement>(".site-main");
+  if (!element) return;
+  if (!root) {
+    element.scrollIntoView({ behavior: "smooth", block });
+    return;
+  }
+  const offset = block === "center" ? root.clientHeight / 2 - element.clientHeight / 2 : 76;
+  const rootRect = root.getBoundingClientRect();
+  const elRect = element.getBoundingClientRect();
+  const nextTop = root.scrollTop + (elRect.top - rootRect.top) - offset;
+  root.scrollTo({ top: Math.max(0, nextTop), behavior: "smooth" });
+}
+
+function scrollToServiceItem(itemId: ServiceItemId, tierId: ServiceTierId) {
+  requestAnimationFrame(() => {
+    scrollInMain(document.getElementById(serviceItemElementId(itemId)), "center");
+    scrollInMain(document.getElementById(`tier-${tierId}`), "nearest");
+  });
 }
 
 export default function Home() {
   const [activeProject, setActiveProject] = useState<ProjectId>(defaultProjectId);
   const [language, setLanguage] = useState<Language>("en");
-  const [viewMode, setViewMode] = useState<ViewMode>("brief");
   const [activeTier, setActiveTier] = useState<ServiceTierId | null>(null);
   const [activeServiceItem, setActiveServiceItem] = useState<ServiceItemId | null>(null);
-  const [activeAboutSection, setActiveAboutSection] = useState<AboutSectionId | null>(
-    null,
-  );
-  const [mobileShowContent, setMobileShowContent] = useState(true);
+  const [activeAboutSection, setActiveAboutSection] = useState<AboutSectionId | null>(null);
   const [briefProgress, setBriefProgress] = useState<BriefProgress>(INITIAL_BRIEF_PROGRESS);
   const [briefInitialAnswers, setBriefInitialAnswers] = useState<
     Partial<BriefAnswers> | undefined
   >();
 
   const strings = dictionary[language];
+  const servicesCopy = servicesByLanguage[language];
+  const aboutCopy = aboutByLanguage[language];
+  const activeSection = useScrollSpy([...SITE_SECTIONS]);
 
   const handleBriefProgressChange = useCallback((progress: BriefProgress) => {
     setBriefProgress(progress);
@@ -67,8 +90,7 @@ export default function Home() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("brief") === "1") {
-      setViewMode("brief");
-      setMobileShowContent(true);
+      requestAnimationFrame(() => scrollToSection("brief"));
     }
     const type = params.get("type");
     if (isBriefProjectType(type)) {
@@ -86,143 +108,105 @@ export default function Home() {
     document.documentElement.lang = language === "am" ? "hy" : language;
   }, [language]);
 
-  const scrollToServiceItem = (itemId: ServiceItemId, tierId: ServiceTierId) => {
-    requestAnimationFrame(() => {
-      document.getElementById(serviceItemElementId(itemId))?.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-      document.getElementById(`tier-${tierId}`)?.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-      });
-    });
-  };
-
-  const handleViewChange = (mode: ViewMode) => {
-    setViewMode(mode);
-    if (isMobileViewport()) {
-      setMobileShowContent(syncMobileContentVisibility(mode));
-    }
-    if (mode === "work") {
-      setActiveTier(null);
-      setActiveServiceItem(null);
-      setActiveAboutSection(null);
-    }
-    if (mode === "services") {
-      setActiveAboutSection(null);
-    }
-    if (mode === "about") {
-      setActiveTier(null);
-      setActiveServiceItem(null);
-    }
-    if (isMobileViewport() && (mode === "services" || mode === "about")) {
-      requestAnimationFrame(() => {
-        document.querySelector<HTMLElement>(".preview-scroll")?.scrollTo({ top: 0 });
-      });
-    }
-  };
-
   const handleProjectSelect = (id: ProjectId) => {
     setActiveProject(id);
-    setViewMode("work");
-    setActiveTier(null);
-    setActiveServiceItem(null);
-    setActiveAboutSection(null);
-    if (isMobileViewport()) setMobileShowContent(true);
-  };
-
-  const handleTierSelect = (tierId: ServiceTierId) => {
-    setViewMode("services");
-    setActiveTier(tierId);
-    setActiveServiceItem(null);
-    setActiveAboutSection(null);
-    if (isMobileViewport()) setMobileShowContent(true);
-    requestAnimationFrame(() => {
-      document.getElementById(`tier-${tierId}`)?.scrollIntoView({ behavior: "smooth" });
-    });
-  };
-
-  const handleAboutSectionSelect = (sectionId: AboutSectionId) => {
-    setViewMode("about");
-    setActiveTier(null);
-    setActiveServiceItem(null);
-    setActiveAboutSection(sectionId);
-    if (isMobileViewport()) setMobileShowContent(true);
-    requestAnimationFrame(() => {
-      document.getElementById(`about-${sectionId}`)?.scrollIntoView({ behavior: "smooth" });
-    });
+    if (window.innerWidth < 1280) {
+      requestAnimationFrame(() => {
+        scrollInMain(document.getElementById("work-preview"), "start");
+      });
+    }
   };
 
   const handleViewPackage = (projectId: ProjectId = activeProject) => {
     const pkg = getProjectPackage(projectId, language);
     if (!pkg) return;
 
-    setViewMode("services");
     setActiveTier(pkg.tierId);
     setActiveServiceItem(pkg.itemId);
-    setActiveAboutSection(null);
-    if (isMobileViewport()) setMobileShowContent(true);
+    scrollToSection("services");
     scrollToServiceItem(pkg.itemId, pkg.tierId);
   };
 
   return (
-    <main
-      className={`flex h-dvh w-screen flex-col overflow-hidden bg-[#080808] lg:flex-row ${
-        language === "am" ? "font-armenian" : ""
-      }`}
-    >
-      <div
-        className={`flex min-h-0 flex-1 flex-col lg:h-full lg:min-w-[400px] lg:max-w-[480px] lg:flex-none lg:w-[38%] ${
-          mobileShowContent ? "max-lg:hidden" : "max-lg:flex"
-        }`}
-      >
-        <LeftPanel
-          language={language}
-          activeProject={activeProject}
-          viewMode={viewMode}
-          activeTier={activeTier}
-          activeAboutSection={activeAboutSection}
-          briefProgress={briefProgress}
-          strings={strings}
-          onLanguageChange={setLanguage}
-          onProjectSelect={handleProjectSelect}
-          onViewChange={handleViewChange}
-          onTierSelect={handleTierSelect}
-          onAboutSectionSelect={handleAboutSectionSelect}
-          onViewPackage={handleViewPackage}
-        />
-      </div>
+    <div className={`site-shell relative flex h-dvh flex-col overflow-hidden bg-canvas ${language === "am" ? "font-armenian" : ""}`}>
+      <SiteHeader
+        language={language}
+        activeSection={activeSection}
+        strings={strings}
+        onLanguageChange={setLanguage}
+      />
 
-      <div
-        className={`flex min-h-0 flex-1 flex-col overflow-hidden lg:h-full lg:min-w-0 ${
-          mobileShowContent ? "max-lg:flex" : "max-lg:hidden"
-        }`}
-      >
-        <MobileContentHeader
+      <main className="site-main relative z-10 min-h-0 flex-1 overflow-y-auto overflow-x-hidden overscroll-contain pb-0 lg:pb-0">
+        <MonicaHero language={language} strings={strings} />
+        <ContentsPanel language={language} strings={strings} activeSection={activeSection} />
+        <StackMarquee />
+        <PartDivider part="Part 01" title={strings.navWork} meta="2024–2026" />
+
+        <WorkSection
+          language={language}
           strings={strings}
-          language={language}
-          viewMode={viewMode}
-          backLabel={strings.backToMenu}
-          visible={mobileShowContent}
-          onBack={() => setMobileShowContent(false)}
-          onViewChange={handleViewChange}
-          onLanguageChange={setLanguage}
-        />
-        <RightPanel
-          language={language}
           activeProject={activeProject}
-          viewMode={viewMode}
-          activeTier={activeTier}
-          activeServiceItem={activeServiceItem}
-          activeAboutSection={activeAboutSection}
-          briefProgress={briefProgress}
-          onBriefProgressChange={handleBriefProgressChange}
-          briefInitialAnswers={briefInitialAnswers}
-          strings={strings}
+          onProjectSelect={handleProjectSelect}
           onViewPackage={handleViewPackage}
         />
-      </div>
-    </main>
+
+        <PartDivider part="Part 02" title={strings.navServices} meta={SITE_CONFIG.brandName} />
+
+        <SectionShell
+          id="services"
+          label={strings.navServices}
+          title={servicesCopy.heroTitle}
+          subtitle={servicesCopy.heroSubtitle}
+        >
+          <div className="mb-8 flex flex-col gap-4 rounded-2xl border-2 border-pink/20 bg-pink/5 p-5 sm:flex-row sm:items-center sm:justify-between">
+            <p className="max-w-lg text-[14px] leading-relaxed text-muted">{strings.servicesCtaBrief}</p>
+            <button type="button" onClick={() => scrollToSection("brief")} className="btn-pink shrink-0">
+              {strings.heroCtaBrief}
+            </button>
+          </div>
+          <PricingView
+            language={language}
+            scrollToTier={activeTier}
+            scrollToServiceItem={activeServiceItem}
+            embedded
+          />
+        </SectionShell>
+
+        <PartDivider part="Part 03" title={strings.navBrief} />
+
+        <SectionShell
+          id="brief"
+          label={strings.navBrief}
+          title={strings.briefHeroTitle}
+          subtitle={strings.briefHeroSubtitle}
+          className="!pb-0"
+        >
+          <div className="preview-shell min-h-[560px] overflow-hidden">
+            <BriefView
+              progress={briefProgress}
+              onProgressChange={handleBriefProgressChange}
+              initialAnswers={briefInitialAnswers}
+            />
+          </div>
+        </SectionShell>
+
+        <SectionShell
+          id="about"
+          label={strings.navAbout}
+          title={aboutCopy.heroTitle}
+          subtitle={aboutCopy.heroSubtitle}
+        >
+          <AboutView language={language} scrollToSection={activeAboutSection} embedded />
+        </SectionShell>
+
+        <SiteFooter language={language} strings={strings} />
+      </main>
+
+      <MobileBottomNav activeSection={activeSection} strings={strings} />
+      <FloatingBriefCta
+        visible={activeSection === "work" || activeSection === "services"}
+        strings={strings}
+      />
+    </div>
   );
 }

@@ -41,7 +41,7 @@ export function ViewSwitcher({
     <div
       role="tablist"
       aria-label="Main navigation"
-      className={`flex gap-0.5 rounded-full border border-white/[0.08] bg-white/[0.03] p-1 ${
+      className={`flex gap-1 rounded-full border border-black/12 bg-paper p-1 shadow-[0_1px_0_rgba(0,0,0,0.04)] ${
         fullWidth ? "w-full" : ""
       }`}
     >
@@ -52,14 +52,14 @@ export function ViewSwitcher({
           role="tab"
           aria-selected={mode === id}
           onClick={() => onChange(id)}
-          className={`rounded-full transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 ${
+          className={`rounded-full font-medium uppercase tracking-[0.14em] transition-all duration-200 ${
             fullWidth
-              ? `flex-1 px-1.5 text-center ${compact ? "min-h-10 py-2 text-[10px] leading-none" : "py-1.5 text-[10px] sm:px-2 sm:text-[11px]"}`
+              ? `flex-1 px-1.5 text-center ${compact ? "min-h-10 py-2 text-[9px] leading-none" : "py-1.5 text-[10px] sm:px-2 sm:text-[11px]"}`
               : "min-h-10 px-3 py-2 text-[11px]"
           } ${
             mode === id
-              ? "bg-white text-black"
-              : "text-zinc-500 hover:text-zinc-300"
+              ? "bg-accent text-white shadow-sm"
+              : "text-muted hover:bg-accent-soft hover:text-ink"
           }`}
         >
           {labels[key]}

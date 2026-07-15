@@ -29,7 +29,7 @@ export function MobileContentHeader({
 }: MobileContentHeaderProps) {
   return (
     <header
-      className={`shrink-0 border-b border-white/[0.06] bg-[#080808]/95 px-3 pt-safe-3 pb-3 backdrop-blur-md lg:hidden ${
+      className={`shrink-0 border-b border-black/10 bg-paper/95 px-3 pt-safe-3 pb-3 backdrop-blur-md lg:hidden ${
         visible ? "flex flex-col gap-3" : "hidden"
       }`}
     >
@@ -37,7 +37,7 @@ export function MobileContentHeader({
         <button
           type="button"
           onClick={onBack}
-          className="flex min-h-11 shrink-0 items-center gap-1 rounded-full border border-white/[0.08] px-3 py-2 text-[12px] text-zinc-400 transition-colors hover:text-zinc-200"
+          className="flex min-h-11 shrink-0 items-center gap-1 rounded-full border border-black/12 bg-paper px-3 py-2 text-[12px] text-muted transition-colors hover:text-ink"
         >
           <ChevronLeft className="h-4 w-4" />
           {backLabel}

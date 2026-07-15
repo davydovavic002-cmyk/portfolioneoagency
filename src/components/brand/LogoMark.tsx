@@ -25,19 +25,19 @@ export function LogoMarkGraphic({ idPrefix = "" }: LogoMarkGraphicProps) {
     <>
       <defs>
         <radialGradient id={blueCore} cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#dbeafe" stopOpacity="0.55" />
-          <stop offset="40%" stopColor="#93c5fd" stopOpacity="0.42" />
-          <stop offset="75%" stopColor="#3b82f6" stopOpacity="0.22" />
-          <stop offset="100%" stopColor="#2563eb" stopOpacity="0" />
+          <stop offset="0%" stopColor="#dbeafe" stopOpacity="0.7" />
+          <stop offset="40%" stopColor="#0047FF" stopOpacity="0.55" />
+          <stop offset="75%" stopColor="#0047FF" stopOpacity="0.28" />
+          <stop offset="100%" stopColor="#0047FF" stopOpacity="0" />
         </radialGradient>
 
         <radialGradient id={whiteGlow} cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0" />
-          <stop offset="48%" stopColor="#ffffff" stopOpacity="0" />
-          <stop offset="58%" stopColor="#ffffff" stopOpacity="0.36" />
-          <stop offset="68%" stopColor="#ffffff" stopOpacity="0.18" />
-          <stop offset="82%" stopColor="#ffffff" stopOpacity="0.06" />
-          <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+          <stop offset="0%" stopColor="#111111" stopOpacity="0" />
+          <stop offset="48%" stopColor="#111111" stopOpacity="0" />
+          <stop offset="58%" stopColor="#111111" stopOpacity="0.14" />
+          <stop offset="68%" stopColor="#111111" stopOpacity="0.08" />
+          <stop offset="82%" stopColor="#111111" stopOpacity="0.03" />
+          <stop offset="100%" stopColor="#111111" stopOpacity="0" />
         </radialGradient>
 
         <filter
@@ -77,9 +77,9 @@ export function LogoMarkGraphic({ idPrefix = "" }: LogoMarkGraphicProps) {
         cy="24"
         r="21.6"
         fill="none"
-        stroke="#ffffff"
+        stroke="#111111"
         strokeWidth="0.7"
-        opacity="0.18"
+        opacity="0.14"
       />
 
       {/* 2 — white glow ring */}
@@ -96,9 +96,9 @@ export function LogoMarkGraphic({ idPrefix = "" }: LogoMarkGraphicProps) {
         cy="24"
         r="17.4"
         fill="none"
-        stroke="#ffffff"
+        stroke="#111111"
         strokeWidth="0.75"
-        opacity="0.52"
+        opacity="0.32"
         filter={`url(#${whiteNeon})`}
       />
 
