@@ -31,7 +31,7 @@ export const legalBlocks: LegalBlock[] = [
     code: '01',
     title: 'Master Service Agreement (MSA)',
     description:
-      'The main contract: what we deliver, when, how changes work, and how either side can exit cleanly. Our template is open — read it before you sign.',
+      'The main contract: what we deliver, when, how changes work, and how either side can exit cleanly. Read or download the public draft before you sign.',
     action: {
       label: 'View MSA template',
       document: 'msa',

@@ -59,17 +59,26 @@ export function LegalTransparencyCenter() {
                   </div>
                 </div>
 
-                <div className="shrink-0 md:pl-4">
+                <div className="flex shrink-0 flex-col gap-2 sm:flex-row md:pl-4">
                   {block.action ? (
-                    <motion.button
-                      type="button"
-                      onClick={() => setMsaOpen(true)}
-                      whileTap={{ scale: 0.97 }}
-                      transition={SPRING}
-                      className="w-full rounded-full bg-page-text px-5 py-2.5 text-sm font-medium text-page-bg transition-opacity hover:opacity-90 md:w-auto"
-                    >
-                      View MSA template
-                    </motion.button>
+                    <>
+                      <motion.button
+                        type="button"
+                        onClick={() => setMsaOpen(true)}
+                        whileTap={{ scale: 0.97 }}
+                        transition={SPRING}
+                        className="w-full rounded-full bg-page-text px-5 py-2.5 text-sm font-medium text-page-bg transition-opacity hover:opacity-90 sm:w-auto"
+                      >
+                        Read on site
+                      </motion.button>
+                      <a
+                        href="/legal/msa-template.md"
+                        download="NEO-STUDIO-MSA-TEMPLATE.md"
+                        className="w-full rounded-full bg-page-bg px-5 py-2.5 text-center text-sm font-medium ring-1 ring-page-text/10 transition-opacity hover:opacity-80 sm:w-auto"
+                      >
+                        Download .md
+                      </a>
+                    </>
                   ) : (
                     <span
                       className={cn(
@@ -89,7 +98,7 @@ export function LegalTransparencyCenter() {
 
       <LegalDocumentModal
         open={msaOpen}
-        title="Open-Source Master Service Agreement (MSA)"
+        title="Master Service Agreement (MSA) — draft template"
         sections={msaDocument}
         onClose={() => setMsaOpen(false)}
       />
