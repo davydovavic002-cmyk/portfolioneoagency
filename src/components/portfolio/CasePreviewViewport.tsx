@@ -8,15 +8,22 @@ interface CasePreviewViewportProps {
   title: string
 }
 
+/**
+ * Live iframe preview with click-to-interact.
+ * Overlay prevents Lenis/parent scroll jump when the iframe steals focus on first click.
+ */
 export function CasePreviewViewport({ url, title }: CasePreviewViewportProps) {
   const [loading, setLoading] = useState(true)
   const [blocked, setBlocked] = useState(false)
+  const [interactive, setInteractive] = useState(false)
   const frameRef = useRef<HTMLIFrameElement>(null)
+  const scrollLockY = useRef(0)
   const displayUrl = url.replace(/^https?:\/\//, '')
 
   useEffect(() => {
     setLoading(true)
     setBlocked(false)
+    setInteractive(false)
     const timer = window.setTimeout(() => {
       setLoading((prev) => {
         if (prev) setBlocked(true)
@@ -25,6 +32,31 @@ export function CasePreviewViewport({ url, title }: CasePreviewViewportProps) {
     }, LOAD_TIMEOUT_MS)
     return () => window.clearTimeout(timer)
   }, [url])
+
+  useEffect(() => {
+    const frame = frameRef.current
+    if (!frame) return
+
+    const lockScroll = () => {
+      window.scrollTo({ top: scrollLockY.current, left: 0, behavior: 'auto' })
+    }
+
+    const onFocus = () => {
+      // Browsers scroll the focused iframe into view — snap back.
+      lockScroll()
+      requestAnimationFrame(lockScroll)
+      window.setTimeout(lockScroll, 0)
+      window.setTimeout(lockScroll, 50)
+    }
+
+    frame.addEventListener('focus', onFocus)
+    return () => frame.removeEventListener('focus', onFocus)
+  }, [url, interactive])
+
+  const enableInteraction = () => {
+    scrollLockY.current = window.scrollY
+    setInteractive(true)
+  }
 
   return (
     <div className="relative mx-auto w-full max-w-[1280px]">
@@ -112,7 +144,8 @@ export function CasePreviewViewport({ url, title }: CasePreviewViewportProps) {
               ref={frameRef}
               src={url}
               title={`${title} live preview`}
-              className="h-full w-full border-0 bg-page-surface"
+              tabIndex={interactive ? 0 : -1}
+              className={`h-full w-full border-0 bg-page-surface ${interactive ? '' : 'pointer-events-none'}`}
               onLoad={() => {
                 setLoading(false)
                 setBlocked(false)
@@ -121,12 +154,29 @@ export function CasePreviewViewport({ url, title }: CasePreviewViewportProps) {
               referrerPolicy="no-referrer-when-downgrade"
               loading="lazy"
             />
+
+            {!interactive && !blocked && (
+              <button
+                type="button"
+                onClick={enableInteraction}
+                onMouseDown={(e) => {
+                  scrollLockY.current = window.scrollY
+                  e.preventDefault()
+                }}
+                className="absolute inset-0 z-20 flex cursor-pointer items-center justify-center bg-page-text/0 transition-colors hover:bg-page-text/5"
+                aria-label={`Activate interactive preview of ${title}`}
+              >
+                <span className="rounded-full bg-page-text/90 px-5 py-2.5 text-sm font-medium text-page-bg shadow-lg backdrop-blur-sm">
+                  Click to interact
+                </span>
+              </button>
+            )}
           </div>
         </div>
       </div>
 
       <p className="mt-4 text-center text-xs text-page-muted">
-        Interactive preview — scroll inside the frame, or{' '}
+        {interactive ? 'Interactive preview — scroll inside the frame, or ' : 'Preview locked until you click — or '}
         <a
           href={url}
           target="_blank"

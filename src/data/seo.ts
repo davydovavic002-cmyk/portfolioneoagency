@@ -25,7 +25,6 @@ export const STATIC_ROUTE_SEO: RouteSeo[] = [
     path: '/pricing',
     title: 'Pricing',
     description:
-    description:
       'Custom-designed sites from $400, stores from $2,000, bots in the same band (you pay AI tokens), and $350/mo care.',
   },
   {
