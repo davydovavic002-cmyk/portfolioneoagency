@@ -34,12 +34,13 @@ export const PRICING_TIER_GROUPS: PricingTierGroup[] = [
   {
     id: 'upsells',
     label: 'Add-ons',
-    subtitle: 'Bolt onto a site: CRM, Stripe, or another language beyond the two included.',
+    subtitle: 'Bolt onto a site or bot when you need one more capability — not a new package.',
   },
   {
     id: 'bots',
     label: 'Bots & agents',
-    subtitle: 'Standalone or with a site. Telegram, SMS, on-site widget, Discord when it fits.',
+    subtitle:
+      'Priced in the same band as sites. You pay AI token usage on your own OpenAI (or similar) key — not included in our fee.',
   },
   {
     id: 'care',
@@ -49,9 +50,8 @@ export const PRICING_TIER_GROUPS: PricingTierGroup[] = [
 ]
 
 /**
- * Introductory / dump-friendly fixed packages.
- * Anchor: landing $400. Custom design always. Content: client or us (in package).
- * 2 locales included; extra locale = add-on. Store & web app are full packages (not store-as-upsell).
+ * Dump-friendly packages. Site ladder: $400 → from $500 → from $1000 → from $2000 → from $3500.
+ * Bots mirror that band. Client pays LLM tokens separately.
  */
 export const pricingLineItems: PricingLineItem[] = [
   {
@@ -78,7 +78,9 @@ export const pricingLineItems: PricingLineItem[] = [
     id: 'site-essential',
     tier: 'sites',
     label: 'Essential Site · up to 3 pages',
-    price: 750,
+    price: 500,
+    fromPrice: true,
+    priceDisplay: 'from $500',
     timeline: '1–2 weeks',
     audience: 'Home + 1–2 inner pages (menu, visit, pricing, FAQ).',
     description:
@@ -96,7 +98,9 @@ export const pricingLineItems: PricingLineItem[] = [
     id: 'aesthetic-web',
     tier: 'sites',
     label: 'Brand Site · up to 5 pages',
-    price: 1400,
+    price: 1000,
+    fromPrice: true,
+    priceDisplay: 'from $1,000',
     timeline: '2–3 weeks',
     featured: true,
     audience: 'Brands that need more room and a stronger visual system.',
@@ -114,12 +118,14 @@ export const pricingLineItems: PricingLineItem[] = [
     id: 'ecommerce-store',
     tier: 'sites',
     label: 'Online Store',
-    price: 2200,
+    price: 2000,
+    fromPrice: true,
+    priceDisplay: 'from $2,000',
     timeline: '2–4 weeks',
     featured: true,
     audience: 'Product brands — catalog, cart, Stripe, custom storefront.',
     description:
-      'Full custom store package (not an add-on): product pages, cart, Stripe, light admin. Design is custom.',
+      'Full custom store package: product pages, cart, Stripe, light admin. Final quote after we see catalog size.',
     deliverables: [
       'Custom storefront design',
       'Catalog + cart + Stripe checkout',
@@ -152,7 +158,7 @@ export const pricingLineItems: PricingLineItem[] = [
     id: 'upsell-crm',
     tier: 'upsells',
     label: 'CRM / lead pipeline',
-    price: 500,
+    price: 400,
     timeline: '+3–7 days',
     description: 'Forms → HubSpot, Notion, or a light custom admin. Attach to any site.',
     deliverables: [
@@ -165,7 +171,7 @@ export const pricingLineItems: PricingLineItem[] = [
     id: 'upsell-payments',
     tier: 'upsells',
     label: 'Payments (Stripe)',
-    price: 450,
+    price: 350,
     timeline: '+3–7 days',
     description: 'Checkout or pay links for deposits, bookings, or simple products — on top of a site package.',
     deliverables: [
@@ -180,7 +186,7 @@ export const pricingLineItems: PricingLineItem[] = [
     label: 'Extra language',
     price: 150,
     timeline: '+2–5 days',
-    description: 'Site packages include 2 languages. Each additional locale is this add-on (UI strings + routing).',
+    description: 'Site packages include 2 languages. Each additional locale is this add-on.',
     deliverables: [
       'Extra locale wiring',
       'Translated UI paths (copy you provide or we write in scope)',
@@ -188,19 +194,51 @@ export const pricingLineItems: PricingLineItem[] = [
     ],
   },
   {
+    id: 'upsell-page',
+    tier: 'upsells',
+    label: 'Extra page',
+    price: 150,
+    timeline: '+2–5 days',
+    description: 'One more page beyond the package limit (e.g. 4th page on Essential, 6th on Brand).',
+    deliverables: ['One additional custom page', 'Wired into nav + SEO basics'],
+  },
+  {
+    id: 'upsell-booking',
+    tier: 'upsells',
+    label: 'Booking / calendar',
+    price: 400,
+    timeline: '+3–7 days',
+    description: 'Appointment or reservation flow wired to Google Calendar or a simple booking UI.',
+    deliverables: [
+      'Booking UI or calendar link flow',
+      'Confirmation message / email',
+      'Handoff notes',
+    ],
+  },
+  {
+    id: 'upsell-bot-channel',
+    tier: 'upsells',
+    label: 'Extra bot channel',
+    price: 250,
+    timeline: '+3–7 days',
+    description: 'Bot packages include one primary channel. Add Telegram, SMS, widget, or Discord as a second channel.',
+    deliverables: ['Second channel connected to the same brain', 'Smoke-tested handoff'],
+  },
+  {
     id: 'bot-starter',
     tier: 'bots',
     label: 'Starter Bot',
-    price: 1000,
+    price: 400,
     timeline: '1–2 weeks',
     featured: true,
-    audience: 'FAQ / simple flows on Telegram, SMS, on-site widget, or Discord.',
+    audience: 'FAQ / simple flows — same price band as a Landing.',
     description:
-      'One primary channel. Scripted answers from your FAQ — no heavy RAG. Works alone or next to a site.',
+      'One primary channel (Telegram, SMS, site widget, or Discord). Scripted FAQ answers. AI token usage bills to your key — not included.',
     deliverables: [
       '1 channel: Telegram · SMS · site widget · or Discord',
       'Conversation script + FAQ brain',
       'Handoff to human / contact when needed',
+      'You connect & pay your own AI API key',
       'Docs + 2 weeks support',
     ],
   },
@@ -208,34 +246,38 @@ export const pricingLineItems: PricingLineItem[] = [
     id: 'bot-ops',
     tier: 'bots',
     label: 'Ops Bot',
-    price: 1800,
-    timeline: '2–3 weeks',
-    audience: 'Lead qualify, booking, or internal ops — still one main channel.',
+    price: 500,
+    fromPrice: true,
+    priceDisplay: 'from $500',
+    timeline: '1–3 weeks',
+    audience: 'Lead qualify, booking, or intake — same band as Essential Site.',
     description:
-      'Beyond FAQ: qualify leads, collect fields, ping CRM/calendar. Telegram, SMS, widget, or Discord.',
+      'Beyond FAQ: collect fields, qualify, ping CRM/calendar. Token usage on your AI key — not in our fee.',
     deliverables: [
       '1 primary channel',
       'Qualify / intake flow',
       'CRM or calendar hook (one integration)',
+      'You connect & pay your own AI API key',
       'Handoff + docs + 2 weeks support',
     ],
   },
   {
     id: 'ai-core-mvp',
     tier: 'bots',
-    label: 'AI Agent MVP',
-    price: 3500,
+    label: 'AI Agent',
+    price: 1000,
     fromPrice: true,
-    priceDisplay: 'from $3,500',
-    timeline: '3–6 weeks',
+    priceDisplay: 'from $1,000',
+    timeline: '2–4 weeks',
     featured: true,
-    audience: 'Answers from your docs / store / CRM — smarter than a FAQ list.',
+    audience: 'Answers from your docs / store — same band as Brand Site.',
     description:
-      'Agent grounded in your data (RAG), optional light admin or chat UI. LLM API usage bills to your key — not included in the fee.',
+      'Bot grounded in your materials (docs, FAQ, catalog). Smarter than a fixed FAQ list. You pay AI tokens on your own key.',
     deliverables: [
-      'RAG over your sources (docs, store, FAQ corpus)',
+      'Connected to your knowledge sources',
       '1–2 channels or embedded chat',
       'Escalation to human with transcript',
+      'You connect & pay your own AI API key',
       'Staging + git · 2 weeks support',
     ],
   },
@@ -249,9 +291,9 @@ export const pricingLineItems: PricingLineItem[] = [
     featured: true,
     audience: 'After the included 2-week launch window — keep a written care channel open.',
     description:
-      'Ongoing written support: small fixes, content updates, dependency bumps. Revisions on the site board.',
+      'Ongoing written support via the revisions board: small fixes, content updates, dependency bumps.',
     deliverables: [
-      'Written revision board access',
+      'Written revision board access (/revisions)',
       'Up to 4 hours / month of fixes & content',
       'Priority reply within 2 business days',
       'Cancel anytime — month to month',
@@ -279,6 +321,7 @@ export function formatPricingQuoteMessage(selectedItems: PricingLineItem[], tota
   }).format(total)
 
   const hasFrom = selectedItems.some((item) => item.fromPrice)
+  const hasBot = selectedItems.some((item) => item.tier === 'bots')
 
   if (selectedItems.length === 0) {
     return [
@@ -300,9 +343,16 @@ export function formatPricingQuoteMessage(selectedItems: PricingLineItem[], tota
     hasFrom
       ? `Estimate (floors where “from” applies): ${totalLabel}`
       : `Package total: ${totalLabel}`,
-    '',
-    'Prefer to continue in writing — happy to fill the brief next.',
   ]
+
+  if (hasBot) {
+    lines.push(
+      '',
+      'Note: AI token / API usage is billed to the client’s own key — not included in studio fees.',
+    )
+  }
+
+  lines.push('', 'Prefer to continue in writing — happy to fill the brief next.')
 
   return lines.join('\n')
 }

@@ -23,9 +23,9 @@ export function PricingPage() {
             Custom design. Clear packages.
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-page-muted md:text-lg">
-            Landings from $400 — always custom UI (refs or from scratch, same price). Two languages and
-            copy included. Bots as Starter / Ops / AI. After launch:{' '}
-            <span className="text-page-text">Support our project</span> ($350/mo). Feedback on the{' '}
+            Landings from $400 — always custom UI. Sites scale from $500 / $1,000 / $2,000. Bots sit in the
+            same price band; <span className="text-page-text">you pay AI tokens on your own key</span>.
+            After launch: Support our project ($350/mo). Feedback on the{' '}
             <Link to="/revisions" className="text-page-accent underline-offset-2 hover:underline">
               revisions board
             </Link>
