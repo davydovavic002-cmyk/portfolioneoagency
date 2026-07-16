@@ -186,7 +186,7 @@ export const cases: CaseStudy[] = [
     team: 'NEO Studio SPACE',
     stack: ['Next.js', 'FastAPI', 'OpenAI', 'PostgreSQL'],
     previewUrl: 'https://petcare.neostudio.space/',
-    coverImage: '/cases/petcare-ai.webp',
+    coverImage: '/cases/petcare-ai-cover.webp',
     relatedPackageId: 'ai-core-mvp',
     overview:
       'Vet clinics needed a demo-ready AI product without rebuilding their entire stack. We scoped an MVP with diagnostic AI, feed composition analysis, personalized nutrition plans, and a clinic-facing dashboard.',
