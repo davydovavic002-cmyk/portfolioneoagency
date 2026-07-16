@@ -3,7 +3,44 @@ import { PageTransition } from '@/components/layout/PageTransition'
 import { Seo } from '@/components/seo/Seo'
 import { CategoryFilter } from '@/components/portfolio/CategoryFilter'
 import { EditorialGridCard } from '@/components/portfolio/EditorialGridCard'
-import { CASE_PILLARS, cases, type CasePillar } from '@/data/cases'
+import { CASE_PILLARS, cases, getCasesByPillar, type CasePillar, type CaseStudy } from '@/data/cases'
+
+function CaseGrid({ projects }: { projects: CaseStudy[] }) {
+  return (
+    <div className="grid grid-cols-1 gap-px border-2 border-page-text bg-page-text sm:grid-cols-2 lg:grid-cols-3">
+      {projects.map((project, index) => (
+        <EditorialGridCard key={project.id} project={project} index={index} />
+      ))}
+    </div>
+  )
+}
+
+function WorkSection({
+  label,
+  subtitle,
+  projects,
+}: {
+  label: string
+  subtitle: string
+  projects: CaseStudy[]
+}) {
+  if (projects.length === 0) return null
+
+  return (
+    <div className="space-y-5">
+      <div className="flex flex-wrap items-end justify-between gap-3 border-b-2 border-page-text pb-3">
+        <div>
+          <h2 className="text-2xl font-bold tracking-tight md:text-3xl">{label}</h2>
+          <p className="mt-1 text-sm text-page-muted md:text-base">{subtitle}</p>
+        </div>
+        <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-page-muted">
+          {projects.length} {projects.length === 1 ? 'project' : 'projects'}
+        </span>
+      </div>
+      <CaseGrid projects={projects} />
+    </div>
+  )
+}
 
 export function CasesPage() {
   const [activePillar, setActivePillar] = useState<CasePillar | 'all'>('all')
@@ -20,10 +57,8 @@ export function CasesPage() {
     [],
   )
 
-  const filtered = useMemo(
-    () => (activePillar === 'all' ? cases : cases.filter((c) => c.pillar === activePillar)),
-    [activePillar],
-  )
+  const sites = useMemo(() => getCasesByPillar('fullstack'), [])
+  const bots = useMemo(() => getCasesByPillar('ai'), [])
 
   return (
     <PageTransition className="min-h-screen bg-page-bg pt-14">
@@ -35,10 +70,11 @@ export function CasesPage() {
       <section className="border-b-2 border-page-text px-4 py-14 md:px-10">
         <div className="mx-auto max-w-[1600px]">
           <span className="font-mono text-[10px] tracking-[0.35em] uppercase">Work</span>
-          <h1 className="mt-3 text-4xl font-bold tracking-tight md:text-6xl">Projects we built from scratch</h1>
+          <h1 className="mt-3 text-4xl font-bold tracking-tight md:text-6xl">
+            Projects we built from scratch
+          </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-page-muted md:text-lg">
-            Full-stack product builds and AI agents scoped for real ops — SMS, Slack, Discord, and
-            the storefront. Pick a category or browse everything.
+            Sites and AI agents in two clear lanes — pick a category or browse both.
           </p>
         </div>
       </section>
@@ -51,10 +87,21 @@ export function CasesPage() {
           counts={counts}
         />
 
-        <div className="grid grid-cols-1 gap-0 border-2 border-page-text sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((project, index) => (
-            <EditorialGridCard key={project.id} project={project} index={index} />
-          ))}
+        <div className="space-y-14">
+          {(activePillar === 'all' || activePillar === 'fullstack') && (
+            <WorkSection
+              label="Sites"
+              subtitle="Product UIs, storefronts, and full-stack web builds"
+              projects={sites}
+            />
+          )}
+          {(activePillar === 'all' || activePillar === 'ai') && (
+            <WorkSection
+              label="Bots & agents"
+              subtitle="SMS, Slack, Discord, and RAG systems for real ops"
+              projects={bots}
+            />
+          )}
         </div>
       </section>
     </PageTransition>

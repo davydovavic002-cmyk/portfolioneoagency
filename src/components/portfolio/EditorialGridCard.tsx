@@ -18,11 +18,11 @@ export function EditorialGridCard({ project, index }: EditorialGridCardProps) {
       <Link
         to={`/work/${project.id}`}
         className={cn(
-          'group flex flex-col overflow-hidden border-b-2 border-r-2 border-page-text bg-page-surface text-left',
+          'group flex h-full flex-col overflow-hidden bg-page-surface text-left',
           'transition-colors hover:bg-page-accent-2/10',
         )}
       >
-        <div className="relative aspect-[4/3] overflow-hidden border-b-2 border-page-text bg-page-bg">
+        <div className="relative aspect-[4/3] overflow-hidden bg-page-bg">
           {project.coverImage ? (
             <img
               src={project.coverImage}

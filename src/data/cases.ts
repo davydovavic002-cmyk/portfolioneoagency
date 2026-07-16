@@ -9,13 +9,13 @@ export interface CasePillarMeta {
 export const CASE_PILLARS: CasePillarMeta[] = [
   {
     id: 'fullstack',
-    label: 'Full-Stack',
-    subtitle: 'Web apps, APIs, and product UIs',
+    label: 'Sites',
+    subtitle: 'Web apps, storefronts, product UIs',
   },
   {
     id: 'ai',
-    label: 'AI & Bots',
-    subtitle: 'SMS, Slack, Discord, RAG agents — US-ready',
+    label: 'Bots',
+    subtitle: 'SMS, Slack, Discord, RAG agents',
   },
 ]
 
