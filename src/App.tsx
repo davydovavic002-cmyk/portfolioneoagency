@@ -11,6 +11,7 @@ import { PricingPage } from '@/pages/PricingPage'
 import { BriefPage } from '@/pages/BriefPage'
 import { RevisionsPage } from '@/pages/RevisionsPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
+import { SITE, telegramProfileUrl } from '@/data/site'
 
 function AnimatedRoutes() {
   const location = useLocation()
@@ -45,9 +46,19 @@ export default function App() {
               <span className="font-mono text-[10px] tracking-[0.35em] uppercase">
                 © 2026 NEO STUDIO SPACE
               </span>
-              <a href="mailto:hello@neostudio.space" className="font-mono text-xs hover:text-page-accent">
-                hello@neostudio.space
-              </a>
+              <div className="flex flex-wrap items-center justify-center gap-4 font-mono text-xs">
+                <a href={`mailto:${SITE.email}`} className="hover:text-page-accent">
+                  {SITE.email}
+                </a>
+                <a
+                  href={telegramProfileUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-page-accent"
+                >
+                  @{SITE.telegram}
+                </a>
+              </div>
             </div>
           </footer>
         </SmoothScroll>

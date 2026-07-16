@@ -69,7 +69,7 @@ const steps: Step[] = [
     question: 'Where can we reply?',
     help: 'Email or Telegram — whichever you check most.',
     type: 'text',
-    placeholder: 'you@email.com or @telegram',
+    placeholder: 'you@email.com or @neostudio_space',
   },
 ]
 

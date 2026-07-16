@@ -190,7 +190,7 @@ export function RevisionsPage() {
                       id="contact"
                       value={contact}
                       onChange={(e) => setContact(e.target.value)}
-                      placeholder="email or @telegram"
+                      placeholder="email or @neostudio_space"
                       className="mt-2 w-full rounded-xl bg-page-bg px-5 py-3.5 text-base outline-none ring-1 ring-page-text/10 focus:ring-2 focus:ring-page-accent/40"
                       autoComplete="email"
                       required

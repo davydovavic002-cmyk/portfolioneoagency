@@ -20,7 +20,7 @@ export function StudioPage() {
             Studio
           </span>
           <h1 className="mt-5 text-4xl font-bold tracking-tight md:text-6xl">
-            Custom sites & bots — explained simply
+            We don&apos;t do templates
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-page-muted md:text-lg">
             Real custom design, clear packages from $400, and a written-first process. Remote team ·
