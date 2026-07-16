@@ -5,9 +5,11 @@ export interface PricingLineItem {
   tier: PricingTier
   label: string
   description: string
-  /** Numeric amount for estimate total; use 0 when priceDisplay is fixed/range */
+  /** Numeric amount for estimate total (minimum when priceDisplay is “from …”) */
   price: number
   priceDisplay?: string
+  /** When true, quote math treats price as a floor */
+  fromPrice?: boolean
   timeline?: string
   audience?: string
   deliverables?: string[]
@@ -25,18 +27,19 @@ export interface PricingTierGroup {
 export const PRICING_TIER_GROUPS: PricingTierGroup[] = [
   {
     id: 'sites',
-    label: 'Sites',
-    subtitle: 'Custom builds — animations, multilingual, and SEO included. No templates.',
+    label: 'Sites & products',
+    subtitle:
+      'Custom design every time — from refs or from scratch, same price. No templates. Two languages in every site package.',
   },
   {
     id: 'upsells',
-    label: 'Upsells',
-    subtitle: 'Add CRM, payments, or a full store when the base site isn’t enough.',
+    label: 'Add-ons',
+    subtitle: 'Bolt onto a site: CRM, Stripe, or another language beyond the two included.',
   },
   {
     id: 'bots',
     label: 'Bots & agents',
-    subtitle: 'SMS, Slack, Discord, RAG — same studio as the website.',
+    subtitle: 'Standalone or with a site. Telegram, SMS, on-site widget, Discord when it fits.',
   },
   {
     id: 'care',
@@ -46,8 +49,9 @@ export const PRICING_TIER_GROUPS: PricingTierGroup[] = [
 ]
 
 /**
- * Fixed packages aligned with Studio offer:
- * landings from $400; base = motion + i18n + SEO; CRM/payments = upsell; support package after 2 weeks.
+ * Introductory / dump-friendly fixed packages.
+ * Anchor: landing $400. Custom design always. Content: client or us (in package).
+ * 2 locales included; extra locale = add-on. Store & web app are full packages (not store-as-upsell).
  */
 export const pricingLineItems: PricingLineItem[] = [
   {
@@ -57,16 +61,16 @@ export const pricingLineItems: PricingLineItem[] = [
     price: 400,
     timeline: '1–2 weeks',
     featured: true,
-    audience: 'Founders and local businesses who need a sharp one-pager — not a Tilda clone.',
+    audience: 'Sharp one-pager — custom UI, not a theme with a logo swap.',
     description:
-      'Custom single-page site. Base includes animations, multilingual, and SEO. Git handoff + deploy to your hosting.',
+      'Custom-designed single page (from your refs or from scratch). Motion, 2 languages, SEO basics, and copy — yours or ours. Git + your hosting.',
     deliverables: [
-      'Custom layout (hero + sections + footer)',
-      'Motion / micro-interactions',
-      'Multilingual (up to 2 locales)',
+      'Custom design (refs or blank slate — same package)',
+      'Hero + sections + footer, with motion',
+      'Copy: you provide or we write',
+      '2 languages included',
       'SEO basics + analytics hooks',
-      'Staging URL, git repo, deploy to your host',
-      '2 weeks launch support',
+      'Staging, git, deploy to your host, 2 weeks support',
     ],
     baseIncludesNote: true,
   },
@@ -74,14 +78,15 @@ export const pricingLineItems: PricingLineItem[] = [
     id: 'site-essential',
     tier: 'sites',
     label: 'Essential Site · up to 3 pages',
-    price: 900,
+    price: 750,
     timeline: '1–2 weeks',
-    audience: 'Brands that need Home + 1–2 inner pages (menu, visit, pricing, FAQ).',
+    audience: 'Home + 1–2 inner pages (menu, visit, pricing, FAQ).',
     description:
-      'Compact multi-page site with shared navigation. Same base stack: motion, multilingual, SEO — still custom code.',
+      'Compact multi-page site, still fully custom-designed. Same base: motion, 2 languages, SEO, copy included.',
     deliverables: [
-      'Up to 3 pages + shared layout',
-      'Animations + multilingual + SEO',
+      'Custom design · up to 3 pages + shared nav',
+      'Motion + 2 languages + SEO',
+      'Copy: you or us',
       'Contact / CTA flows',
       'Staging, git, your hosting, 2 weeks support',
     ],
@@ -91,28 +96,65 @@ export const pricingLineItems: PricingLineItem[] = [
     id: 'aesthetic-web',
     tier: 'sites',
     label: 'Brand Site · up to 5 pages',
-    price: 1800,
+    price: 1400,
     timeline: '2–3 weeks',
     featured: true,
-    audience: 'Studios and products that need a stronger visual system and more room to tell the story.',
+    audience: 'Brands that need more room and a stronger visual system.',
     description:
-      'Brand-first custom site — richer motion and page set. Still no WordPress. Upsells attach cleanly.',
+      'Custom brand site — richer motion and page set. Design from refs or from zero at the same rate.',
     deliverables: [
-      'Custom design system (up to 5 pages)',
+      'Custom design system · up to 5 pages',
       'Motion-led UI',
-      'Multilingual + SEO',
+      'Copy: you or us · 2 languages · SEO',
       'Staging, git, your hosting, 2 weeks support',
     ],
     baseIncludesNote: true,
   },
   {
+    id: 'ecommerce-store',
+    tier: 'sites',
+    label: 'Online Store',
+    price: 2200,
+    timeline: '2–4 weeks',
+    featured: true,
+    audience: 'Product brands — catalog, cart, Stripe, custom storefront.',
+    description:
+      'Full custom store package (not an add-on): product pages, cart, Stripe, light admin. Design is custom.',
+    deliverables: [
+      'Custom storefront design',
+      'Catalog + cart + Stripe checkout',
+      'Admin / CMS for products',
+      '2 languages · SEO basics',
+      'Staging, git, your hosting, 2 weeks support',
+    ],
+    baseIncludesNote: true,
+  },
+  {
+    id: 'web-app',
+    tier: 'sites',
+    label: 'Web App / dashboard',
+    price: 3500,
+    fromPrice: true,
+    priceDisplay: 'from $3,500',
+    timeline: '1–2 months',
+    audience: 'SaaS slices, client portals, internal tools — not a marketing site.',
+    description:
+      'Custom product UI + backend starting point. Scope locked in writing after brief; timeline typically 1–2 months.',
+    deliverables: [
+      'Custom product UI',
+      'Auth-ready architecture',
+      'API / data model for the MVP slice',
+      'Staging + git handoff',
+      '2 weeks launch support',
+    ],
+  },
+  {
     id: 'upsell-crm',
     tier: 'upsells',
     label: 'CRM / lead pipeline',
-    price: 700,
+    price: 500,
     timeline: '+3–7 days',
-    description:
-      'Forms → pipeline: HubSpot, Notion, or a lightweight custom admin. Attach to any site package.',
+    description: 'Forms → HubSpot, Notion, or a light custom admin. Attach to any site.',
     deliverables: [
       'Lead capture wired to CRM or admin',
       'Statuses / tags for follow-up',
@@ -123,61 +165,78 @@ export const pricingLineItems: PricingLineItem[] = [
     id: 'upsell-payments',
     tier: 'upsells',
     label: 'Payments (Stripe)',
-    price: 600,
+    price: 450,
     timeline: '+3–7 days',
-    description: 'Checkout or pay links for products, deposits, or bookings — on top of your site package.',
+    description: 'Checkout or pay links for deposits, bookings, or simple products — on top of a site package.',
     deliverables: [
       'Stripe checkout or payment links',
       'Success / failure flows',
-      'Basic order confirmation emails',
+      'Basic confirmation emails',
     ],
   },
   {
-    id: 'ecommerce-store',
+    id: 'upsell-locale',
     tier: 'upsells',
-    label: 'Store layer',
-    price: 2200,
-    timeline: '2–4 weeks total with a site package',
-    featured: true,
-    audience: 'Brands selling products — catalog, cart, Stripe — still custom UI.',
-    description:
-      'Catalog + cart + Stripe on a custom storefront. Usually paired with Brand Site or Essential Site.',
+    label: 'Extra language',
+    price: 150,
+    timeline: '+2–5 days',
+    description: 'Site packages include 2 languages. Each additional locale is this add-on (UI strings + routing).',
     deliverables: [
-      'Product pages + cart',
-      'Stripe checkout',
-      'Admin or CMS for products',
-      'Order flow + deploy',
+      'Extra locale wiring',
+      'Translated UI paths (copy you provide or we write in scope)',
+      'Language switcher update',
+    ],
+  },
+  {
+    id: 'bot-starter',
+    tier: 'bots',
+    label: 'Starter Bot',
+    price: 1000,
+    timeline: '1–2 weeks',
+    featured: true,
+    audience: 'FAQ / simple flows on Telegram, SMS, on-site widget, or Discord.',
+    description:
+      'One primary channel. Scripted answers from your FAQ — no heavy RAG. Works alone or next to a site.',
+    deliverables: [
+      '1 channel: Telegram · SMS · site widget · or Discord',
+      'Conversation script + FAQ brain',
+      'Handoff to human / contact when needed',
+      'Docs + 2 weeks support',
     ],
   },
   {
     id: 'bot-ops',
     tier: 'bots',
-    label: 'Ops Agent (SMS / Slack / Discord)',
-    price: 2200,
+    label: 'Ops Bot',
+    price: 1800,
     timeline: '2–3 weeks',
+    audience: 'Lead qualify, booking, or internal ops — still one main channel.',
     description:
-      'Written-first agent for FAQs, lead qualify, or internal ops — Twilio SMS, Slack, or Discord.',
+      'Beyond FAQ: qualify leads, collect fields, ping CRM/calendar. Telegram, SMS, widget, or Discord.',
     deliverables: [
-      'Conversation design',
-      'Channel integration (pick one primary)',
-      'Knowledge / FAQ grounding',
-      'Handoff + docs',
+      '1 primary channel',
+      'Qualify / intake flow',
+      'CRM or calendar hook (one integration)',
+      'Handoff + docs + 2 weeks support',
     ],
   },
   {
     id: 'ai-core-mvp',
     tier: 'bots',
-    label: 'AI Product MVP',
+    label: 'AI Agent MVP',
     price: 3500,
-    timeline: '2–4 weeks',
+    fromPrice: true,
+    priceDisplay: 'from $3,500',
+    timeline: '3–6 weeks',
     featured: true,
-    audience: 'Teams that need AI inside a real product — dashboard + agent, not a widget demo.',
-    description: 'Fullstack AI slice: auth-ready UI, backend, and an agent grounded in your data.',
+    audience: 'Answers from your docs / store / CRM — smarter than a FAQ list.',
+    description:
+      'Agent grounded in your data (RAG), optional light admin or chat UI. LLM API usage bills to your key — not included in the fee.',
     deliverables: [
-      'Product UI + API',
-      'LLM / RAG integration',
-      'Auth-ready architecture',
-      'Staging + git handoff',
+      'RAG over your sources (docs, store, FAQ corpus)',
+      '1–2 channels or embedded chat',
+      'Escalation to human with transcript',
+      'Staging + git · 2 weeks support',
     ],
   },
   {
@@ -190,7 +249,7 @@ export const pricingLineItems: PricingLineItem[] = [
     featured: true,
     audience: 'After the included 2-week launch window — keep a written care channel open.',
     description:
-      'Ongoing written support: small fixes, content updates, dependency bumps. Revisions stay on the site board.',
+      'Ongoing written support: small fixes, content updates, dependency bumps. Revisions on the site board.',
     deliverables: [
       'Written revision board access',
       'Up to 4 hours / month of fixes & content',
@@ -219,6 +278,8 @@ export function formatPricingQuoteMessage(selectedItems: PricingLineItem[], tota
     maximumFractionDigits: 0,
   }).format(total)
 
+  const hasFrom = selectedItems.some((item) => item.fromPrice)
+
   if (selectedItems.length === 0) {
     return [
       "Hi NEO STUDIO — I'm looking at your pricing page and would like help picking the right package.",
@@ -236,7 +297,9 @@ export function formatPricingQuoteMessage(selectedItems: PricingLineItem[], tota
       return `- ${item.label}: ${formatLineItemPrice(item)}${timeline}`
     }),
     '',
-    `Estimate from (minimum where ranges apply): ${totalLabel}`,
+    hasFrom
+      ? `Estimate (floors where “from” applies): ${totalLabel}`
+      : `Package total: ${totalLabel}`,
     '',
     'Prefer to continue in writing — happy to fill the brief next.',
   ]

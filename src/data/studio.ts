@@ -30,7 +30,7 @@ export const studioIntro = {
   lead:
     'NEO STUDIO SPACE is a remote full-stack studio (Europe / Asia timezone). We ship real websites and bots — custom design, motion, multilingual, SEO — without WordPress skins or no-code shortcuts. Est. 2021.',
   points: [
-    'Landing pages from $400 — custom code, not a theme with your logo glued on.',
+    'Landing pages from $400 — custom design every time, not a theme with your logo glued on.',
     'Base scope includes animations, multilingual, and SEO. CRM, payments, and heavier product work are clear upsells.',
     'Written-first process: brief on site, scope in writing, revisions in writing. Calls optional, not mandatory.',
     'You get the git repo + deploy to your hosting. Two weeks of launch support included; ongoing care is a separate package.',
@@ -100,11 +100,11 @@ export const studioFeatures: StudioFeature[] = [
     id: 'landing-price',
     title: 'Landings from $400',
     description:
-      'Fixed packages for clear scopes. Upsells (CRM, payments, deeper product) stay explicit — no mystery line items.',
+      'Custom design always — from your refs or from scratch, same package price. CRM, Stripe, extra languages stay explicit add-ons.',
     className: 'md:col-span-2',
     variant: 'stat',
     stat: '$400+',
-    statLabel: 'landing baseline',
+    statLabel: 'custom landing anchor',
   },
   {
     id: 'full-stack',
@@ -126,7 +126,7 @@ export const studioFeatures: StudioFeature[] = [
     id: 'bots',
     title: 'Bots & agents too',
     description:
-      'SMS, Slack, Discord, RAG — same studio as the website, so the product and the agent don’t fight each other.',
+      'Starter (TG / SMS / widget / Discord), Ops, or AI with your data — alone or with the site, same studio.',
     className: 'md:col-span-2',
     variant: 'tint-pink',
   },

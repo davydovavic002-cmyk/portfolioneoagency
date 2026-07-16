@@ -24,13 +24,13 @@ const steps: Step[] = [
     id: 'type',
     question: 'What are we building together?',
     type: 'choice',
-    options: ['Landing / site', 'Brand site (multi-page)', 'Store / CRM upsell', 'AI Agent / Bot'],
+    options: ['Landing / site', 'Store or web app', 'Bot / agent', 'Site + bot together'],
   },
   {
     id: 'budget',
     question: 'What budget range feels right?',
     type: 'choice',
-    options: ['$400 – $1.2K', '$1.2K – $3K', '$3K – $6K', '$6K+'],
+    options: ['$400 – $1K', '$1K – $2.5K', '$2.5K – $5K', '$5K+'],
   },
   {
     id: 'timeline',

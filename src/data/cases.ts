@@ -276,7 +276,7 @@ export const cases: CaseStudy[] = [
     team: 'NEO Studio SPACE',
     stack: ['Twilio SMS', 'OpenAI', 'FastAPI', 'React', 'Postgres'],
     coverImage: '/cases/relaydesk.webp',
-    relatedPackageId: 'ai-core-mvp',
+    relatedPackageId: 'bot-ops',
     overview:
       'US boutique hotels still lose evenings to repetitive texts: parking, wifi, late checkout, “what’s open nearby?”. RelayDesk is an SMS concierge that knows the property playbook, answers in brand voice, and routes sticky cases into a shared staff inbox with suggested replies.',
     challenge:
@@ -319,7 +319,7 @@ export const cases: CaseStudy[] = [
     team: 'NEO Studio SPACE',
     stack: ['Twilio', 'OpenAI', 'Google Calendar API', 'Node.js', 'HubSpot'],
     coverImage: '/cases/lotscout.webp',
-    relatedPackageId: 'ai-core-mvp',
+    relatedPackageId: 'bot-ops',
     overview:
       'Most US listing ads dump cold traffic onto phone numbers. LotScout greets new leads on SMS, runs a short qualification script (budget, pre-approval, timeline, preferred zip), books a showing into the agent’s calendar, and only wakes a human when the lead is hot.',
     challenge:

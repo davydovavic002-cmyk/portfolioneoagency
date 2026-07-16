@@ -20,14 +20,14 @@ export function PricingPage() {
             Pricing
           </span>
           <h1 className="mt-5 text-4xl font-bold tracking-tight md:text-6xl">
-            Fixed packages. Custom builds.
+            Custom design. Clear packages.
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-page-muted md:text-lg">
-            Landings from $400. Base sites include animations, multilingual, and SEO — no templates.
-            Add CRM, payments, or a store as upsells. After launch care:{' '}
-            <span className="text-page-text">Support our project</span>. Revisions stay on the{' '}
+            Landings from $400 — always custom UI (refs or from scratch, same price). Two languages and
+            copy included. Bots as Starter / Ops / AI. After launch:{' '}
+            <span className="text-page-text">Support our project</span> ($350/mo). Feedback on the{' '}
             <Link to="/revisions" className="text-page-accent underline-offset-2 hover:underline">
-              written board
+              revisions board
             </Link>
             .
           </p>

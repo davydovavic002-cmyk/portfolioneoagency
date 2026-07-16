@@ -157,7 +157,7 @@ export function ProjectTotal({
       <p className="mt-4 text-xs leading-relaxed text-page-muted">
         {itemCount === 0
           ? 'No checkout here — we confirm everything in chat before any invoice.'
-          : 'Range packages show minimum in total. We\'ll align final scope in Telegram or via the brief.'}
+          : '“From” packages show the floor in the total. Final scope is locked in writing after the brief.'}
       </p>
     </div>
   )
