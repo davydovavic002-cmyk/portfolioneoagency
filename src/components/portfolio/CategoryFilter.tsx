@@ -18,7 +18,9 @@ export function CategoryFilter({ pillars, active, onChange, counts }: CategoryFi
           onClick={() => onChange('all')}
           className={cn(
             'border-b-2 border-page-text px-4 py-4 text-left transition-colors',
-            active === 'all' ? 'bg-page-text text-page-bg' : 'bg-page-surface hover:bg-page-accent-2/20',
+            active === 'all'
+              ? 'bg-page-accent-2/25 text-page-text'
+              : 'bg-page-surface hover:bg-page-accent-2/15',
           )}
         >
           <span className="font-mono text-[10px] tracking-widest uppercase">All projects</span>
@@ -30,13 +32,13 @@ export function CategoryFilter({ pillars, active, onChange, counts }: CategoryFi
             onClick={() => onChange(pillar.id)}
             className={cn(
               'border-b-2 border-page-text px-4 py-4 text-left transition-colors last:border-b-0',
-              active === pillar.id ? 'bg-page-text text-page-bg' : 'bg-page-surface hover:bg-page-accent-2/20',
+              active === pillar.id
+                ? 'bg-page-accent-2/25 text-page-text'
+                : 'bg-page-surface hover:bg-page-accent-2/15',
             )}
           >
             <span className="block font-mono text-[10px] tracking-widest uppercase">{pillar.label}</span>
-            <span className={cn('mt-1 block text-xs', active === pillar.id ? 'text-page-bg/70' : 'text-page-muted')}>
-              {pillar.subtitle}
-            </span>
+            <span className="mt-1 block text-xs text-page-muted">{pillar.subtitle}</span>
             <span className="mt-2 block font-mono text-[9px] tracking-wider uppercase">
               {counts[pillar.id]} projects
             </span>

@@ -14,12 +14,13 @@ export function EditorialGridCard({ project, index }: EditorialGridCardProps) {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.04, type: 'spring', stiffness: 300, damping: 15 }}
+      className="h-full min-h-0 bg-page-surface"
     >
       <Link
         to={`/work/${project.id}`}
         className={cn(
           'group flex h-full flex-col overflow-hidden bg-page-surface text-left',
-          'transition-colors hover:bg-page-accent-2/10',
+          'outline-none transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-page-accent/40',
         )}
       >
         <div className="relative aspect-[4/3] overflow-hidden bg-page-bg">
@@ -29,7 +30,7 @@ export function EditorialGridCard({ project, index }: EditorialGridCardProps) {
               alt=""
               loading="lazy"
               decoding="async"
-              className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+              className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
             />
           ) : (
             <div
@@ -57,7 +58,7 @@ export function EditorialGridCard({ project, index }: EditorialGridCardProps) {
             <h3 className="mt-1 text-xl font-bold tracking-tight">{project.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-page-muted">{project.description}</p>
           </div>
-          <span className="mt-4 font-mono text-[9px] tracking-[0.25em] uppercase opacity-0 transition-opacity group-hover:opacity-100">
+          <span className="mt-4 font-mono text-[9px] tracking-[0.25em] uppercase text-page-muted opacity-0 transition-opacity group-hover:opacity-100">
             Read case study →
           </span>
         </div>

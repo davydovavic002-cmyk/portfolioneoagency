@@ -7,7 +7,7 @@ import { CASE_PILLARS, cases, getCasesByPillar, type CasePillar, type CaseStudy 
 
 function CaseGrid({ projects }: { projects: CaseStudy[] }) {
   return (
-    <div className="grid grid-cols-1 gap-px border-2 border-page-text bg-page-text sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 divide-y-2 divide-page-text border-2 border-page-text bg-page-surface sm:grid-cols-2 sm:divide-x-2 sm:divide-y-2 lg:grid-cols-3">
       {projects.map((project, index) => (
         <EditorialGridCard key={project.id} project={project} index={index} />
       ))}
