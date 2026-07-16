@@ -10,7 +10,7 @@ export function StudioPage() {
       <Seo
         title="Studio"
         path="/studio"
-        description="How we work — custom architecture, staging URLs, and end-to-end delivery."
+        description="Custom sites and bots — template-range pricing, written-first process. Remote studio, Europe / Asia timezone."
       />
       <header className="relative pb-8 md:pb-12" style={sectionGradientStyle()}>
         <ModernAmbient className="top-[-20%] right-[-10%] left-auto w-[70%] translate-x-0 opacity-50" />
@@ -20,11 +20,11 @@ export function StudioPage() {
             Studio
           </span>
           <h1 className="mt-5 text-4xl font-bold tracking-tight md:text-6xl">
-            How we work, what we build
+            We don&apos;t do templates
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-page-muted md:text-lg">
-            No pitch decks or template shops — a small team that designs and ships custom full-stack
-            products, end to end.
+            Custom sites and bots from a remote studio team — template-range pricing, written-first
+            process, Europe / Asia timezone.
           </p>
         </div>
       </header>
