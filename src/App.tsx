@@ -9,6 +9,7 @@ import { CaseDetailRoute } from '@/pages/CaseDetailRoute'
 import { StudioPage } from '@/pages/StudioPage'
 import { PricingPage } from '@/pages/PricingPage'
 import { BriefPage } from '@/pages/BriefPage'
+import { RevisionsPage } from '@/pages/RevisionsPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 
 function AnimatedRoutes() {
@@ -24,6 +25,7 @@ function AnimatedRoutes() {
         <Route path="/studio" element={<StudioPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/brief" element={<BriefPage />} />
+        <Route path="/revisions" element={<RevisionsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </AnimatePresence>

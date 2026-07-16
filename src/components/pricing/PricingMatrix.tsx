@@ -140,6 +140,17 @@ export function PricingMatrix({ groups, items, baseFee }: PricingMatrixProps) {
                               {item.description}
                             </p>
 
+                            {item.baseIncludesNote && (
+                              <p
+                                className={cn(
+                                  'mt-2 text-[11px] font-medium tracking-wide uppercase',
+                                  checked ? 'text-page-bg/55' : 'text-page-muted',
+                                )}
+                              >
+                                Base includes motion · i18n · SEO
+                              </p>
+                            )}
+
                             {item.deliverables && item.deliverables.length > 0 && (
                               <ul
                                 className={cn(

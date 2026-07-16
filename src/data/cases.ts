@@ -120,11 +120,11 @@ export const cases: CaseStudy[] = [
       },
       {
         title: 'Deploy & handoff',
-        body: 'Essential Site package scope: React build on neostudio staging, performance pass, and deploy to production URL.',
+        body: 'Landing Page package scope: React build on neostudio staging, performance pass, and deploy to production URL.',
       },
     ],
     outcomes: [
-      'Live at pilates.neostudio.space with 2-page Essential Site scope',
+      'Live at pilates.neostudio.space with Landing Page scope',
       'Magnetic micro-interactions and motion-led brand feel',
       '8–12 day package timeline from brief to deploy',
     ],

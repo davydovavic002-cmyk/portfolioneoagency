@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { PageTransition } from '@/components/layout/PageTransition'
 import { Seo } from '@/components/seo/Seo'
 import { PricingMatrix } from '@/components/pricing/PricingMatrix'
@@ -10,7 +11,7 @@ export function PricingPage() {
       <Seo
         title="Pricing"
         path="/pricing"
-        description="Fixed-scope packages with clear timelines, deliverables, and transparent pricing."
+        description="Custom sites from $400 — landings, brand sites, upsells, bots, and Support our project care."
       />
       <section className="relative px-4 pb-8 pt-14 md:px-10 md:pt-16" style={sectionGradientStyle()}>
         <ModernAmbient className="right-0 top-0 left-auto w-[55%] opacity-40" />
@@ -19,11 +20,16 @@ export function PricingPage() {
             Pricing
           </span>
           <h1 className="mt-5 text-4xl font-bold tracking-tight md:text-6xl">
-            Fixed-scope packages
+            Fixed packages. Custom builds.
           </h1>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-page-muted md:text-lg">
-            Transparent pricing from the studio portfolio — pick one package or combine levels.
-            Every item has a clear timeline, deliverables, and fixed price.
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-page-muted md:text-lg">
+            Landings from $400. Base sites include animations, multilingual, and SEO — no templates.
+            Add CRM, payments, or a store as upsells. After launch care:{' '}
+            <span className="text-page-text">Support our project</span>. Revisions stay on the{' '}
+            <Link to="/revisions" className="text-page-accent underline-offset-2 hover:underline">
+              written board
+            </Link>
+            .
           </p>
         </div>
       </section>

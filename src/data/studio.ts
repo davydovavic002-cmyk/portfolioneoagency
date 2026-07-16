@@ -59,7 +59,7 @@ export const studioWhy = {
     {
       id: 'no-ghost',
       title: 'Still here after launch',
-      body: 'Two weeks of basic support in the build. After that, a clear support package — not silence, not surprise invoices.',
+      body: 'Two weeks of basic support in the build. After that, Support our project ($350/mo) — written fixes, not ghosting.',
     },
   ],
 }
@@ -134,7 +134,7 @@ export const studioFeatures: StudioFeature[] = [
     id: 'async-ops',
     title: 'Feedback stays on the site',
     description:
-      'Brief starts here. Scope and revisions stay written — project notes on neostudio.space, not endless call notes.',
+      'Brief starts here. Revisions go to the written board on neostudio.space/revisions — not scattered call notes.',
     className: 'md:col-span-2',
     variant: 'tint-neutral',
   },
@@ -148,9 +148,9 @@ export const studioFeatures: StudioFeature[] = [
   },
   {
     id: 'support',
-    title: 'Support that has a name',
+    title: 'Support our project',
     description:
-      'Two weeks of basic launch support included. After that — a dedicated “support our project” package. No ghosting, no vague retainers.',
+      'Two weeks of launch support included. After that — $350/mo written care (fixes, content, priority reply). No ghosting, no vague retainers.',
     className: 'md:col-span-3',
     variant: 'cta',
   },
@@ -173,17 +173,17 @@ export const processSteps: ProcessStep[] = [
   },
   {
     id: '03',
-    title: 'Build + staging',
+    title: 'Build + revisions board',
     timing: '1–4 weeks',
     description:
-      'You get a staging URL early. Feedback stays written in one place. We iterate without calendar chaos.',
+      'Staging URL early. Feedback goes to /revisions — one written note at a time. We iterate without calendar chaos.',
   },
   {
     id: '04',
     title: 'Launch & handoff',
     timing: 'Ship',
     description:
-      'Deploy to your hosting, git repo transfer, short runbook. Two weeks of basic support, then optional support package.',
+      'Deploy to your hosting, git repo transfer, short runbook. Two weeks of basic support, then optional Support our project.',
   },
 ]
 

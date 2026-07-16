@@ -1,4 +1,4 @@
-export type PricingTier = 'hooks' | 'packages' | 'flagship' | 'retainer'
+export type PricingTier = 'sites' | 'upsells' | 'bots' | 'care'
 
 export interface PricingLineItem {
   id: string
@@ -12,6 +12,8 @@ export interface PricingLineItem {
   audience?: string
   deliverables?: string[]
   featured?: boolean
+  /** Shown as “included in base site packages” note */
+  baseIncludesNote?: boolean
 }
 
 export interface PricingTierGroup {
@@ -22,205 +24,178 @@ export interface PricingTierGroup {
 
 export const PRICING_TIER_GROUPS: PricingTierGroup[] = [
   {
-    id: 'hooks',
-    label: 'Level 1 · Quick starts',
-    subtitle: 'Focused entry points with clear deliverables',
+    id: 'sites',
+    label: 'Sites',
+    subtitle: 'Custom builds — animations, multilingual, and SEO included. No templates.',
   },
   {
-    id: 'packages',
-    label: 'Level 2 · Productized services',
-    subtitle: 'Websites, stores, bots, and AI products — fixed scope, fixed price',
+    id: 'upsells',
+    label: 'Upsells',
+    subtitle: 'Add CRM, payments, or a full store when the base site isn’t enough.',
   },
   {
-    id: 'flagship',
-    label: 'Level 3 · Flagship',
-    subtitle: 'End-to-end delivery for complex multi-module products',
+    id: 'bots',
+    label: 'Bots & agents',
+    subtitle: 'SMS, Slack, Discord, RAG — same studio as the website.',
   },
   {
-    id: 'retainer',
-    label: 'Level 4 · Ongoing partnership',
-    subtitle: 'Dedicated capacity for iteration and long-term growth',
+    id: 'care',
+    label: 'Care',
+    subtitle: 'Two weeks launch support is included. This is ongoing care after that.',
   },
 ]
 
-/** Fixed-scope packages migrated from neo studio portfolio */
+/**
+ * Fixed packages aligned with Studio offer:
+ * landings from $400; base = motion + i18n + SEO; CRM/payments = upsell; support package after 2 weeks.
+ */
 export const pricingLineItems: PricingLineItem[] = [
   {
-    id: 'aesthetic-micro',
-    tier: 'hooks',
-    label: 'Aesthetic Micro-Site / Landing Page',
-    price: 1600,
-    timeline: '6 days',
-    audience:
-      'Founders and creators who need a launch-ready full-page site — product teaser, waitlist, or landing presence.',
-    description:
-      'One scrollable page: hero, supporting sections, and footer. Glassmorphism aesthetics, responsive layout, and smooth interactions.',
-    deliverables: [
-      'Full-page layout (hero + sections + footer)',
-      'Framer Motion interactions',
-      'Next.js / React build & deploy',
-      'Basic SEO',
-    ],
-  },
-  {
-    id: 'hero',
-    tier: 'hooks',
-    label: 'Hero Section',
-    price: 1200,
-    timeline: '3–5 days',
-    description:
-      'One above-the-fold block only — design, code, and motion. Expand the site later if needed.',
-    deliverables: [
-      'One hero section (above the fold)',
-      'Next.js + Tailwind implementation',
-      'Motion & responsive layout',
-    ],
-  },
-  {
     id: 'landing-page',
-    tier: 'packages',
-    label: 'Essential Site · up to 3 pages',
-    price: 2500,
-    timeline: '8–12 days',
-    audience:
-      'Founders and brands that need a small site with navigation — pricing, FAQ, schedule, or contact on separate pages.',
+    tier: 'sites',
+    label: 'Landing Page',
+    price: 400,
+    timeline: '1–2 weeks',
+    featured: true,
+    audience: 'Founders and local businesses who need a sharp one-pager — not a Tilda clone.',
     description:
-      'Compact site with up to 3 linked pages and shared layout. Clear structure, forms, fast load, and deploy included.',
+      'Custom single-page site. Base includes animations, multilingual, and SEO. Git handoff + deploy to your hosting.',
     deliverables: [
-      'UX structure & design (up to 3 pages)',
-      'Shared navigation and page templates',
-      'Next.js + Tailwind implementation',
-      'Contact form or CTA on key pages',
-      'Responsive layout, basic SEO & deploy',
+      'Custom layout (hero + sections + footer)',
+      'Motion / micro-interactions',
+      'Multilingual (up to 2 locales)',
+      'SEO basics + analytics hooks',
+      'Staging URL, git repo, deploy to your host',
+      '2 weeks launch support',
     ],
+    baseIncludesNote: true,
+  },
+  {
+    id: 'site-essential',
+    tier: 'sites',
+    label: 'Essential Site · up to 3 pages',
+    price: 900,
+    timeline: '1–2 weeks',
+    audience: 'Brands that need Home + 1–2 inner pages (menu, visit, pricing, FAQ).',
+    description:
+      'Compact multi-page site with shared navigation. Same base stack: motion, multilingual, SEO — still custom code.',
+    deliverables: [
+      'Up to 3 pages + shared layout',
+      'Animations + multilingual + SEO',
+      'Contact / CTA flows',
+      'Staging, git, your hosting, 2 weeks support',
+    ],
+    baseIncludesNote: true,
   },
   {
     id: 'aesthetic-web',
-    tier: 'packages',
-    label: 'Aesthetic Web',
-    price: 3500,
-    timeline: '10–14 days',
+    tier: 'sites',
+    label: 'Brand Site · up to 5 pages',
+    price: 1800,
+    timeline: '2–3 weeks',
     featured: true,
-    audience: 'Startups preparing for launch — strong visual identity and motion.',
-    description: 'Brand-first site with custom design and micro-interactions — up to 5 pages.',
-    deliverables: [
-      'Custom design & layout (up to 5 pages)',
-      'Next.js / Tailwind frontend',
-      'Framer Motion micro-interactions',
-      'Responsive layout, basic SEO & deploy',
-    ],
-  },
-  {
-    id: 'multi-page-site',
-    tier: 'packages',
-    label: 'Multi-page Website',
-    price: 4200,
-    timeline: '12–16 days',
-    audience: 'Businesses that need a full company site with room to grow.',
-    description: 'Structured company website with navigation, content sections, and blog structure.',
-    deliverables: [
-      'Site map & design (up to 10 pages)',
-      'Next.js frontend with shared layout',
-      'Blog or news section',
-      'Contact forms, SEO basics, deploy',
-    ],
-  },
-  {
-    id: 'telegram-bot',
-    tier: 'packages',
-    label: 'Telegram AI Bot',
-    price: 4500,
-    timeline: '10–14 days',
-    audience: 'EdTech, support, and SaaS teams that need an AI agent in Telegram.',
+    audience: 'Studios and products that need a stronger visual system and more room to tell the story.',
     description:
-      'Production-ready Telegram bot with LLM agents, dialog flows, and session memory.',
+      'Brand-first custom site — richer motion and page set. Still no WordPress. Upsells attach cleanly.',
     deliverables: [
-      'Conversation design & bot architecture',
-      'Python (aiogram) or Node.js implementation',
-      'OpenAI / LLM integration with streaming',
-      'Redis or database session memory',
-      'Deploy, docs & handoff',
+      'Custom design system (up to 5 pages)',
+      'Motion-led UI',
+      'Multilingual + SEO',
+      'Staging, git, your hosting, 2 weeks support',
+    ],
+    baseIncludesNote: true,
+  },
+  {
+    id: 'upsell-crm',
+    tier: 'upsells',
+    label: 'CRM / lead pipeline',
+    price: 700,
+    timeline: '+3–7 days',
+    description:
+      'Forms → pipeline: HubSpot, Notion, or a lightweight custom admin. Attach to any site package.',
+    deliverables: [
+      'Lead capture wired to CRM or admin',
+      'Statuses / tags for follow-up',
+      'Handoff notes for your team',
     ],
   },
   {
-    id: 'web-app',
-    tier: 'packages',
-    label: 'Web App / Dashboard',
-    price: 5200,
-    timeline: '14–18 days',
-    audience: 'Teams launching a SaaS tool, client portal, or internal dashboard.',
-    description: 'Authenticated web application with backend, database, and a functional product UI.',
+    id: 'upsell-payments',
+    tier: 'upsells',
+    label: 'Payments (Stripe)',
+    price: 600,
+    timeline: '+3–7 days',
+    description: 'Checkout or pay links for products, deposits, or bookings — on top of your site package.',
     deliverables: [
-      'UX flows & dashboard/product UI design',
-      'Auth (email, OAuth, or magic link)',
-      'Supabase / PostgreSQL backend',
-      'Core features & admin views',
-      'Production deploy & handoff',
+      'Stripe checkout or payment links',
+      'Success / failure flows',
+      'Basic order confirmation emails',
     ],
   },
   {
     id: 'ecommerce-store',
-    tier: 'packages',
-    label: 'E-commerce Store',
-    price: 5800,
-    timeline: '14–18 days',
+    tier: 'upsells',
+    label: 'Store layer',
+    price: 2200,
+    timeline: '2–4 weeks total with a site package',
     featured: true,
-    audience: 'Brands selling physical or digital products — boutique feel with real checkout.',
-    description: 'Online store with catalog, cart, and Stripe payments — custom UI, not a template theme.',
+    audience: 'Brands selling products — catalog, cart, Stripe — still custom UI.',
+    description:
+      'Catalog + cart + Stripe on a custom storefront. Usually paired with Brand Site or Essential Site.',
     deliverables: [
-      'Storefront design & product pages',
-      'Cart, checkout & Stripe integration',
-      'CMS or admin for products & categories',
-      'Order flow, responsive polish, deploy',
+      'Product pages + cart',
+      'Stripe checkout',
+      'Admin or CMS for products',
+      'Order flow + deploy',
+    ],
+  },
+  {
+    id: 'bot-ops',
+    tier: 'bots',
+    label: 'Ops Agent (SMS / Slack / Discord)',
+    price: 2200,
+    timeline: '2–3 weeks',
+    description:
+      'Written-first agent for FAQs, lead qualify, or internal ops — Twilio SMS, Slack, or Discord.',
+    deliverables: [
+      'Conversation design',
+      'Channel integration (pick one primary)',
+      'Knowledge / FAQ grounding',
+      'Handoff + docs',
     ],
   },
   {
     id: 'ai-core-mvp',
-    tier: 'packages',
-    label: 'AI Core MVP',
-    price: 6000,
-    timeline: '14–21 days',
+    tier: 'bots',
+    label: 'AI Product MVP',
+    price: 3500,
+    timeline: '2–4 weeks',
     featured: true,
-    audience: 'Teams that need a working product with real AI inside — not just a marketing site.',
-    description: 'Fullstack build with AI integration, auth, and payments.',
+    audience: 'Teams that need AI inside a real product — dashboard + agent, not a widget demo.',
+    description: 'Fullstack AI slice: auth-ready UI, backend, and an agent grounded in your data.',
     deliverables: [
-      'Database & backend on Supabase / FastAPI / PostgreSQL',
-      'Custom AI tools via API (LLM agents, smart chat)',
-      'Auth & Stripe payments',
-      'Functional dashboard UI/UX',
+      'Product UI + API',
+      'LLM / RAG integration',
+      'Auth-ready architecture',
+      'Staging + git handoff',
     ],
   },
   {
-    id: 'neo-venture',
-    tier: 'flagship',
-    label: 'Neo Venture',
-    price: 12000,
-    priceDisplay: '$12,000 – $15,000+',
-    timeline: '30–45 days',
+    id: 'support-project',
+    tier: 'care',
+    label: 'Support our project',
+    price: 350,
+    priceDisplay: '$350 / month',
+    timeline: 'Monthly',
     featured: true,
-    audience: 'EdTech platforms, B2B SaaS, and teams launching a multi-module product from scratch.',
-    description: 'Full product build — strategy, design, engineering, and launch.',
-    deliverables: [
-      'Scope & UX architecture',
-      'Custom design (20+ screens)',
-      'Fullstack Next.js + Supabase + AI workflows',
-      'Production deploy & 1 month post-launch support',
-    ],
-  },
-  {
-    id: 'neo-dedicated',
-    tier: 'retainer',
-    label: 'Neo Dedicated',
-    price: 4500,
-    priceDisplay: '$4,500 / month',
-    featured: true,
+    audience: 'After the included 2-week launch window — keep a written care channel open.',
     description:
-      'Reserved fullstack and design capacity each month. You add tasks to Notion — we ship in priority order.',
+      'Ongoing written support: small fixes, content updates, dependency bumps. Revisions stay on the site board.',
     deliverables: [
-      'Dedicated development & design capacity',
-      'One active task at a time',
-      'Small tasks delivered within 24–48 hours',
-      'Shared Notion task board',
+      'Written revision board access',
+      'Up to 4 hours / month of fixes & content',
+      'Priority reply within 2 business days',
+      'Cancel anytime — month to month',
     ],
   },
 ]
@@ -246,9 +221,9 @@ export function formatPricingQuoteMessage(selectedItems: PricingLineItem[], tota
 
   if (selectedItems.length === 0) {
     return [
-      'Hi NEO STUDIO — I\'m looking at your pricing page and would like help picking the right package.',
+      "Hi NEO STUDIO — I'm looking at your pricing page and would like help picking the right package.",
       '',
-      'Can we discuss scope and timeline?',
+      'Can we continue in writing (brief + chat)?',
     ].join('\n')
   }
 
@@ -263,7 +238,7 @@ export function formatPricingQuoteMessage(selectedItems: PricingLineItem[], tota
     '',
     `Estimate from (minimum where ranges apply): ${totalLabel}`,
     '',
-    'Happy to jump on a quick call or continue in chat. Final scope after brief.',
+    'Prefer to continue in writing — happy to fill the brief next.',
   ]
 
   return lines.join('\n')

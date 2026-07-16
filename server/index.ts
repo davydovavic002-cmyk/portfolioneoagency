@@ -11,6 +11,14 @@ export interface BriefPayload {
   source?: string
 }
 
+export interface RevisionPayload {
+  projectCode?: string
+  contact?: string
+  pageUrl?: string
+  priority?: string
+  message?: string
+}
+
 function formatBrief(body: BriefPayload): string {
   return [
     'New brief from neostudio.space',
@@ -20,6 +28,20 @@ function formatBrief(body: BriefPayload): string {
     `Timeline: ${body.timeline ?? '—'}`,
     `Contact: ${body.contact ?? '—'}`,
     `Source: ${body.source ?? 'brief-form'}`,
+  ].join('\n')
+}
+
+function formatRevision(body: RevisionPayload): string {
+  return [
+    'Revision request from neostudio.space/revisions',
+    '',
+    `Project: ${body.projectCode ?? '—'}`,
+    `Contact: ${body.contact ?? '—'}`,
+    `Priority: ${body.priority ?? 'normal'}`,
+    `Page / screen: ${body.pageUrl?.trim() || '—'}`,
+    '',
+    'Request:',
+    (body.message ?? '').trim() || '—',
   ].join('\n')
 }
 
@@ -99,6 +121,61 @@ export function createApp() {
     }
 
     const text = formatBrief(payload)
+    const telegram = await sendTelegram(text)
+
+    if (!telegram.ok && telegram.detail === 'missing_telegram_env') {
+      return c.json(
+        {
+          ok: false,
+          error: 'telegram_not_configured',
+          fallback: true,
+          message: text,
+        },
+        503,
+      )
+    }
+
+    if (!telegram.ok) {
+      return c.json({ ok: false, error: 'telegram_failed', detail: telegram.detail }, 502)
+    }
+
+    return c.json({ ok: true })
+  })
+
+  app.post('/api/revision', async (c) => {
+    let body: RevisionPayload
+    try {
+      body = await c.req.json()
+    } catch {
+      return c.json({ ok: false, error: 'invalid_json' }, 400)
+    }
+
+    const projectCode = typeof body.projectCode === 'string' ? body.projectCode.trim() : ''
+    const contact = typeof body.contact === 'string' ? body.contact.trim() : ''
+    const message = typeof body.message === 'string' ? body.message.trim() : ''
+
+    if (!projectCode || projectCode.length > 120) {
+      return c.json({ ok: false, error: 'project_code_required' }, 400)
+    }
+    if (!contact || contact.length > 200) {
+      return c.json({ ok: false, error: 'contact_required' }, 400)
+    }
+    if (!message || message.length > 4000) {
+      return c.json({ ok: false, error: 'message_required' }, 400)
+    }
+
+    const priority =
+      body.priority === 'urgent' || body.priority === 'normal' ? body.priority : 'normal'
+
+    const payload: RevisionPayload = {
+      projectCode: projectCode.slice(0, 120),
+      contact: contact.slice(0, 200),
+      pageUrl: String(body.pageUrl ?? '').slice(0, 500),
+      priority,
+      message: message.slice(0, 4000),
+    }
+
+    const text = formatRevision(payload)
     const telegram = await sendTelegram(text)
 
     if (!telegram.ok && telegram.detail === 'missing_telegram_env') {

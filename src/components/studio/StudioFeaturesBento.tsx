@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import type { StudioFeature } from '@/data/studio'
 import { studioFeatures } from '@/data/studio'
@@ -194,13 +195,13 @@ function CtaFeature({ feature, index }: { feature: StudioFeature; index: number 
         <h3 className="text-lg font-semibold tracking-tight">{feature.title}</h3>
         <p className="mt-2 text-sm leading-relaxed text-page-muted">{feature.description}</p>
       </div>
-      <a
-        href="#legal"
+      <Link
+        to="/pricing"
         className="relative mt-4 inline-flex shrink-0 items-center gap-2 rounded-full bg-page-text px-5 py-2.5 text-sm font-medium text-page-bg transition-opacity hover:opacity-90 md:mt-0"
       >
-        Legal section
-        <span aria-hidden>↓</span>
-      </a>
+        See care package
+        <span aria-hidden>→</span>
+      </Link>
     </BentoCardShell>
   )
 }

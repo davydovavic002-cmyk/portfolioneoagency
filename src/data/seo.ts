@@ -24,11 +24,18 @@ export const STATIC_ROUTE_SEO: RouteSeo[] = [
   {
     path: '/pricing',
     title: 'Pricing',
-    description: 'Fixed-scope packages with clear timelines, deliverables, and transparent pricing.',
+    description:
+      'Custom sites from $400 — landings, brand sites, upsells, bots, and Support our project care.',
   },
   {
     path: '/brief',
     title: 'Brief',
     description: 'Four quick questions — we match a package and reply within 24 hours.',
+  },
+  {
+    path: '/revisions',
+    title: 'Revisions',
+    description:
+      'Written revision board for active projects — leave staging feedback without a call.',
   },
 ]

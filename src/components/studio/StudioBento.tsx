@@ -124,19 +124,27 @@ export function StudioBento() {
         }}
       >
         <div className="mx-auto max-w-[1120px]">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4 md:mb-10">
+            <div className="mb-8 flex flex-wrap items-end justify-between gap-4 md:mb-10">
             <div>
               <h2 className="text-2xl font-bold tracking-tight md:text-3xl">How a project runs</h2>
               <p className="mt-2 max-w-xl text-base text-page-muted md:text-lg">
                 Written-first. Staging early. Your hosting + git at the end.
               </p>
             </div>
-            <Link
-              to="/brief"
-              className="rounded-full bg-page-text px-5 py-2.5 text-sm font-medium text-page-bg"
-            >
-              Start with the brief
-            </Link>
+            <div className="flex flex-wrap gap-2">
+              <Link
+                to="/brief"
+                className="rounded-full bg-page-text px-5 py-2.5 text-sm font-medium text-page-bg"
+              >
+                Start with the brief
+              </Link>
+              <Link
+                to="/revisions"
+                className="rounded-full bg-page-surface px-5 py-2.5 text-sm font-medium ring-1 ring-page-text/10"
+              >
+                Revisions board
+              </Link>
+            </div>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

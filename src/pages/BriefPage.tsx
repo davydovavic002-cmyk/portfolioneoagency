@@ -24,19 +24,19 @@ const steps: Step[] = [
     id: 'type',
     question: 'What are we building together?',
     type: 'choice',
-    options: ['Web Platform', 'Mobile App', 'AI Agent / Bot', 'Product Redesign'],
+    options: ['Landing / site', 'Brand site (multi-page)', 'Store / CRM upsell', 'AI Agent / Bot'],
   },
   {
     id: 'budget',
     question: 'What budget range feels right?',
     type: 'choice',
-    options: ['$1.6K – $6K', '$6K – $12K', '$12K – $25K', '$25K+'],
+    options: ['$400 – $1.2K', '$1.2K – $3K', '$3K – $6K', '$6K+'],
   },
   {
     id: 'timeline',
     question: 'When do you want to launch?',
     type: 'choice',
-    options: ['1–2 months', '3–4 months', '5–6 months', 'Flexible'],
+    options: ['1–2 weeks', '2–4 weeks', '1–2 months', 'Flexible'],
   },
   {
     id: 'contact',

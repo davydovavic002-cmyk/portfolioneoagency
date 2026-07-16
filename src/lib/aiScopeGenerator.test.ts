@@ -53,6 +53,8 @@ describe('cases data', () => {
 describe('seo routes', () => {
   it('covers primary nav pages', () => {
     const paths = STATIC_ROUTE_SEO.map((r) => r.path)
-    expect(paths).toEqual(expect.arrayContaining(['/', '/work', '/studio', '/pricing', '/brief']))
+    expect(paths).toEqual(
+      expect.arrayContaining(['/', '/work', '/studio', '/pricing', '/brief', '/revisions']),
+    )
   })
 })
