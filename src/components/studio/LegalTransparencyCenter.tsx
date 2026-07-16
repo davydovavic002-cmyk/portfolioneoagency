@@ -42,11 +42,11 @@ export function LegalTransparencyCenter() {
                   'group flex flex-col gap-5 p-6 transition-shadow hover:shadow-[0_24px_60px_-16px_rgba(0,0,0,0.16)] md:flex-row md:items-center md:justify-between md:gap-8 md:p-8',
                 )}
               >
-                <div className="flex min-w-0 flex-1 gap-4 md:gap-6">
+                <div className="flex min-w-0 flex-1 gap-5 md:gap-6">
                   <span
                     className={cn(
                       modernPill,
-                      'h-fit shrink-0 bg-page-text/8 text-page-muted tabular-nums',
+                      'h-fit w-10 shrink-0 justify-center bg-page-text/8 text-page-muted tabular-nums',
                     )}
                   >
                     {block.code}

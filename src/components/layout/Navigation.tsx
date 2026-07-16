@@ -8,7 +8,6 @@ const links = [
   { to: '/studio', label: 'Studio' },
   { to: '/pricing', label: 'Pricing' },
   { to: '/brief', label: 'Brief' },
-  { to: '/revisions', label: 'Revisions' },
 ]
 
 /** Matches hero body / CTA tone — Space Grotesk, readable small size */

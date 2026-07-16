@@ -4,6 +4,7 @@ import { Seo } from '@/components/seo/Seo'
 import { BriefWizard } from '@/components/brief/BriefWizard'
 import { ModernAmbient, modernPill, sectionGradientStyle } from '@/components/ui/modernSurface'
 import { MAIN_BRIEF_STEPS } from '@/data/briefSteps'
+import { telegramProfileUrl } from '@/data/site'
 import { cn } from '@/lib/utils'
 
 export function BriefPage() {
@@ -44,11 +45,16 @@ export function BriefPage() {
           />
 
           <p className="mt-6 text-center text-sm text-page-muted">
-            Already building with us? Use the{' '}
-            <Link to="/revisions" className="text-page-accent underline-offset-2 hover:underline">
-              revisions board
-            </Link>{' '}
-            instead.
+            Already building with us?{' '}
+            <a
+              href={telegramProfileUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-page-accent underline-offset-2 hover:underline"
+            >
+              Message us on Telegram
+            </a>{' '}
+            with staging feedback.
           </p>
         </div>
       </section>

@@ -19,44 +19,51 @@ export interface LegalBlock {
 }
 
 export const legalCenterMeta = {
-  label: 'Legal & handoff',
-  title: 'Contracts, IP, and how we protect your data',
+  label: 'Before we start',
+  title: 'Contracts, IP, and your data — in plain language',
   subtitle:
-    'Procurement-friendly docs published upfront — so legal and engineering can review before the first sprint, not after.',
+    'Nothing hidden behind a sales call. Here is what each document means and what you can expect before the first sprint.',
 }
 
 export const legalBlocks: LegalBlock[] = [
   {
-    id: '01',
+    id: 'msa',
     code: '01',
-    title: 'Open-Source Master Service Agreement (MSA)',
+    title: 'Master Service Agreement (MSA)',
     description:
-      'Our transparent, balance-protected client contract. Explicitly outlines iterative bi-weekly sprint deliverables, milestones, and flexible change-order protocols.',
+      'The main contract: what we deliver, when, how changes work, and how either side can exit cleanly. Our template is open — read it before you sign.',
     action: {
-      label: 'VIEW NDA/MSA TEMPLATE',
+      label: 'View MSA template',
       document: 'msa',
     },
   },
   {
-    id: '02',
+    id: 'ip',
     code: '02',
-    title: 'Intellectual Property (IP) Guarantee',
+    title: 'You own the code',
     description:
-      '100% immediate transfer of all source code, design systems, configurations, and AI architectures upon automated milestone completion. Zero vendor lock-in, zero hidden maintenance clauses.',
+      'When a milestone is paid, the source code, designs, and configs for that scope are yours. No vendor lock-in — you can take the repo and leave anytime.',
   },
   {
-    id: '03',
+    id: 'nda',
     code: '03',
-    title: 'Local Data & Infrastructure Privacy (NDA Protocol)',
+    title: 'NDA before sensitive work',
     description:
-      'Strict multi-tenant security architecture standards. We execute custom non-disclosure agreements before a single line of your business logic or dataset touches our local staging LLM clusters.',
+      'If your brief includes private business logic, customer data, or unreleased product details, we sign an NDA before that material goes into our tools or staging.',
   },
   {
-    id: '04',
+    id: 'data',
     code: '04',
-    title: 'Post-Handoff System Sovereignty & Documentation',
+    title: 'Where your data lives',
     description:
-      'Every product is deployed alongside fully typed TypeScript API specs, automated CI/CD pipeline documentation, and comprehensive architectural runbooks for your in-house team. See RUNBOOK.md in repository root.',
+      'Staging runs on our infrastructure; production goes on your hosting. We do not sell or reuse your content. AI features use your API keys when applicable.',
+  },
+  {
+    id: 'docs',
+    code: '05',
+    title: 'Handoff documentation',
+    description:
+      'At launch you get git access, deploy notes, and a short runbook so your team (or another dev) can maintain the project without guessing.',
   },
 ]
 

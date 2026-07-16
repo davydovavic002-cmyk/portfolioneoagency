@@ -284,16 +284,16 @@ export const pricingLineItems: PricingLineItem[] = [
   {
     id: 'support-project',
     tier: 'care',
-    label: 'Support our project',
+    label: 'Ongoing project care',
     price: 350,
     priceDisplay: '$350 / month',
     timeline: 'Monthly',
     featured: true,
-    audience: 'After the included 2-week launch window — keep a written care channel open.',
+    audience: 'After the included 2-week launch window — written support for your live product.',
     description:
-      'Ongoing written support via the revisions board: small fixes, content updates, dependency bumps.',
+      'Small fixes, content updates, and dependency bumps — in writing via Telegram or email.',
     deliverables: [
-      'Written revision board access (/revisions)',
+      'Written support channel (Telegram or email)',
       'Up to 4 hours / month of fixes & content',
       'Priority reply within 2 business days',
       'Cancel anytime — month to month',

@@ -9,7 +9,7 @@ import {
   submitRevision,
   type RevisionSubmitResult,
 } from '@/lib/revisionApi'
-import { telegramMessageUrl } from '@/data/site'
+import { telegramMessageUrl, telegramProfileUrl } from '@/data/site'
 import { cn } from '@/lib/utils'
 
 const SPRING = { type: 'spring' as const, stiffness: 350, damping: 14 }
@@ -86,6 +86,13 @@ export function RevisionsPage() {
 
       <section className="relative px-4 pb-16 md:px-10 md:pb-20">
         <div className="mx-auto max-w-[720px]">
+          <div className="mb-6 rounded-2xl border border-page-accent/25 bg-page-accent/10 px-5 py-4 text-sm leading-relaxed text-page-muted">
+            This board is paused for now — please send staging feedback via{' '}
+            <a href={telegramProfileUrl()} className="text-page-accent underline-offset-2 hover:underline">
+              Telegram
+            </a>{' '}
+            or email. The form below still works if you have the direct link.
+          </div>
           <div className={cn(modernPanel, 'overflow-hidden p-6 md:p-10')}>
             <AnimatePresence mode="wait">
               {submitted ? (
@@ -265,7 +272,7 @@ export function RevisionsPage() {
                   <p className="text-xs leading-relaxed text-page-muted">
                     Included during build + 2 weeks after launch. Ongoing care is the{' '}
                     <Link to="/pricing" className="text-page-accent underline-offset-2 hover:underline">
-                      Support our project
+                      Ongoing project care
                     </Link>{' '}
                     package.
                   </p>

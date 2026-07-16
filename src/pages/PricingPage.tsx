@@ -28,12 +28,9 @@ export function PricingPage() {
             <Link to="/brief" className="text-page-accent underline-offset-2 hover:underline">
               fill the brief
             </Link>
-            . AI token usage on bots is billed to your own key. After launch care:{' '}
-            <span className="text-page-text">Support our project</span> ($350/mo) via the{' '}
-            <Link to="/revisions" className="text-page-accent underline-offset-2 hover:underline">
-              revisions board
-            </Link>
-            .
+            . AI token usage on bots is billed to your own key. After launch:{' '}
+            <span className="text-page-text">Ongoing project care</span> ($350/mo) for written fixes on
+            your live site.
           </p>
         </div>
       </section>
