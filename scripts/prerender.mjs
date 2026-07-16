@@ -32,7 +32,7 @@ const STATIC_ROUTES = [
   {
     path: '/brief',
     title: 'Brief · NEO STUDIO SPACE',
-    description: 'Four quick questions — we match a package and reply within 24 hours.',
+    description: 'Five friendly questions about your project — we reply within 24 hours.',
   },
 ]
 

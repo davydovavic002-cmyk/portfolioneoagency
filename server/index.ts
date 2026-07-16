@@ -5,8 +5,20 @@ import { serveStatic } from '@hono/node-server/serve-static'
 
 export interface BriefPayload {
   type?: string
+  goal?: string
   budget?: string
   timeline?: string
+  design?: string
+  branding?: string
+  audience?: string
+  content?: string
+  languages?: string
+  integrations?: string
+  pages?: string
+  references?: string
+  notes?: string
+  packages?: string
+  estimate?: string
   contact?: string
   source?: string
 }
@@ -19,16 +31,70 @@ export interface RevisionPayload {
   message?: string
 }
 
+const BRIEF_FIELD_LABELS: Record<string, string> = {
+  type: 'Project type',
+  goal: 'Main goal',
+  budget: 'Budget',
+  timeline: 'Timeline',
+  design: 'Design direction',
+  branding: 'Brand assets',
+  audience: 'Audience',
+  content: 'Content status',
+  languages: 'Languages',
+  integrations: 'Integrations',
+  pages: 'Must-have pages',
+  references: 'References',
+  notes: 'Extra notes',
+  packages: 'Selected packages',
+  estimate: 'Estimate',
+  contact: 'Contact',
+}
+
 function formatBrief(body: BriefPayload): string {
-  return [
-    'New brief from neostudio.space',
-    '',
-    `Project type: ${body.type ?? '—'}`,
-    `Budget: ${body.budget ?? '—'}`,
-    `Timeline: ${body.timeline ?? '—'}`,
-    `Contact: ${body.contact ?? '—'}`,
-    `Source: ${body.source ?? 'brief-form'}`,
-  ].join('\n')
+  const title =
+    body.source === 'project-brief'
+      ? 'New project brief from neostudio.space'
+      : 'New brief from neostudio.space'
+
+  const lines = [title, '']
+  const skip = new Set(['source', 'contact'])
+  const ordered =
+    body.source === 'project-brief'
+      ? [
+          'packages',
+          'estimate',
+          'design',
+          'branding',
+          'audience',
+          'content',
+          'languages',
+          'integrations',
+          'pages',
+          'references',
+          'notes',
+        ]
+      : ['type', 'goal', 'design', 'budget', 'timeline']
+
+  for (const key of ordered) {
+    const value = body[key as keyof BriefPayload]
+    if (typeof value === 'string' && value.trim() && value.trim() !== '—') {
+      lines.push(`${BRIEF_FIELD_LABELS[key] ?? key}: ${value.trim()}`)
+    }
+  }
+
+  for (const [key, value] of Object.entries(body)) {
+    if (skip.has(key) || ordered.includes(key)) continue
+    if (typeof value === 'string' && value.trim() && value.trim() !== '—') {
+      lines.push(`${BRIEF_FIELD_LABELS[key] ?? key}: ${value.trim()}`)
+    }
+  }
+
+  if (body.contact?.trim()) {
+    lines.push(`${BRIEF_FIELD_LABELS.contact}: ${body.contact.trim()}`)
+  }
+
+  lines.push(`Source: ${body.source ?? 'brief-form'}`)
+  return lines.join('\n')
 }
 
 function formatRevision(body: RevisionPayload): string {
@@ -114,8 +180,20 @@ export function createApp() {
 
     const payload: BriefPayload = {
       type: String(body.type ?? '').slice(0, 120),
+      goal: String(body.goal ?? '').slice(0, 120),
       budget: String(body.budget ?? '').slice(0, 80),
       timeline: String(body.timeline ?? '').slice(0, 80),
+      design: String(body.design ?? '').slice(0, 120),
+      branding: String(body.branding ?? '').slice(0, 120),
+      audience: String(body.audience ?? '').slice(0, 120),
+      content: String(body.content ?? '').slice(0, 120),
+      languages: String(body.languages ?? '').slice(0, 80),
+      integrations: String(body.integrations ?? '').slice(0, 120),
+      pages: String(body.pages ?? '').slice(0, 500),
+      references: String(body.references ?? '').slice(0, 500),
+      notes: String(body.notes ?? '').slice(0, 500),
+      packages: String(body.packages ?? '').slice(0, 800),
+      estimate: String(body.estimate ?? '').slice(0, 80),
       contact: contact.slice(0, 200),
       source: String(body.source ?? 'brief-form').slice(0, 80),
     }

@@ -32,7 +32,13 @@ export const STATIC_ROUTE_SEO: RouteSeo[] = [
     path: '/brief',
     title: 'Brief',
     description:
-      'Four friendly questions — we match a package from the pricing page and reply within 24 hours.',
+      'Five friendly questions about your project — we reply within 24 hours, usually in writing.',
+  },
+  {
+    path: '/brief/project',
+    title: 'Project brief',
+    description:
+      'Design direction, content, and references — the follow-up after you pick packages on Pricing.',
   },
   {
     path: '/revisions',

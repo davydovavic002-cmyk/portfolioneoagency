@@ -68,13 +68,24 @@ export function ProjectTotal({
             Send to Telegram
           </motion.a>
         </div>
-        <button
-          type="button"
-          onClick={() => void copyQuote()}
-          className="w-full text-center text-xs text-page-muted underline-offset-2 hover:text-page-text hover:underline"
-        >
-          {copied ? 'Copied to clipboard' : 'Copy quote text'}
-        </button>
+        <div className="flex flex-col gap-1.5">
+          <button
+            type="button"
+            onClick={() => void copyQuote()}
+            className="w-full text-center text-xs text-page-muted underline-offset-2 hover:text-page-text hover:underline"
+          >
+            {copied ? 'Copied to clipboard' : 'Copy quote text'}
+          </button>
+          {itemCount > 0 && (
+            <Link
+              to="/brief/project"
+              state={{ selectedItems, total: value }}
+              className="w-full text-center text-xs font-medium text-page-accent underline-offset-2 hover:underline"
+            >
+              Project brief — design & details →
+            </Link>
+          )}
+        </div>
       </div>
     )
   }
@@ -135,7 +146,26 @@ export function ProjectTotal({
           {itemCount > 0 ? 'Send quote to Telegram' : 'Message us on Telegram'}
         </motion.a>
 
-        <div className="grid grid-cols-2 gap-2">
+        {itemCount > 0 ? (
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            <motion.button
+              type="button"
+              onClick={() => void copyQuote()}
+              whileTap={{ scale: 0.97 }}
+              transition={SPRING}
+              className="rounded-full bg-page-bg px-4 py-2.5 text-sm ring-1 ring-page-text/10 transition-opacity hover:opacity-80"
+            >
+              {copied ? 'Copied' : 'Copy quote'}
+            </motion.button>
+            <Link
+              to="/brief/project"
+              state={{ selectedItems, total: value }}
+              className="flex items-center justify-center rounded-full bg-page-text px-4 py-2.5 text-sm font-medium text-page-bg transition-opacity hover:opacity-90"
+            >
+              Project brief — design & details
+            </Link>
+          </div>
+        ) : (
           <motion.button
             type="button"
             onClick={() => void copyQuote()}
@@ -145,19 +175,13 @@ export function ProjectTotal({
           >
             {copied ? 'Copied' : 'Copy quote'}
           </motion.button>
-          <Link
-            to="/brief"
-            className="flex items-center justify-center rounded-full bg-page-text px-4 py-2.5 text-sm font-medium text-page-bg transition-opacity hover:opacity-90"
-          >
-            Full brief
-          </Link>
-        </div>
+        )}
       </div>
 
       <p className="mt-4 text-xs leading-relaxed text-page-muted">
         {itemCount === 0
           ? 'No checkout here — we confirm everything in chat before any invoice.'
-          : '“From” packages show the floor in the total. Final scope is locked in writing after the brief.'}
+          : '“From” packages show the floor in the total. Fill the project brief for design direction and content.'}
       </p>
     </div>
   )

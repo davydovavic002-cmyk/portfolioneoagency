@@ -352,7 +352,7 @@ export function formatPricingQuoteMessage(selectedItems: PricingLineItem[], tota
     )
   }
 
-  lines.push('', 'Prefer to continue in writing — happy to fill the brief next.')
+  lines.push('', 'Prefer to continue in writing — happy to share design & project details next.')
 
   return lines.join('\n')
 }
