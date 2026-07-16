@@ -255,11 +255,11 @@ export function StudioFeaturesBento() {
           <div>
             <h2 className="text-2xl font-bold tracking-tight md:text-3xl">What we do</h2>
             <p className="mt-2 max-w-lg text-base text-page-muted">
-              Eight capabilities — combined differently for every client.
+              Clear packages, custom design, and a process that stays in writing.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
-            {['0 templates', '100% IP yours', 'Staging week 1'].map((chip) => (
+            {['Custom design', 'From $400', 'Written-first'].map((chip) => (
               <span
                 key={chip}
                 className={cn(modernPill, 'bg-page-surface/90 text-page-muted ring-1 ring-page-text/10')}

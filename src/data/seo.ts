@@ -19,7 +19,8 @@ export const STATIC_ROUTE_SEO: RouteSeo[] = [
   {
     path: '/studio',
     title: 'Studio',
-    description: 'How we work — custom architecture, staging URLs, and end-to-end delivery.',
+    description:
+      'Custom sites and bots — clear packages from $400, written-first process. Remote studio, Europe / Asia timezone.',
   },
   {
     path: '/pricing',
@@ -30,7 +31,8 @@ export const STATIC_ROUTE_SEO: RouteSeo[] = [
   {
     path: '/brief',
     title: 'Brief',
-    description: 'Four quick questions — we match a package and reply within 24 hours.',
+    description:
+      'Four friendly questions — we match a package from the pricing page and reply within 24 hours.',
   },
   {
     path: '/revisions',

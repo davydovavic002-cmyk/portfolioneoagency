@@ -11,7 +11,7 @@ export function PricingPage() {
       <Seo
         title="Pricing"
         path="/pricing"
-        description="Custom sites from $400 — landings, brand sites, upsells, bots, and Support our project care."
+        description="Custom-designed sites from $400, stores from $2,000, bots in the same band (you pay AI tokens), and $350/mo care."
       />
       <section className="relative px-4 pb-8 pt-14 md:px-10 md:pt-16" style={sectionGradientStyle()}>
         <ModernAmbient className="right-0 top-0 left-auto w-[55%] opacity-40" />
@@ -20,12 +20,16 @@ export function PricingPage() {
             Pricing
           </span>
           <h1 className="mt-5 text-4xl font-bold tracking-tight md:text-6xl">
-            Custom design. Clear packages.
+            Pick a package. Add what you need.
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-page-muted md:text-lg">
-            Landings from $400 — always custom UI. Sites scale from $500 / $1,000 / $2,000. Bots sit in the
-            same price band; <span className="text-page-text">you pay AI tokens on your own key</span>.
-            After launch: Support our project ($350/mo). Feedback on the{' '}
+            Every site is custom-designed — not a template. Tick the packages below for a rough total,
+            then send it to us or{' '}
+            <Link to="/brief" className="text-page-accent underline-offset-2 hover:underline">
+              fill the brief
+            </Link>
+            . AI token usage on bots is billed to your own key. After launch care:{' '}
+            <span className="text-page-text">Support our project</span> ($350/mo) via the{' '}
             <Link to="/revisions" className="text-page-accent underline-offset-2 hover:underline">
               revisions board
             </Link>

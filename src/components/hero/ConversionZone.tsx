@@ -60,7 +60,7 @@ function ScopeOutput({ result, prompt }: { result: ScopeBreakdown; prompt: strin
 
       <div className="space-y-3 border-t border-page-text/10 pt-4">
         <p className="text-sm text-page-muted">
-          Draft estimate — we&apos;ll refine the stack on a quick intro call.
+          Draft estimate — we&apos;ll refine it in writing after your brief.
         </p>
         <div className="flex flex-wrap gap-2">
           <motion.a
@@ -133,13 +133,13 @@ function ExecutionManifesto() {
         </h2>
 
         <p className="mt-5 max-w-lg text-base leading-relaxed text-page-muted md:text-lg">
-          After our first call, we map your product individually — no templates, no off-the-shelf
-          stacks. Within 48 hours you get a clickable prototype on a staging URL: a UI flow or an
-          early AI bot draft, built around your business logic.
+          Start with a short brief on the site. We map the build in writing — no templates, no
+          off-the-shelf skins. You get a staging URL early so you can click through the real UI (or
+          bot draft) while we iterate.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-2">
-          {['48h prototype', 'Custom stack', 'Full code ownership'].map((chip) => (
+          {['Brief on site', 'Custom design', 'Staging early'].map((chip) => (
             <span
               key={chip}
               className={cn(modernPill, 'bg-page-bg/80 text-page-muted ring-1 ring-page-text/8')}
@@ -302,7 +302,7 @@ export function ConversionZone() {
             Start here
           </span>
           <h2 className="mt-4 text-2xl font-bold tracking-tight md:text-3xl">
-            From first call to working prototype
+            From brief to working preview
           </h2>
         </div>
 
