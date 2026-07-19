@@ -62,6 +62,7 @@ export function RevisionsPage() {
       <Seo
         title="Revisions"
         path="/revisions"
+        noIndex
         description="Written revision board for active NEO projects — leave feedback on staging without scheduling a call."
       />
       <header className="relative px-4 pb-4 pt-10 md:px-10 md:pt-14" style={sectionGradientStyle()}>

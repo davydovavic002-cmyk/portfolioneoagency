@@ -35,7 +35,7 @@ export function PricingPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1120px] px-4 py-12 md:px-10">
+      <section className="mx-auto max-w-[1120px] px-4 py-12 pb-20 md:px-10 lg:pb-12">
         <PricingMatrix
           groups={PRICING_TIER_GROUPS}
           items={pricingLineItems}

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        background: #fff5e6;
+        color: #0a0a0a;
+      }
+
+      .frame {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 72px 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .glow-pink {
+        position: absolute;
+        top: -120px;
+        left: -80px;
+        width: 520px;
+        height: 520px;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(255, 110, 176, 0.45), transparent 68%);
+      }
+
+      .glow-cyan {
+        position: absolute;
+        right: -100px;
+        bottom: -140px;
+        width: 560px;
+        height: 560px;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(0, 194, 255, 0.38), transparent 68%);
+      }
+
+      .eyebrow {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+      }
+
+      .mark {
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
+        border: 2px solid #0a0a0a;
+        background: #ffffff;
+        display: grid;
+        place-items: center;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .title {
+        position: relative;
+        z-index: 1;
+        margin-top: 28px;
+        font-size: 112px;
+        font-weight: 700;
+        line-height: 0.84;
+        letter-spacing: -0.05em;
+        text-transform: uppercase;
+        max-width: 980px;
+      }
+
+      .tagline {
+        position: relative;
+        z-index: 1;
+        margin-top: 28px;
+        max-width: 760px;
+        font-size: 34px;
+        line-height: 1.35;
+        color: #5a5a5a;
+      }
+
+      .footer {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 2px solid #0a0a0a;
+        padding-top: 24px;
+        font-size: 22px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .accent {
+        color: #ff2d6b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="glow-pink" aria-hidden="true"></div>
+      <div class="glow-cyan" aria-hidden="true"></div>
+
+      <div>
+        <div class="eyebrow">
+          <span class="mark">N</span>
+          <span>Neo / Space</span>
+        </div>
+        <h1 class="title">NEO STUDIO SPACE</h1>
+        <p class="tagline">
+          Full-stack design-engineering studio — custom products, AI agents, and fixed-scope packages.
+        </p>
+      </div>
+
+      <div class="footer">
+        <span>neostudio.space</span>
+        <span class="accent">No templates</span>
+      </div>
+    </div>
+  </body>
+</html>

@@ -48,7 +48,7 @@ export function ProjectTotal({
   if (compact) {
     return (
       <div className="flex flex-col gap-3">
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="min-w-0">
             <p className="text-xs text-page-muted">
               {itemCount} package{itemCount === 1 ? '' : 's'} selected
@@ -63,16 +63,16 @@ export function ProjectTotal({
             rel="noopener noreferrer"
             whileTap={{ scale: 0.97 }}
             transition={SPRING}
-            className="shrink-0 rounded-full bg-[#00c2ff] px-4 py-2.5 text-xs font-medium text-page-text"
+            className="inline-flex w-full shrink-0 items-center justify-center rounded-full bg-[#00c2ff] px-4 py-3 text-xs font-medium text-page-text sm:w-auto sm:py-2.5"
           >
             Send to Telegram
           </motion.a>
         </div>
-        <div className="flex flex-col gap-1.5">
+        <div className="flex flex-col gap-2">
           <button
             type="button"
             onClick={() => void copyQuote()}
-            className="w-full text-center text-xs text-page-muted underline-offset-2 hover:text-page-text hover:underline"
+            className="min-h-11 w-full text-center text-xs text-page-muted underline-offset-2 hover:text-page-text hover:underline"
           >
             {copied ? 'Copied to clipboard' : 'Copy quote text'}
           </button>
@@ -80,7 +80,7 @@ export function ProjectTotal({
             <Link
               to="/brief/project"
               state={{ selectedItems, total: value }}
-              className="w-full text-center text-xs font-medium text-page-accent underline-offset-2 hover:underline"
+              className="inline-flex min-h-11 w-full items-center justify-center text-center text-xs font-medium text-page-accent underline-offset-2 hover:underline"
             >
               Project brief — design & details →
             </Link>

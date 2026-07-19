@@ -58,7 +58,7 @@ export function EditorialGridCard({ project, index }: EditorialGridCardProps) {
             <h3 className="mt-1 text-xl font-bold tracking-tight">{project.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-page-muted">{project.description}</p>
           </div>
-          <span className="mt-4 font-mono text-[9px] tracking-[0.25em] uppercase text-page-muted opacity-0 transition-opacity group-hover:opacity-100">
+          <span className="mt-4 font-mono text-[9px] tracking-[0.25em] uppercase text-page-muted opacity-100 lg:opacity-0 lg:transition-opacity lg:group-hover:opacity-100">
             Read case study →
           </span>
         </div>

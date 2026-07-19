@@ -1,0 +1,30 @@
+{
+  "name": "NEO STUDIO SPACE",
+  "short_name": "NEO SPACE",
+  "description": "Full-stack design-engineering studio — custom web products, AI agents, and fixed-scope packages.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff5e6",
+  "theme_color": "#fff5e6",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/og.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

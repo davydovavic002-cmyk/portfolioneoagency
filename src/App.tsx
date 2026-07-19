@@ -43,20 +43,23 @@ export default function App() {
           <ScrollToTop />
           <Navigation />
           <AnimatedRoutes />
-          <footer className="border-t-2 border-page-text px-4 py-8 md:px-10">
+          <footer className="safe-bottom border-t-2 border-page-text px-4 py-8 md:px-10">
             <div className="mx-auto flex max-w-[1600px] flex-col items-center justify-between gap-4 md:flex-row">
               <span className="font-mono text-[10px] tracking-[0.35em] uppercase">
                 © 2026 NEO STUDIO SPACE
               </span>
-              <div className="flex flex-wrap items-center justify-center gap-4 font-mono text-xs">
-                <a href={`mailto:${SITE.email}`} className="hover:text-page-accent">
+              <div className="flex flex-wrap items-center justify-center gap-2 font-mono text-xs sm:gap-4">
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="inline-flex min-h-11 items-center px-3 hover:text-page-accent"
+                >
                   {SITE.email}
                 </a>
                 <a
                   href={telegramProfileUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-page-accent"
+                  className="inline-flex min-h-11 items-center px-3 hover:text-page-accent"
                 >
                   @{SITE.telegram}
                 </a>

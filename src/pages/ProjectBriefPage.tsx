@@ -42,6 +42,7 @@ export function ProjectBriefPage() {
       <Seo
         title="Project brief"
         path="/brief/project"
+        noIndex
         description="Design direction, content, and references — the follow-up after you pick packages on Pricing."
       />
       <header className="relative px-4 pb-6 pt-10 md:px-10 md:pt-14" style={sectionGradientStyle()}>

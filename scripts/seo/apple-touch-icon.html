@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 512px;
+        height: 512px;
+        overflow: hidden;
+        background: #fff5e6;
+      }
+
+      .canvas {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background:
+          radial-gradient(circle at 18% 14%, rgba(255, 110, 176, 0.55), transparent 55%),
+          radial-gradient(circle at 86% 88%, rgba(0, 194, 255, 0.45), transparent 52%),
+          #fff5e6;
+        display: grid;
+        place-items: center;
+      }
+
+      .mark {
+        width: 320px;
+        height: 320px;
+        border-radius: 56px;
+        border: 8px solid #0a0a0a;
+        background: #ffffff;
+        display: grid;
+        place-items: center;
+        position: relative;
+      }
+
+      .n {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 170px;
+        font-weight: 700;
+        line-height: 1;
+        color: #0a0a0a;
+        transform: translateX(-18px);
+      }
+
+      .bar {
+        position: absolute;
+        right: 72px;
+        top: 92px;
+        width: 28px;
+        height: 176px;
+        background: #ff2d6b;
+      }
+
+      .dot {
+        position: absolute;
+        right: 58px;
+        top: 68px;
+        width: 36px;
+        height: 36px;
+        border-radius: 999px;
+        background: #00c2ff;
+        border: 4px solid #0a0a0a;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <div class="mark" aria-hidden="true">
+        <div class="n">N</div>
+        <div class="bar"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+  </body>
+</html>

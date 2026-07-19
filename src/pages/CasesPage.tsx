@@ -79,7 +79,7 @@ export function CasesPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-[1600px] gap-10 px-4 py-12 md:grid-cols-[240px_1fr] md:px-10 lg:grid-cols-[280px_1fr]">
+      <section className="mx-auto grid max-w-[1600px] gap-10 px-4 py-12 lg:grid-cols-[280px_1fr] lg:px-10">
         <CategoryFilter
           pillars={CASE_PILLARS}
           active={activePillar}

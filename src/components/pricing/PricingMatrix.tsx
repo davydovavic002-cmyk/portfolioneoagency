@@ -48,7 +48,7 @@ export function PricingMatrix({ groups, items, baseFee }: PricingMatrixProps) {
       <div
         className={cn(
           'grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_320px]',
-          selected.size > 0 && 'pb-28 lg:pb-0',
+          selected.size > 0 && 'pb-[calc(13rem+env(safe-area-inset-bottom,0px))] lg:pb-0',
         )}
       >
         <div className="min-w-0 space-y-10">
@@ -191,7 +191,7 @@ export function PricingMatrix({ groups, items, baseFee }: PricingMatrixProps) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 80, opacity: 0 }}
             transition={{ type: 'spring', stiffness: 350, damping: 14 }}
-            className="fixed inset-x-0 bottom-0 z-40 border-t border-page-text/10 bg-page-bg/95 px-4 py-3 backdrop-blur-md lg:hidden"
+            className="safe-bottom fixed inset-x-0 bottom-0 z-40 border-t border-page-text/10 bg-page-bg/95 px-4 py-3 backdrop-blur-md lg:hidden"
           >
             <ProjectTotal {...totalProps} compact />
           </motion.div>

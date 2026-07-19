@@ -10,7 +10,7 @@ interface CategoryFilterProps {
 
 export function CategoryFilter({ pillars, active, onChange, counts }: CategoryFilterProps) {
   return (
-    <aside className="md:sticky md:top-20 md:self-start">
+    <aside className="lg:sticky lg:top-20 lg:self-start">
       <p className="font-mono text-[10px] tracking-[0.35em] uppercase">Categories</p>
       <nav className="mt-4 flex flex-col gap-0 border-2 border-page-text">
         <button

@@ -59,9 +59,9 @@ export function CasePreviewViewport({ url, title }: CasePreviewViewportProps) {
   }
 
   return (
-    <div className="relative mx-auto w-full max-w-[1280px]">
+    <div className="relative mx-auto w-full max-w-[1280px] overflow-x-clip">
       <div
-        className="pointer-events-none absolute -inset-6 rounded-[2rem] opacity-80 blur-3xl md:-inset-10"
+        className="pointer-events-none absolute -inset-3 rounded-[2rem] opacity-80 blur-3xl md:-inset-10"
         aria-hidden
         style={{
           background:
@@ -70,7 +70,7 @@ export function CasePreviewViewport({ url, title }: CasePreviewViewportProps) {
       />
 
       <div className="relative overflow-hidden rounded-2xl bg-page-surface/90 shadow-[0_24px_80px_-12px_rgba(0,0,0,0.18)] ring-1 ring-page-text/10 backdrop-blur-sm md:rounded-3xl">
-        <div className="flex items-center gap-3 border-b border-page-text/8 bg-page-bg/60 px-4 py-3 backdrop-blur-md md:px-5 md:py-3.5">
+        <div className="flex items-center gap-2 border-b border-page-text/8 bg-page-bg/60 px-3 py-3 backdrop-blur-md sm:gap-3 sm:px-4 md:px-5 md:py-3.5">
           <div className="hidden items-center gap-1.5 sm:flex" aria-hidden>
             <span className="h-2 w-2 rounded-full bg-page-text/15" />
             <span className="h-2 w-2 rounded-full bg-page-text/10" />
@@ -96,14 +96,14 @@ export function CasePreviewViewport({ url, title }: CasePreviewViewportProps) {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 rounded-full bg-page-text px-4 py-2 text-xs font-medium text-page-bg transition-opacity hover:opacity-85"
+            className="shrink-0 rounded-full bg-page-text px-3 py-2 text-[11px] font-medium text-page-bg transition-opacity hover:opacity-85 sm:px-4 sm:text-xs"
           >
-            Open site
+            Open
           </a>
         </div>
 
         <div
-          className="relative h-[min(720px,78dvh)] w-full sm:h-[min(820px,80dvh)] md:h-[min(900px,82dvh)]"
+          className="relative h-[min(480px,52dvh)] w-full sm:h-[min(620px,62dvh)] md:h-[min(720px,72dvh)] lg:h-[min(900px,82dvh)]"
           style={{
             background:
               'linear-gradient(145deg, color-mix(in srgb, var(--theme-bg) 70%, var(--theme-accent-2) 30%), color-mix(in srgb, var(--theme-bg) 80%, var(--theme-accent) 20%))',

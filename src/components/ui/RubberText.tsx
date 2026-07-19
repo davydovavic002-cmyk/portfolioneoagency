@@ -71,20 +71,36 @@ export function RubberText({ text, className, as: Tag = 'h1' }: RubberTextProps)
     }
   }, [])
 
+  const words = text.trim().split(/\s+/)
+
   return (
     <div ref={containerRef} className={cn('select-none', className)}>
-      <Tag className="text-grotesk-huge text-[clamp(3rem,13vw,10rem)] text-page-text">
-        {chars.map((item, index) => (
-          <span
-            key={`${item.char}-${index}`}
-            className="inline-block origin-center transition-transform duration-100 will-change-transform"
-            style={{
-              transform: `scaleX(${item.scaleX}) scaleY(${item.scaleY}) rotate(${item.rotate}deg)`,
-            }}
-          >
-            {item.char === ' ' ? '\u00A0' : item.char}
-          </span>
-        ))}
+      <Tag className="text-grotesk-huge flex flex-col items-start gap-y-1 text-[clamp(2.75rem,13vw,4.5rem)] leading-[0.88] text-page-text lg:flex-row lg:flex-wrap lg:items-end lg:gap-x-[0.08em] lg:gap-y-0 lg:text-[clamp(3rem,9vw,10rem)] lg:leading-[0.82]">
+        {words.map((word, wordIndex) => {
+          const wordStart = words.slice(0, wordIndex).reduce((offset, part) => offset + part.length + 1, 0)
+
+          return (
+            <span key={`${word}-${wordIndex}`} className="inline-flex whitespace-nowrap">
+              {word.split('').map((char, charIndex) => {
+                const index = wordStart + charIndex
+                const item = chars[index]
+                if (!item) return null
+
+                return (
+                  <span
+                    key={`${char}-${index}`}
+                    className="inline-block origin-center transition-transform duration-100 will-change-transform"
+                    style={{
+                      transform: `scaleX(${item.scaleX}) scaleY(${item.scaleY}) rotate(${item.rotate}deg)`,
+                    }}
+                  >
+                    {char}
+                  </span>
+                )
+              })}
+            </span>
+          )
+        })}
       </Tag>
     </div>
   )

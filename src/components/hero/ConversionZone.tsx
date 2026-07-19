@@ -232,7 +232,7 @@ function AiSandbox() {
                 }
               }}
               onKeyDown={handleKeyDown}
-              placeholder="e.g., Telegram bot with vector search and a dashboard…"
+              placeholder="e.g., Telegram bot with RAG and dashboard…"
               className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-page-muted/60"
               disabled={phase === 'loading'}
             />

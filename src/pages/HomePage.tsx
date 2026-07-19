@@ -7,12 +7,12 @@ import { ConversionZone } from '@/components/hero/ConversionZone'
 import { randomBetween } from '@/lib/utils'
 
 const stickers = [
-  { className: 'left-[6%] top-[20%]', rot: -10, el: <StarBurst /> },
-  { className: 'right-[8%] top-[14%]', rot: 12, el: <ArtBlob color="#ff6eb0" /> },
-  { className: 'right-[12%] top-[48%]', rot: -8, el: <StarBurst /> },
-  { className: 'left-[10%] top-[55%]', rot: 14, el: <ArtBlob color="#ff2d6b" /> },
-  { className: 'left-[42%] top-[22%]', rot: 6, el: <StarBurst /> },
-  { className: 'right-[28%] bottom-[18%]', rot: -5, el: <ArtBlob color="#ffc4dd" /> },
+  { className: 'left-[6%] top-[16%] max-lg:hidden', rot: -10, el: <StarBurst /> },
+  { className: 'right-[8%] top-[12%] max-lg:hidden', rot: 12, el: <ArtBlob color="#ff6eb0" /> },
+  { className: 'right-[10%] top-[38%] max-lg:hidden', rot: -8, el: <StarBurst /> },
+  { className: 'left-[10%] top-[55%] max-lg:hidden', rot: 14, el: <ArtBlob color="#ff2d6b" /> },
+  { className: 'left-[42%] top-[22%] max-lg:hidden', rot: 6, el: <StarBurst /> },
+  { className: 'right-[28%] bottom-[18%] max-lg:hidden', rot: -5, el: <ArtBlob color="#ffc4dd" /> },
 ]
 
 export function HomePage() {
@@ -38,8 +38,8 @@ export function HomePage() {
           </DraggableSticker>
         ))}
 
-        <div className="relative z-10 flex min-h-[calc(100vh-8rem)] flex-col justify-end px-4 pb-10 md:px-10">
-          <RubberText text="NEO STUDIO SPACE" />
+        <div className="relative z-10 flex min-h-[calc(100vh-8rem)] flex-col justify-end px-4 pb-10 pt-20 sm:pt-24 lg:px-10 lg:pt-0">
+          <RubberText text="NEO STUDIO SPACE" className="max-w-full" />
 
           <div className="mt-10 max-w-xl">
             <p className="text-lg leading-relaxed md:text-xl">
