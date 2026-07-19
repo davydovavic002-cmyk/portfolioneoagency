@@ -95,20 +95,34 @@ export function LegalDocumentModal({ open, title, sections, onClose }: LegalDocu
                     <section key={section.heading} className="border-b border-page-text/10 pb-6 last:border-b-0">
                       <h3 className="text-sm font-semibold tracking-tight">{section.heading}</h3>
                       <div className="mt-3 space-y-3">
-                        {section.paragraphs.map((paragraph) => (
-                          <p key={paragraph.slice(0, 40)} className="text-sm leading-relaxed text-page-muted">
-                            {paragraph}
-                          </p>
-                        ))}
-                        {section.bullets && (
-                          <ul className="space-y-1.5 border-l border-page-text/30 pl-4">
-                            {section.bullets.map((bullet) => (
-                              <li key={bullet} className="text-sm leading-relaxed text-page-muted">
-                                {bullet}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
+                        {section.blocks.map((block, index) => {
+                          if (block.type === 'paragraph') {
+                            return (
+                              <p
+                                key={`${section.heading}-p-${index}`}
+                                className="text-sm leading-relaxed text-page-muted"
+                              >
+                                {block.text}
+                              </p>
+                            )
+                          }
+
+                          const ListTag = block.ordered ? 'ol' : 'ul'
+                          return (
+                            <ListTag
+                              key={`${section.heading}-l-${index}`}
+                              className={
+                                block.ordered
+                                  ? 'list-decimal space-y-1.5 pl-5 text-sm leading-relaxed text-page-muted'
+                                  : 'space-y-1.5 border-l border-page-text/30 pl-4 text-sm leading-relaxed text-page-muted'
+                              }
+                            >
+                              {block.items.map((item) => (
+                                <li key={item}>{item}</li>
+                              ))}
+                            </ListTag>
+                          )
+                        })}
                       </div>
                     </section>
                   ))}

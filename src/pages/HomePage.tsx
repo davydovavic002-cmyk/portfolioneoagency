@@ -7,12 +7,12 @@ import { ConversionZone } from '@/components/hero/ConversionZone'
 import { randomBetween } from '@/lib/utils'
 
 const stickers = [
-  { className: 'left-[6%] top-[16%] max-lg:hidden', rot: -10, el: <StarBurst /> },
-  { className: 'right-[8%] top-[12%] max-lg:hidden', rot: 12, el: <ArtBlob color="#ff6eb0" /> },
-  { className: 'right-[10%] top-[38%] max-lg:hidden', rot: -8, el: <StarBurst /> },
-  { className: 'left-[10%] top-[55%] max-lg:hidden', rot: 14, el: <ArtBlob color="#ff2d6b" /> },
-  { className: 'left-[42%] top-[22%] max-lg:hidden', rot: 6, el: <StarBurst /> },
-  { className: 'right-[28%] bottom-[18%] max-lg:hidden', rot: -5, el: <ArtBlob color="#ffc4dd" /> },
+  { className: 'left-[4%] top-[14%] sm:left-[6%] sm:top-[16%]', rot: -10, el: <StarBurst /> },
+  { className: 'right-[4%] top-[10%] sm:right-[8%] sm:top-[12%]', rot: 12, el: <ArtBlob color="#ff6eb0" /> },
+  { className: 'right-[6%] top-[32%] sm:right-[10%] sm:top-[38%]', rot: -8, el: <StarBurst /> },
+  { className: 'left-[6%] top-[48%] sm:left-[10%] sm:top-[55%]', rot: 14, el: <ArtBlob color="#ff2d6b" /> },
+  { className: 'left-[38%] top-[18%] sm:left-[42%] sm:top-[22%]', rot: 6, el: <StarBurst /> },
+  { className: 'right-[8%] bottom-[22%] sm:right-[28%] sm:bottom-[18%]', rot: -5, el: <ArtBlob color="#ffc4dd" /> },
 ]
 
 export function HomePage() {
@@ -34,7 +34,7 @@ export function HomePage() {
             zIndex={20 + i}
             className={sticker.className}
           >
-            <div className="scale-75 md:scale-90">{sticker.el}</div>
+            <div className="scale-[0.65] sm:scale-75 lg:scale-90">{sticker.el}</div>
           </DraggableSticker>
         ))}
 

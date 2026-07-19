@@ -1,10 +1,11 @@
 import msaTemplateMarkdown from '../../docs/MSA_TEMPLATE.md?raw'
-import { parseLegalMarkdown } from '@/lib/parseLegalMarkdown'
+import { parseLegalMarkdown, type LegalContentBlock } from '@/lib/parseLegalMarkdown'
+
+export type { LegalContentBlock }
 
 export interface LegalDocumentSection {
   heading: string
-  paragraphs: string[]
-  bullets?: string[]
+  blocks: LegalContentBlock[]
 }
 
 export interface LegalBlock {

@@ -48,7 +48,7 @@ export const cases: CaseStudy[] = [
     tagline:
       'Specialty coffee brand site for Gent — bold hand-drawn vibe, bilingual shop, events, and checkout-ready flows.',
     description:
-      'Next.js storefront with EN/NL locales, menu, beans shop, cupping events, and a playful brand system.',
+      'Custom UX/UI: hand-drawn brand system with brutal borders and coffee-blue accents, EN/NL locale switch, mobile-first menu and shop flows, motion on product cards, and checkout-ready cart patterns — not a generic café template.',
     year: '2026',
     client: 'Doodle & Drip · Gent',
     duration: '12–16 days',
@@ -58,13 +58,13 @@ export const cases: CaseStudy[] = [
     coverImage: '/cases/doodle-drip.webp',
     relatedPackageId: 'ecommerce-store',
     overview:
-      'Doodle & Drip needed a site that feels like the brand: small-batch coffee with a loud doodle personality — not another beige café template. We built a bilingual Next.js experience covering menu, retail beans, events, visit, and checkout paths, live at drip.neostudio.space.',
+      'Doodle & Drip needed a site that feels like the brand: small-batch coffee with a loud doodle personality — not another beige café template. We designed a bilingual UX with clear menu → shop → events paths, thumb-friendly navigation, and motion that supports the hand-drawn identity. Built in Next.js and live at drip.neostudio.space.',
     challenge:
       'A Gent specialty roastery needed ecommerce + vibe in one place: café story, shop, events, and NL/EN without a bloated theme.',
     approach: [
       {
         title: 'Brand-first UI system',
-        body: 'Brutal borders, coffee-blue accents, and motion that matches the hand-drawn identity — readable on mobile, loud on desktop.',
+        body: 'Brutal borders, coffee-blue accents, doodle motifs, and motion tuned for mobile thumbs — readable type scale, sticky shop CTAs, and hover states that feel hand-made, not template polish.',
       },
       {
         title: 'Bilingual storefront',
@@ -92,7 +92,7 @@ export const cases: CaseStudy[] = [
     tagline:
       'Premium pilates studio site for Belgrade — dreamy aesthetics, magnetic interactions, notebook-style schedule.',
     description:
-      'Two-page React SPA with glassmorphism, class slider, team cards, and a tactile schedule page.',
+      'UX/UI-led landing: glassmorphism panels, soft gradients, magnetic button interactions, class slider and team cards on home, plus a notebook-style schedule page — dreamy pilates aesthetic, mobile-first layout.',
     year: '2026',
     client: 'Stretch and Chill · Belgrade',
     duration: '8–12 days',
@@ -102,21 +102,21 @@ export const cases: CaseStudy[] = [
     coverImage: '/cases/stretch-and-chill.webp',
     relatedPackageId: 'landing-page',
     overview:
-      'Stretch and Chill needed a brand-first web presence that feels dreamy and tactile — not a generic fitness template. We shipped a compact two-page experience: a magnetic home page and a notebook-style schedule view.',
+      'Stretch and Chill needed a brand-first web presence that feels dreamy and tactile — not a generic fitness template. We designed magnetic micro-interactions, a glass UI kit, and two focused pages: an editorial home scroll and a schedule view that reads like a studio notebook on phone and desktop.',
     challenge:
       'A pilates studio in Belgrade needed a brand-first site that feels dreamy and tactile — not a generic fitness template.',
     approach: [
       {
         title: 'Visual language & motion',
-        body: 'Glassmorphism panels, soft gradients, and magnetic button interactions that match the in-studio atmosphere.',
+        body: 'Glassmorphism panels, soft gradients, and magnetic buttons with spring physics — every tap gives feedback without cluttering the calm pilates mood.',
       },
       {
         title: 'Home experience',
-        body: 'Class slider, team cards, and editorial typography — everything in one scroll with clear CTAs to book.',
+        body: 'Class slider with snap points, team cards with portrait crops, and editorial type hierarchy — one scroll, clear book CTAs, no hamburger maze.',
       },
       {
         title: 'Schedule page',
-        body: 'Notebook-style weekly layout for classes — readable on mobile, easy for the studio to point clients to.',
+        body: 'Notebook-style weekly grid: day tabs on mobile, time blocks with enough contrast for studio lighting, easy to screenshot and share in Instagram DMs.',
       },
       {
         title: 'Deploy & handoff',
@@ -136,7 +136,7 @@ export const cases: CaseStudy[] = [
     tagline:
       'Premium Singapore salon — stylist discovery, service menu, diagnostics, and online booking.',
     description:
-      'Single-page editorial salon site with multi-step booking and dark-mode luxury aesthetic.',
+      'Editorial single-page UX: dark luxury theme, photography-led sections, stylist cards, service menu hierarchy, and a 4-step booking flow with clear progress — salon-grade UI, not a widget bolt-on.',
     year: '2026',
     client: 'AURA Hair · Singapore',
     duration: '10–14 days',
@@ -146,21 +146,21 @@ export const cases: CaseStudy[] = [
     coverImage: '/cases/aura-hair.webp',
     relatedPackageId: 'aesthetic-web',
     overview:
-      'A premium salon needed a digital presence that matches the in-chair experience — not a generic booking widget. We built a single-page editorial site with stylist profiles, service menu, hair diagnostics, and a four-step booking flow.',
+      'A premium salon needed a digital presence that matches the in-chair experience — not a generic booking widget. We designed a dark editorial layout, stylist discovery patterns, a scannable service menu, and a four-step booking UI with visible progress and mobile-friendly inputs.',
     challenge:
       'A premium salon needed a digital presence that matches in-chair experience — not a generic booking widget.',
     approach: [
       {
         title: 'Editorial single-page layout',
-        body: 'Dark-mode luxury aesthetic with strong typography and photography-led sections.',
+        body: 'Dark-mode luxury aesthetic, large serif headlines, full-bleed photography, and section rhythm that mirrors a lookbook — scroll tells the salon story before booking.',
       },
       {
         title: 'Multi-step booking',
-        body: 'Four-step flow: stylist selection, services, diagnostics questionnaire, and confirmation.',
+        body: 'Four-step flow with step indicator: stylist → services → diagnostics questionnaire → confirm. Large tap targets, inline validation, no dead-end modals on mobile.',
       },
       {
         title: 'Service & stylist discovery',
-        body: 'Structured menu of treatments and individual stylist profiles with clear pricing cues.',
+        body: 'Price cues inline with treatments; stylist cards with specialty tags and portrait crops so clients pick a person, not just a time slot.',
       },
       {
         title: 'Aesthetic Web delivery',
@@ -179,7 +179,7 @@ export const cases: CaseStudy[] = [
     pillar: 'fullstack',
     tagline: 'Vet clinic ecosystem — diagnostic AI, feed analysis, and clinic-facing dashboard.',
     description:
-      'Demo-ready AI product with clinic workflows, nutrition plans, and a functional dashboard UI.',
+      'Product UI for clinics: intake forms, pet profile cards, nutrition plan views, and a dashboard with three clear workflows — dense information made scannable, not enterprise clutter.',
     year: '2025',
     client: 'PetCare AI',
     duration: '14–21 days',
@@ -189,7 +189,7 @@ export const cases: CaseStudy[] = [
     coverImage: '/cases/petcare-ai-cover.webp',
     relatedPackageId: 'ai-core-mvp',
     overview:
-      'Vet clinics needed a demo-ready AI product without rebuilding their entire stack. We scoped an MVP with diagnostic AI, feed composition analysis, personalized nutrition plans, and a clinic-facing dashboard.',
+      'Vet clinics needed a demo-ready AI product without rebuilding their entire stack. We designed clinic-facing screens: intake wizards, feed analysis results, nutrition plan layouts, and a dashboard that surfaces three workflows with clear status chips and readable medical-adjacent typography.',
     challenge:
       'Vet clinics needed a demo-ready AI product without rebuilding their entire stack.',
     approach: [
@@ -203,7 +203,7 @@ export const cases: CaseStudy[] = [
       },
       {
         title: 'Clinic dashboard',
-        body: 'Authenticated UI for three core clinic workflows — built for clarity, not enterprise bloat.',
+        body: 'Authenticated UI with sidebar nav, patient/pet cards, workflow tabs, and empty states that guide staff — built for clarity on iPad and desktop, not enterprise bloat.',
       },
       {
         title: 'AI Core MVP delivery',
@@ -223,7 +223,7 @@ export const cases: CaseStudy[] = [
     tagline:
       'Premium accessory configurator — 3D-inspired UX, brand visuals, checkout-ready flows.',
     description:
-      'Interactive configurator with Framer Motion and Three.js — not a static catalog.',
+      'Interactive configurator UX: real-time option picker, 3D-inspired product preview, premium motion system, and mobile-friendly customization flow — luxury accessories, not a static catalog grid.',
     year: '2024',
     client: 'Blessed Angel',
     duration: '10–14 days',
@@ -233,21 +233,21 @@ export const cases: CaseStudy[] = [
     coverImage: '/cases/blessed-angel.webp',
     relatedPackageId: 'aesthetic-web',
     overview:
-      'A premium accessories brand needed an interactive experience, not a static catalog. We delivered a 3D-inspired configurator with Framer Motion, brand-led visuals, and flows ready for checkout integration.',
+      'A premium accessories brand needed an interactive experience, not a static catalog. We designed a configurator with live visual feedback, option chips, price updates, WebGL product accents, and motion that feels tactile on mobile and desktop — checkout-ready flows included.',
     challenge:
       'Premium accessories brand needed an interactive experience, not a static catalog.',
     approach: [
       {
         title: 'Configurator UX',
-        body: '3D-inspired product customization with real-time visual feedback and premium segment positioning.',
+        body: 'Step-less option picker with instant preview, selected-state chips, and price summary sticky on mobile — users see the product change as they tap, not after a page reload.',
       },
       {
         title: 'Brand motion system',
-        body: 'Framer Motion throughout — transitions that feel tactile and high-end.',
+        body: 'Framer Motion on transitions, cart drawer, and hero reveals — easing tuned to feel high-end, not bouncy SaaS.',
       },
       {
         title: 'Three.js visual layer',
-        body: 'WebGL accents for product presentation without sacrificing performance on mobile.',
+        body: 'WebGL product spins and material highlights with fallbacks on low-end phones — beauty first, but scroll and tap stay responsive.',
       },
       {
         title: 'Aesthetic Web scope',
@@ -269,7 +269,7 @@ export const cases: CaseStudy[] = [
     tagline:
       'SMS + staff inbox AI for US boutique hotels — guest FAQs, late checkout, and local recommendations in under 60 seconds.',
     description:
-      'Twilio SMS agent with a React ops console. Guests text the hotel number; the bot answers policy questions and escalates edge cases to humans.',
+      'Ops UI + SMS UX: React staff inbox with live guest threads, handoff queue, suggested replies, and quiet-hours states — guests stay in SMS, staff get a calm console.',
     year: '2026',
     client: 'NEO Lab · Hospitality agents',
     duration: '10–14 days',
@@ -292,7 +292,7 @@ export const cases: CaseStudy[] = [
       },
       {
         title: 'Staff inbox console',
-        body: 'React ops UI: live threads, handoff queue, and one-click “take over” without the guest switching channels.',
+        body: 'React ops UI: split thread list + conversation pane, confidence badges, one-click takeover, and suggested replies — designed for front-desk speed on tablet or laptop.',
       },
       {
         title: 'US-ready ops defaults',
@@ -312,7 +312,7 @@ export const cases: CaseStudy[] = [
     tagline:
       'Real-estate lead qualifier over SMS for US brokerages — budgets, timelines, and showing slots without burning agent hours.',
     description:
-      'Inbound SMS agent that qualifies buyers/sellers, syncs Google Calendar, and pushes warm leads into the CRM.',
+      'Conversation UX for SMS leads: short qualification script, calendar booking prompts, and CRM-friendly summaries — speed-to-lead without agent inbox chaos.',
     year: '2026',
     client: 'NEO Lab · PropTech agents',
     duration: '12–16 days',
@@ -355,7 +355,7 @@ export const cases: CaseStudy[] = [
     tagline:
       'Shopify support agent for US DTC brands — order status, returns, and sizing via Discord + on-site chat, grounded in store data.',
     description:
-      'RAG support bot wired to Shopify Admin API. Same brain on Discord for ops and a chat widget for shoppers.',
+      'Dual-surface support UX: embeddable storefront chat widget + Discord ops view, grounded in live order data — consistent tone, clear escalation when policy blocks auto-reply.',
     year: '2025',
     client: 'NEO Lab · Commerce agents',
     duration: '10–14 days',
@@ -374,7 +374,7 @@ export const cases: CaseStudy[] = [
       },
       {
         title: 'Dual surface',
-        body: 'Discord bot for the ops channel + embeddable Next.js chat widget for the storefront, one tool layer underneath.',
+        body: 'Minimal chat widget on the storefront (order lookup, sizing, returns) plus Discord alerts for ops — shared thread history, same voice, different layouts per channel.',
       },
       {
         title: 'Returns playbook',
