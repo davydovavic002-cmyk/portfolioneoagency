@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { legalBlocks, legalCenterMeta, msaDocument } from '@/data/legal'
+import { legalBlocks, legalCenterMeta, msaDocument, downloadMsaTemplate } from '@/data/legal'
 import { LegalDocumentModal } from '@/components/studio/LegalDocumentModal'
 import { ModernAmbient, modernPanel, modernPill } from '@/components/ui/modernSurface'
 import { cn } from '@/lib/utils'
@@ -71,13 +71,15 @@ export function LegalTransparencyCenter() {
                       >
                         Read on site
                       </motion.button>
-                      <a
-                        href="/legal/msa-template.md"
-                        download="NEO-STUDIO-MSA-TEMPLATE.md"
+                      <motion.button
+                        type="button"
+                        onClick={() => downloadMsaTemplate()}
+                        whileTap={{ scale: 0.97 }}
+                        transition={SPRING}
                         className="w-full rounded-full bg-page-bg px-5 py-2.5 text-center text-sm font-medium ring-1 ring-page-text/10 transition-opacity hover:opacity-80 sm:w-auto"
                       >
                         Download .md
-                      </a>
+                      </motion.button>
                     </>
                   ) : (
                     <span

@@ -74,3 +74,13 @@ export const msaDocument: LegalDocumentSection[] = parseLegalMarkdown(msaTemplat
 export function formatMsaAsPlainText(): string {
   return msaTemplateMarkdown
 }
+
+export function downloadMsaTemplate(filename = 'NEO-STUDIO-MSA-TEMPLATE.md'): void {
+  const blob = new Blob([formatMsaAsPlainText()], { type: 'text/markdown;charset=utf-8' })
+  const url = URL.createObjectURL(blob)
+  const anchor = document.createElement('a')
+  anchor.href = url
+  anchor.download = filename
+  anchor.click()
+  URL.revokeObjectURL(url)
+}
