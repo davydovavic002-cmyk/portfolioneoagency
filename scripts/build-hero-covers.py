@@ -106,11 +106,19 @@ def blessed_cover() -> None:
     png.unlink(missing_ok=True)
 
 
+def polka_dot_cover() -> None:
+    png = TMP / "polkadot.png"
+    chrome_shot("https://polkadot.neostudio.space/", png, wait_ms=14000)
+    with Image.open(png) as shot:
+        save_webp(crop_cover(shot, top_bias=0.06), "polka-dot-bakery.webp")
+
+
 def main() -> None:
     ensure_dirs()
     stretch_cover()
     petcare_cover()
     blessed_cover()
+    polka_dot_cover()
 
 
 if __name__ == "__main__":

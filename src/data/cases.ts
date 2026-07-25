@@ -86,6 +86,55 @@ export const cases: CaseStudy[] = [
     ],
   },
   {
+    id: 'polka-dot-bakery',
+    title: 'Polka Dot Bakery',
+    pillar: 'fullstack',
+    tagline:
+      'Kyoto wagashi-meets-bakery brand — full identity from zero, bilingual storefront, custom donut box builder, and cart.',
+    description:
+      'End-to-end branding + store UX: neon polka-dot identity, JA/EN product catalog with kcal and seasonal tags, 3/6/12 custom donut box configurator with glaze picker, story and visit sections for Higashiyama — built from a blank brief, not a Shopify theme.',
+    year: '2026',
+    client: 'Polka Dot Bakery · Kyoto',
+    duration: '14–21 days',
+    team: 'NEO Studio SPACE',
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Zustand'],
+    previewUrl: 'https://polkadot.neostudio.space/',
+    coverImage: '/cases/polka-dot-bakery.webp',
+    relatedPackageId: 'ecommerce-store',
+    overview:
+      'The client came to NEO for full branding — name, visual identity, tone of voice, product naming, and a shippable storefront — through our Branding package (neostudio.space/branding). There was no logo, no palette, no site, no copy deck: we built Polka Dot Bakery from zero for a fictional Kyoto Higashiyama shop where wagashi craft meets neon polka dots. Identity, UX/UI, bilingual content, cart, and a custom donut box builder shipped as one cohesive product at polkadot.neostudio.space.',
+    challenge:
+      'A hospitality concept needed to feel authentically Kyoto — seasonal wagashi, neighborhood copy, real address patterns — while still reading as a bold modern brand online. They did not arrive with assets; they needed naming, illustration direction, menu structure, and a store flow that works for tourists and locals on mobile.',
+    approach: [
+      {
+        title: 'Full branding from zero',
+        body: 'Naming, logo mark, neon pink polka-dot system, typography pairing, and voice guidelines — scoped as our Branding package deliverable before any UI screens. Mood: tiny Higashiyama lane bakery with playful neon accents, not generic café beige.',
+      },
+      {
+        title: 'Product catalog UX',
+        body: 'Hero scroll, product grid with kcal cues, Popular and Seasonal tags, and one-tap add-to-cart — melon pan, anpan, matcha cream, mitarashi dango, and drinks written in brand Japanese with English-ready structure.',
+      },
+      {
+        title: 'Custom donut box builder',
+        body: 'Interactive 3/6/12 box picker, six glaze flavors (sakura pink, Uji matcha, mikan, wisteria, black honey, vanilla), live box preview with fill counter, and cart handoff — a configurator, not a static menu PDF.',
+      },
+      {
+        title: 'Story, social proof & visit',
+        body: 'Founder narrative (2018, Ninen-zaka lane), Google Maps-style reviews, hours for weekdays/weekends/holidays, Keihan access copy, and a map-ready address block — the site sells the neighborhood, not just the pastry.',
+      },
+      {
+        title: 'Next.js storefront & deploy',
+        body: 'App Router build, motion on scroll and cart drawer, client cart state, responsive thumb targets, and staging on neostudio infrastructure at polkadot.neostudio.space — checkout-ready architecture for a future Stripe hook.',
+      },
+    ],
+    outcomes: [
+      'Live at polkadot.neostudio.space — identity, copy, and store in one delivery',
+      'Branding package + Online Store scope: zero assets in, full brand out',
+      'Custom donut configurator and cart without an off-the-shelf theme',
+      '14–21 day timeline from blank brief to production subdomain',
+    ],
+  },
+  {
     id: 'stretch-and-chill',
     title: 'Stretch and Chill',
     pillar: 'fullstack',
